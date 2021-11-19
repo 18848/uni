@@ -1,0 +1,7 @@
+D:\GIT\uni\ISI\SOAP service\SOAP\SOAP\bin\SOAP.dll.config
+D:\GIT\uni\ISI\SOAP service\SOAP\SOAP\bin\SOAP.dll
+D:\GIT\uni\ISI\SOAP service\SOAP\SOAP\bin\SOAP.pdb
+D:\GIT\uni\ISI\SOAP service\SOAP\SOAP\obj\Debug\SOAP.csproj.AssemblyReference.cache
+D:\GIT\uni\ISI\SOAP service\SOAP\SOAP\obj\Debug\SOAP.csproj.CoreCompileInputs.cache
+D:\GIT\uni\ISI\SOAP service\SOAP\SOAP\obj\Debug\SOAP.dll
+D:\GIT\uni\ISI\SOAP service\SOAP\SOAP\obj\Debug\SOAP.pdb
