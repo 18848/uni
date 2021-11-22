@@ -15,7 +15,7 @@ namespace SOAP
         [OperationContract]
         DataSet GetAllUtentes();
 
-        [OperationContract]
-        DataSet AddUtentes(string nome);
+        //[OperationContract]
+        //DataSet AddUtentes(string nome);
     }
 }
