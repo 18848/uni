@@ -28,3 +28,6 @@ def calendarPrint(week):
 # y = 3 + (clientesDia - clientesMinimo)/100 + acrescimo
 # # Abordagem 2
 # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
+
+
+
