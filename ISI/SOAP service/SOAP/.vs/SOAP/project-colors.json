@@ -5,6 +5,11 @@
       "ProjectGuid": "180a5685-85c5-476a-a6b8-1e62243823d5",
       "DisplayName": "SOAP",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

@@ -16,52 +16,51 @@ namespace SOAP
             DataSet ds = new DataSet();
 
             //1º ConnectionString no Web Config
-            string cs = ConfigurationManager.ConnectionStrings["VoosConnectionString"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["SOAP"].ConnectionString;
 
             //2º OpenConnection
-            //OleDbConnection con = new OleDbConnection(cs);      //via OleDB
             SqlConnection con = new SqlConnection(cs);        //via SQLServer
+            con.Open();
 
 
             //3º Query
-            string q = "select * from Voos";
+            string q = "select * from caso";
 
 
             //4º Execute
-            //OleDbDataAdapter da = new OleDbDataAdapter(q, con);
             SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
 
-            da.Fill(ds, "Voos");
+            da.Fill(ds, "caso");
 
             //Devolve o resultado
             return (ds);
         }
 
-        public DataSet AddUtentes(string nome)
-        {
-            DataSet ds = new DataSet();
+        //public DataSet AddUtentes(string nome)
+        //{
+        //    DataSet ds = new DataSet();
 
-            //1º ConnectionString no Web Config
-            string cs = ConfigurationManager.ConnectionStrings["VoosConnectionString"].ConnectionString;
+        //    //1º ConnectionString no Web Config
+        //    string cs = ConfigurationManager.ConnectionStrings["SOAP"].ConnectionString;
 
-            //2º OpenConnection
-            //OleDbConnection con = new OleDbConnection(cs);      //via OleDB
-            SqlConnection con = new SqlConnection(cs);        //via SQLServer
-
-
-            //3º Query
-            string q = "select * from Voos";
+        //    //2º OpenConnection
+        //    //OleDbConnection con = new OleDbConnection(cs);      //via OleDB
+        //    SqlConnection con = new SqlConnection(cs);        //via SQLServer
 
 
-            //4º Execute
-            //OleDbDataAdapter da = new OleDbDataAdapter(q, con);
-            SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
+        //    //3º Query
+        //    string q = "select * from Voos";
 
-            da.Fill(ds, "Voos");
 
-            //Devolve o resultado
-            return (ds);
-        }
+        //    //4º Execute
+        //    //OleDbDataAdapter da = new OleDbDataAdapter(q, con);
+        //    SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
+
+        //    da.Fill(ds, "Voos");
+
+        //    //Devolve o resultado
+        //    return (ds);
+        //}
     }
 
     #region DataContracts
