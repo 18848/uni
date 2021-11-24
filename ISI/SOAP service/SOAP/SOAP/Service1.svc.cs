@@ -17,13 +17,13 @@ namespace SOAP
     public class Casos : ICasos
     {
         //1º ConnectionString no Web Config
-        private string server = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
+        private protected static string server = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
+        private protected SqlConnection con = new SqlConnection(server);
 
-        //public ModeloCasos GetCasos()
+        #region Casos
         public DataSet GetCasos()
         {
             //2º OpenConnection
-            SqlConnection con = new SqlConnection(server);        //via SQLServer
             con.Open();
 
             //3º Query
@@ -42,7 +42,6 @@ namespace SOAP
         public DataSet AddCasos(DateTime data, int idUtente)
         {
             //2º OpenConnection
-            SqlConnection con = new SqlConnection(server);
             con.Open();
 
             //3º Query
@@ -74,11 +73,12 @@ namespace SOAP
             //Devolve o resultado
             return (ds);
         }
+        #endregion
 
+        #region Utentes
         public DataSet GetUtentes()
         {
             //2º OpenConnection
-            SqlConnection con = new SqlConnection(server);        //via SQLServer
             con.Open();
 
             //3º Query
@@ -94,10 +94,31 @@ namespace SOAP
             return (ds);
         }
 
+        public DataSet GetUtentes(int nif)
+        {
+            //2º OpenConnection
+            con.Open();
+
+            //3º Query
+            string q = "SELECT * FROM utente WHERE idutente = @nif";
+            SqlCommand com = new SqlCommand(q, con);
+            com.Parameters.AddWithValue("@nif", nif);
+            com.ToString();
+
+            //4º Execute
+            SqlDataAdapter da = new SqlDataAdapter(com.ToString(), con);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "Utentes");
+
+            //Devolve o resultado
+            return (ds);
+        }
+
+
         public DataSet AddUtentes(int idUtente, string nome)
         {
             //2º OpenConnection
-            SqlConnection con = new SqlConnection(server);
             con.Open();
 
             //3º Query INSERT
@@ -124,5 +145,63 @@ namespace SOAP
             //Devolve a nova coluna da tabela
             return (ds);
         }
+        #endregion
+
+        #region Contactos
+        /// <summary>
+        /// Connects to a Database to Find Contacts.
+        /// </summary>
+        /// <returns>Returns a DataSet with information on All Rows for Contacts with Covid-positive Cases.</returns>
+        public DataSet GetContacto()
+        {
+            //2º OpenConnection
+            con.Open();
+
+            //3º Query
+            string q = "SELECT* FROM contacto";
+
+            //4º Execute
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "Casos");
+
+            con.Close();
+            return ds;
+        }
+
+
+        public DataSet AddContacto(int idUtente, int idCaso)
+        {
+            //2º OpenConnection
+            con.Open();
+
+            //3º Query INSERT
+            string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
+
+            //4º Execute INSERT
+            SqlCommand contactoCom = new SqlCommand(contacto, con);
+
+            contactoCom.Parameters.AddWithValue("@idutente", idUtente);
+            contactoCom.Parameters.AddWithValue("@idcaso", idCaso);
+
+            contactoCom.ExecuteNonQuery();
+
+            //5º Query SELECT
+            contacto = "SELECT * FROM contacto WHERE idutente = " + idUtente.ToString() + " AND idcaso = " + idCaso.ToString();
+
+            SqlDataAdapter contactoDA = new SqlDataAdapter(contacto, con);
+            DataSet ds = new DataSet();
+
+
+            //6º Execute SELECT of previous INSERT
+            contactoDA.Fill(ds, "contacto");
+
+            con.Close();
+            //Devolve a nova coluna da tabela
+            return (ds);
+        }
+
+        #endregion
     }
 }

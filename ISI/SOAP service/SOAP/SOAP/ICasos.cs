@@ -13,21 +13,31 @@ namespace SOAP
     [ServiceContract]
     public interface ICasos
     {
+        #region Casos
         [OperationContract]
-        //ModeloCasos GetCasos();
         DataSet GetCasos();
-
         [OperationContract]
         DataSet AddCasos(DateTime data, int idUtente);
+        #endregion
 
-        //Utentes
+        #region Utentes
         [OperationContract]
         DataSet GetUtentes();
-
+        [OperationContract]
+        DataSet GetUtentes(int nif);
         [OperationContract]
         DataSet AddUtentes(int idUtente, string nome);
+        #endregion
+
+        #region Contactos
+        [OperationContract]
+        DataSet GetContacto();
+        [OperationContract]
+        DataSet AddContacto(int idUtente, int idCaso);
+        #endregion
     }
 
+    #region DataContracts
     [DataContract]
     public class ModeloCasos
     {
@@ -41,4 +51,5 @@ namespace SOAP
         public string Nome { get; set; }
         public int IdUtente { get; set; }
     }
+    #endregion
 }
