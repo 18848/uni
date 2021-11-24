@@ -25,6 +25,18 @@
   <wsdl:message name="ICasos_GetUtentes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUtentesResponse" />
   </wsdl:message>
+  <wsdl:message name="ICasos_GetUtentesByNIF_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUtentesByNIF" />
+  </wsdl:message>
+  <wsdl:message name="ICasos_GetUtentesByNIF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUtentesByNIFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICasos_GetUtentesByNome_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUtentesByNome" />
+  </wsdl:message>
+  <wsdl:message name="ICasos_GetUtentesByNome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUtentesByNomeResponse" />
+  </wsdl:message>
   <wsdl:message name="ICasos_AddUtentes_InputMessage">
     <wsdl:part name="parameters" element="tns:AddUtentes" />
   </wsdl:message>
@@ -55,6 +67,14 @@
     <wsdl:operation name="GetUtentes">
       <wsdl:input wsaw:Action="http://tempuri.org/ICasos/GetUtentes" message="tns:ICasos_GetUtentes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICasos/GetUtentesResponse" message="tns:ICasos_GetUtentes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUtentesByNIF">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICasos/GetUtentesByNIF" message="tns:ICasos_GetUtentesByNIF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICasos/GetUtentesByNIFResponse" message="tns:ICasos_GetUtentesByNIF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUtentesByNome">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICasos/GetUtentesByNome" message="tns:ICasos_GetUtentesByNome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICasos/GetUtentesByNomeResponse" message="tns:ICasos_GetUtentesByNome_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddUtentes">
       <wsdl:input wsaw:Action="http://tempuri.org/ICasos/AddUtentes" message="tns:ICasos_AddUtentes_InputMessage" />
@@ -91,6 +111,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetUtentes">
       <soap:operation soapAction="http://tempuri.org/ICasos/GetUtentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUtentesByNIF">
+      <soap:operation soapAction="http://tempuri.org/ICasos/GetUtentesByNIF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUtentesByNome">
+      <soap:operation soapAction="http://tempuri.org/ICasos/GetUtentesByNome" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

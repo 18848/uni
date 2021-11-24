@@ -31,8 +31,25 @@ namespace Cliente
         private void procurar_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            ds = ws.GetUtentes();
-            GetUtentes.DataSource = ds.Tables["Utentes"];
+            int nif = 0;
+            string nome = "";
+
+            if(nifBox.Text != "")
+            {
+                ds = ws.GetUtentesByNIF(int.Parse(nifBox.Text));
+                DataRow [] dr = ds.Tables["Utentes"].Select("idutente = " + nifBox.Text);
+                nif = int.Parse(dr[0][0].ToString());
+            }
+            else if(nomeBox.Text != "")
+            {
+                ds = ws.GetUtentesByNome(nomeBox.Text.ToString());
+                DataRow[] dr = ds.Tables["Utentes"].Select("nome = '" + nomeBox.Text + "'");
+                nome = dr[0][1].ToString();
+            }
+            if (nif != 0 || nome != "")
+            {
+                GetUtentes.DataSource = ds.Tables["Utentes"];
+            }
         }
 
         //private async void procurar_Click(object sender, EventArgs e)
@@ -56,5 +73,9 @@ namespace Cliente
             GetUtentes.DataSource = ds.Tables["Utentes"];
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

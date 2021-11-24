@@ -90,32 +90,48 @@ namespace SOAP
 
             da.Fill(ds, "Utentes");
 
+            con.Close();
             //Devolve o resultado
             return (ds);
         }
 
-        public DataSet GetUtentes(int nif)
+        public DataSet GetUtentesByNIF(int nif)
         {
             //2º OpenConnection
             con.Open();
 
             //3º Query
-            string q = "SELECT * FROM utente WHERE idutente = @nif";
-            SqlCommand com = new SqlCommand(q, con);
-            com.Parameters.AddWithValue("@nif", nif);
-            com.ToString();
+            string q = "SELECT * FROM utente WHERE idutente = " + nif.ToString();
 
             //4º Execute
-            SqlDataAdapter da = new SqlDataAdapter(com.ToString(), con);
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
             da.Fill(ds, "Utentes");
 
+            con.Close();
             //Devolve o resultado
             return (ds);
         }
 
+        public DataSet GetUtentesByNome(string nome)
+        {
+            //2º OpenConnection
+            con.Open();
 
+            //3º Query
+            string q = "SELECT * FROM utente WHERE nome = '" + nome.ToString() + "'";
+
+            //4º Execute
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "Utentes");
+
+            con.Close();
+            //Devolve o resultado
+            return (ds);
+        }
         public DataSet AddUtentes(int idUtente, string nome)
         {
             //2º OpenConnection
@@ -142,6 +158,7 @@ namespace SOAP
             //6º Execute SELECT of previous INSERT
             utenteDA.Fill(ds, "Utente");
 
+            con.Close();
             //Devolve a nova coluna da tabela
             return (ds);
         }

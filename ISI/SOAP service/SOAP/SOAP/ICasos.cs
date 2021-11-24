@@ -23,8 +23,12 @@ namespace SOAP
         #region Utentes
         [OperationContract]
         DataSet GetUtentes();
+
         [OperationContract]
-        DataSet GetUtentes(int nif);
+        DataSet GetUtentesByNIF(int nif);
+        [OperationContract]
+        DataSet GetUtentesByNome(string nome);
+
         [OperationContract]
         DataSet AddUtentes(int idUtente, string nome);
         #endregion
