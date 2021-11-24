@@ -1,15 +1,10 @@
 {
   "Version": 1,
   "ProjectMap": {
-    "cd3112d1-e5be-4a4c-b4f5-a9d80a95c272": {
-      "ProjectGuid": "cd3112d1-e5be-4a4c-b4f5-a9d80a95c272",
+    "f5b49ee6-e29f-4ada-b283-f9e9f680ce72": {
+      "ProjectGuid": "f5b49ee6-e29f-4ada-b283-f9e9f680ce72",
       "DisplayName": "SOAP",
       "ColorIndex": 0
-    },
-    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
-      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
-      "DisplayName": "Arquivos Diversos",
-      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1
