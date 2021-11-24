@@ -13,81 +13,63 @@ using System.Configuration;
 namespace SOAP
 {
     // OBSERVAÇÃO: Você pode usar o comando "Renomear" no menu "Refatorar" para alterar o nome da classe "Service1" no arquivo de código, svc e configuração ao mesmo tempo.
-    // OBSERVAÇÃO: Para iniciar o cliente de teste do WCF para testar esse serviço, selecione Service1.svc ou Service1.svc.cs no Gerenciador de Soluções e inicie a depuração.
+    // OBSERVAÇÃO: Para iniciar o cliente de teste do WCF para testar esse serviço, selecione Service1.svc ou Service1.svc.server no Gerenciador de Soluções e inicie a depuração.
     public class Casos : ICasos
     {
+        //1º ConnectionString no Web Config
+        private string server = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
+
+        //public ModeloCasos GetCasos()
         public DataSet GetCasos()
         {
-            DataSet ds = new DataSet();
-            //1º ConnectionString no Web Config
-
-            string cs = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
-
             //2º OpenConnection
-            SqlConnection con = new SqlConnection(cs);        //via SQLServer
+            SqlConnection con = new SqlConnection(server);        //via SQLServer
             con.Open();
 
-
             //3º Query
-            string q = "select * from caso";
-
+            string q = "SELECT* FROM caso";
 
             //4º Execute
-            SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            DataSet ds = new DataSet();           
 
             da.Fill(ds, "Casos");
 
             //Devolve o resultado
-            return (ds);
+            return ds;
         }
 
-        public DataSet AddCasos()
+        public DataSet AddCasos(DateTime data, int idUtente)
         {
-            DataSet ds = new DataSet();
-            //1º ConnectionString no Web Config
-
-            string cs = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
-
             //2º OpenConnection
-            SqlConnection con = new SqlConnection(cs);        //via SQLServer
+            SqlConnection con = new SqlConnection(server);
             con.Open();
 
-
             //3º Query
-            //string utente = "INSERT INTO dbo.utente (idutente, nome) VALUES (@idutente, @nome)";
-            string utente = "INSERT INTO dbo.utente (nome) VALUES (@nome)";
-            string caso = "INSERT INTO caso (idcaso, data, idutente) VALUES (@idcaso, @data, @idutente)";
-            string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
-
-
-
+            //string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
+            string caso = "INSERT INTO caso (data, idutente) VALUES (@data, @idutente)";
 
             //4º Execute
-            SqlDataAdapter utenteDA = new SqlDataAdapter(utente, con);
+            //SqlCommand contactoCom = new SqlCommand(contacto, con);
+            SqlCommand casoCom = new SqlCommand(caso, con);
+          
+            casoCom.Parameters.AddWithValue("@data", data);
+            casoCom.Parameters.AddWithValue("@idutente", idUtente);
+
+            casoCom.ExecuteNonQuery();
+
+            //SqlDataAdapter contactoDA = new SqlDataAdapter(contacto, con);
             SqlDataAdapter casoDA = new SqlDataAdapter(caso, con);
-            SqlDataAdapter contactoDA = new SqlDataAdapter(contacto, con);
-
-            SqlCommand com = new SqlCommand(utente, con);
-
-            //com.Parameters.AddWithValue("@idutente", "1");
-            com.Parameters.AddWithValue("@nome", "joao");
-
-            int result = com.ExecuteNonQuery();
-
-            if(result < 0)
-            {
-                Console.WriteLine("Youre Fucked");
-            }
-
+            DataSet ds = new DataSet();
             //ds.Tables.Add(utenteDA);
 
             //GET;
             //da.Fill(ds, "Casos");
 
             //INSERT; UPDATE; DELETE;
-            utenteDA.Fill(ds);
-            casoDA.Update(ds);
-            contactoDA.Update(ds);
+            //utenteDA.Fill(ds);
+            //contactoDA.Update(ds);
+            //casoDA.Update(ds);
 
             //Devolve o resultado
             return (ds);
@@ -95,26 +77,51 @@ namespace SOAP
 
         public DataSet GetUtentes()
         {
-            DataSet ds = new DataSet();
-            //1º ConnectionString no Web Config
-
-            string cs = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
-
             //2º OpenConnection
-            SqlConnection con = new SqlConnection(cs);        //via SQLServer
+            SqlConnection con = new SqlConnection(server);        //via SQLServer
             con.Open();
-
 
             //3º Query
             string q = "select * from utente";
 
-
             //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
+            DataSet ds = new DataSet();
 
             da.Fill(ds, "Utentes");
 
             //Devolve o resultado
+            return (ds);
+        }
+
+        public DataSet AddUtentes(int idUtente, string nome)
+        {
+            //2º OpenConnection
+            SqlConnection con = new SqlConnection(server);
+            con.Open();
+
+            //3º Query INSERT
+            string utente = "INSERT INTO dbo.utente (idutente, nome) VALUES (@idutente, @nome)";
+
+            //4º Execute INSERT
+            SqlCommand utenteCom = new SqlCommand(utente, con);
+
+            utenteCom.Parameters.AddWithValue("@idutente", idUtente);
+            utenteCom.Parameters.AddWithValue("@nome", nome);
+
+            utenteCom.ExecuteNonQuery();
+
+            //5º Query SELECT
+            utente = "SELECT * FROM utente WHERE idutente = " + idUtente.ToString();
+
+            SqlDataAdapter utenteDA = new SqlDataAdapter(utente, con);
+            DataSet ds = new DataSet();
+
+
+            //6º Execute SELECT of previous INSERT
+            utenteDA.Fill(ds, "Utente");
+
+            //Devolve a nova coluna da tabela
             return (ds);
         }
     }

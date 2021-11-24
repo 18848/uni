@@ -14,13 +14,31 @@ namespace SOAP
     public interface ICasos
     {
         [OperationContract]
+        //ModeloCasos GetCasos();
         DataSet GetCasos();
 
         [OperationContract]
-        DataSet AddCasos();
+        DataSet AddCasos(DateTime data, int idUtente);
 
         //Utentes
         [OperationContract]
         DataSet GetUtentes();
+
+        [OperationContract]
+        DataSet AddUtentes(int idUtente, string nome);
+    }
+
+    [DataContract]
+    public class ModeloCasos
+    {
+        public DateTime Data { get; set; }
+        public int IdUtente{ get; set; }
+    }
+
+    [DataContract]
+    public class ModeloUtente
+    {
+        public string Nome { get; set; }
+        public int IdUtente { get; set; }
     }
 }
