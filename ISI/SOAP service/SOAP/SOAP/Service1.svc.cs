@@ -39,39 +39,77 @@ namespace SOAP
             return ds;
         }
 
-        public DataSet AddCasos(DateTime data, int idUtente)
+        public DataSet GetCasos(int nif)
         {
             //2º OpenConnection
             con.Open();
 
             //3º Query
-            //string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
+            string q = "SELECT* FROM caso WHERE idutente = '" + nif.ToString() + "'";
+
+            //4º Execute
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "Casos");
+
+            //Devolve o resultado
+            return ds;
+        }
+        public DataSet GetCasos(string data)
+        {
+            //2º OpenConnection
+            con.Open();
+
+            //3º Query
+            string q = "SELECT* FROM caso WHERE data = '" + data + "'";
+
+            //4º Execute
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "Casos");
+
+            //Devolve o resultado
+            return ds;
+        }
+
+        public string AddCasos(string data, int idUtente)
+        {
+            //2º OpenConnection
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                return "SQL Server FAILED TO CONNECT:\n" + ex.Message.ToString();
+            }
+
+            //3º Query
             string caso = "INSERT INTO caso (data, idutente) VALUES (@data, @idutente)";
 
             //4º Execute
-            //SqlCommand contactoCom = new SqlCommand(contacto, con);
-            SqlCommand casoCom = new SqlCommand(caso, con);
-          
-            casoCom.Parameters.AddWithValue("@data", data);
-            casoCom.Parameters.AddWithValue("@idutente", idUtente);
+            try
+            {
+                SqlCommand casoCom = new SqlCommand(caso, con);
 
-            casoCom.ExecuteNonQuery();
+                casoCom.Parameters.AddWithValue("@data", data);
+                casoCom.Parameters.AddWithValue("@idutente", idUtente);
 
-            //SqlDataAdapter contactoDA = new SqlDataAdapter(contacto, con);
-            SqlDataAdapter casoDA = new SqlDataAdapter(caso, con);
-            DataSet ds = new DataSet();
-            //ds.Tables.Add(utenteDA);
-
-            //GET;
-            //da.Fill(ds, "Casos");
-
-            //INSERT; UPDATE; DELETE;
-            //utenteDA.Fill(ds);
-            //contactoDA.Update(ds);
-            //casoDA.Update(ds);
+                casoCom.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                return  "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
 
             //Devolve o resultado
-            return (ds);
+            return "success";
         }
         #endregion
 
@@ -95,7 +133,7 @@ namespace SOAP
             return (ds);
         }
 
-        public DataSet GetUtentesByNIF(int nif)
+        public DataSet GetUtentes(int nif)
         {
             //2º OpenConnection
             con.Open();
@@ -114,7 +152,7 @@ namespace SOAP
             return (ds);
         }
 
-        public DataSet GetUtentesByNome(string nome)
+        public DataSet GetUtentes(string nome)
         {
             //2º OpenConnection
             con.Open();
@@ -175,20 +213,20 @@ namespace SOAP
             con.Open();
 
             //3º Query
-            string q = "SELECT* FROM contacto";
+            string q = "SELECT * FROM contacto";
 
             //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Casos");
+            da.Fill(ds, "Contactos");
 
             con.Close();
             return ds;
         }
 
 
-        public DataSet AddContacto(int idUtente, int idCaso)
+        public string AddContacto(int idUtente, int idCaso)
         {
             //2º OpenConnection
             con.Open();
@@ -196,27 +234,29 @@ namespace SOAP
             //3º Query INSERT
             string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
 
-            //4º Execute INSERT
-            SqlCommand contactoCom = new SqlCommand(contacto, con);
+            try
+            {
+                //4º Execute INSERT
+                SqlCommand contactoCom = new SqlCommand(contacto, con);
 
-            contactoCom.Parameters.AddWithValue("@idutente", idUtente);
-            contactoCom.Parameters.AddWithValue("@idcaso", idCaso);
+                contactoCom.Parameters.AddWithValue("@idutente", idUtente);
+                contactoCom.Parameters.AddWithValue("@idcaso", idCaso);
 
-            contactoCom.ExecuteNonQuery();
+                contactoCom.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
 
-            //5º Query SELECT
-            contacto = "SELECT * FROM contacto WHERE idutente = " + idUtente.ToString() + " AND idcaso = " + idCaso.ToString();
-
-            SqlDataAdapter contactoDA = new SqlDataAdapter(contacto, con);
-            DataSet ds = new DataSet();
-
-
-            //6º Execute SELECT of previous INSERT
-            contactoDA.Fill(ds, "contacto");
 
             con.Close();
             //Devolve a nova coluna da tabela
-            return (ds);
+            return "Success";
         }
 
         #endregion

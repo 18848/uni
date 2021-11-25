@@ -118,5 +118,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SOAP\SOAP.csproj">
+      <Project>{f5b49ee6-e29f-4ada-b283-f9e9f680ce72}</Project>
+      <Name>SOAP</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

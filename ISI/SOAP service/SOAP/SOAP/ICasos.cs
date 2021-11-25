@@ -16,18 +16,26 @@ namespace SOAP
         #region Casos
         [OperationContract]
         DataSet GetCasos();
+
+        [OperationContract(Name = "GetCasosByNIF")]
+        DataSet GetCasos(int nif);
+
+        [OperationContract(Name = "GetCasosByData")]
+        DataSet GetCasos(string data);
+
         [OperationContract]
-        DataSet AddCasos(DateTime data, int idUtente);
+        string AddCasos(string data, int idUtente);
         #endregion
 
         #region Utentes
         [OperationContract]
         DataSet GetUtentes();
 
-        [OperationContract]
-        DataSet GetUtentesByNIF(int nif);
-        [OperationContract]
-        DataSet GetUtentesByNome(string nome);
+        [OperationContract(Name = "GetUtentesByNIF")]
+        DataSet GetUtentes(int nif);
+
+        [OperationContract(Name = "GetUtentesByNome")]
+        DataSet GetUtentes(string nome);
 
         [OperationContract]
         DataSet AddUtentes(int idUtente, string nome);
@@ -36,8 +44,9 @@ namespace SOAP
         #region Contactos
         [OperationContract]
         DataSet GetContacto();
+
         [OperationContract]
-        DataSet AddContacto(int idUtente, int idCaso);
+        string AddContacto(int idUtente, int idCaso);
         #endregion
     }
 
@@ -45,15 +54,51 @@ namespace SOAP
     [DataContract]
     public class ModeloCasos
     {
-        public DateTime Data { get; set; }
-        public int IdUtente{ get; set; }
+        public string Data { get; set; }
+        public int Nif{ get; set; }
     }
 
     [DataContract]
     public class ModeloUtente
     {
+        public ModeloUtente(string nome, string nif)
+        {
+            Nome = nome;
+            Nif = nif;
+        }
+
+        public ModeloUtente(string nome)
+        {
+            Nome = nome;
+        }
+
+        public ModeloUtente(string nif)
+        {
+            Nif = nif;
+        }
+
         public string Nome { get; set; }
-        public int IdUtente { get; set; }
+        public int Nif { get; set; }
+    }
+
+    [DataContract]
+    public class ModeloContactos
+    {
+        public ModeloContactos(int idcaso, int nif)
+        {
+            IdCaso = idcaso;
+            Nif = nif;
+        }
+        public ModeloContactos(int idcaso)
+        {
+            IdCaso = idcaso;
+        }
+        public ModeloContactos(int nif)
+        {
+            Nif = nif;
+        }
+        public int IdCaso { get; set; }
+        public int Nif { get; set; }
     }
     #endregion
 }

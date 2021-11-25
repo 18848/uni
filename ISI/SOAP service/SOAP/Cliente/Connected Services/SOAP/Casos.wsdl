@@ -13,6 +13,18 @@
   <wsdl:message name="ICasos_GetCasos_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCasosResponse" />
   </wsdl:message>
+  <wsdl:message name="ICasos_GetCasosByNIF_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasosByNIF" />
+  </wsdl:message>
+  <wsdl:message name="ICasos_GetCasosByNIF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasosByNIFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICasos_GetCasosByData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasosByData" />
+  </wsdl:message>
+  <wsdl:message name="ICasos_GetCasosByData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasosByDataResponse" />
+  </wsdl:message>
   <wsdl:message name="ICasos_AddCasos_InputMessage">
     <wsdl:part name="parameters" element="tns:AddCasos" />
   </wsdl:message>
@@ -60,6 +72,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICasos/GetCasos" message="tns:ICasos_GetCasos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICasos/GetCasosResponse" message="tns:ICasos_GetCasos_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCasosByNIF">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICasos/GetCasosByNIF" message="tns:ICasos_GetCasosByNIF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICasos/GetCasosByNIFResponse" message="tns:ICasos_GetCasosByNIF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasosByData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICasos/GetCasosByData" message="tns:ICasos_GetCasosByData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICasos/GetCasosByDataResponse" message="tns:ICasos_GetCasosByData_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddCasos">
       <wsdl:input wsaw:Action="http://tempuri.org/ICasos/AddCasos" message="tns:ICasos_AddCasos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICasos/AddCasosResponse" message="tns:ICasos_AddCasos_OutputMessage" />
@@ -93,6 +113,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetCasos">
       <soap:operation soapAction="http://tempuri.org/ICasos/GetCasos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasosByNIF">
+      <soap:operation soapAction="http://tempuri.org/ICasos/GetCasosByNIF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasosByData">
+      <soap:operation soapAction="http://tempuri.org/ICasos/GetCasosByData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
