@@ -32,7 +32,7 @@ namespace ISIAPI.Controllers
 
         [HttpGet]
         [Route("getall")]
-        public DataTable GetMateriais()
+        public string GetMateriais()
         {
             return m.GetAllMateriais();
         }
