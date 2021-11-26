@@ -22,17 +22,43 @@ namespace SOAP
 
         public DataSet GetCasos()
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q = "SELECT* FROM caso";
 
-            //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);
-            DataSet ds = new DataSet();           
+            DataSet ds = new DataSet();
 
-            da.Fill(ds, "Casos");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Casos");
+
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
 
             //Devolve o resultado
             return ds;
@@ -40,17 +66,43 @@ namespace SOAP
 
         public DataSet GetCasos(int nif)
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q = "SELECT* FROM caso WHERE idutente = '" + nif.ToString() + "'";
 
-            //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Casos");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Casos");
+
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
 
             //Devolve o resultado
             return ds;
@@ -58,17 +110,43 @@ namespace SOAP
 
         public DataSet GetCasos(string data)
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q = "SELECT* FROM caso WHERE data = '" + data + "'";
-
-            //4º Execute
+            
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Casos");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Casos");
+
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
 
             //Devolve o resultado
             return ds;
@@ -106,6 +184,16 @@ namespace SOAP
             catch (Exception ex)
             {
                 return "Exception:\n" + ex.Message.ToString();
+            }
+
+            //5º CloseConnection
+            try
+            {
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                return "SQL Server FAILED TO CLOSE:\n" + ex.Message.ToString();
             }
 
             //Devolve o resultado

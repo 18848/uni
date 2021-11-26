@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using SOAP;
@@ -31,40 +32,69 @@ namespace Cliente
         #region Botões Utentes
         private void procurar_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet();
-            ModeloUtente u = new ModeloUtente("", 0);
+            try
+            {
+                DataSet ds = new DataSet();
+                ModeloUtente u = new ModeloUtente("", 0);
 
-            if(nifBox.Text != "")
-            {
-                ds = utentesWS.GetUtentesByNIF(int.Parse(nifBox.Text));
-                DataRow [] dr = ds.Tables["Utentes"].Select("idutente = " + nifBox.Text);
-                u.Nif = int.Parse(dr[0][0].ToString());
+                if(nifBox.Text != "")
+                {
+                    ds = utentesWS.GetUtentesByNIF(int.Parse(nifBox.Text));
+                    DataRow [] dr = ds.Tables["Utentes"].Select("idutente = " + nifBox.Text);
+                    u.Nif = int.Parse(dr[0][0].ToString());
+                }
+                else if(nomeBox.Text != "")
+                {
+                    ds = utentesWS.GetUtentesByNome(nomeBox.Text.ToString());
+                    DataRow[] dr = ds.Tables["Utentes"].Select("nome = '" + nomeBox.Text + "'");
+                    u.Nome = dr[0][1].ToString();
+                }
+                if (u.Nif != 0 || u.Nome != "")
+                {
+                    GetUtentes.DataSource = ds.Tables["Utentes"];
+                }
             }
-            else if(nomeBox.Text != "")
+            catch (FormatException ex)
             {
-                ds = utentesWS.GetUtentesByNome(nomeBox.Text.ToString());
-                DataRow[] dr = ds.Tables["Utentes"].Select("nome = '" + nomeBox.Text + "'");
-                u.Nome = dr[0][1].ToString();
+                MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
             }
-            if (u.Nif != 0 || u.Nome != "")
+            catch (Exception ex)
             {
-                GetUtentes.DataSource = ds.Tables["Utentes"];
+                MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
             }
         }
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-            ModeloUtente u = new ModeloUtente(
-                                nomeBox.Text
-                                , int.Parse(nifBox.Text));
-            utentesWS.AddUtentes(u.Nif, u.Nome);
+            try
+            {
+                ModeloUtente u = new ModeloUtente(
+                                    nomeBox.Text
+                                    , int.Parse(nifBox.Text));
+                utentesWS.AddUtentes(u.Nif, u.Nome);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
+            }
         }
 
         private void atualizar_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet();
-            ds = utentesWS.GetUtentes();
-            GetUtentes.DataSource = ds.Tables["Utentes"];
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = utentesWS.GetUtentes();
+                GetUtentes.DataSource = ds.Tables["Utentes"];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
+            }
         }
 
         #endregion
@@ -93,9 +123,13 @@ namespace Cliente
                                 , int.Parse(nifCasosBox.Text));
                 MessageBox.Show(casosWS.AddCasos(c.Data, c.Nif));
             }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
             }
         }
 
@@ -103,7 +137,16 @@ namespace Cliente
         {
             DataSet ds = new DataSet();
             ModeloCasos c = new ModeloCasos("", 0);
-            string dataBox = DateTime.Parse(dataPicker.Text).ToString("yyyy-MM-dd");
+            string dataBox = "";
+
+            try
+            {
+                dataBox = DateTime.Parse(dataPicker.Text).ToString("yyyy-MM-dd");
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
+            }
 
             if (nifCasosBox.Text != "")
             {
@@ -113,9 +156,13 @@ namespace Cliente
                     DataRow[] dr = ds.Tables["Casos"].Select("idutente = " + nifCasosBox.Text);
                     c.Nif = int.Parse(dr[0][2].ToString());
                 }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
                 }
             }
             else if (dataBox != "")
@@ -126,9 +173,13 @@ namespace Cliente
                     DataRow[] dr = ds.Tables["Casos"].Select("data = '" + dataBox + "'");
                     c.Data = dr[0][1].ToString();
                 }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
                 }
             }
             if (c.Nif != 0 || c.Data != "")
@@ -139,7 +190,7 @@ namespace Cliente
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
                 }
             }
         }
@@ -156,7 +207,7 @@ namespace Cliente
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
             }
         }
 
@@ -169,57 +220,89 @@ namespace Cliente
                             , int.Parse(nifContactoBox.Text));
                 MessageBox.Show(contactosWS.AddContacto(con.Nif, con.IdCaso));
             }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
             }
         }
 
         private void procurarContactos_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            ModeloContactos con = new ModeloContactos(0, 0);
+            bool print = false;
 
-            if (idCasoBox.Text != "")
+            if (idCasoBox.Text != "" && nifContactoBox.Text != "")
+            {
+                try
+                {
+                    ds = contactosWS.GetContactoByAtributes(int.Parse(nifContactoBox.Text), true);
+
+                    List<DataRow> toDelete = new List<DataRow>();
+
+                    //object[] row = { "" };
+                    foreach (DataRow r in ds.Tables["Contactos"].Rows)
+                    {
+                        MessageBox.Show(r["idcaso"].ToString());
+                        if (int.Parse(r["idcaso"].ToString()) != int.Parse(idCasoBox.Text))
+                        {
+                            toDelete.Add(r);
+                        }
+                    }
+
+                    foreach (DataRow dr in toDelete)
+                    {
+                        ds.Tables["Contactos"].Rows.Remove(dr);
+                    }
+
+                    print = true;
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
+                }
+            }
+            else if (idCasoBox.Text != "")
             {
                 try
                 {
                     ds = contactosWS.GetContactoByAtributes(int.Parse(idCasoBox.Text), false);
-                    DataRow[] dr = ds.Tables["Contactos"].Select("idcaso= " + idCasoBox.Text);
-                    con.IdCaso = int.Parse(dr[0][0].ToString());
+                    print = true;
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
                 }
             }
-            if (nifContactoBox.Text != "")
+            else if (nifContactoBox.Text != "")
             {
                 try
                 {
                     ds = contactosWS.GetContactoByAtributes(int.Parse(nifContactoBox.Text), true);
-                    DataRow[] dr = ds.Tables["Contactos"].Select("idutente = '" + nifContactoBox.Text + "'");
-                    con.Nif = int.Parse(dr[0][1].ToString());
+                    print = true;
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message.ToString());
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
                 }
             }
-            if (con.Nif != 0 && con.IdCaso != 0)
-            {
-                try
-                {
-                    ds = contactosWS.GetContactoByAtributes(int.Parse(nifContactoBox.Text), true);
-                    DataRow[] dr = ds.Tables["Contactos"].Select("idutente = '" + nifContactoBox.Text + "'");
-                    con.Nif = int.Parse(dr[0][1].ToString());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
-            }
-            else if (con.Nif != 0 || con.IdCaso != 0)
+
+            if (print)
             {
                 try
                 {
@@ -227,7 +310,7 @@ namespace Cliente
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("EXCEPTION:\n" + ex.Message.ToString());
                 }
             }
         }

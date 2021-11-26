@@ -20,90 +20,181 @@ namespace SOAP
 
         public DataSet GetUtentes()
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q = "select * from utente";
 
-            //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Utentes");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Utentes");
 
-            con.Close();
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
             //Devolve o resultado
             return (ds);
         }
 
         public DataSet GetUtentes(int nif)
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q = "SELECT * FROM utente WHERE idutente = " + nif.ToString();
 
-            //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Utentes");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Utentes");
 
-            con.Close();
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
             //Devolve o resultado
             return (ds);
         }
 
         public DataSet GetUtentes(string nome)
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q = "SELECT * FROM utente WHERE nome = '" + nome.ToString() + "'";
 
-            //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Utentes");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Utentes");
 
-            con.Close();
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
             //Devolve o resultado
             return (ds);
         }
 
-        public DataSet AddUtentes(int idUtente, string nome)
+        public string AddUtentes(int idUtente, string nome)
         {
             //2º OpenConnection
-            con.Open();
+            try
+            {
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                return "SQL Server FAILED TO CONNECT:\n" + ex.Message.ToString();
+            }
 
-            //3º Query INSERT
-            string utente = "INSERT INTO dbo.utente (idutente, nome) VALUES (@idutente, @nome)";
+            try
+            {
+                //3º Query INSERT
+                string utente = "INSERT INTO dbo.utente (idutente, nome) VALUES (@idutente, @nome)";
 
-            //4º Execute INSERT
-            SqlCommand utenteCom = new SqlCommand(utente, con);
+                //4º Execute INSERT
+                SqlCommand utenteCom = new SqlCommand(utente, con);
 
-            utenteCom.Parameters.AddWithValue("@idutente", idUtente);
-            utenteCom.Parameters.AddWithValue("@nome", nome);
+                utenteCom.Parameters.AddWithValue("@idutente", idUtente);
+                utenteCom.Parameters.AddWithValue("@nome", nome);
 
-            utenteCom.ExecuteNonQuery();
+                utenteCom.ExecuteNonQuery();
 
-            //5º Query SELECT
-            utente = "SELECT * FROM utente WHERE idutente = " + idUtente.ToString();
+                //5º Query SELECT
+                utente = "SELECT * FROM utente WHERE idutente = " + idUtente.ToString();
 
-            SqlDataAdapter utenteDA = new SqlDataAdapter(utente, con);
-            DataSet ds = new DataSet();
+                SqlDataAdapter utenteDA = new SqlDataAdapter(utente, con);
+                DataSet ds = new DataSet();
 
 
-            //6º Execute SELECT of previous INSERT
-            utenteDA.Fill(ds, "Utente");
+                //6º Execute SELECT of previous INSERT
+                utenteDA.Fill(ds, "Utente");
 
-            con.Close();
-            //Devolve a nova coluna da tabela
-            return (ds);
+                con.Close();
+                //Devolve a nova coluna da tabela
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
+
+            return "success";
         }
     }
 }

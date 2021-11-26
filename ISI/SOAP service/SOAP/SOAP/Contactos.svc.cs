@@ -24,26 +24,63 @@ namespace SOAP
         /// <returns>Returns a DataSet with information on All Rows for Contacts with Covid-positive Cases.</returns>
         public DataSet GetContacto()
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q = "SELECT * FROM contacto";
 
-            //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Contactos");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Contactos");
 
-            con.Close();
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
+
             return ds;
         }
 
         public DataSet GetContacto(int id, bool nif)
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
+            }
 
             //3º Query
             string q;
@@ -56,20 +93,40 @@ namespace SOAP
                 q = "SELECT * FROM contacto WHERE idcaso = '" + id.ToString() + "'";
             }
 
-            //4º Execute
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             DataSet ds = new DataSet();
 
-            da.Fill(ds, "Contactos");
+            try
+            {
+                //4º Execute
+                da.Fill(ds, "Contactos");
 
+                //5º CloseConnection
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
             //Devolve o resultado
             return ds;
         }
 
         public string AddContacto(int idUtente, int idCaso)
         {
-            //2º OpenConnection
-            con.Open();
+            try
+            {
+                //2º OpenConnection
+                con.Open();
+            }
+            catch (Exception ex)
+            {
+                return "SQL Server FAILED TO CONNECT:\n" + ex.Message.ToString();
+            }
 
             //3º Query INSERT
             string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";

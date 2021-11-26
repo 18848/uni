@@ -22,7 +22,7 @@ namespace SOAP
         DataSet GetUtentes(string nome);
 
         [OperationContract]
-        DataSet AddUtentes(int idUtente, string nome);
+        string AddUtentes(int idUtente, string nome);
     }
 
     [DataContract]
