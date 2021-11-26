@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Newtonsoft.Json;
+using System;
 
 namespace ISIAPI
 {
@@ -33,8 +32,6 @@ namespace ISIAPI
     public class ModeloMateriais{
 
         List<ModeloMaterial> materiais;
-        static string server = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
-        readonly SqlConnection con = new SqlConnection(server);
 
         public ModeloMateriais(){
             if (materiais == null)
@@ -47,8 +44,12 @@ namespace ISIAPI
         }
 
         //Obter todos os materiais
-        public DataTable GetAllMateriais()
+        public string GetAllMateriais()
         {
+
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
             con.Open();
 
             string q = "SELECT * FROM materiais";
@@ -57,11 +58,11 @@ namespace ISIAPI
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            return dt;
+            string jsonString = string.Empty;
+            jsonString = JsonConvert.SerializeObject(dt);
+            return jsonString;
+            
         }
-
-
-
 
         //Adicionar um material
         public bool AddMaterial(ModeloMaterial s)
