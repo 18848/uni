@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="1c7d2086-5a60-4630-8589-8094e0d8d47d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:62717/Contactos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Contactos.xsd" MetadataType="Schema" ID="ebe5cdcc-1d6b-411f-8bc6-c749bcd19e11" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd2" />
+    <MetadataFile FileName="Contactos1.xsd" MetadataType="Schema" ID="244bf9c8-9dbc-42ea-a91c-ea41615e6f8b" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd1" />
+    <MetadataFile FileName="Contactos2.xsd" MetadataType="Schema" ID="b8983eb6-3383-48ff-aed3-6ef2ff210794" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd0" />
+    <MetadataFile FileName="Contactos.wsdl" MetadataType="Wsdl" ID="97a4f9cc-47ba-4841-a02a-d275154e42ab" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?wsdl" />
+    <MetadataFile FileName="Contactos.disco" MetadataType="Disco" ID="f833ae02-ae80-48c9-854d-e37904f43c6d" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

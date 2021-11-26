@@ -48,7 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\SOAP\Reference.cs">
+    <Compile Include="Connected Services\Casos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Contactos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Utentes\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -73,14 +83,34 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Connected Services\SOAP\Casos.wsdl" />
-    <None Include="Connected Services\SOAP\Service1.xsd">
+    <None Include="Connected Services\Casos\Casos.wsdl" />
+    <None Include="Connected Services\Casos\Casos.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SOAP\Service11.xsd">
+    <None Include="Connected Services\Casos\Casos1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SOAP\Service12.xsd">
+    <None Include="Connected Services\Casos\Casos2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Contactos\Contactos.wsdl" />
+    <None Include="Connected Services\Contactos\Contactos.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Contactos\Contactos1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Contactos\Contactos2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Utentes\Utentes.wsdl" />
+    <None Include="Connected Services\Utentes\Utentes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Utentes\Utentes1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Utentes\Utentes2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
@@ -101,28 +131,60 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\SOAP\" />
+    <ProjectReference Include="..\SOAP\SOAP.csproj">
+      <Project>{f5b49ee6-e29f-4ada-b283-f9e9f680ce72}</Project>
+      <Name>SOAP</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SOAP\Service1.disco" />
+    <WCFMetadataStorage Include="Connected Services\Casos\" />
+    <WCFMetadataStorage Include="Connected Services\Contactos\" />
+    <WCFMetadataStorage Include="Connected Services\Utentes\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SOAP\configuration91.svcinfo" />
+    <None Include="Connected Services\Casos\Casos.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SOAP\configuration.svcinfo" />
+    <None Include="Connected Services\Casos\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SOAP\Reference.svcmap">
+    <None Include="Connected Services\Casos\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Casos\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SOAP\SOAP.csproj">
-      <Project>{f5b49ee6-e29f-4ada-b283-f9e9f680ce72}</Project>
-      <Name>SOAP</Name>
-    </ProjectReference>
+    <None Include="Connected Services\Contactos\Contactos.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Contactos\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Contactos\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Contactos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Utentes\Utentes.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Utentes\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Utentes\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Utentes\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

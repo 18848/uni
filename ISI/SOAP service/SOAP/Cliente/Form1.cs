@@ -7,7 +7,9 @@ namespace Cliente
 {
     public partial class Form1 : Form
     {
-        private SOAP.CasosClient ws = new SOAP.CasosClient();
+        private Casos.CasosClient casosWS = new Casos.CasosClient();
+        private Contactos.ContactosClient contactosWS = new Contactos.ContactosClient();
+        private Utentes.UtentesClient utentesWS = new Utentes.UtentesClient();
 
         #region Form
         public Form1()
@@ -30,22 +32,21 @@ namespace Cliente
         private void procurar_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            int nif = 0;
-            string nome = "";
+            ModeloUtente u = new ModeloUtente("", 0);
 
             if(nifBox.Text != "")
             {
-                ds = ws.GetUtentesByNIF(int.Parse(nifBox.Text));
+                ds = utentesWS.GetUtentesByNIF(int.Parse(nifBox.Text));
                 DataRow [] dr = ds.Tables["Utentes"].Select("idutente = " + nifBox.Text);
-                nif = int.Parse(dr[0][0].ToString());
+                u.Nif = int.Parse(dr[0][0].ToString());
             }
             else if(nomeBox.Text != "")
             {
-                ds = ws.GetUtentesByNome(nomeBox.Text.ToString());
+                ds = utentesWS.GetUtentesByNome(nomeBox.Text.ToString());
                 DataRow[] dr = ds.Tables["Utentes"].Select("nome = '" + nomeBox.Text + "'");
-                nome = dr[0][1].ToString();
+                u.Nome = dr[0][1].ToString();
             }
-            if (nif != 0 || nome != "")
+            if (u.Nif != 0 || u.Nome != "")
             {
                 GetUtentes.DataSource = ds.Tables["Utentes"];
             }
@@ -53,15 +54,16 @@ namespace Cliente
 
         private void adicionar_Click(object sender, EventArgs e)
         {
-            int nif = int.Parse(nifBox.Text);
-            string nome = nomeBox.Text;
-            ws.AddUtentes(nif, nome);
+            ModeloUtente u = new ModeloUtente(
+                                nomeBox.Text
+                                , int.Parse(nifBox.Text));
+            utentesWS.AddUtentes(u.Nif, u.Nome);
         }
 
         private void atualizar_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            ds = ws.GetUtentes();
+            ds = utentesWS.GetUtentes();
             GetUtentes.DataSource = ds.Tables["Utentes"];
         }
 
@@ -73,7 +75,7 @@ namespace Cliente
             try
             {
                 DataSet ds = new DataSet();
-                ds = ws.GetCasos();
+                ds = casosWS.GetCasos();
                 GetCasos.DataSource = ds.Tables["Casos"];
             }
             catch (Exception ex)
@@ -84,26 +86,32 @@ namespace Cliente
 
         private void adicionarCasos_Click(object sender, EventArgs e)
         {
-            ModeloCasos casos = new ModeloCasos(
-                            DateTime.Parse(dataPicker.Text).ToString("yyyy-MM-dd")
-                            , int.Parse(nifCasosBox.Text));
-            ws.AddCasos(casos.Data, casos.Nif);
+            try
+            {
+                ModeloCasos c = new ModeloCasos(
+                                DateTime.Parse(dataPicker.Text).ToString("yyyy-MM-dd")
+                                , int.Parse(nifCasosBox.Text));
+                MessageBox.Show(casosWS.AddCasos(c.Data, c.Nif));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void procurarCasos_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            int nif = 0;
-            string data = "";
+            ModeloCasos c = new ModeloCasos("", 0);
             string dataBox = DateTime.Parse(dataPicker.Text).ToString("yyyy-MM-dd");
 
             if (nifCasosBox.Text != "")
             {
                 try
                 {
-                    ds = ws.GetCasosByNIF(int.Parse(nifCasosBox.Text));
+                    ds = casosWS.GetCasosByNIF(int.Parse(nifCasosBox.Text));
                     DataRow[] dr = ds.Tables["Casos"].Select("idutente = " + nifCasosBox.Text);
-                    nif = int.Parse(dr[0][2].ToString());
+                    c.Nif = int.Parse(dr[0][2].ToString());
                 }
                 catch (Exception ex)
                 {
@@ -114,16 +122,16 @@ namespace Cliente
             {
                 try
                 {
-                    ds = ws.GetCasosByData(dataBox);
+                    ds = casosWS.GetCasosByData(dataBox);
                     DataRow[] dr = ds.Tables["Casos"].Select("data = '" + dataBox + "'");
-                    data = dr[0][1].ToString();
+                    c.Data = dr[0][1].ToString();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
-            if (nif != 0 || data != "")
+            if (c.Nif != 0 || c.Data != "")
             {
                 try
                 {
@@ -137,13 +145,13 @@ namespace Cliente
         }
         #endregion
 
-        #region Contactos
+        #region Botões Contactos
         private void atualizarContactos_Click(object sender, EventArgs e)
         {
             try
             {
                 DataSet ds = new DataSet();
-                ds = ws.GetContacto();
+                ds = contactosWS.GetContacto();
                 GetContactos.DataSource = ds.Tables["Contactos"];
             }
             catch (Exception ex)
@@ -156,10 +164,10 @@ namespace Cliente
         {
             try
             {
-                ModeloContactos contactos= new ModeloContactos(
+                ModeloContactos con= new ModeloContactos(
                             int.Parse(idCasoBox.Text)
                             , int.Parse(nifContactoBox.Text));
-                ws.AddContacto(contactos.Nif, contactos.IdCaso);
+                MessageBox.Show(contactosWS.AddContacto(con.Nif, con.IdCaso));
             }
             catch (Exception ex)
             {
@@ -169,7 +177,59 @@ namespace Cliente
 
         private void procurarContactos_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+            ModeloContactos con = new ModeloContactos(0, 0);
 
+            if (idCasoBox.Text != "")
+            {
+                try
+                {
+                    ds = contactosWS.GetContactoByAtributes(int.Parse(idCasoBox.Text), false);
+                    DataRow[] dr = ds.Tables["Contactos"].Select("idcaso= " + idCasoBox.Text);
+                    con.IdCaso = int.Parse(dr[0][0].ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+            if (nifContactoBox.Text != "")
+            {
+                try
+                {
+                    ds = contactosWS.GetContactoByAtributes(int.Parse(nifContactoBox.Text), true);
+                    DataRow[] dr = ds.Tables["Contactos"].Select("idutente = '" + nifContactoBox.Text + "'");
+                    con.Nif = int.Parse(dr[0][1].ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+            if (con.Nif != 0 && con.IdCaso != 0)
+            {
+                try
+                {
+                    ds = contactosWS.GetContactoByAtributes(int.Parse(nifContactoBox.Text), true);
+                    DataRow[] dr = ds.Tables["Contactos"].Select("idutente = '" + nifContactoBox.Text + "'");
+                    con.Nif = int.Parse(dr[0][1].ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+            else if (con.Nif != 0 || con.IdCaso != 0)
+            {
+                try
+                {
+                    GetContactos.DataSource = ds.Tables["Contactos"];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
         #endregion
     }

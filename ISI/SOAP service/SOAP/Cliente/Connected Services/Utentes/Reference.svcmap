@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f8022fef-01b4-47d5-b323-bd01d254f95f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:62717/Utentes.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Utentes.xsd" MetadataType="Schema" ID="6033846d-7e12-44d2-82f5-dba55d1bb694" SourceId="1" SourceUrl="http://localhost:62717/Utentes.svc?xsd=xsd1" />
+    <MetadataFile FileName="Utentes1.xsd" MetadataType="Schema" ID="fb860368-a7f0-4a77-aff2-2edb8d735bc2" SourceId="1" SourceUrl="http://localhost:62717/Utentes.svc?xsd=xsd0" />
+    <MetadataFile FileName="Utentes.wsdl" MetadataType="Wsdl" ID="485eb59d-6c1d-4abf-b29f-97401f2a8fc2" SourceId="1" SourceUrl="http://localhost:62717/Utentes.svc?wsdl" />
+    <MetadataFile FileName="Utentes.disco" MetadataType="Disco" ID="4f2aa081-fb2e-45ed-ba5b-63514e067ef4" SourceId="1" SourceUrl="http://localhost:62717/Utentes.svc?disco" />
+    <MetadataFile FileName="Utentes2.xsd" MetadataType="Schema" ID="f8effa2f-34f1-41c6-9891-d5d823737207" SourceId="1" SourceUrl="http://localhost:62717/Utentes.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
