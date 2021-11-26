@@ -20,3 +20,7 @@ D:\GIT\uni\ISI\SOAP service\SOAP\Cliente\obj\Debug\Cliente.csproj.GenerateResour
 D:\GIT\uni\ISI\SOAP service\SOAP\Cliente\obj\Debug\Cliente.csproj.CoreCompileInputs.cache
 D:\GIT\uni\ISI\SOAP service\SOAP\Cliente\obj\Debug\Cliente.exe
 D:\GIT\uni\ISI\SOAP service\SOAP\Cliente\obj\Debug\Cliente.pdb
+C:\Users\cacete\GIT\uni\ISI\SOAP service\SOAP\Cliente\bin\Debug\SOAP.dll
+C:\Users\cacete\GIT\uni\ISI\SOAP service\SOAP\Cliente\bin\Debug\SOAP.pdb
+C:\Users\cacete\GIT\uni\ISI\SOAP service\SOAP\Cliente\bin\Debug\SOAP.dll.config
+C:\Users\cacete\GIT\uni\ISI\SOAP service\SOAP\Cliente\obj\Debug\Cliente.csproj.CopyComplete

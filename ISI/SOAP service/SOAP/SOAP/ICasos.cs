@@ -54,6 +54,11 @@ namespace SOAP
     [DataContract]
     public class ModeloCasos
     {
+        public ModeloCasos(string data, int nif)
+        {
+            Data = data;
+            Nif = nif;
+        }
         public string Data { get; set; }
         public int Nif{ get; set; }
     }
@@ -61,19 +66,9 @@ namespace SOAP
     [DataContract]
     public class ModeloUtente
     {
-        public ModeloUtente(string nome, string nif)
+        public ModeloUtente(string nome, int nif)
         {
             Nome = nome;
-            Nif = nif;
-        }
-
-        public ModeloUtente(string nome)
-        {
-            Nome = nome;
-        }
-
-        public ModeloUtente(string nif)
-        {
             Nif = nif;
         }
 
@@ -87,14 +82,6 @@ namespace SOAP
         public ModeloContactos(int idcaso, int nif)
         {
             IdCaso = idcaso;
-            Nif = nif;
-        }
-        public ModeloContactos(int idcaso)
-        {
-            IdCaso = idcaso;
-        }
-        public ModeloContactos(int nif)
-        {
             Nif = nif;
         }
         public int IdCaso { get; set; }
