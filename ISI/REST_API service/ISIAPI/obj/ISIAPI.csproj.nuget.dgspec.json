@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Leone\\OneDrive\\Ambiente de Trabalho\\tings\\IPCA\\3ºano\\3ºano_1ºsemestre\\ISI\\TP1\\ISIAPI\\ISIAPI.csproj": {}
+    "D:\\GIT\\uni\\ISI\\REST_API service\\ISIAPI\\ISIAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Leone\\OneDrive\\Ambiente de Trabalho\\tings\\IPCA\\3ºano\\3ºano_1ºsemestre\\ISI\\TP1\\ISIAPI\\ISIAPI.csproj": {
+    "D:\\GIT\\uni\\ISI\\REST_API service\\ISIAPI\\ISIAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Leone\\OneDrive\\Ambiente de Trabalho\\tings\\IPCA\\3ºano\\3ºano_1ºsemestre\\ISI\\TP1\\ISIAPI\\ISIAPI.csproj",
+        "projectUniqueName": "D:\\GIT\\uni\\ISI\\REST_API service\\ISIAPI\\ISIAPI.csproj",
         "projectName": "ISIAPI",
-        "projectPath": "C:\\Users\\Leone\\OneDrive\\Ambiente de Trabalho\\tings\\IPCA\\3ºano\\3ºano_1ºsemestre\\ISI\\TP1\\ISIAPI\\ISIAPI.csproj",
-        "packagesPath": "C:\\Users\\Leone\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Leone\\OneDrive\\Ambiente de Trabalho\\tings\\IPCA\\3ºano\\3ºano_1ºsemestre\\ISI\\TP1\\ISIAPI\\obj\\",
+        "projectPath": "D:\\GIT\\uni\\ISI\\REST_API service\\ISIAPI\\ISIAPI.csproj",
+        "packagesPath": "C:\\Users\\cacete\\.nuget\\packages\\",
+        "outputPath": "D:\\GIT\\uni\\ISI\\REST_API service\\ISIAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Leone\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cacete\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -69,6 +67,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.12, 5.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -77,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

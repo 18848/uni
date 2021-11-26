@@ -36,7 +36,6 @@ namespace ISIAPI
         static string server = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
         readonly SqlConnection con = new SqlConnection(server);
 
-
         public ModeloMateriais(){
             if (materiais == null)
                 materiais = new List<ModeloMaterial>();
@@ -50,6 +49,8 @@ namespace ISIAPI
         //Obter todos os materiais
         public DataTable GetAllMateriais()
         {
+            con.Open();
+
             string q = "SELECT * FROM materiais";
             SqlDataAdapter da = new SqlDataAdapter(q, con);
 
