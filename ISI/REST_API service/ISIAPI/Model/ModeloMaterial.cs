@@ -52,7 +52,7 @@ namespace ISIAPI
 
             con.Open();
 
-            string q = "SELECT * FROM materiais";
+            string q = "SELECT * FROM material";
             SqlDataAdapter da = new SqlDataAdapter(q, con);
 
             DataTable dt = new DataTable();
