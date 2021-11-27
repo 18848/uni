@@ -21,7 +21,7 @@ namespace SOAP
         /// <summary>
         /// Connects to a Database to Find Contacts.
         /// </summary>
-        /// <returns>Returns a DataSet with information on All Rows for Contacts with Covid-positive Cases.</returns>
+        /// <returns DataSet="Contactos"> Returns a DataSet with information on All Rows for Contacts with Covid-positive Cases. </returns>
         public DataSet GetContacto()
         {
             try
@@ -64,7 +64,13 @@ namespace SOAP
 
             return ds;
         }
-
+        
+        /// <summary>
+        /// Connects to a Database to Find Contacts.
+        /// </summary>
+        /// <param name="id" type="int">  </param>
+        /// <param name="nif" type="bool"> True if 'id' is NIF. False if IdCaso. </param>
+        /// <returns> Returns a DataSet with information on All Rows for Contacts with Covid-positive Cases. </returns>
         public DataSet GetContacto(int id, bool nif)
         {
             try
@@ -112,10 +118,29 @@ namespace SOAP
                 ds.Tables.Add(dt);
                 return ds;
             }
+
+            try
+            {
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
             //Devolve o resultado
             return ds;
         }
-
+        /// <summary>
+        /// Connects to a Database to Insert Contactos
+        /// </summary>
+        /// <param name="idUtente"> NIF. </param>
+        /// <param name="idCaso"> ID de Caso associado. </param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If reaches end of function. </returns>
         public string AddContacto(int idUtente, int idCaso)
         {
             try
@@ -150,8 +175,14 @@ namespace SOAP
                 return "Exception:\n" + ex.Message.ToString();
             }
 
-
-            con.Close();
+            try
+            {
+                con.Close();
+            }
+            catch(SqlException ex)
+            {
+                return "SQL FAILED TO CLOSE" + ex.Message.ToString();
+            }
             //Devolve a nova coluna da tabela
             return "Success";
         }

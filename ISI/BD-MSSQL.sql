@@ -37,11 +37,11 @@ CREATE TABLE equipa (
 CREATE TABLE requisicao (
   idRequisicao INT NOT NULL IDENTITY(1,1),
   entregue TINYINT NULL,
-  equipa_idEquipa INT NOT NULL,
+  idEquipa INT NOT NULL,
   PRIMARY KEY (idRequisicao),
   --INDEX fk_requisicao_equipa1_idx (equipa_idEquipa ASC) VISIBLE,
   CONSTRAINT fk_requisicao_equipa1
-    FOREIGN KEY (equipa_idEquipa)
+    FOREIGN KEY (idEquipa)
     REFERENCES equipa (idEquipa)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -100,7 +100,7 @@ CREATE TABLE civil (
   idcivil INT NOT NULL,
   nome VARCHAR(45) NULL,
   data DATE NULL,
-  fiscalizado TINYINT NULL,
+  irregularidades INT NULL,
   PRIMARY KEY (idcivil))
 
 
