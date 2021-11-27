@@ -97,11 +97,12 @@ CREATE TABLE contacto (
 -- Table `mydb`.`civil`
 -- -----------------------------------------------------
 CREATE TABLE civil (
+  id INT NOT NULL IDENTITY(1,1),
   idcivil INT NOT NULL,
   nome VARCHAR(45) NULL,
   data DATE NULL,
   irregularidades INT NULL,
-  PRIMARY KEY (idcivil))
+  PRIMARY KEY (id, idcivil))
 
 
 -- -----------------------------------------------------

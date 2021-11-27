@@ -30,22 +30,25 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.XML = new System.Windows.Forms.TabPage();
+            this.xmlFilePath = new System.Windows.Forms.Label();
             this.xmlLoadButton = new System.Windows.Forms.Button();
             this.xmlSendButton = new System.Windows.Forms.Button();
             this.xmlVerifyButton = new System.Windows.Forms.Button();
             this.xmlTextBox = new System.Windows.Forms.RichTextBox();
             this.JSON = new System.Windows.Forms.TabPage();
+            this.jsonFilePath = new System.Windows.Forms.Label();
             this.jsonLoadButton = new System.Windows.Forms.Button();
             this.jsonSendButton = new System.Windows.Forms.Button();
             this.jsonVerifyButton = new System.Windows.Forms.Button();
             this.jsonTextBox = new System.Windows.Forms.RichTextBox();
             this.GetDB = new System.Windows.Forms.TabPage();
-            this.dataBaseGridView = new System.Windows.Forms.DataGridView();
+            this.databaseGridView = new System.Windows.Forms.DataGridView();
+            this.atualizarDatabase = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.XML.SuspendLayout();
             this.JSON.SuspendLayout();
             this.GetDB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBaseGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -61,6 +64,7 @@
             // 
             // XML
             // 
+            this.XML.Controls.Add(this.xmlFilePath);
             this.XML.Controls.Add(this.xmlLoadButton);
             this.XML.Controls.Add(this.xmlSendButton);
             this.XML.Controls.Add(this.xmlVerifyButton);
@@ -72,6 +76,15 @@
             this.XML.TabIndex = 0;
             this.XML.Text = "XML";
             this.XML.UseVisualStyleBackColor = true;
+            // 
+            // xmlFilePath
+            // 
+            this.xmlFilePath.AutoSize = true;
+            this.xmlFilePath.Location = new System.Drawing.Point(406, 11);
+            this.xmlFilePath.Name = "xmlFilePath";
+            this.xmlFilePath.Size = new System.Drawing.Size(29, 13);
+            this.xmlFilePath.TabIndex = 4;
+            this.xmlFilePath.Text = "File: ";
             // 
             // xmlLoadButton
             // 
@@ -112,6 +125,7 @@
             // 
             // JSON
             // 
+            this.JSON.Controls.Add(this.jsonFilePath);
             this.JSON.Controls.Add(this.jsonLoadButton);
             this.JSON.Controls.Add(this.jsonSendButton);
             this.JSON.Controls.Add(this.jsonVerifyButton);
@@ -123,6 +137,15 @@
             this.JSON.TabIndex = 1;
             this.JSON.Text = "JSON";
             this.JSON.UseVisualStyleBackColor = true;
+            // 
+            // jsonFilePath
+            // 
+            this.jsonFilePath.AutoSize = true;
+            this.jsonFilePath.Location = new System.Drawing.Point(406, 11);
+            this.jsonFilePath.Name = "jsonFilePath";
+            this.jsonFilePath.Size = new System.Drawing.Size(29, 13);
+            this.jsonFilePath.TabIndex = 7;
+            this.jsonFilePath.Text = "File: ";
             // 
             // jsonLoadButton
             // 
@@ -152,6 +175,7 @@
             this.jsonVerifyButton.TabIndex = 4;
             this.jsonVerifyButton.Text = "Verify";
             this.jsonVerifyButton.UseVisualStyleBackColor = true;
+            this.jsonVerifyButton.Click += new System.EventHandler(this.jsonVerifyButton_Click);
             // 
             // jsonTextBox
             // 
@@ -163,7 +187,8 @@
             // 
             // GetDB
             // 
-            this.GetDB.Controls.Add(this.dataBaseGridView);
+            this.GetDB.Controls.Add(this.atualizarDatabase);
+            this.GetDB.Controls.Add(this.databaseGridView);
             this.GetDB.Location = new System.Drawing.Point(4, 22);
             this.GetDB.Name = "GetDB";
             this.GetDB.Padding = new System.Windows.Forms.Padding(3);
@@ -172,13 +197,23 @@
             this.GetDB.Text = "GetDB";
             this.GetDB.UseVisualStyleBackColor = true;
             // 
-            // dataBaseGridView
+            // databaseGridView
             // 
-            this.dataBaseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataBaseGridView.Location = new System.Drawing.Point(6, 6);
-            this.dataBaseGridView.Name = "dataBaseGridView";
-            this.dataBaseGridView.Size = new System.Drawing.Size(311, 400);
-            this.dataBaseGridView.TabIndex = 0;
+            this.databaseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.databaseGridView.Location = new System.Drawing.Point(6, 6);
+            this.databaseGridView.Name = "databaseGridView";
+            this.databaseGridView.Size = new System.Drawing.Size(565, 400);
+            this.databaseGridView.TabIndex = 0;
+            // 
+            // atualizarDatabase
+            // 
+            this.atualizarDatabase.Location = new System.Drawing.Point(699, 114);
+            this.atualizarDatabase.Name = "atualizarDatabase";
+            this.atualizarDatabase.Size = new System.Drawing.Size(75, 23);
+            this.atualizarDatabase.TabIndex = 1;
+            this.atualizarDatabase.Text = "Atualizar";
+            this.atualizarDatabase.UseVisualStyleBackColor = true;
+            this.atualizarDatabase.Click += new System.EventHandler(this.atualizarDatabase_Click);
             // 
             // Form1
             // 
@@ -190,9 +225,11 @@
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.XML.ResumeLayout(false);
+            this.XML.PerformLayout();
             this.JSON.ResumeLayout(false);
+            this.JSON.PerformLayout();
             this.GetDB.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataBaseGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -207,11 +244,14 @@
         private System.Windows.Forms.Button xmlSendButton;
         private System.Windows.Forms.Button xmlVerifyButton;
         private System.Windows.Forms.RichTextBox jsonTextBox;
-        private System.Windows.Forms.DataGridView dataBaseGridView;
+        private System.Windows.Forms.DataGridView databaseGridView;
         private System.Windows.Forms.Button xmlLoadButton;
         private System.Windows.Forms.Button jsonLoadButton;
         private System.Windows.Forms.Button jsonSendButton;
         private System.Windows.Forms.Button jsonVerifyButton;
+        private System.Windows.Forms.Label xmlFilePath;
+        private System.Windows.Forms.Label jsonFilePath;
+        private System.Windows.Forms.Button atualizarDatabase;
     }
 }
 
