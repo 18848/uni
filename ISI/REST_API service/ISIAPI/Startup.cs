@@ -32,7 +32,7 @@ namespace ISIAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "ISI-Web API RESTful",
+                    Title = "ISI Web API RESTful",
                     Version = "v1",
                     Description = "ISI Swagger Docummentation",
 
