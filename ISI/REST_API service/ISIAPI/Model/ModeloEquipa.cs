@@ -8,43 +8,44 @@ using System;
 
 namespace ISIAPI
 {
-    public class ModeloMaterial
+    public class ModeloEquipa
     {
-        private int idMaterial;
+        private int idEquipa;
         private string nome;
-        private float custo;
 
 
-        public ModeloMaterial(int id, string n, float c){
-            idMaterial = id;
+        public ModeloEquipa(int id, string n)
+        {
+            idEquipa = id;
             nome = n;
-            custo = c;
+
         }
 
         [Required]
-        public int Id { get => idMaterial; set => idMaterial = value; }
+        public int Id { get => idEquipa; set => idEquipa = value; }
         [Required]
         public string Nome { get => nome; set => nome = value; }
-        public float Custo { get => custo; set => custo = value; }
     }
 
-    
-    public class ModeloMateriais{
 
-        List<ModeloMaterial> materiais;
+    public class ModeloEquipas
+    {
 
-        public ModeloMateriais(){
-            if (materiais == null)
-                materiais = new List<ModeloMaterial>();
+        List<ModeloEquipa> equipas;
+
+        public ModeloEquipas()
+        {
+            if (equipas == null)
+                equipas = new List<ModeloEquipa>();
         }
 
-        public List<ModeloMaterial> Materiais
+        public List<ModeloEquipa> Equipas
         {
-            get => materiais;
+            get => equipas;
         }
 
         //Obter todos os materiais
-        public string GetAllMateriais()
+        public string GetAllEquipas()
         {
 
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
@@ -52,7 +53,7 @@ namespace ISIAPI
 
             con.Open();
 
-            string q = "SELECT * FROM material";
+            string q = "SELECT * FROM equipa";
             SqlDataAdapter da = new SqlDataAdapter(q, con);
 
             DataTable dt = new DataTable();
@@ -61,11 +62,11 @@ namespace ISIAPI
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(dt);
             return jsonString;
-            
+
         }
 
-        //Adicionar um material
-        public string AddMaterial(ModeloMaterial s)
+        //Adicionar uma equipa
+        public string AddEquipa(ModeloEquipa s)
         {
 
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
@@ -73,7 +74,7 @@ namespace ISIAPI
 
             con.Open();
 
-            string q = "INSERT INTO material (nome, custo) values('" + s.Nome + "', '" + s.Custo.ToString() + "')";
+            string q = "INSERT INTO equipa (nome) values('" + s.Nome + "')";
 
             try
             {
@@ -98,13 +99,9 @@ namespace ISIAPI
         }
 
         //Encontrar nome de material
-        public string GetMaterialById(int idMaterial)
+        public string GetEquipaById(int idEquipa)
         {
-            foreach(ModeloMaterial m in materiais)
-            {
-                if (m.Id == idMaterial) return m.Nome;
-            }
-            return "";
+            return "True";
         }
 
     }

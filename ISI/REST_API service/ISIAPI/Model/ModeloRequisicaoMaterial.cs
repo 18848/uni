@@ -8,43 +8,41 @@ using System;
 
 namespace ISIAPI
 {
-    public class ModeloMaterial
+    public class ModeloRequisicaoMaterial
     {
+        private int idRequisicaoMaterial;
         private int idMaterial;
-        private string nome;
-        private float custo;
-
-
-        public ModeloMaterial(int id, string n, float c){
-            idMaterial = id;
-            nome = n;
-            custo = c;
-        }
+        private int idRequisicao;
+        private int qtd;
 
         [Required]
-        public int Id { get => idMaterial; set => idMaterial = value; }
+        public int Id { get => idRequisicaoMaterial; set => idRequisicaoMaterial = value; }
         [Required]
-        public string Nome { get => nome; set => nome = value; }
-        public float Custo { get => custo; set => custo = value; }
+        public int IdMaterial { get => idMaterial; set => idMaterial = value; }
+        [Required]
+        public int IdRequisicao { get => idRequisicao; set => idRequisicao = value; }
+        public int Qtd { get => qtd; set => qtd = value; }
+        
     }
 
-    
-    public class ModeloMateriais{
+    public class ModeloRequisicoesMateriais
+    {
 
-        List<ModeloMaterial> materiais;
+        List<ModeloRequisicaoMaterial> requisicoesMateriais;
 
-        public ModeloMateriais(){
-            if (materiais == null)
-                materiais = new List<ModeloMaterial>();
-        }
-
-        public List<ModeloMaterial> Materiais
+        public ModeloRequisicoesMateriais()
         {
-            get => materiais;
+            if (requisicoesMateriais == null)
+                requisicoesMateriais = new List<ModeloRequisicaoMaterial>();
         }
 
-        //Obter todos os materiais
-        public string GetAllMateriais()
+        public List<ModeloRequisicaoMaterial> RequisicoesMateriais
+        {
+            get => requisicoesMateriais;
+        }
+
+        //Obter todas as requisições de materiais
+        public string GetAllRequisicoesMateriais()
         {
 
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
@@ -52,7 +50,7 @@ namespace ISIAPI
 
             con.Open();
 
-            string q = "SELECT * FROM material";
+            string q = "SELECT * FROM requisicaoMaterial";
             SqlDataAdapter da = new SqlDataAdapter(q, con);
 
             DataTable dt = new DataTable();
@@ -61,19 +59,19 @@ namespace ISIAPI
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(dt);
             return jsonString;
-            
+
         }
 
-        //Adicionar um material
-        public string AddMaterial(ModeloMaterial s)
+        //Adicionar uma equipa
+        public string AddRequisicaoMaterial(ModeloRequisicaoMaterial s)
         {
 
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
             SqlConnection con = new SqlConnection(conString);
 
             con.Open();
-
-            string q = "INSERT INTO material (nome, custo) values('" + s.Nome + "', '" + s.Custo.ToString() + "')";
+            string q = string.Empty;
+            q = "INSERT INTO requisicaoMaterial (idMaterial, idRequisicao, qtd) values('" + s.IdMaterial.ToString() + "' , '" + s.IdRequisicao.ToString() + "', '" + s.Qtd.ToString() +"')";
 
             try
             {
@@ -98,14 +96,13 @@ namespace ISIAPI
         }
 
         //Encontrar nome de material
-        public string GetMaterialById(int idMaterial)
+        public string GetRequisicaoMaterialById(int idRequisicaoMaterial)
         {
-            foreach(ModeloMaterial m in materiais)
-            {
-                if (m.Id == idMaterial) return m.Nome;
-            }
-            return "";
+            return "True";
         }
 
+
+
     }
+
 }

@@ -7,34 +7,34 @@ using System.Data;
 using Newtonsoft.Json;
 
 namespace ISIAPI.Controllers
-{   
+{
     [Route("api/[controller]")]
     [ApiController]
-    public class MaterialController : ControllerBase
+    public class RequisicaoController : ControllerBase
     {
-        public ModeloMateriais m = new ModeloMateriais();
+        public ModeloRequisicoes m = new ModeloRequisicoes();
 
         [HttpGet]
-        [Route("getmaterial/{idMaterial}")]
-        public string GetMaterial(int idMaterial)
+        [Route("getrequisicao/{idRequisicao}")]
+        public string GetRequisicao(int idRequisicao)
         {
-            return m.GetMaterialById(idMaterial);
+            return m.GetRequisicaoById(idRequisicao);
         }
 
         [HttpGet]
         [Route("getall")]
-        public string GetMateriais()
+        public string GetRequisicoes()
         {
-            return m.GetAllMateriais();
+            return m.GetAllRequisicoes();
         }
 
 
         [HttpPost]
-        [Route("addmaterial")]
-        public string AddMaterial(string material)
+        [Route("addRequisicao")]
+        public string AddRequisicao(string requisicao)
         {
-            ModeloMaterial materialConvertido = Newtonsoft.Json.JsonConvert.DeserializeObject<ModeloMaterial>(material);
-            return m.AddMaterial(materialConvertido);
+            ModeloRequisicao requisicaoConvertido = Newtonsoft.Json.JsonConvert.DeserializeObject<ModeloRequisicao>(requisicao);
+            return m.AddRequisicao(requisicaoConvertido);
         }
 
         /*
