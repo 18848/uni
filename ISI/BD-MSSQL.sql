@@ -91,19 +91,31 @@ CREATE TABLE contacto (
     REFERENCES caso (idcaso)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-
-
+  
+  
 -- -----------------------------------------------------
--- Table `mydb`.`civil`
+-- Table `mydb`.`fiscalizacao`
 -- -----------------------------------------------------
-CREATE TABLE civil (
-  id INT NOT NULL IDENTITY(1,1),
+CREATE TABLE fiscalizacao (
+  idfiscalizacao INT NOT NULL IDENTITY(1,1),
   idcivil INT NOT NULL,
   nome VARCHAR(45) NULL,
   data DATE NULL,
-  irregularidades INT NULL,
-  PRIMARY KEY (id, idcivil))
-
+  PRIMARY KEY (idfiscalizacao))  
+  
+  -- -----------------------------------------------------
+-- Table `mydb`.`irregularidade`
+-- -----------------------------------------------------
+CREATE TABLE irregularidade (
+  idirregularidade INT NOT NULL IDENTITY(1,1),
+  descricao VARCHAR(45) NULL,
+  idfiscalizacao INT NOT NULL,
+  PRIMARY KEY (idirregularidade),
+  CONSTRAINT fk_irregularidade_civil1
+    FOREIGN KEY (idfiscalizacao)
+    REFERENCES fiscalizacao (idfiscalizacao)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 
 -- -----------------------------------------------------
 -- Table `mydb`.`requisicaoMaterial`

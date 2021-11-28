@@ -32,53 +32,126 @@ namespace FileConversion
         }
 
         #region XML
-        private (Fiscalizacao, string, string) DeserializeXml()
+        private (Fiscalizacao, string) DeserializeXml()
         {
-            XmlSerializer ser = new XmlSerializer(typeof(Fiscalizacao));
-            var filecontent = string.Empty;
-            var filePath = string.Empty;
-
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            try
             {
-                //openFileDialog.InitialDirectory = "g:\\asdasdasd";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
+                XmlSerializer ser = new XmlSerializer(typeof(Fiscalizacao));
+                string filePath;
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
+                    openFileDialog.InitialDirectory = "d:\\temp";
+                    openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                    openFileDialog.FilterIndex = 2;
+                    openFileDialog.RestoreDirectory = true;
 
-                    //Read the contents of the file into a stream
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        //Get the path of specified file
+                        filePath = openFileDialog.FileName;
+
+                        //Read the contents of the file into a stream
+                        var fileStream = openFileDialog.OpenFile();
+
+                        using (StreamReader reader = new StreamReader(fileStream))
+                        {
+                            return ((Fiscalizacao)ser.Deserialize(reader), filePath);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return(null, null);
+        }
+
+        private void UpdateTextBox(string filePath)
+        {
+            try
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.FileName = filePath;
                     var fileStream = openFileDialog.OpenFile();
 
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
-                        filecontent = reader.ReadToEnd();
-                        return ((Fiscalizacao)ser.Deserialize(reader), filecontent, filePath);
+                        xmlTextBox.Text = reader.ReadToEnd();
                     }
                 }
-                else
-                {
-                    return (null, null, null);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.GetType() + "\n" + ex.Message);
             }
         }
 
         private void xmlSendButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                con.Open();
 
+                foreach (Civil civil in fiscalizados.Fiscalizados)
+                {
+                    string qCivil = "INSERT INTO fiscalizacao (idcivil, nome, data) VALUES ('" + civil.IdCivil.ToString() + "','" +
+                        civil.Nome + "','" + civil.Data.ToString("yyyy-MM-dd") + "')";
+
+                    SqlCommand cmdCivil = new SqlCommand(qCivil, con);
+                    cmdCivil.ExecuteNonQuery();
+
+                    foreach(Irregularidade irregularidade in civil.Irregularidades)
+                    {
+                        string select = "SELECT idfiscalizacao FROM fiscalizacao WHERE idcivil = '" + civil.IdCivil.ToString()
+                            + "' AND nome = LOWER('" + civil.Nome + "') AND data = '" + civil.Data.ToString("yyyy-MM-dd") + "'";
+
+                        SqlDataAdapter da = new SqlDataAdapter(select, con);
+                        DataTable dt = new DataTable();
+
+                        da.Fill(dt);
+
+                        string qIrregularidade = "INSERT INTO irregularidade (descricao, idfiscalizacao) VALUES ('" + irregularidade.Descricao + "','" +
+                            dt.Rows[0][0].ToString() + "')";
+
+                        SqlCommand cmdIrregularidade = new SqlCommand(qIrregularidade, con);
+                        cmdIrregularidade.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Dados Adicionados com Sucesso.");
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL EXCEPTION:\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("EXCEPTION:\n" + ex.Message);
+            }
+
+            try
+            {
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL EXCEPTION:\n" + ex.Message);
+            }
         }
 
         private void xmlLoadButton_Click(object sender, EventArgs e)
         {
             try
             {
-                string contents;
                 string path;
 
-                (fiscalizados, contents, path) = DeserializeXml();
+                (fiscalizados, path) = DeserializeXml();
                 if(fiscalizados == null)
                 {
                     MessageBox.Show("An Error Has Ocurred While Openning File Dialog.\nPlease try again.");
@@ -86,7 +159,7 @@ namespace FileConversion
                 else
                 {
                     xmlFilePath.Text = path;
-                    xmlTextBox.Text = contents;
+                    UpdateTextBox(path);
                 }
 
                 MessageBox.Show("File Contents Loaded Successfully");
@@ -155,12 +228,28 @@ namespace FileConversion
 
                     foreach(Civil civil in fiscalizados.Fiscalizados)
                     {
-                        string q = "INSERT INTO civil (idcivil, nome, data, irregularidades) VALUES ('" + civil.IdCivil.ToString() + "','" +
-                            civil.Nome + "','" + civil.Data.ToString("yyyy-MM-dd") + "','" + civil.Irregularidades.ToString() + "')";
+                        string qCivil = "INSERT INTO fiscalizacao (idcivil, nome, data) VALUES ('" + civil.IdCivil.ToString() + "','" +
+                            civil.Nome + "','" + civil.Data.ToString("yyyy-MM-dd") + "')";
 
-                        SqlCommand cmd = new SqlCommand(q, con);
-                        cmd.ExecuteNonQuery();
+                        SqlCommand cmdCivil = new SqlCommand(qCivil, con);
+                        cmdCivil.ExecuteNonQuery();
 
+                        foreach (Irregularidade irregularidade in civil.Irregularidades)
+                        {
+                            string select = "SELECT idfiscalizacao FROM fiscalizacao WHERE idcivil = '" + civil.IdCivil.ToString()
+                               + "' AND nome = LOWER('" + civil.Nome + "') AND data = '" + civil.Data.ToString("yyyy-MM-dd") + "'";
+
+                            SqlDataAdapter da = new SqlDataAdapter(select, con);
+                            DataTable dt = new DataTable();
+
+                            da.Fill(dt);
+
+                            string qIrregularidade = "INSERT INTO irregularidade (descricao, idfiscalizacao) VALUES ('" + irregularidade.Descricao + "','" +
+                                dt.Rows[0][0].ToString() + "')";
+
+                            SqlCommand cmdIrregularidade = new SqlCommand(qIrregularidade, con);
+                            cmdIrregularidade.ExecuteNonQuery();
+                        }
                     }
                     MessageBox.Show("Dados Adicionados com Sucesso.");
                     
@@ -280,29 +369,39 @@ namespace FileConversion
             }
 
             //3º Query
-            string q = "SELECT * FROM civil";
+            string q = "SELECT * FROM fiscalizacao";
 
             SqlDataAdapter da = new SqlDataAdapter(q, con);
-            DataSet ds = new DataSet();
+            DataSet ds1 = new DataSet();
+            DataSet ds2 = new DataSet();
 
             try
             {
                 //4º Execute
-                da.Fill(ds, "Civis");
+                da.Fill(ds1, "Fiscalizacao");
 
                 //5º CloseConnection
-                con.Close();
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.Columns.Add("Exception");
                 dt.Rows.Add(ex.Message);
-                ds.Tables.Add(dt);
-                databaseGridView.DataSource= ds;
+                ds1.Tables.Add(dt);
+                databaseGridView.DataSource= ds1;
             }
 
-            databaseGridView.DataSource= ds.Tables["Civis"];
+            if(idFiscalizacaoTextBox.Text != "")
+            {
+                q = "SELECT idirregularidade, descricao FROM irregularidade WHERE idfiscalizacao = '" + idFiscalizacaoTextBox.Text + "'";
+                da = new SqlDataAdapter(q, con);
+
+                da.Fill(ds2, "Fiscalizacao");
+            }
+
+            databaseGridView.DataSource= ds1.Tables["Fiscalizacao"];
+            irregularidadesDataGrid.DataSource= ds2.Tables["Fiscalizacao"];
+            con.Close();
         }
 
         #endregion

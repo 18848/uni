@@ -44,11 +44,15 @@
             this.GetDB = new System.Windows.Forms.TabPage();
             this.databaseGridView = new System.Windows.Forms.DataGridView();
             this.atualizarDatabase = new System.Windows.Forms.Button();
+            this.irregularidadesDataGrid = new System.Windows.Forms.DataGridView();
+            this.idFiscalizacaoTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.XML.SuspendLayout();
             this.JSON.SuspendLayout();
             this.GetDB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.irregularidadesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -187,7 +191,10 @@
             // 
             // GetDB
             // 
+            this.GetDB.Controls.Add(this.label1);
+            this.GetDB.Controls.Add(this.idFiscalizacaoTextBox);
             this.GetDB.Controls.Add(this.atualizarDatabase);
+            this.GetDB.Controls.Add(this.irregularidadesDataGrid);
             this.GetDB.Controls.Add(this.databaseGridView);
             this.GetDB.Location = new System.Drawing.Point(4, 22);
             this.GetDB.Name = "GetDB";
@@ -200,20 +207,44 @@
             // databaseGridView
             // 
             this.databaseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.databaseGridView.Location = new System.Drawing.Point(6, 6);
+            this.databaseGridView.Location = new System.Drawing.Point(0, 6);
             this.databaseGridView.Name = "databaseGridView";
-            this.databaseGridView.Size = new System.Drawing.Size(565, 400);
+            this.databaseGridView.Size = new System.Drawing.Size(467, 400);
             this.databaseGridView.TabIndex = 0;
             // 
             // atualizarDatabase
             // 
-            this.atualizarDatabase.Location = new System.Drawing.Point(699, 114);
+            this.atualizarDatabase.Location = new System.Drawing.Point(699, 6);
             this.atualizarDatabase.Name = "atualizarDatabase";
             this.atualizarDatabase.Size = new System.Drawing.Size(75, 23);
             this.atualizarDatabase.TabIndex = 1;
             this.atualizarDatabase.Text = "Atualizar";
             this.atualizarDatabase.UseVisualStyleBackColor = true;
             this.atualizarDatabase.Click += new System.EventHandler(this.atualizarDatabase_Click);
+            // 
+            // irregularidadesDataGrid
+            // 
+            this.irregularidadesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.irregularidadesDataGrid.Location = new System.Drawing.Point(473, 32);
+            this.irregularidadesDataGrid.Name = "irregularidadesDataGrid";
+            this.irregularidadesDataGrid.Size = new System.Drawing.Size(301, 374);
+            this.irregularidadesDataGrid.TabIndex = 2;
+            // 
+            // idFiscalizacaoTextBox
+            // 
+            this.idFiscalizacaoTextBox.Location = new System.Drawing.Point(558, 6);
+            this.idFiscalizacaoTextBox.Name = "idFiscalizacaoTextBox";
+            this.idFiscalizacaoTextBox.Size = new System.Drawing.Size(135, 20);
+            this.idFiscalizacaoTextBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(473, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ID Fiscalização";
             // 
             // Form1
             // 
@@ -229,7 +260,9 @@
             this.JSON.ResumeLayout(false);
             this.JSON.PerformLayout();
             this.GetDB.ResumeLayout(false);
+            this.GetDB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.irregularidadesDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,6 +285,9 @@
         private System.Windows.Forms.Label xmlFilePath;
         private System.Windows.Forms.Label jsonFilePath;
         private System.Windows.Forms.Button atualizarDatabase;
+        private System.Windows.Forms.DataGridView irregularidadesDataGrid;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox idFiscalizacaoTextBox;
     }
 }
 

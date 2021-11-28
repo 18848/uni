@@ -8,9 +8,16 @@ using System.Threading.Tasks;
 
 namespace FileConversion
 {
+    public class Irregularidade
+    {
+        [JsonProperty("Descricao")]
+        [XmlText]
+        public string Descricao { get; set; }
+    }
+
     public class Civil
     {
-        public Civil(int nif, string nome, DateTime data, int irregularidades)
+        public Civil(int nif, string nome, DateTime data, List<Irregularidade> irregularidades)
         {
             IdCivil = nif;
             Nome = nome;
@@ -22,7 +29,7 @@ namespace FileConversion
             IdCivil = 0;
             Nome = "";
             Data = DateTime.UtcNow;
-            Irregularidades = 0;
+            Irregularidades = null;
         }
 
         [JsonProperty("NIF")]
@@ -34,16 +41,22 @@ namespace FileConversion
         [JsonProperty("Data")]
         [XmlAttribute("Data")]
         public DateTime Data { get; set; }
+
         [JsonProperty("Irregularidades")]
-        [XmlAttribute("Irregularidades")]
-        public int Irregularidades { get; set; }
+        [XmlElement("Irregularidade")]
+        public List<Irregularidade> Irregularidades { get; set; }
     }
 
-    [XmlRoot("Fiscalizacao")]
+    [XmlRoot(ElementName ="Fiscalizacao")]
     public class Fiscalizacao
     {
         [JsonProperty("Civis")]
-        [XmlElement("Civil")]
+        [XmlElement(ElementName ="Civil")]
         public List<Civil> Fiscalizados { get; set; }
+
+        public Civil this[string name]
+        {
+            get { return Fiscalizados.FirstOrDefault(s => string.Equals(s.Nome, name, StringComparison.OrdinalIgnoreCase)); }
+        }
     }
 }
