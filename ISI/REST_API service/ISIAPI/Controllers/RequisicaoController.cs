@@ -37,19 +37,14 @@ namespace ISIAPI.Controllers
             return m.AddRequisicao(requisicaoConvertido);
         }
 
-        /*
-
-        [HttpPost("UpdateMaterial")]
-        public ActionResult Update(ModeloMaterial m)
+        [HttpGet]
+        [Route("getrequisicaobyequipa/{idEquipa}")]
+        public string GetRequisicaoByEquipca(int idEquipa)
         {
-            if (m.Id >= 0 && m.Id < materiais.Count)
-            {
-                materiais[m.Id] = m;
-                return Ok();
-            }
-            return NotFound();
+            return m.GetRequisicaoByEquipa(idEquipa);
         }
-        */
+
+
 
     }
 }

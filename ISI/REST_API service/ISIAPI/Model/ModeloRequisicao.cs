@@ -105,6 +105,25 @@ namespace ISIAPI
             return "True";
         }
 
+        public string GetRequisicaoByEquipa(int idEquipa)
+        {
+
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
+            con.Open();
+
+            string q = "Select * from requisicao where equipa_idEquipa = " + idEquipa.ToString();
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            string jsonString = string.Empty;
+            jsonString = JsonConvert.SerializeObject(dt);
+            return jsonString;
+        }
+
 
 
     }
