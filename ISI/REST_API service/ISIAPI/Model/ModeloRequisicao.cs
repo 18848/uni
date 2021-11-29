@@ -12,12 +12,12 @@ namespace ISIAPI
     {
         private int idRequisicao;
         private bool entregue;
-        private int equipa_idEquipa;
+        private int idEquipa;
 
         [Required]
         public int Id { get => idRequisicao; set => idRequisicao = value; }
         public bool Entregue { get => entregue; set => entregue = value; }
-        public int IdEquipa { get => equipa_idEquipa; set => equipa_idEquipa = value; }
+        public int IdEquipa { get => idEquipa; set => idEquipa = value; }
     }
 
     public class ModeloRequisicoes
@@ -69,11 +69,11 @@ namespace ISIAPI
 
 
             if (s.Entregue == true){
-                q = "INSERT INTO requisicao (entregue, equipa_idEquipa) values(1, '"+ s.IdEquipa.ToString() +"')";
+                q = "INSERT INTO requisicao (entregue, idEquipa) values(1, '"+ s.IdEquipa.ToString() +"')";
             }
             else
             {
-                q = "INSERT INTO requisicao (entregue, equipa_idEquipa) values(0)";
+                q = "INSERT INTO requisicao (entregue, idEquipa) values(0, '" + s.IdEquipa.ToString() + "')";
             }
             
 
@@ -113,7 +113,7 @@ namespace ISIAPI
 
             con.Open();
 
-            string q = "Select * from requisicao where equipa_idEquipa = " + idEquipa.ToString();
+            string q = "Select * from requisicao where idEquipa = " + idEquipa.ToString();
             SqlDataAdapter da = new SqlDataAdapter(q, con);
 
             DataTable dt = new DataTable();

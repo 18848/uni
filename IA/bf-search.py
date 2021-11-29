@@ -1,5 +1,4 @@
 from tree import Tree
-from anytree
 from score import state_score
 import itertools
 import copy
@@ -10,43 +9,25 @@ daysComb = list(itertools.combinations([0, 1, 2, 3, 4, 5, 6], workingDays))
 turnsComb = list(itertools.product([0, 1], repeat=workingDays))
 
 d = list(schedule)          # Segunda ...
-print(d)
 t = list(schedule[d[0]])    # Manha ...
-print(t)
 funcsList = list(funcs)      # António Manel ...
 
 
 def BreadFirst():
-    search = Tree(data={'state':schedule, 'score':0})
-    # result = Tree(data='begin')
-    scoreMax = -1000
-    idMax = 0
+    search = Tree(data='begin')
 
     for f in funcsList:
-        # Copy best state
-        new = copy.deepcopy(search.children[idMax].data[])
-        # Combinações de Dias
         for days in daysComb:           # (0, 1, 2, 3, 4), (0, 1, 2, 3, 5), ...
-            # Combinações de Turnos
             for turns in turnsComb:     # (0, 0, 0, 0, 1), (0, 0, 0, 1, 0), ...
+                new = copy.deepcopy(schedule)
                 for x in range(0, workingDays): 
                     new[d[days[x]]][t[turns[x]]].append(f)
-                # Get state score
-                score = state_score(new)
-                # If new MAX
-                if scoreMax < score:
-                    scoreMax = score
-                    idMax = len(search.children)
-                # Add new state
-                search.add_child(data={'state':schedule, 'score':score})
-
-        search = search.children[idMax].add_child(data={'state':schedule, 'score':scoreMax})
-        search.show_Tree()
-        input()
+                # search.add_child((new, state_score(new)))
+                search.add_child(new)
         break
-
-    print(scoreMax)
     input()
+
+    state_score(search.children[0].data)
 
     # search.show_Tree()
     # print(daysComb)

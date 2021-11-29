@@ -1,27 +1,33 @@
-from anytree import Node, RenderTree
+import json 
 
-level = list()
 
-root = Node('root')
+f = open("schedule.json", "r")
+c = json.load(f)
+print(c)
 
-level.append(Node('a', parent=root))
-level.append(Node('b', parent=root))
-level.append(Node('c', parent=root))
 
-prevlevel = level
 
-level = list()
+def calendarPrint(week):
+    for day in week:
+        print(f"\t{day.key}")
 
-level.append(Node('a', parent=prevlevel[1]))
-level.append(Node('b', parent=prevlevel[1]))
-level.append(Node('c', parent=prevlevel[1]))
 
-prevlevel = level
 
-level = list()
 
-level.append(Node('d', parent=prevlevel[0]))
-level.append(Node('e', parent=prevlevel[0]))
-level.append(Node('f', parent=prevlevel[0]))
 
-print(RenderTree(root))
+
+
+
+
+# funcionariosTotal = 10 
+# acrescimo = funcionariosTotal / 10
+# clientesDia = c["segunda"]
+# clientesMaximo = max(c)
+# clientesMinimo = min(c)
+# # Abordagem 1
+# y = 3 + (clientesDia - clientesMinimo)/100 + acrescimo
+# # Abordagem 2
+# y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
+
+
+

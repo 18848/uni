@@ -8,11 +8,11 @@ class Tree():
         self.children.append(Tree(data))
 
     def show_Tree(self, level=0):
+        print(str(level*">") + str(self.data))
         level += 1
         for t in self.children:
             if t is not None: 
                 t.show_Tree(level=level)
-        print(str(level*">") + str(self.data))
 
 
 # t = Tree(0)
