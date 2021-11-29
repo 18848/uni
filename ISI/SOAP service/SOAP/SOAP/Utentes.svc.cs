@@ -171,19 +171,6 @@ namespace SOAP
                 utenteCom.Parameters.AddWithValue("@nome", nome);
 
                 utenteCom.ExecuteNonQuery();
-
-                //5º Query SELECT
-                utente = "SELECT * FROM utente WHERE idutente = " + idUtente.ToString();
-
-                SqlDataAdapter utenteDA = new SqlDataAdapter(utente, con);
-                DataSet ds = new DataSet();
-
-
-                //6º Execute SELECT of previous INSERT
-                utenteDA.Fill(ds, "Utente");
-
-                con.Close();
-                //Devolve a nova coluna da tabela
             }
             catch (SqlException ex)
             {
@@ -193,6 +180,8 @@ namespace SOAP
             {
                 return "Exception:\n" + ex.Message.ToString();
             }
+            
+            con.Close();
 
             return "success";
         }

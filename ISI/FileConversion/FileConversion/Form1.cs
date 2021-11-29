@@ -32,8 +32,9 @@ namespace FileConversion
         }
 
         #region XML
-        private (Fiscalizacao, string) DeserializeXml()
+        private Fiscalizacao DeserializeXml()
         {
+            Fiscalizacao f = null;
             try
             {
                 XmlSerializer ser = new XmlSerializer(typeof(Fiscalizacao));
@@ -54,10 +55,18 @@ namespace FileConversion
                         //Read the contents of the file into a stream
                         var fileStream = openFileDialog.OpenFile();
 
-                        using (StreamReader reader = new StreamReader(fileStream))
-                        {
-                            return ((Fiscalizacao)ser.Deserialize(reader), filePath);
-                        }
+                        StreamReader reader = new StreamReader(fileStream);
+
+                        f = (Fiscalizacao) ser.Deserialize(reader);
+
+                        fileStream.Position = 0;
+
+                        reader = new StreamReader(fileStream);
+                    
+                        xmlTextBox.Text = reader.ReadToEnd();
+
+                        xmlFilePath.Text = filePath;
+                        return f;
                     }
                 }
             }
@@ -65,7 +74,8 @@ namespace FileConversion
             {
                 MessageBox.Show(ex.Message);
             }
-            return(null, null);
+
+            return f;
         }
 
         private void UpdateTextBox(string filePath)
@@ -89,24 +99,29 @@ namespace FileConversion
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xmlSendButton_Click(object sender, EventArgs e)
         {
             try
             {
                 con.Open();
 
-                foreach (Civil civil in fiscalizados.Fiscalizados)
+                foreach (Fiscalizado civil in fiscalizados.Fiscalizados)
                 {
-                    string qCivil = "INSERT INTO fiscalizacao (idcivil, nome, data) VALUES ('" + civil.IdCivil.ToString() + "','" +
-                        civil.Nome + "','" + civil.Data.ToString("yyyy-MM-dd") + "')";
+                    string qCivil = "INSERT INTO fiscalizacao (idutente, data) VALUES ('" + civil.IdCivil.ToString() + "','" 
+                        + civil.Data.ToString("yyyy-MM-dd") + "')";
 
                     SqlCommand cmdCivil = new SqlCommand(qCivil, con);
                     cmdCivil.ExecuteNonQuery();
 
                     foreach(Irregularidade irregularidade in civil.Irregularidades)
                     {
-                        string select = "SELECT idfiscalizacao FROM fiscalizacao WHERE idcivil = '" + civil.IdCivil.ToString()
-                            + "' AND nome = LOWER('" + civil.Nome + "') AND data = '" + civil.Data.ToString("yyyy-MM-dd") + "'";
+                        string select = "SELECT idfiscalizacao FROM fiscalizacao WHERE idutente = '" + civil.IdCivil.ToString()
+                            + "' AND data = '" + civil.Data.ToString("yyyy-MM-dd") + "'";
 
                         SqlDataAdapter da = new SqlDataAdapter(select, con);
                         DataTable dt = new DataTable();
@@ -145,22 +160,25 @@ namespace FileConversion
             }
         }
 
+        /// <summary>
+        /// Loads XML File.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xmlLoadButton_Click(object sender, EventArgs e)
         {
             try
             {
-                string path;
-
-                (fiscalizados, path) = DeserializeXml();
+                fiscalizados = DeserializeXml();
                 if(fiscalizados == null)
                 {
                     MessageBox.Show("An Error Has Ocurred While Openning File Dialog.\nPlease try again.");
                 }
-                else
-                {
-                    xmlFilePath.Text = path;
-                    UpdateTextBox(path);
-                }
+                //else
+                //{
+                //    xmlFilePath.Text = path;
+                //    UpdateTextBox(path);
+                //}
 
                 MessageBox.Show("File Contents Loaded Successfully");
             }
@@ -226,18 +244,18 @@ namespace FileConversion
                 {
                     con.Open();
 
-                    foreach(Civil civil in fiscalizados.Fiscalizados)
+                    foreach(Fiscalizado civil in fiscalizados.Fiscalizados)
                     {
-                        string qCivil = "INSERT INTO fiscalizacao (idcivil, nome, data) VALUES ('" + civil.IdCivil.ToString() + "','" +
-                            civil.Nome + "','" + civil.Data.ToString("yyyy-MM-dd") + "')";
+                        string qCivil = "INSERT INTO fiscalizacao (idutente, data) VALUES ('" + civil.IdCivil.ToString() + "','" 
+                                + civil.Data.ToString("yyyy-MM-dd") + "')";
 
                         SqlCommand cmdCivil = new SqlCommand(qCivil, con);
                         cmdCivil.ExecuteNonQuery();
 
                         foreach (Irregularidade irregularidade in civil.Irregularidades)
                         {
-                            string select = "SELECT idfiscalizacao FROM fiscalizacao WHERE idcivil = '" + civil.IdCivil.ToString()
-                               + "' AND nome = LOWER('" + civil.Nome + "') AND data = '" + civil.Data.ToString("yyyy-MM-dd") + "'";
+                            string select = "SELECT idfiscalizacao FROM fiscalizacao WHERE idutente = '" + civil.IdCivil.ToString()
+                               + "' AND data = '" + civil.Data.ToString("yyyy-MM-dd") + "'";
 
                             SqlDataAdapter da = new SqlDataAdapter(select, con);
                             DataTable dt = new DataTable();
@@ -253,7 +271,6 @@ namespace FileConversion
                     }
                     MessageBox.Show("Dados Adicionados com Sucesso.");
                     
-                    con.Close();
                 }
             }
             catch(FormatException ex)
@@ -267,6 +284,15 @@ namespace FileConversion
             catch (Exception ex)
             {
                 MessageBox.Show("EXCEPTION:\n" + ex.Message);
+            }
+
+            try
+            {
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL EXCEPTION:\n" + ex.Message);
             }
         }
         

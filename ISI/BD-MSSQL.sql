@@ -11,7 +11,8 @@
 -- Schema mydb
 -- -----------------------------------------------------
 -- CREATE SCHEMA ISI DEFAULT CHARACTER SET utf8 ;
--- USE ISI ;
+USE ISI ;
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`material`
@@ -20,7 +21,7 @@ CREATE TABLE material (
   idMaterial INT NOT NULL IDENTITY(1,1),
   nome VARCHAR(45) NULL,
   custo FLOAT NULL,
-  PRIMARY KEY (`idMaterial`))
+  PRIMARY KEY (idMaterial))
 
 
 -- -----------------------------------------------------
@@ -51,7 +52,7 @@ CREATE TABLE requisicao (
 -- Table `mydb`.`utente`
 -- -----------------------------------------------------
 CREATE TABLE utente (
-  idutente INT NOT NULL IDENTITY(1,1),
+  idutente INT NOT NULL,
   nome VARCHAR(45) NULL,
   PRIMARY KEY (idutente))
 
@@ -116,11 +117,11 @@ CREATE TABLE requisicaoMaterial (
 -- -----------------------------------------------------
 CREATE TABLE fiscalizacao (
   idfiscalizacao INT NOT NULL IDENTITY(1,1),
-  utente_idutente INT NOT NULL,
+  idutente INT NOT NULL,
   data DATE NULL,
   PRIMARY KEY (idfiscalizacao),
   CONSTRAINT fk_fiscalizacao_utente1
-    FOREIGN KEY (utente_idutente)
+    FOREIGN KEY (idutente)
     REFERENCES utente (idutente)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

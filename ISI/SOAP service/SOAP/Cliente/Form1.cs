@@ -71,7 +71,8 @@ namespace Cliente
                 ModeloUtente u = new ModeloUtente(
                                     nomeBox.Text
                                     , int.Parse(nifBox.Text));
-                utentesWS.AddUtentes(u.Nif, u.Nome);
+                string result = utentesWS.AddUtentes(u.Nif, u.Nome);
+                MessageBox.Show(result);
             }
             catch (FormatException ex)
             {

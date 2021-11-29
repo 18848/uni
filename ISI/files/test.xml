@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Fiscalizacao>
+    <Fiscalizado nif="1234" data="2001-01-01">
+        <Irregularidade>
+            primeira no xml
+        </Irregularidade>
+        <Irregularidade>
+            segunda xml
+        </Irregularidade>
+    </Fiscalizado>
+    <Fiscalizado nif="5678" data="2002-02-02">
+        <Irregularidade>
+            3 xml
+        </Irregularidade>
+        <Irregularidade>
+            4 xml
+        </Irregularidade>
+    </Fiscalizado>
+</Fiscalizacao>
