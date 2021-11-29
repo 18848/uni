@@ -37,6 +37,15 @@ namespace ISIAPI.Controllers
             return m.AddRequisicaoMaterial(requisicaoMaterialConvertido);
         }
 
+
+
+        [HttpGet]
+        [Route("getmaterialbyrequisicao/{idRequisicao}")]
+        public string GetRequisicaoMaterialbyRequisicaoEquipa(int idRequisicao)
+        {
+            return m.GetRequisicaoMaterialByRequisicaoEquipa(idRequisicao);
+        }
+
         /*
 
         [HttpPost("UpdateMaterial")]

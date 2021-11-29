@@ -95,6 +95,29 @@ namespace ISIAPI
 
         }
 
+        //Devolver materiais para uma requisicao efetuada por uma equipa
+        public string GetRequisicaoMaterialByRequisicaoEquipa(int idRequisicao)
+        {
+
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
+            con.Open();
+
+            string q = "SELECT  idRequisicao, reqMat.idMaterial, nome,  custo , reqMat.qtd FROM requisicaoMaterial AS reqMat INNER JOIN material ON material.idMaterial = reqMat.idMaterial WHERE idRequisicao = " + idRequisicao;
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            string jsonString = string.Empty;
+            jsonString = JsonConvert.SerializeObject(dt);
+            return jsonString;
+        }
+
+
+
+
         //Encontrar nome de material
         public string GetRequisicaoMaterialById(int idRequisicaoMaterial)
         {
