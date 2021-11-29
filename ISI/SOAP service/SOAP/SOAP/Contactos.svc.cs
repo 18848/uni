@@ -24,12 +24,14 @@ namespace SOAP
         /// <returns DataSet="Contactos"> Returns a DataSet with information on All Rows for Contacts with Covid-positive Cases. </returns>
         public DataSet GetContacto()
         {
+            DataSet ds = new DataSet();
+
+            //2º OpenConnection
             try
             {
-                //2º OpenConnection
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataSet x = new DataSet();
                 DataTable dt = new DataTable();
@@ -40,20 +42,37 @@ namespace SOAP
             }
 
             //3º Query
-            string q = "SELECT * FROM contacto";
-
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
-            DataSet ds = new DataSet();
-
+            //4º Execute
             try
             {
-                //4º Execute
-                da.Fill(ds, "Contactos");
+                string q = "SELECT * FROM contacto";
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-                //5º CloseConnection
-                con.Close();
+                da.Fill(ds, "Contactos");
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
             }
             catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
+
+            //5º CloseConnection
+            try
+            {
+                con.Close();
+            }
+            catch(SqlException ex)
             {
                 DataTable dt = new DataTable();
                 dt.Columns.Add("Exception");
@@ -73,12 +92,14 @@ namespace SOAP
         /// <returns> Returns a DataSet with information on All Rows for Contacts with Covid-positive Cases. </returns>
         public DataSet GetContacto(int id, bool nif)
         {
+            DataSet ds = new DataSet();
+
+            //2º OpenConnection
             try
             {
-                //2º OpenConnection
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataSet x = new DataSet();
                 DataTable dt = new DataTable();
@@ -89,26 +110,30 @@ namespace SOAP
             }
 
             //3º Query
-            string q;
-            if(nif == true)
-            {
-                q = "SELECT * FROM contacto WHERE idutente = '" + id.ToString() + "'";
-            }
-            else
-            {
-                q = "SELECT * FROM contacto WHERE idcaso = '" + id.ToString() + "'";
-            }
-
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
-            DataSet ds = new DataSet();
-
+            //4º Execute
             try
             {
-                //4º Execute
-                da.Fill(ds, "Contactos");
+                string q;
+                if(nif == true)
+                {
+                    q = "SELECT * FROM contacto WHERE idutente = '" + id.ToString() + "'";
+                }
+                else
+                {
+                    q = "SELECT * FROM contacto WHERE idcaso = '" + id.ToString() + "'";
+                }
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-                //5º CloseConnection
-                con.Close();
+                da.Fill(ds, "Contactos");
+            }
+            catch (SqlException ex)
+            {
+                DataSet x = new DataSet();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                x.Tables.Add(dt);
+                return x;
             }
             catch (Exception ex)
             {
@@ -123,7 +148,7 @@ namespace SOAP
             {
                 con.Close();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataTable dt = new DataTable();
                 dt.Columns.Add("Exception");
@@ -134,6 +159,7 @@ namespace SOAP
             //Devolve o resultado
             return ds;
         }
+     
         /// <summary>
         /// Connects to a Database to Insert Contactos
         /// </summary>
@@ -148,17 +174,17 @@ namespace SOAP
                 //2º OpenConnection
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                return "SQL Server FAILED TO CONNECT:\n" + ex.Message.ToString();
+                return "SQL Server:\n" + ex.Message.ToString();
             }
 
             //3º Query INSERT
-            string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
-
+            //4º Execute INSERT
             try
             {
-                //4º Execute INSERT
+                string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
+            
                 SqlCommand contactoCom = new SqlCommand(contacto, con);
 
                 contactoCom.Parameters.AddWithValue("@idutente", idUtente);
@@ -181,10 +207,11 @@ namespace SOAP
             }
             catch(SqlException ex)
             {
-                return "SQL FAILED TO CLOSE" + ex.Message.ToString();
+                return "SQL:\n" + ex.Message.ToString();
             }
             //Devolve a nova coluna da tabela
             return "Success";
         }
+
     }
 }

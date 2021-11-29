@@ -18,14 +18,20 @@ namespace SOAP
         private protected static string server = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
         private protected SqlConnection con = new SqlConnection(server);
 
+        /// <summary>
+        /// Selects Utentes.
+        /// </summary>
+        /// <returns> All Utentes From Table. </returns>
         public DataSet GetUtentes()
         {
+            DataSet ds = new DataSet();
+        
             try
             {
                 //2º OpenConnection
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataSet x = new DataSet();
                 DataTable dt = new DataTable();
@@ -36,18 +42,21 @@ namespace SOAP
             }
 
             //3º Query
-            string q = "select * from utente";
-
-            SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
-            DataSet ds = new DataSet();
-
+            //4º Execute
             try
             {
-                //4º Execute
-                da.Fill(ds, "Utentes");
+                string q = "select * from utente";
+                SqlDataAdapter da = new SqlDataAdapter(q, con);    //via SQLServer
 
-                //5º CloseConnection
-                con.Close();
+                da.Fill(ds, "Utentes");
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
             }
             catch (Exception ex)
             {
@@ -57,18 +66,39 @@ namespace SOAP
                 ds.Tables.Add(dt);
                 return ds;
             }
-            //Devolve o resultado
-            return (ds);
+
+            //5º CloseConnection
+            try
+            {
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
+
+            return ds;
         }
 
+        /// <summary>
+        /// Selects Utentes with matching nif (idutente).
+        /// </summary>
+        /// <param name="nif"> Primary Key on Database table. </param>
+        /// <returns DataSet> Matching Table Rows. </returns>
         public DataSet GetUtentes(int nif)
         {
+            DataSet ds = new DataSet();
+
+            //2º OpenConnection
             try
             {
-                //2º OpenConnection
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataSet x = new DataSet();
                 DataTable dt = new DataTable();
@@ -79,18 +109,30 @@ namespace SOAP
             }
 
             //3º Query
-            string q = "SELECT * FROM utente WHERE idutente = " + nif.ToString();
-
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
-            DataSet ds = new DataSet();
-
+            //4º Execute
             try
             {
-                //4º Execute
+                string q = "SELECT * FROM utente WHERE idutente = " + nif.ToString();
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
+
                 da.Fill(ds, "Utentes");
 
-                //5º CloseConnection
-                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
+            catch (FormatException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
             }
             catch (Exception ex)
             {
@@ -100,18 +142,39 @@ namespace SOAP
                 ds.Tables.Add(dt);
                 return ds;
             }
+
+            //5º CloseConnection
+            try
+            {
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
+            
             //Devolve o resultado
             return (ds);
         }
 
+        /// <summary>
+        /// Selects Utentes with matching nome.
+        /// </summary>
+        /// <param name="nome"> Filtering Condition. </param>
+        /// <returns DataSet> Matching Table Rows. </returns>
         public DataSet GetUtentes(string nome)
         {
+            DataSet ds = new DataSet();
+            //2º OpenConnection
             try
             {
-                //2º OpenConnection
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataSet x = new DataSet();
                 DataTable dt = new DataTable();
@@ -122,18 +185,29 @@ namespace SOAP
             }
 
             //3º Query
-            string q = "SELECT * FROM utente WHERE nome = '" + nome.ToString() + "'";
-
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
-            DataSet ds = new DataSet();
-
+            //4º Execute
             try
             {
-                //4º Execute
-                da.Fill(ds, "Utentes");
+                string q = "SELECT * FROM utente WHERE nome = '" + nome.ToString() + "'";
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-                //5º CloseConnection
-                con.Close();
+                da.Fill(ds, "Utentes");
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
+            catch (FormatException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
             }
             catch (Exception ex)
             {
@@ -143,10 +217,32 @@ namespace SOAP
                 ds.Tables.Add(dt);
                 return ds;
             }
+
+            // 5º CloseConnection
+            try
+            {
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds.Tables.Add(dt);
+                return ds;
+            }
+
             //Devolve o resultado
-            return (ds);
+            return ds;
         }
 
+        /// <summary>
+        /// Add Utentes to Database.
+        /// </summary>
+        /// <param name="idUtente"></param>
+        /// <param name="nome"></param>
+        /// <returns string="success"> On successful INSERT. </returns>
+        /// <returns string> On error or conflict. Returns Type and Message. </returns>
         public string AddUtentes(int idUtente, string nome)
         {
             //2º OpenConnection
@@ -159,12 +255,12 @@ namespace SOAP
                 return "SQL Server FAILED TO CONNECT:\n" + ex.Message.ToString();
             }
 
+            //3º Query INSERT
+            //4º Execute INSERT
             try
             {
-                //3º Query INSERT
                 string utente = "INSERT INTO dbo.utente (idutente, nome) VALUES (@idutente, @nome)";
 
-                //4º Execute INSERT
                 SqlCommand utenteCom = new SqlCommand(utente, con);
 
                 utenteCom.Parameters.AddWithValue("@idutente", idUtente);
@@ -180,8 +276,16 @@ namespace SOAP
             {
                 return "Exception:\n" + ex.Message.ToString();
             }
-            
-            con.Close();
+           
+            //5º CloseConnection
+            try
+            {
+                con.Close();
+            }
+            catch(SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
 
             return "success";
         }
