@@ -14,16 +14,8 @@ namespace ISIAPI
         private string nome;
         private float custo;
 
-
-        public ModeloMaterial(int id, string n, float c){
-            idMaterial = id;
-            nome = n;
-            custo = c;
-        }
-
         [Required]
         public int Id { get => idMaterial; set => idMaterial = value; }
-        [Required]
         public string Nome { get => nome; set => nome = value; }
         public float Custo { get => custo; set => custo = value; }
     }
@@ -73,7 +65,7 @@ namespace ISIAPI
 
             con.Open();
 
-            string q = "INSERT INTO material (nome, custo) values('" + s.Nome + "', '" + s.Custo.ToString() + "')";
+            string q = "INSERT INTO material (nome, custo) OUTPUT Inserted.idMaterial values('" + s.Nome + "', '" + s.Custo.ToString() + "')";
 
             try
             {
@@ -81,8 +73,13 @@ namespace ISIAPI
                 SqlCommand com = new SqlCommand(q, con);
 
                 com.ExecuteNonQuery();
+                SqlDataReader reader = com.ExecuteReader();
+                reader.Read();
 
-                return "True";
+                string jsonString = string.Empty;
+                
+
+                return reader[0].ToString();
             }
             catch (SqlException ex)
             {
