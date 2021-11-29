@@ -144,12 +144,69 @@ namespace ClientRest
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("/api/RequisicaoMaterial/getmaterialbyrequisicao/" + int.Parse(tokens[0])).Result;
             var res = response.Content.ReadAsStringAsync().Result;
-            MessageBox.Show(res);
             materiais = Newtonsoft.Json.JsonConvert.DeserializeObject <List<RequisicaoMaterialModel>>(res);
 
             foreach (RequisicaoMaterialModel s in materiais)
             {
                 this.listBox3.Items.Add(s.idMaterial + " - " + s.nome + " - " + s.custo.ToString() + " - " + s.qtd.ToString());
+            }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.listBox4.Items.Clear();
+
+            List<EquipaModel> equipas = new List<EquipaModel>();
+
+            HttpClient clint = new HttpClient();
+            clint.BaseAddress = new Uri("https://localhost:44370/");
+            HttpResponseMessage response = clint.GetAsync("api/Equipa/getall").Result;
+            var res = response.Content.ReadAsStringAsync().Result;
+
+            equipas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EquipaModel>>(res);
+
+            foreach (EquipaModel s in equipas)
+            {
+                this.listBox4.Items.Add(s.idEquipa + " - " + s.nome);
+            }
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            this.listBox5.Items.Clear();
+
+            List<MaterialModel> materiais = new List<MaterialModel>();
+
+            HttpClient clint = new HttpClient();
+            clint.BaseAddress = new Uri("https://localhost:44370/");
+            HttpResponseMessage response = clint.GetAsync("api/Material/getall").Result;
+            var res = response.Content.ReadAsStringAsync().Result;
+
+            materiais = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MaterialModel>>(res);
+
+            foreach (MaterialModel s in materiais)
+            {
+                this.listBox5.Items.Add(s.idMaterial + " - " + s.nome + " - " + s.custo);
             }
         }
     }
