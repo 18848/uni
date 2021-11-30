@@ -35,20 +35,20 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.casosTab = new System.Windows.Forms.TabPage();
+            this.casosGridView = new System.Windows.Forms.DataGridView();
             this.casos = new System.Windows.Forms.Button();
             this.visitasTab = new System.Windows.Forms.TabPage();
             this.dgsTab = new System.Windows.Forms.TabPage();
             this.dgs = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.casosGridView = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.equipasTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.casosTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.casosGridView)).BeginInit();
             this.dgsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.casosGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -85,6 +85,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Produtos Mais Requisitados";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -94,6 +95,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Equipas Mais Caras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView3
             // 
@@ -122,6 +124,14 @@
             this.casosTab.TabIndex = 1;
             this.casosTab.Text = "Casos";
             this.casosTab.UseVisualStyleBackColor = true;
+            // 
+            // casosGridView
+            // 
+            this.casosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.casosGridView.Location = new System.Drawing.Point(405, 22);
+            this.casosGridView.Name = "casosGridView";
+            this.casosGridView.Size = new System.Drawing.Size(323, 418);
+            this.casosGridView.TabIndex = 1;
             // 
             // casos
             // 
@@ -172,14 +182,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(340, 409);
             this.dataGridView1.TabIndex = 0;
             // 
-            // casosGridView
-            // 
-            this.casosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.casosGridView.Location = new System.Drawing.Point(405, 22);
-            this.casosGridView.Name = "casosGridView";
-            this.casosGridView.Size = new System.Drawing.Size(323, 418);
-            this.casosGridView.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,9 +195,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.casosTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.casosGridView)).EndInit();
             this.dgsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.casosGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

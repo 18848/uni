@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using Dashboard.Casos;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 //using Dashboard.CasosAzure;
 
 namespace Dashboard
@@ -77,5 +80,15 @@ namespace Dashboard
             }
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
