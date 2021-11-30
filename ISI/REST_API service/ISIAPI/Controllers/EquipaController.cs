@@ -37,7 +37,7 @@ namespace ISIAPI.Controllers
 
         [HttpPost]
         [Route("addequipa")]
-        public string AddEquipa(string equipa)
+        public string AddEquipa([FromBody] string equipa)
         {
             ModeloEquipa equipaConvertido = Newtonsoft.Json.JsonConvert.DeserializeObject<ModeloEquipa>(equipa);
             return m.AddEquipa(equipaConvertido);

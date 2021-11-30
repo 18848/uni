@@ -394,7 +394,7 @@ namespace ClientRest
                     HttpClient clint = new HttpClient();
                     clint.BaseAddress = new Uri("https://localhost:44370/");
                     var response = await clint.PostAsync("api/Equipa/addEquipa", conteudo);
-
+                    button9_Click(null, null);
 
 
                 }
