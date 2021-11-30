@@ -27,6 +27,10 @@ namespace ClientRest
 
         string custoMaterialAdd; // Custo do material a adicionar
 
+        string equipaSelecionada; // Equipa Selecionada na primeira listbox
+
+        string lisboxReqSelecionado; // Elemento selecionado na lista de requisições
+
         public Form1()
         {
             InitializeComponent();
@@ -141,22 +145,27 @@ namespace ClientRest
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.listBox3.Items.Clear();
-
-            string curItem = listBox2.SelectedItem.ToString();
-            string[] tokens = curItem.Split(new[] { " - " }, StringSplitOptions.None);
-
-            List<RequisicaoMaterialModel> materiais = new List<RequisicaoMaterialModel>();
-            HttpClient clint = new HttpClient();
-            clint.BaseAddress = new Uri("https://localhost:44370/");
-            HttpResponseMessage response = clint.GetAsync("/api/RequisicaoMaterial/getmaterialbyrequisicao/" + int.Parse(tokens[0])).Result;
-            var res = response.Content.ReadAsStringAsync().Result;
-            materiais = Newtonsoft.Json.JsonConvert.DeserializeObject <List<RequisicaoMaterialModel>>(res);
-
-            foreach (RequisicaoMaterialModel s in materiais)
+            if(listBox2.SelectedItem != null)
             {
-                this.listBox3.Items.Add(s.idMaterial + " - " + s.nome + " - " + s.custo.ToString() + " - " + s.qtd.ToString());
+                this.listBox3.Items.Clear();
+                string curItem = listBox2.SelectedItem.ToString();
+                lisboxReqSelecionado = curItem; // Selecionar o elemento
+
+                string[] tokens = curItem.Split(new[] { " - " }, StringSplitOptions.None);
+
+                List<RequisicaoMaterialModel> materiais = new List<RequisicaoMaterialModel>();
+                HttpClient clint = new HttpClient();
+                clint.BaseAddress = new Uri("https://localhost:44370/");
+                HttpResponseMessage response = clint.GetAsync("/api/RequisicaoMaterial/getmaterialbyrequisicao/" + int.Parse(tokens[0])).Result;
+                var res = response.Content.ReadAsStringAsync().Result;
+                materiais = Newtonsoft.Json.JsonConvert.DeserializeObject<List<RequisicaoMaterialModel>>(res);
+
+                foreach (RequisicaoMaterialModel s in materiais)
+                {
+                    this.listBox3.Items.Add(s.idMaterial + " - " + s.nome + " - " + s.custo.ToString() + " - " + s.qtd.ToString());
+                }
             }
+            
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -169,9 +178,44 @@ namespace ClientRest
             this.listBox6.Items.Add(selectedMaterial + " - " + upAndDownValue);
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
 
+        // Botão Envia Requisição
+        private async void button3_Click_1(object sender, EventArgs e)
+        {
+            if(equipaSelecionada != null && this.listBox6.Items != null)
+            {
+                string[] tokensEquipa = equipaSelecionada.Split(new[] { " - " }, StringSplitOptions.None);
+                
+                //Formatação do Json para envio no post
+                string json = "[";
+                foreach (var x in listBox6.Items)
+                {
+                    string item = x.ToString();
+                    string[] tokensItem = item.Split(new[] { " - " }, StringSplitOptions.None);
+                    json = json + "{\"idMaterial\":" + tokensItem[0] + ",\"qtd\":" + tokensItem[3] + "},";
+                }
+                //Remover "," a mais na string
+                json = json.Remove(json.Length - 1);
+                json = json + "]";
+                var materialAdd = JsonConvert.SerializeObject(json);
+                var conteudo = new StringContent(materialAdd, Encoding.UTF8, "application/json");
+
+                try
+                {
+                    //Enviar o post de uma nova requisicao Material
+                    HttpClient clint = new HttpClient();
+                    clint.BaseAddress = new Uri("https://localhost:44370/");
+                    var response = await clint.PostAsync("api/RequisicaoMaterial/postRequisicaoMateriais/" + tokensEquipa[0], conteudo);
+
+                    string res = response.Content.ReadAsStringAsync().Result;
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
+                this.listBox6.Items.Clear();
+
+            }
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -277,7 +321,6 @@ namespace ClientRest
                 var response = await clint.PostAsync("api/Material/addmaterial", conteudo);
 
                 string res = response.Content.ReadAsStringAsync().Result;
-                MessageBox.Show(res);
                 //Atualizar tabela de materiais adicionados
                 string materialJson = "{\"idMaterial\":" + res + ",\"nome\": \"" + nomeMaterialAdd + "\", \"custo\":" + custoMaterialAdd + "}";
                 material = Newtonsoft.Json.JsonConvert.DeserializeObject<MaterialModel>(materialJson);
@@ -292,6 +335,34 @@ namespace ClientRest
             {
                 MessageBox.Show(x.Message);
             }
+
+        }
+
+        //Ao selectionar uma equipa guarda
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            equipaSelecionada = this.listBox4.SelectedItem.ToString();
+        }
+
+        //Fazer update do campo entregue na requisicao
+        private async void button11_Click(object sender, EventArgs e)
+        {
+
+            if(lisboxReqSelecionado != null)
+            {
+                string[] token = lisboxReqSelecionado.Split(new[] { " - " }, StringSplitOptions.None);
+
+                string materialAdd = "";
+                var json = JsonConvert.SerializeObject(materialAdd);
+                var conteudo = new StringContent(json, Encoding.UTF8, "application/json");
+
+                MessageBox.Show("api/Requisicao/updateEntregue/" + token[0]);
+                HttpClient clint = new HttpClient();
+                clint.BaseAddress = new Uri("https://localhost:44370/");
+                var response = await clint.PutAsync("api/Requisicao/updateEntregue/" + token[0], conteudo);
+
+                button7_Click(null, null);
+            } 
 
         }
     }

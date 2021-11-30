@@ -44,6 +44,13 @@ namespace ISIAPI.Controllers
             return m.GetRequisicaoByEquipa(idEquipa);
         }
 
+        [HttpPut]
+        [Route("updateEntregue/{idRequisicao}")]
+        public string UpdateRequisicaoEntregue(int idRequisicao)
+        {
+            return m.UpdateRequisicao(idRequisicao);
+        }
+
 
 
     }
