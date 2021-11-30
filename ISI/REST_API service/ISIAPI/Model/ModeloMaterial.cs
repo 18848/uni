@@ -71,8 +71,6 @@ namespace ISIAPI
             {
                 //4º Execute INSERT
                 SqlCommand com = new SqlCommand(q, con);
-
-                com.ExecuteNonQuery();
                 SqlDataReader reader = com.ExecuteReader();
                 reader.Read();
 

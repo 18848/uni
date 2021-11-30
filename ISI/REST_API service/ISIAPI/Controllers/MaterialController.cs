@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace ISIAPI.Controllers
 {   
@@ -29,10 +30,9 @@ namespace ISIAPI.Controllers
         }
 
 
-        [HttpPost]
-        [Route("addmaterial")]
-        public string AddMaterial(string material)
-        {
+        [HttpPost("addmaterial")]
+        public string AddMaterial([FromBody] string material)
+        {   
             ModeloMaterial materialConvertido = Newtonsoft.Json.JsonConvert.DeserializeObject<ModeloMaterial>(material);
             return m.AddMaterial(materialConvertido);
         }

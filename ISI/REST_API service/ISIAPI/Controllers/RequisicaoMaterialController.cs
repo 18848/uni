@@ -13,6 +13,7 @@ namespace ISIAPI.Controllers
     public class RequisicaoMaterialController : ControllerBase
     {
         public ModeloRequisicoesMateriais m = new ModeloRequisicoesMateriais();
+        public ModeloRequisicoes r = new ModeloRequisicoes();
 
         [HttpGet]
         [Route("getrequisicaomaterial/{idRequisicaoMaterial}")]
@@ -37,13 +38,48 @@ namespace ISIAPI.Controllers
             return m.AddRequisicaoMaterial(requisicaoMaterialConvertido);
         }
 
-
-
         [HttpGet]
         [Route("getmaterialbyrequisicao/{idRequisicao}")]
         public string GetRequisicaoMaterialbyRequisicaoEquipa(int idRequisicao)
         {
             return m.GetRequisicaoMaterialByRequisicaoEquipa(idRequisicao);
+        }
+
+        [HttpPost]
+        [Route("postRequisicaoMateriais/{idEquipa}")]
+        public string AddRequisicaoMaterial(int idEquipa, [FromBody]string materiais)
+        {
+            string idRequisicao;
+
+            ListaMateriais listaMateriais = Newtonsoft.Json.JsonConvert.DeserializeObject<ListaMateriais>(materiais);
+            ModeloRequisicaoMaterial elementoAdd = new ModeloRequisicaoMaterial();
+            ModeloRequisicao requisicaoAdd = new ModeloRequisicao();
+
+            requisicaoAdd.IdEquipa = idEquipa;
+            requisicaoAdd.Entregue = false;
+            idRequisicao = r.AddRequisicao(requisicaoAdd);
+
+            foreach(MaterialParaRequisicao mr in listaMateriais.materiais)
+            {
+
+                elementoAdd.IdRequisicao = int.Parse(idRequisicao);
+                elementoAdd.IdMaterial = mr.idMaterial;
+                elementoAdd.Qtd = mr.qtd;
+
+                m.AddRequisicaoMaterial(elementoAdd);
+            }
+          
+            return "True";
+        }
+
+        public class MaterialParaRequisicao
+        {
+            public int idMaterial { get; set; }
+            public int qtd { get; set; }
+        }
+        public class ListaMateriais
+        {
+            public List<MaterialParaRequisicao> materiais { get; set; }
         }
 
         /*

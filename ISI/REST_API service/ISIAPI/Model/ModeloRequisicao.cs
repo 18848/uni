@@ -69,11 +69,11 @@ namespace ISIAPI
 
 
             if (s.Entregue == true){
-                q = "INSERT INTO requisicao (entregue, idEquipa) values(1, '"+ s.IdEquipa.ToString() +"')";
+                q = "INSERT INTO requisicao (entregue, idEquipa) OUTPUT Inserted.idRequisicao values(1, '" + s.IdEquipa.ToString() +"')";
             }
             else
             {
-                q = "INSERT INTO requisicao (entregue, idEquipa) values(0, '" + s.IdEquipa.ToString() + "')";
+                q = "INSERT INTO requisicao (entregue, idEquipa) OUTPUT Inserted.idRequisicao values(0, '" + s.IdEquipa.ToString() + "')";
             }
             
 
@@ -81,10 +81,10 @@ namespace ISIAPI
             {
                 //4º Execute INSERT
                 SqlCommand com = new SqlCommand(q, con);
+                SqlDataReader reader = com.ExecuteReader();
+                reader.Read();
 
-                com.ExecuteNonQuery();
-
-                return "True";
+                return reader[0].ToString();
             }
             catch (SqlException ex)
             {

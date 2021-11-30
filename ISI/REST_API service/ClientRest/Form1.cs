@@ -10,13 +10,13 @@ using System.Windows.Forms;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
+
 
 namespace ClientRest
 {
     public partial class Form1 : Form
-    {
-
-
+    { 
         string selectedMaterial; // Material selecionado na tabela de adicionar
 
         int upAndDownValue; // Valor definido para quantidade do material
@@ -64,7 +64,6 @@ namespace ClientRest
             this.listBox1.Items.Clear();
 
             List<EquipaModel> equipas = new List<EquipaModel>();
-
             HttpClient clint = new HttpClient();
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("api/Equipa/getall").Result;
@@ -82,7 +81,6 @@ namespace ClientRest
             this.listBox2.Items.Clear();
 
             List<RequisicaoModel> requisicoes = new List<RequisicaoModel>();
-
             HttpClient clint = new HttpClient();
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("api/Requisicao/getall").Result;
@@ -102,7 +100,6 @@ namespace ClientRest
             this.listBox3.Items.Clear();
 
             List<MaterialModel> materiais = new List<MaterialModel>();
-
             HttpClient clint = new HttpClient();
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("api/Material/getall").Result;
@@ -128,7 +125,6 @@ namespace ClientRest
             string[] tokens = curItem.Split(new[] { " - " }, StringSplitOptions.None);
 
             List<RequisicaoModel> requisicoes = new List<RequisicaoModel>();
-
             HttpClient clint = new HttpClient();
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("api/Requisicao/getrequisicaobyequipa/" + tokens[0]).Result;
@@ -151,7 +147,6 @@ namespace ClientRest
             string[] tokens = curItem.Split(new[] { " - " }, StringSplitOptions.None);
 
             List<RequisicaoMaterialModel> materiais = new List<RequisicaoMaterialModel>();
-
             HttpClient clint = new HttpClient();
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("/api/RequisicaoMaterial/getmaterialbyrequisicao/" + int.Parse(tokens[0])).Result;
@@ -189,7 +184,6 @@ namespace ClientRest
             this.listBox4.Items.Clear();
 
             List<EquipaModel> equipas = new List<EquipaModel>();
-
             HttpClient clint = new HttpClient();
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("api/Equipa/getall").Result;
@@ -208,7 +202,6 @@ namespace ClientRest
             this.listBox5.Items.Clear();
 
             List<MaterialModel> materiais = new List<MaterialModel>();
-
             HttpClient clint = new HttpClient();
             clint.BaseAddress = new Uri("https://localhost:44370/");
             HttpResponseMessage response = clint.GetAsync("api/Material/getall").Result;
@@ -266,31 +259,39 @@ namespace ClientRest
             custoMaterialAdd = textBox2.Text;
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private async void button4_Click_1(object sender, EventArgs e)
         {
+
             MaterialModel material = new MaterialModel();
 
-            HttpClient clint = new HttpClient();
-            string materialJson;
-            
-            HttpContent conteudo = new StringContent("{\"Nome\": \"" + nomeMaterialAdd + "\",\"Custo\":" + custoMaterialAdd + "}");
-            MessageBox.Show("{\"nome\": \"" + nomeMaterialAdd + "\",\"custo\":" + custoMaterialAdd + "}");
-            clint.BaseAddress = new Uri("https://localhost:44370/");
-
-            HttpResponseMessage response = clint.PostAsync("api/Material/addMaterial", conteudo).Result;
-            var res = response.Content.ReadAsStringAsync().Result;
-
-
-            materialJson = "{'id':" + res + ", 'nome': " + nomeMaterialAdd + ", 'custo':" + custoMaterialAdd + "}"; 
-
-            material = Newtonsoft.Json.JsonConvert.DeserializeObject<MaterialModel>(materialJson);
-            if (res != null)
+            //Definir o conteudo para enviar por post
+            string materialAdd = "{\"nome\": \"" + nomeMaterialAdd + "\" , \"custo\": " + custoMaterialAdd + "}";
+            var json = JsonConvert.SerializeObject(materialAdd);
+            var conteudo = new StringContent(json, Encoding.UTF8, "application/json");
+           
+            try
             {
-                this.listBox6.Items.Add(material.idMaterial + " - " + material.nome + " - " + material.custo + " - " + upAndDownValue);
-            }
+                //Enviar o post de um novo material
+                HttpClient clint = new HttpClient();
+                clint.BaseAddress = new Uri("https://localhost:44370/");
+                var response = await clint.PostAsync("api/Material/addmaterial", conteudo);
 
-            button5_Click_1(null, null);
-            
+                string res = response.Content.ReadAsStringAsync().Result;
+                MessageBox.Show(res);
+                //Atualizar tabela de materiais adicionados
+                string materialJson = "{\"idMaterial\":" + res + ",\"nome\": \"" + nomeMaterialAdd + "\", \"custo\":" + custoMaterialAdd + "}";
+                material = Newtonsoft.Json.JsonConvert.DeserializeObject<MaterialModel>(materialJson);
+                if (res != null)
+                {
+                    this.listBox6.Items.Add(material.idMaterial + " - " + material.nome + " - " + material.custo + " - " + upAndDownValue);
+                }
+                button5_Click_1(null, null);
+
+            }
+            catch(Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
 
         }
     }
