@@ -79,9 +79,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(305, 233);
+            this.button2.Location = new System.Drawing.Point(406, 362);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 23);
+            this.button2.Size = new System.Drawing.Size(368, 44);
             this.button2.TabIndex = 3;
             this.button2.Text = "Produtos Mais Requisitados";
             this.button2.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(305, 89);
+            this.button1.Location = new System.Drawing.Point(3, 362);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 23);
+            this.button1.Size = new System.Drawing.Size(352, 44);
             this.button1.TabIndex = 2;
             this.button1.Text = "Equipas Mais Caras";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,18 +100,20 @@
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(489, 6);
+            this.dataGridView3.Location = new System.Drawing.Point(406, 6);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(285, 400);
+            this.dataGridView3.Size = new System.Drawing.Size(368, 350);
             this.dataGridView3.TabIndex = 1;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(3, 6);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(264, 400);
+            this.dataGridView2.Size = new System.Drawing.Size(352, 350);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // casosTab
             // 
@@ -167,20 +169,22 @@
             // 
             // dgs
             // 
-            this.dgs.Location = new System.Drawing.Point(501, 101);
+            this.dgs.Location = new System.Drawing.Point(3, 374);
             this.dgs.Name = "dgs";
-            this.dgs.Size = new System.Drawing.Size(75, 23);
+            this.dgs.Size = new System.Drawing.Size(771, 38);
             this.dgs.TabIndex = 1;
             this.dgs.Text = "butoum";
             this.dgs.UseVisualStyleBackColor = true;
+            this.dgs.Click += new System.EventHandler(this.dgs_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(340, 409);
+            this.dataGridView1.Size = new System.Drawing.Size(780, 368);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Form1
             // 

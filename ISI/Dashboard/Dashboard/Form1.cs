@@ -81,14 +81,107 @@ namespace Dashboard
         }
         #endregion
 
+
+        //Botão para equipas mais caras
         private void button1_Click(object sender, EventArgs e)
+        {
+            List<EquipaModel> equipas = new List<EquipaModel>();
+            HttpClient clint = new HttpClient();
+            clint.BaseAddress = new Uri("https://localhost:44370/");
+            HttpResponseMessage response = clint.GetAsync("api/Equipa/getEquipaMaisCara").Result;
+            var res = response.Content.ReadAsStringAsync().Result;
+
+            equipas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EquipaModel>>(res);
+            this.dataGridView2.DataSource = equipas;
+        }
+
+        //Botão para produtos mais usados
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            List<MaterialModel> materiais = new List<MaterialModel>();
+            HttpClient clint = new HttpClient();
+            clint.BaseAddress = new Uri("https://localhost:44370/");
+            HttpResponseMessage response = clint.GetAsync("api/Material/getMaterialMaisUsado").Result;
+            var res = response.Content.ReadAsStringAsync().Result;
+
+            materiais = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MaterialModel>>(res);
+            this.dataGridView3.DataSource = materiais;
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgs_Click(object sender, EventArgs e)
+        {
+            List<Concelho> concelhos = new List<Concelho>();
+            HttpClient clint = new HttpClient();
+            HttpResponseMessage response = clint.GetAsync("https://covid19-api.vost.pt/Requests/get_last_update_counties").Result;
+            var res = response.Content.ReadAsStringAsync().Result;
+
+            concelhos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Concelho>>(res);
+            this.dataGridView1.DataSource = concelhos;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
     }
+    public class MaterialModel
+    {
+        public int idMaterial { get; set; }
+        public string nome { get; set; }
+        public int total { get; set; }
+    }
+    public class EquipaModel
+    {
+        public int idEquipa { get; set; }
+        public string nome { get; set; }
+        public float total { get; set; }
+    }
+
+    public class Concelho
+    {
+        public string data { get; set; }
+        public string concelho { get; set; }
+        public int confirmados_14 { get; set; }
+        public int confirmados_1 { get; set; }
+        public int incidencia { get; set; }
+        public string incidencia_categoria { get; set; }
+        public string incidencia_risco { get; set; }
+        public string tendencia_incidencia { get; set; }
+        public string tendencia_categoria { get; set; }
+        public string tendencia_desc { get; set; }
+        public int casos_14dias { get; set; }
+        public string ars { get; set; }
+        public string distrito { get; set; }
+        public int dicofre { get; set; }
+        public float area { get; set; }
+        public int population { get; set; }
+        public int population_65_69 { get; set; }
+        public int population_70_74 { get; set; }
+        public int population_75_79 { get; set; }
+        public int population_80_84 { get; set; }
+        public int population_85_mais { get; set; }
+        public int population_80_mais { get; set; }
+        public int population_75_mais { get; set; }
+        public int population_70_mais { get; set; }
+        public int population_65_mais { get; set; }
+        public float densidade_populacional { get; set; }
+        public float densidade_1 { get; set; }
+        public float densidade_2 { get; set; }
+        public float densidade_3 { get; set; }
+    }
+
+
+
 }

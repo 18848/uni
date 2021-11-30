@@ -31,6 +31,8 @@ namespace ClientRest
 
         string lisboxReqSelecionado; // Elemento selecionado na lista de requisições
 
+        string nomeEquipaAdd; //
+
         public Form1()
         {
             InitializeComponent();
@@ -121,25 +123,28 @@ namespace ClientRest
         //Ao selecionar um item na lista de equipas
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            this.listBox2.Items.Clear();
-            this.listBox3.Items.Clear();
-
-            string curItem = listBox1.SelectedItem.ToString();
-            string[] tokens = curItem.Split(new[] { " - " }, StringSplitOptions.None);
-
-            List<RequisicaoModel> requisicoes = new List<RequisicaoModel>();
-            HttpClient clint = new HttpClient();
-            clint.BaseAddress = new Uri("https://localhost:44370/");
-            HttpResponseMessage response = clint.GetAsync("api/Requisicao/getrequisicaobyequipa/" + tokens[0]).Result;
-            var res = response.Content.ReadAsStringAsync().Result;
-
-            requisicoes = Newtonsoft.Json.JsonConvert.DeserializeObject<List<RequisicaoModel>>(res);
-
-            foreach (RequisicaoModel s in requisicoes)
+            if(listBox1.SelectedItem != null)
             {
-                this.listBox2.Items.Add(s.idRequisicao + " - " + s.entregue.ToString() + " - " + s.idEquipa);
+                this.listBox2.Items.Clear();
+                this.listBox3.Items.Clear();
+
+                string curItem = listBox1.SelectedItem.ToString();
+                string[] tokens = curItem.Split(new[] { " - " }, StringSplitOptions.None);
+
+                List<RequisicaoModel> requisicoes = new List<RequisicaoModel>();
+                HttpClient clint = new HttpClient();
+                clint.BaseAddress = new Uri("https://localhost:44370/");
+                HttpResponseMessage response = clint.GetAsync("api/Requisicao/getrequisicaobyequipa/" + tokens[0]).Result;
+                var res = response.Content.ReadAsStringAsync().Result;
+
+                requisicoes = Newtonsoft.Json.JsonConvert.DeserializeObject<List<RequisicaoModel>>(res);
+
+                foreach (RequisicaoModel s in requisicoes)
+                {
+                    this.listBox2.Items.Add(s.idRequisicao + " - " + s.entregue.ToString() + " - " + s.idEquipa);
+                }
             }
+            
 
         }
 
@@ -303,6 +308,10 @@ namespace ClientRest
             custoMaterialAdd = textBox2.Text;
         }
 
+
+
+
+        //Criar novo material
         private async void button4_Click_1(object sender, EventArgs e)
         {
 
@@ -363,6 +372,38 @@ namespace ClientRest
                 button7_Click(null, null);
             } 
 
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            nomeEquipaAdd = textBox3.Text;
+        }
+
+        private async void button12_Click(object sender, EventArgs e)
+        {
+            if (nomeEquipaAdd != null)
+            {
+                //Definir o conteudo para enviar por post
+                string equipaAdd = "{\"nome\": \"" + nomeEquipaAdd + "\"}";
+                var json = JsonConvert.SerializeObject(equipaAdd);
+                var conteudo = new StringContent(json, Encoding.UTF8, "application/json");
+                
+                try
+                {
+                    //Enviar o post de uma nova equipa
+                    HttpClient clint = new HttpClient();
+                    clint.BaseAddress = new Uri("https://localhost:44370/");
+                    var response = await clint.PostAsync("api/Equipa/addEquipa", conteudo);
+
+
+
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
+            }
+            
         }
     }
 

@@ -38,7 +38,10 @@ namespace ClientRest
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -51,7 +54,6 @@ namespace ClientRest
             this.button2 = new System.Windows.Forms.Button();
             this.listBox5 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.button11 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -152,8 +154,20 @@ namespace ClientRest
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(264, 250);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(72, 21);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "Update";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button12);
+            this.tabPage2.Controls.Add(this.textBox3);
             this.tabPage2.Controls.Add(this.button10);
             this.tabPage2.Controls.Add(this.button9);
             this.tabPage2.Controls.Add(this.button5);
@@ -174,6 +188,24 @@ namespace ClientRest
             this.tabPage2.Text = "AdicionarDados";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(6, 245);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(151, 22);
+            this.button12.TabIndex = 15;
+            this.button12.Text = "Cria Equipa";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(6, 219);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(151, 20);
+            this.textBox3.TabIndex = 14;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
             // button10
             // 
             this.button10.Location = new System.Drawing.Point(478, 117);
@@ -186,7 +218,7 @@ namespace ClientRest
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(6, 245);
+            this.button9.Location = new System.Drawing.Point(6, 191);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(151, 22);
             this.button9.TabIndex = 12;
@@ -281,19 +313,9 @@ namespace ClientRest
             this.listBox4.FormattingEnabled = true;
             this.listBox4.Location = new System.Drawing.Point(6, 3);
             this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(151, 238);
+            this.listBox4.Size = new System.Drawing.Size(151, 186);
             this.listBox4.TabIndex = 0;
             this.listBox4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(264, 250);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(72, 21);
-            this.button11.TabIndex = 15;
-            this.button11.Text = "Update";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Form1
             // 
@@ -338,6 +360,8 @@ namespace ClientRest
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
