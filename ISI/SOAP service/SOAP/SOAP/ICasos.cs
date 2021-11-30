@@ -18,7 +18,7 @@ namespace SOAP
         DataSet GetCasos(string data);
 
         [OperationContract]
-        string AddCasos(string data, int idUtente);
+        string AddCasos(ModeloCasos casos);
     }
 
     [DataContract]
@@ -29,7 +29,14 @@ namespace SOAP
             Data = data;
             Nif = nif;
         }
+        [DataMember]
         public string Data { get; set; }
+        [DataMember]
         public int Nif{ get; set; }
+
+        public override string ToString()
+        {
+            return "'" + this.Data.ToString() + "', '" + this.Nif.ToString() + "'";
+        }
     }
 }

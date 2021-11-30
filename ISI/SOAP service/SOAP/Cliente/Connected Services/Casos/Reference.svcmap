@@ -25,8 +25,9 @@
     <MetadataFile FileName="Casos.xsd" MetadataType="Schema" ID="75bf5c63-08df-46d9-9202-0d85649c25d6" SourceId="1" SourceUrl="http://localhost:62717/Casos.svc?xsd=xsd2" />
     <MetadataFile FileName="Casos.wsdl" MetadataType="Wsdl" ID="cf707bd0-e9ad-4e5e-8eac-ace58210c574" SourceId="1" SourceUrl="http://localhost:62717/Casos.svc?wsdl" />
     <MetadataFile FileName="Casos1.xsd" MetadataType="Schema" ID="e510cc13-a5e0-4848-ae3c-5a862616d902" SourceId="1" SourceUrl="http://localhost:62717/Casos.svc?xsd=xsd0" />
-    <MetadataFile FileName="Casos.disco" MetadataType="Disco" ID="992d7620-2235-4237-97d5-68855e552d40" SourceId="1" SourceUrl="http://localhost:62717/Casos.svc?disco" />
     <MetadataFile FileName="Casos2.xsd" MetadataType="Schema" ID="b511d6c2-8da1-488f-9172-9d06492ae63e" SourceId="1" SourceUrl="http://localhost:62717/Casos.svc?xsd=xsd1" />
+    <MetadataFile FileName="Casos.disco" MetadataType="Disco" ID="992d7620-2235-4237-97d5-68855e552d40" SourceId="1" SourceUrl="http://localhost:62717/Casos.svc?disco" />
+    <MetadataFile FileName="Casos3.xsd" MetadataType="Schema" ID="4cc1257d-14e1-472c-85d2-ae1589172442" SourceId="1" SourceUrl="http://localhost:62717/Casos.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

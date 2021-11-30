@@ -28,10 +28,10 @@ namespace Cliente.Contactos {
         System.Threading.Tasks.Task<System.Data.DataSet> GetContactoByAtributesAsync(int id, bool nif);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContactos/AddContacto", ReplyAction="http://tempuri.org/IContactos/AddContactoResponse")]
-        string AddContacto(int idUtente, int idCaso);
+        string AddContacto(SOAP.ModeloContactos contacto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContactos/AddContacto", ReplyAction="http://tempuri.org/IContactos/AddContactoResponse")]
-        System.Threading.Tasks.Task<string> AddContactoAsync(int idUtente, int idCaso);
+        System.Threading.Tasks.Task<string> AddContactoAsync(SOAP.ModeloContactos contacto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -77,12 +77,12 @@ namespace Cliente.Contactos {
             return base.Channel.GetContactoByAtributesAsync(id, nif);
         }
         
-        public string AddContacto(int idUtente, int idCaso) {
-            return base.Channel.AddContacto(idUtente, idCaso);
+        public string AddContacto(SOAP.ModeloContactos contacto) {
+            return base.Channel.AddContacto(contacto);
         }
         
-        public System.Threading.Tasks.Task<string> AddContactoAsync(int idUtente, int idCaso) {
-            return base.Channel.AddContactoAsync(idUtente, idCaso);
+        public System.Threading.Tasks.Task<string> AddContactoAsync(SOAP.ModeloContactos contacto) {
+            return base.Channel.AddContactoAsync(contacto);
         }
     }
 }

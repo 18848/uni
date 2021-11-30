@@ -167,7 +167,7 @@ namespace SOAP
         /// <param name="idCaso"> ID de Caso associado. </param>
         /// <returns string="Success"> If reaches end of function. </returns>
         /// <returns string="$EXCEPTION$"> If reaches end of function. </returns>
-        public string AddContacto(int idUtente, int idCaso)
+        public string AddContacto(ModeloContactos contacto)
         {
             try
             {
@@ -183,12 +183,9 @@ namespace SOAP
             //4º Execute INSERT
             try
             {
-                string contacto = "INSERT INTO contacto (idutente, idcaso) VALUES (@idutente, @idcaso)";
+                string contactoq = "INSERT INTO contacto (idutente, idcaso) VALUES (" + contacto.ToString() + ")";
             
-                SqlCommand contactoCom = new SqlCommand(contacto, con);
-
-                contactoCom.Parameters.AddWithValue("@idutente", idUtente);
-                contactoCom.Parameters.AddWithValue("@idcaso", idCaso);
+                SqlCommand contactoCom = new SqlCommand(contactoq, con);
 
                 contactoCom.ExecuteNonQuery();
             }

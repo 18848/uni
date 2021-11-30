@@ -19,7 +19,7 @@ namespace SOAP
         DataSet GetContacto(int id, bool nif);
 
         [OperationContract]
-        string AddContacto(int idUtente, int idCaso);
+        string AddContacto(ModeloContactos contacto);
     }
 
     [DataContract]
@@ -30,7 +30,13 @@ namespace SOAP
             IdCaso = idcaso;
             Nif = nif;
         }
+        [DataMember]
         public int IdCaso { get; set; }
+        [DataMember]
         public int Nif { get; set; }
+        public override string ToString()
+        {
+            return "'" + this.Nif.ToString() + "', '" + this.IdCaso.ToString() + "'";
+        }
     }
 }

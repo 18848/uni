@@ -243,14 +243,14 @@ namespace SOAP
         /// <param name="nome"></param>
         /// <returns string="success"> On successful INSERT. </returns>
         /// <returns string> On error or conflict. Returns Type and Message. </returns>
-        public string AddUtentes(int idUtente, string nome)
+        public string AddUtentes(ModeloUtente utente)
         {
             //2º OpenConnection
             try
             {
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 return "SQL Server FAILED TO CONNECT:\n" + ex.Message.ToString();
             }
@@ -259,12 +259,12 @@ namespace SOAP
             //4º Execute INSERT
             try
             {
-                string utente = "INSERT INTO dbo.utente (idutente, nome) VALUES (@idutente, @nome)";
+                string utenteq = "INSERT INTO dbo.utente (idutente, nome) VALUES (" + utente.ToString() + ")";
 
-                SqlCommand utenteCom = new SqlCommand(utente, con);
+                SqlCommand utenteCom = new SqlCommand(utenteq, con);
 
-                utenteCom.Parameters.AddWithValue("@idutente", idUtente);
-                utenteCom.Parameters.AddWithValue("@nome", nome);
+                //utenteCom.Parameters.AddWithValue("@idutente", );
+                //utenteCom.Parameters.AddWithValue("@nome", );
 
                 utenteCom.ExecuteNonQuery();
             }

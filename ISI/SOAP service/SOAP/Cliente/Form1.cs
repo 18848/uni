@@ -64,14 +64,15 @@ namespace Cliente
             }
         }
 
-        private void adicionar_Click(object sender, EventArgs e)
+        private async void adicionar_Click(object sender, EventArgs e)
         {
             try
             {
                 ModeloUtente u = new ModeloUtente(
                                     nomeBox.Text
                                     , int.Parse(nifBox.Text));
-                string result = utentesWS.AddUtentes(u.Nif, u.Nome);
+
+                string result = await utentesWS.AddUtentesAsync(u);
                 MessageBox.Show(result);
             }
             catch (FormatException ex)
@@ -115,14 +116,17 @@ namespace Cliente
             }
         }
 
-        private void adicionarCasos_Click(object sender, EventArgs e)
+        private async void adicionarCasos_Click(object sender, EventArgs e)
         {
             try
             {
-                ModeloCasos c = new ModeloCasos(
+                ModeloCasos casos = new ModeloCasos(
                                 DateTime.Parse(dataPicker.Text).ToString("yyyy-MM-dd")
                                 , int.Parse(nifCasosBox.Text));
-                MessageBox.Show(casosWS.AddCasos(c.Data, c.Nif));
+
+                string result = await casosWS.AddCasosAsync(casos);
+
+                MessageBox.Show(result);
             }
             catch (FormatException ex)
             {
@@ -212,14 +216,17 @@ namespace Cliente
             }
         }
 
-        private void adicionarContactos_Click(object sender, EventArgs e)
+        private async void adicionarContactos_Click(object sender, EventArgs e)
         {
             try
             {
-                ModeloContactos con= new ModeloContactos(
+                ModeloContactos contactos = new ModeloContactos(
                             int.Parse(idCasoBox.Text)
                             , int.Parse(nifContactoBox.Text));
-                MessageBox.Show(contactosWS.AddContacto(con.Nif, con.IdCaso));
+
+                string results = await contactosWS.AddContactoAsync(contactos);
+
+                MessageBox.Show(results);
             }
             catch (FormatException ex)
             {

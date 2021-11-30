@@ -22,7 +22,8 @@ namespace SOAP
         DataSet GetUtentes(string nome);
 
         [OperationContract]
-        string AddUtentes(int idUtente, string nome);
+        //string AddUtentes(int idUtente, string nome);
+        string AddUtentes(ModeloUtente utente);
     }
 
     [DataContract]
@@ -33,7 +34,14 @@ namespace SOAP
             Nome = nome;
             Nif = nif;
         }
+        [DataMember]
         public string Nome { get; set; }
+        [DataMember]
         public int Nif { get; set; }
+
+        public override string ToString()
+        {
+            return "'" + this.Nif.ToString() + "', '" + this.Nome + "'";
+        }
     }
 }

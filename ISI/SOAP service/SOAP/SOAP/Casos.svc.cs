@@ -211,7 +211,7 @@ namespace SOAP
             return ds;
         }
 
-        public string AddCasos(string data, int idUtente)
+        public string AddCasos(ModeloCasos casos)
         {
             //2º OpenConnection
             try
@@ -227,12 +227,9 @@ namespace SOAP
             //4º Execute
             try
             {
-                string caso = "INSERT INTO caso (data, idutente) VALUES (@data, @idutente)";
+                string casosq = "INSERT INTO caso (data, idutente) VALUES (" + casos.ToString() + ")";
                 
-                SqlCommand casoCom = new SqlCommand(caso, con);
-
-                casoCom.Parameters.AddWithValue("@data", data);
-                casoCom.Parameters.AddWithValue("@idutente", idUtente);
+                SqlCommand casoCom = new SqlCommand(casosq, con);
 
                 casoCom.ExecuteNonQuery();
             }

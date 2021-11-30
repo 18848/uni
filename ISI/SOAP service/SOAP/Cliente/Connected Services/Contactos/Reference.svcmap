@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:62717/Contactos.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Contactos.xsd" MetadataType="Schema" ID="ebe5cdcc-1d6b-411f-8bc6-c749bcd19e11" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd2" />
+    <MetadataFile FileName="Contactos.disco" MetadataType="Disco" ID="f833ae02-ae80-48c9-854d-e37904f43c6d" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?disco" />
     <MetadataFile FileName="Contactos1.xsd" MetadataType="Schema" ID="244bf9c8-9dbc-42ea-a91c-ea41615e6f8b" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd1" />
     <MetadataFile FileName="Contactos2.xsd" MetadataType="Schema" ID="b8983eb6-3383-48ff-aed3-6ef2ff210794" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd0" />
+    <MetadataFile FileName="Contactos3.xsd" MetadataType="Schema" ID="adf9d3ba-006f-4799-9bba-05791c37205a" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd3" />
+    <MetadataFile FileName="Contactos.xsd" MetadataType="Schema" ID="ebe5cdcc-1d6b-411f-8bc6-c749bcd19e11" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?xsd=xsd2" />
     <MetadataFile FileName="Contactos.wsdl" MetadataType="Wsdl" ID="97a4f9cc-47ba-4841-a02a-d275154e42ab" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?wsdl" />
-    <MetadataFile FileName="Contactos.disco" MetadataType="Disco" ID="f833ae02-ae80-48c9-854d-e37904f43c6d" SourceId="1" SourceUrl="http://localhost:62717/Contactos.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -93,6 +93,9 @@
     <None Include="Connected Services\Casos\Casos2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\Casos\Casos3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Contactos\Contactos.wsdl" />
     <None Include="Connected Services\Contactos\Contactos.xsd">
       <SubType>Designer</SubType>
@@ -103,6 +106,9 @@
     <None Include="Connected Services\Contactos\Contactos2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\Contactos\Contactos3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Utentes\Utentes.wsdl" />
     <None Include="Connected Services\Utentes\Utentes.xsd">
       <SubType>Designer</SubType>
@@ -111,6 +117,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Utentes\Utentes2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Utentes\Utentes3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />

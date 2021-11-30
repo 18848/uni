@@ -34,10 +34,10 @@ namespace Cliente.Casos {
         System.Threading.Tasks.Task<System.Data.DataSet> GetCasosByDataAsync(string data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICasos/AddCasos", ReplyAction="http://tempuri.org/ICasos/AddCasosResponse")]
-        string AddCasos(string data, int idUtente);
+        string AddCasos(SOAP.ModeloCasos casos);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICasos/AddCasos", ReplyAction="http://tempuri.org/ICasos/AddCasosResponse")]
-        System.Threading.Tasks.Task<string> AddCasosAsync(string data, int idUtente);
+        System.Threading.Tasks.Task<string> AddCasosAsync(SOAP.ModeloCasos casos);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -91,12 +91,12 @@ namespace Cliente.Casos {
             return base.Channel.GetCasosByDataAsync(data);
         }
         
-        public string AddCasos(string data, int idUtente) {
-            return base.Channel.AddCasos(data, idUtente);
+        public string AddCasos(SOAP.ModeloCasos casos) {
+            return base.Channel.AddCasos(casos);
         }
         
-        public System.Threading.Tasks.Task<string> AddCasosAsync(string data, int idUtente) {
-            return base.Channel.AddCasosAsync(data, idUtente);
+        public System.Threading.Tasks.Task<string> AddCasosAsync(SOAP.ModeloCasos casos) {
+            return base.Channel.AddCasosAsync(casos);
         }
     }
 }
