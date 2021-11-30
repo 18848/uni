@@ -212,6 +212,11 @@ namespace FileConversion
                     MessageBox.Show("JSON em formato válido.");
                 }
             }
+            catch (JsonException ex)
+            {
+                MessageBox.Show("JSON EXCEPTION:\n" + ex.Message);
+                return false;
+            }
             catch (FormatException ex)
             {
                 MessageBox.Show("FORMAT EXCEPTION:\n" + ex.Message);
@@ -286,6 +291,7 @@ namespace FileConversion
                 MessageBox.Show("EXCEPTION:\n" + ex.Message);
             }
 
+            //Close Connection
             try
             {
                 con.Close();
@@ -310,7 +316,7 @@ namespace FileConversion
 
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
-                    //openFileDialog.InitialDirectory = "g:\\asdasdasd";
+                    openFileDialog.InitialDirectory = ".\\";
                     openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                     openFileDialog.FilterIndex = 2;
                     openFileDialog.RestoreDirectory = true;
@@ -354,18 +360,7 @@ namespace FileConversion
         /// <param name="e"></param>
         private void jsonVerifyButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                verifyJson();
-            }
-            catch (JsonException ex)
-            {
-                MessageBox.Show("JSON EXCEPTION:\n" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("EXCEPTION:\n" + ex.Message);
-            }
+            verifyJson();
         }
 
         #endregion
@@ -379,12 +374,18 @@ namespace FileConversion
         /// <param name="e"></param>
         private void atualizarDatabase_Click(object sender, EventArgs e)
         {
+            DataSet ds2 = new DataSet();
+            DataSet ds1 = new DataSet();
+            string q;
+            SqlDataAdapter da;
+
+            //2º Open Connection
             try
             {
                 //2º OpenConnection
                 con.Open();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataSet x = new DataSet();
                 DataTable dt = new DataTable();
@@ -394,21 +395,17 @@ namespace FileConversion
                 databaseGridView.DataSource = x;
             }
 
+            //Fiscalizacao
             //3º Query
-            string q = "SELECT * FROM fiscalizacao";
-
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
-            DataSet ds1 = new DataSet();
-            DataSet ds2 = new DataSet();
-
+            //4º Execute
             try
             {
-                //4º Execute
-                da.Fill(ds1, "Fiscalizacao");
+                q = "SELECT * FROM fiscalizacao";
+                da = new SqlDataAdapter(q, con);
 
-                //5º CloseConnection
+                da.Fill(ds1, "Fiscalizacao");
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 DataTable dt = new DataTable();
                 dt.Columns.Add("Exception");
@@ -416,18 +413,62 @@ namespace FileConversion
                 ds1.Tables.Add(dt);
                 databaseGridView.DataSource= ds1;
             }
-
-            if(idFiscalizacaoTextBox.Text != "")
+            catch (Exception ex)
             {
-                q = "SELECT idirregularidade, descricao FROM irregularidade WHERE idfiscalizacao = '" + idFiscalizacaoTextBox.Text + "'";
-                da = new SqlDataAdapter(q, con);
-
-                da.Fill(ds2, "Fiscalizacao");
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds1.Tables.Add(dt);
+                databaseGridView.DataSource = ds1;
             }
 
-            databaseGridView.DataSource= ds1.Tables["Fiscalizacao"];
-            irregularidadesDataGrid.DataSource= ds2.Tables["Fiscalizacao"];
-            con.Close();
+
+            //Irregularidades
+            //5º Query
+            //6º Execute
+            try
+            {
+                if(idFiscalizacaoTextBox.Text != "")
+                {
+                    q = "SELECT idirregularidade, descricao FROM irregularidade WHERE idfiscalizacao = '" + idFiscalizacaoTextBox.Text + "'";
+                    da = new SqlDataAdapter(q, con);
+
+                    da.Fill(ds2, "Fiscalizacao");
+                }
+
+                databaseGridView.DataSource= ds1.Tables["Fiscalizacao"];
+                irregularidadesDataGrid.DataSource= ds2.Tables["Fiscalizacao"];
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds1.Tables.Add(dt);
+                databaseGridView.DataSource = ds1;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds1.Tables.Add(dt);
+                databaseGridView.DataSource = ds1;
+            }
+
+            //5º CloseConnection
+            try
+            {
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Exception");
+                dt.Rows.Add(ex.Message);
+                ds1.Tables.Add(dt);
+                databaseGridView.DataSource = ds1;
+            }
         }
 
         #endregion

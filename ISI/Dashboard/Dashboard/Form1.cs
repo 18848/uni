@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Dashboard
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
         }
+
+        #region Casos
+        private void casos_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

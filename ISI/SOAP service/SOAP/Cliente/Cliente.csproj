@@ -48,12 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\CasosAzure\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Casos\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ContactosAzure\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Contactos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UtentesAzure\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -83,6 +98,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\CasosAzure\Casos.wsdl" />
+    <None Include="Connected Services\CasosAzure\Casos.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CasosAzure\Casos1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CasosAzure\Casos2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Casos\Casos.wsdl" />
     <None Include="Connected Services\Casos\Casos.xsd">
       <SubType>Designer</SubType>
@@ -96,6 +121,16 @@
     <None Include="Connected Services\Casos\Casos3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ContactosAzure\Contactos.wsdl" />
+    <None Include="Connected Services\ContactosAzure\Contactos.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ContactosAzure\Contactos1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ContactosAzure\Contactos2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Contactos\Contactos.wsdl" />
     <None Include="Connected Services\Contactos\Contactos.xsd">
       <SubType>Designer</SubType>
@@ -107,6 +142,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Contactos\Contactos3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UtentesAzure\Utentes.wsdl" />
+    <None Include="Connected Services\UtentesAzure\Utentes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UtentesAzure\Utentes1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UtentesAzure\Utentes2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Utentes\Utentes.wsdl" />
@@ -146,8 +191,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CasosAzure\" />
     <WCFMetadataStorage Include="Connected Services\Casos\" />
+    <WCFMetadataStorage Include="Connected Services\ContactosAzure\" />
     <WCFMetadataStorage Include="Connected Services\Contactos\" />
+    <WCFMetadataStorage Include="Connected Services\UtentesAzure\" />
     <WCFMetadataStorage Include="Connected Services\Utentes\" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +239,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\Utentes\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CasosAzure\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CasosAzure\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CasosAzure\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ContactosAzure\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ContactosAzure\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ContactosAzure\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UtentesAzure\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UtentesAzure\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UtentesAzure\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

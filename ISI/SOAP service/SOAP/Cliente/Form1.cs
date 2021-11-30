@@ -8,9 +8,15 @@ namespace Cliente
 {
     public partial class Form1 : Form
     {
-        private Casos.CasosClient casosWS = new Casos.CasosClient();
-        private Contactos.ContactosClient contactosWS = new Contactos.ContactosClient();
-        private Utentes.UtentesClient utentesWS = new Utentes.UtentesClient();
+        //Serviços Locais
+        //private Casos.CasosClient casosWS = new Casos.CasosClient();
+        //private Contactos.ContactosClient contactosWS = new Contactos.ContactosClient();
+        //private Utentes.UtentesClient utentesWS = new Utentes.UtentesClient();
+        
+        //Serviços Online: Azure
+        private CasosAzure.CasosClient casosWS = new CasosAzure.CasosClient();
+        private ContactosAzure.ContactosClient contactosWS = new ContactosAzure.ContactosClient();
+        private UtentesAzure.UtentesClient utentesWS = new UtentesAzure.UtentesClient();
 
         #region Form
         public Form1()
@@ -72,7 +78,10 @@ namespace Cliente
                                     nomeBox.Text
                                     , int.Parse(nifBox.Text));
 
-                string result = await utentesWS.AddUtentesAsync(u);
+                //Local
+                //string result = await utentesWS.AddUtentesAsync(u);
+                //Azure
+                string result = await utentesWS.AddUtentesAsync(u.Nif, u.Nome);
                 MessageBox.Show(result);
             }
             catch (FormatException ex)
@@ -123,8 +132,10 @@ namespace Cliente
                 ModeloCasos casos = new ModeloCasos(
                                 DateTime.Parse(dataPicker.Text).ToString("yyyy-MM-dd")
                                 , int.Parse(nifCasosBox.Text));
-
-                string result = await casosWS.AddCasosAsync(casos);
+                //Local
+                //string result = await casosWS.AddCasosAsync(casos);
+                //Azure
+                string result = await casosWS.AddCasosAsync(casos.Data, casos.Nif);
 
                 MessageBox.Show(result);
             }
@@ -224,7 +235,10 @@ namespace Cliente
                             int.Parse(idCasoBox.Text)
                             , int.Parse(nifContactoBox.Text));
 
-                string results = await contactosWS.AddContactoAsync(contactos);
+                //Local
+                //string results = await contactosWS.AddContactoAsync(contactos);
+                //Azure
+                string results = await contactosWS.AddContactoAsync(contactos.IdCaso, contactos.IdCaso);
 
                 MessageBox.Show(results);
             }

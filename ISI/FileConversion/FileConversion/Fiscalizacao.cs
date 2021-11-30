@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace FileConversion
 {
+    /// <summary>
+    /// Estrutura de Dados de Irregularidades detetadas em cada Visita.
+    /// </summary>
     public class Irregularidade
     {
         [JsonProperty("Descricao")]
@@ -15,14 +18,27 @@ namespace FileConversion
         public string Descricao { get; set; }
     }
 
+    /// <summary>
+    /// Estrutura de Dados dos Fiscalizados (Visitados).
+    /// </summary>
     public class Fiscalizado
     {
+        /// <summary>
+        /// Construtor 
+        /// </summary>
+        /// <param name="nif"> Identificação do Fiscalizado. </param>
+        /// <param name="data"> Momento da Fiscalização. </param>
+        /// <param name="irregularidades"> Irregularidades detetadas na Visita. </param>
         public Fiscalizado(string nif, DateTime data, List<Irregularidade> irregularidades)
         {
             IdCivil = int.Parse(nif);
             Data = data; ;
             Irregularidades = irregularidades;
         }
+
+        /// <summary>
+        /// Construtor Vazio.
+        /// </summary>
         public Fiscalizado()
         {
             IdCivil = 0;
@@ -42,6 +58,9 @@ namespace FileConversion
         public List<Irregularidade> Irregularidades { get; set; }
     }
 
+    /// <summary>
+    /// Estrutura de Dados de uma Ação de Fiscalização.
+    /// </summary>
     [XmlRoot(ElementName ="Fiscalizacao")]
     public class Fiscalizacao
     {
