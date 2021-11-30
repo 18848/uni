@@ -118,6 +118,7 @@
             this.xmlVerifyButton.TabIndex = 1;
             this.xmlVerifyButton.Text = "Verify";
             this.xmlVerifyButton.UseVisualStyleBackColor = true;
+            this.xmlVerifyButton.Click += new System.EventHandler(this.xmlVerifyButton_Click);
             // 
             // xmlTextBox
             // 

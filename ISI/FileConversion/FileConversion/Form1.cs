@@ -78,27 +78,6 @@ namespace FileConversion
             return f;
         }
 
-        private void UpdateTextBox(string filePath)
-        {
-            try
-            {
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    openFileDialog.FileName = filePath;
-                    var fileStream = openFileDialog.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
-                    {
-                        xmlTextBox.Text = reader.ReadToEnd();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.GetType() + "\n" + ex.Message);
-            }
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -189,6 +168,21 @@ namespace FileConversion
             catch (Exception ex)
             {
                 MessageBox.Show("EXCEPTION:\n" + ex.Message);
+            }
+        }
+       
+        /// <summary>
+        /// Verify Current XML in Text Box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void xmlVerifyButton_Click(object sender, EventArgs e)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(Fiscalizacao));
+
+            using (TextReader reader = new StringReader(xmlTextBox.Text))
+            {
+                fiscalizados = (Fiscalizacao)ser.Deserialize(reader);
             }
         }
         #endregion
@@ -477,5 +471,6 @@ namespace FileConversion
         {
 
         }
+
     }
 }
