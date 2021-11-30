@@ -2,7 +2,7 @@
     "Fiscalizados":
     [
         {
-            "nif": 1234,
+            "nif": 123,
             "data": "2003-03-03",
             "irregularidades":
             [
@@ -15,7 +15,32 @@
             ]
         },
         {
-            "nif": 5678,
+            "nif": 456,
+            "data": "2004-04-04",
+            "irregularidades":
+            [
+                {
+                    "descricao":"3 json"
+                },
+                {
+                    "descricao":"4 json"
+                }
+            ]
+        },{
+            "nif": 123,
+            "data": "2021-11-03",
+            "irregularidades":
+            [
+                {
+                    "descricao":"uma json"
+                },
+                {
+                    "descricao":"sgunda json"
+                }
+            ]
+        },
+        {
+            "nif": 456,
             "data": "2004-04-04",
             "irregularidades":
             [

@@ -32,12 +32,8 @@ namespace Dashboard
         #region Casos
         private async void casos_Click(object sender, EventArgs e)
         {
-            //ModeloCasos casos = new ModeloCasos();
-            //casos.Data = DateTime.Today.ToString("yyyy-MM-dd");
-            //casos.Nif = 123;
-            //casosWS.AddCasos(casos);
-
             DataSet ds = await casosWS.GetCasosAsync();
+            DataTable avg = new DataTable();
             List<ModeloCasos> data = new List<ModeloCasos>();
             List<ModeloCasos> result = new List<ModeloCasos>();
 
@@ -52,29 +48,136 @@ namespace Dashboard
                 data.Add(n);
             }
 
-            foreach(ModeloCasos n in data)
+
+            foreach (ModeloCasos n in data)
             {
-                if (DateTime.Compare(DateTime.Parse(n.Data), DateTime.Now.AddMonths(-6)) <= 0)
+                if (DateTime.Compare(DateTime.Parse(n.Data), DateTime.Now.AddMonths(-6)) >= 0)
                 {
                     result.Add(n);
                 }
             }
+            
+            casosbutton.Text =  "Média de Casos: " + (result.Count / 6).ToString();
 
             ds.Tables["Casos"].Rows.Clear();
+            ds.Tables["Casos"].Columns.Remove("idcaso");
+            avg.Columns.Add("Mes");
+            avg.Columns.Add("Total Mensal");
+            avg.AcceptChanges();
+
+            Dictionary<string, int> dic = new Dictionary<string, int>();
 
             foreach (ModeloCasos n in result)
             {
-                ds.Tables["Casos"].Rows.Add(new object[] {1, n.Data, n.Nif });
+                ds.Tables["Casos"].Rows.Add(new object[] {n.Data, n.Nif });
                 ds.AcceptChanges();
+
+                if ( dic.ContainsKey(DateTime.Parse(n.Data).Month.ToString()) )
+                {
+                    dic[DateTime.Parse(n.Data).Month.ToString()]++;
+                }
+                else
+                {
+                    dic.Add(DateTime.Parse(n.Data).Month.ToString(), 1);
+                }
             }
+
+            avg.Rows.Clear();
+            foreach(var d in dic)
+            {
+                avg.Rows.Add( new object[] { d.Key, d.Value.ToString()});
+            }
+            avg.AcceptChanges();
+
             try
             {
-                casosGridView.DataSource = ds;
+                mediaGridView.DataSource = avg;
+                casosGridView.DataSource = ds.Tables["Casos"];
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        #endregion
+
+        #region Visitas
+        private void visitas_Click(object sender, EventArgs e)
+        {
+            con.Open();
+
+            string q;
+
+            q = "Select * FROM fiscalizacao";
+
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+
+            da.Fill(ds);
+
+            DataTable avg = new DataTable();
+            List<string> data = new List<string>();
+            List<string> result = new List<string>();
+
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                object[] r = row.ItemArray;
+
+                data.Add(r[2].ToString());
+            }
+
+            foreach (string n in data)
+            {
+                if (DateTime.Compare(DateTime.Parse(n), DateTime.Now.AddDays(-30)) >= 0)
+                {
+                    result.Add(n);
+                }
+            }
+
+            ds.Tables[0].Rows.Clear();
+            ds.Tables[0].Columns.Remove("idfiscalizacao");
+            ds.Tables[0].Columns.Remove("idutente");
+            avg.Columns.Add("Data");
+            avg.Columns.Add("Visitas");
+            avg.AcceptChanges();
+
+            Dictionary<string, int> dic = new Dictionary<string, int>();
+
+            foreach (string n in result)
+            {
+                ds.Tables[0].Rows.Add(new object[] { n });
+                ds.AcceptChanges();
+
+                if (dic.ContainsKey(DateTime.Parse(n).ToString("dd-MM-yyyy")))
+                {
+                    dic[DateTime.Parse(n).ToString("dd-MM-yyyy")]++;
+                }
+                else
+                {
+                    dic.Add(DateTime.Parse(n).ToString("dd-MM-yyyy"), 1);
+                }
+            }
+
+            avg.Rows.Clear();
+            foreach (var d in dic)
+            {
+                avg.Rows.Add(new object[] { d.Key, d.Value.ToString() });
+            }
+            avg.AcceptChanges();
+
+            try
+            {
+                visitasGridView.DataSource = avg;
+                //casosGridView.DataSource = ds.Tables["Casos"];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            con.Close();
         }
         #endregion
     }
