@@ -57,6 +57,29 @@ namespace ISIAPI
             
         }
 
+        public string GetMaterialMaisUsado()
+        {
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
+            con.Open();
+
+            string q = @"Select req.idMaterial, mat.nome, sum(qtd) as total from requisicaoMaterial as req
+                        Inner Join material as mat on mat.idMaterial = req.idMaterial
+                        GROUP BY req.idMaterial, mat.nome
+                        ORDER BY total desc OFFSET 0 ROWS FETCH FIRST 5 ROWS ONLY";
+
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            string jsonString = string.Empty;
+            jsonString = JsonConvert.SerializeObject(dt);
+            con.Close();
+            return jsonString;
+        }
+
         //Adicionar um material
         public string AddMaterial(ModeloMaterial s)
         {

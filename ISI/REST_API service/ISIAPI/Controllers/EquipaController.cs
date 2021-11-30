@@ -28,6 +28,13 @@ namespace ISIAPI.Controllers
             return m.GetAllEquipas();
         }
 
+        [HttpGet]
+        [Route("getEquipaMaisCara")]
+        public string GetEquipaMaisCara()
+        {
+            return m.GetEquipaMaisCara();
+        }
+
         [HttpPost]
         [Route("addequipa")]
         public string AddEquipa(string equipa)
