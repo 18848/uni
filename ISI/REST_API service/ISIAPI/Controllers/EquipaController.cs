@@ -14,13 +14,7 @@ namespace ISIAPI.Controllers
     {
         public ModeloEquipas m = new ModeloEquipas();
 
-        [HttpGet]
-        [Route("getequipa/{idEquipa}")]
-        public string GetEquipa(int idEquipa)
-        {
-            return m.GetEquipaById(idEquipa);
-        }
-
+        // Rota para devolver todas as equipas presentes na base de dados
         [HttpGet]
         [Route("getall")]
         public string GetEquipa()
@@ -28,6 +22,7 @@ namespace ISIAPI.Controllers
             return m.GetAllEquipas();
         }
 
+        // Rota para devolver as 10 equipas mais caras
         [HttpGet]
         [Route("getEquipaMaisCara")]
         public string GetEquipaMaisCara()
@@ -35,6 +30,9 @@ namespace ISIAPI.Controllers
             return m.GetEquipaMaisCara();
         }
 
+
+        // Rota para adicionar uma equipa
+        // Formato {"nome": nome}
         [HttpPost]
         [Route("addequipa")]
         public string AddEquipa([FromBody] string equipa)
@@ -42,20 +40,6 @@ namespace ISIAPI.Controllers
             ModeloEquipa equipaConvertido = Newtonsoft.Json.JsonConvert.DeserializeObject<ModeloEquipa>(equipa);
             return m.AddEquipa(equipaConvertido);
         }
-
-        /*
-
-        [HttpPost("UpdateMaterial")]
-        public ActionResult Update(ModeloMaterial m)
-        {
-            if (m.Id >= 0 && m.Id < materiais.Count)
-            {
-                materiais[m.Id] = m;
-                return Ok();
-            }
-            return NotFound();
-        }
-        */
 
     }
 }

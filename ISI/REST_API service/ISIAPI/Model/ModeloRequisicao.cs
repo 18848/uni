@@ -46,15 +46,26 @@ namespace ISIAPI
             con.Open();
 
             string q = "SELECT * FROM requisicao";
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            con.Close();
-            return jsonString;
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
 
         }
 
@@ -97,16 +108,9 @@ namespace ISIAPI
                 return "Exception:\n" + ex.Message.ToString();
             }
 
-
-
         }
 
-        //Encontrar nome de material
-        public string GetRequisicaoById(int idRequisicao)
-        {
-            return "True";
-        }
-
+        //Obter todas as requisicoes de uma equipa
         public string GetRequisicaoByEquipa(int idEquipa)
         {
 
@@ -116,17 +120,34 @@ namespace ISIAPI
             con.Open();
 
             string q = "Select * from requisicao where idEquipa = " + idEquipa.ToString();
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            con.Close();
-            return jsonString;
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
+
+
+
         }
 
+        //Fazer update do valor "entregue" de uma requisição
         public string UpdateRequisicao(int idRequisicao)
         {
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";

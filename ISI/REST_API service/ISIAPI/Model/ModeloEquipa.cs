@@ -13,14 +13,6 @@ namespace ISIAPI
         private int idEquipa;
         private string nome;
 
-
-        public ModeloEquipa(int id, string n)
-        {
-            idEquipa = id;
-            nome = n;
-
-        }
-
         [Required]
         public int Id { get => idEquipa; set => idEquipa = value; }
         [Required]
@@ -54,15 +46,26 @@ namespace ISIAPI
             con.Open();
 
             string q = "SELECT * FROM equipa";
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            con.Close();
-            return jsonString;
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
 
         }
 
@@ -97,6 +100,7 @@ namespace ISIAPI
 
         }
 
+        //Obter as 10 equipas cujo total de preços de requisições é o mais elevado
         public string GetEquipaMaisCara()
         {
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
@@ -116,22 +120,26 @@ namespace ISIAPI
 		                on requisicao.idRequisicao = valores.idRequisicao) as somaReq
                         GROUP BY somaReq.idEquipa, somaReq.nome) as tabela 
                         ORDER BY tabela.total desc OFFSET 0 ROWS FETCH FIRST 10 ROWS ONLY";
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            con.Close();
-            return jsonString;
-        }
-
-        //Encontrar nome de material
-        public string GetEquipaById(int idEquipa)
-        {
-            return "True";
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
         }
 
     }

@@ -190,28 +190,43 @@ namespace Dashboard
         //Botão para equipas mais caras
         private void button1_Click(object sender, EventArgs e)
         {
-            List<EquipaModel> equipas = new List<EquipaModel>();
-            HttpClient clint = new HttpClient();
-            clint.BaseAddress = new Uri("https://localhost:44370/");
-            HttpResponseMessage response = clint.GetAsync("api/Equipa/getEquipaMaisCara").Result;
-            var res = response.Content.ReadAsStringAsync().Result;
+            try
+            {
+                List<EquipaModel> equipas = new List<EquipaModel>();
+                HttpClient clint = new HttpClient();
+                clint.BaseAddress = new Uri("https://localhost:44370/");
+                HttpResponseMessage response = clint.GetAsync("api/Equipa/getEquipaMaisCara").Result;
+                var res = response.Content.ReadAsStringAsync().Result;
 
-            equipas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EquipaModel>>(res);
-            this.dataGridView2.DataSource = equipas;
+                equipas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EquipaModel>>(res);
+                this.dataGridView2.DataSource = equipas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         //Botão para produtos mais usados
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                List<MaterialModel> materiais = new List<MaterialModel>();
+                HttpClient clint = new HttpClient();
+                clint.BaseAddress = new Uri("https://localhost:44370/");
+                HttpResponseMessage response = clint.GetAsync("api/Material/getMaterialMaisUsado").Result;
+                var res = response.Content.ReadAsStringAsync().Result;
 
-            List<MaterialModel> materiais = new List<MaterialModel>();
-            HttpClient clint = new HttpClient();
-            clint.BaseAddress = new Uri("https://localhost:44370/");
-            HttpResponseMessage response = clint.GetAsync("api/Material/getMaterialMaisUsado").Result;
-            var res = response.Content.ReadAsStringAsync().Result;
-
-            materiais = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MaterialModel>>(res);
-            this.dataGridView3.DataSource = materiais;
+                materiais = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MaterialModel>>(res);
+                this.dataGridView3.DataSource = materiais;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
         #endregion
@@ -219,13 +234,21 @@ namespace Dashboard
         #region DGS
         private void dgs_Click(object sender, EventArgs e)
         {
-            List<Concelho> concelhos = new List<Concelho>();
-            HttpClient clint = new HttpClient();
-            HttpResponseMessage response = clint.GetAsync("https://covid19-api.vost.pt/Requests/get_last_update_counties").Result;
-            var res = response.Content.ReadAsStringAsync().Result;
+            
+            try
+            {
+                List<Concelho> concelhos = new List<Concelho>();
+                HttpClient clint = new HttpClient();
+                HttpResponseMessage response = clint.GetAsync("https://covid19-api.vost.pt/Requests/get_last_update_counties").Result;
+                var res = response.Content.ReadAsStringAsync().Result;
 
-            concelhos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Concelho>>(res);
-            this.dataGridView1.DataSource = concelhos;
+                concelhos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Concelho>>(res);
+                this.dataGridView1.DataSource = concelhos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }
