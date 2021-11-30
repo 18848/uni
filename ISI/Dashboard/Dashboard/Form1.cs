@@ -30,19 +30,50 @@ namespace Dashboard
         }
 
         #region Casos
-        private void casos_Click(object sender, EventArgs e)
+        private async void casos_Click(object sender, EventArgs e)
         {
             //ModeloCasos casos = new ModeloCasos();
             //casos.Data = DateTime.Today.ToString("yyyy-MM-dd");
             //casos.Nif = 123;
             //casosWS.AddCasos(casos);
 
-            DataSet ds = casosWS.GetCasos();
-            DataTable dt = ds.Tables[]
+            DataSet ds = await casosWS.GetCasosAsync();
+            List<ModeloCasos> data = new List<ModeloCasos>();
+            List<ModeloCasos> result = new List<ModeloCasos>();
 
-            foreach (DataRow row in ds["Casos"].Rows)
+            foreach (DataRow row in ds.Tables["Casos"].Rows)
             {
                 object[] r = row.ItemArray;
+                ModeloCasos n = new ModeloCasos();
+                
+                n.Data = r[1].ToString();
+                n.Nif = int.Parse(r[2].ToString());
+                
+                data.Add(n);
+            }
+
+            foreach(ModeloCasos n in data)
+            {
+                if (DateTime.Compare(DateTime.Parse(n.Data), DateTime.Now.AddMonths(-6)) <= 0)
+                {
+                    result.Add(n);
+                }
+            }
+
+            ds.Tables["Casos"].Rows.Clear();
+
+            foreach (ModeloCasos n in result)
+            {
+                ds.Tables["Casos"].Rows.Add(new object[] {1, n.Data, n.Nif });
+                ds.AcceptChanges();
+            }
+            try
+            {
+                casosGridView.DataSource = ds;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         #endregion
