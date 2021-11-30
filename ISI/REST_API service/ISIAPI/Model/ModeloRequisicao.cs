@@ -53,6 +53,7 @@ namespace ISIAPI
 
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(dt);
+            con.Close();
             return jsonString;
 
         }
@@ -83,8 +84,9 @@ namespace ISIAPI
                 SqlCommand com = new SqlCommand(q, con);
                 SqlDataReader reader = com.ExecuteReader();
                 reader.Read();
-
-                return reader[0].ToString();
+                string valor = reader[0].ToString();
+                con.Close();
+                return valor;
             }
             catch (SqlException ex)
             {
@@ -121,6 +123,7 @@ namespace ISIAPI
 
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(dt);
+            con.Close();
             return jsonString;
         }
 
@@ -139,8 +142,10 @@ namespace ISIAPI
                 SqlCommand com = new SqlCommand(q, con);
                 SqlDataReader reader = com.ExecuteReader();
                 reader.Read();
+                string valor = reader[0].ToString();
+                con.Close();
 
-                return reader[0].ToString();
+                return valor;
             }
             catch (SqlException ex)
             {

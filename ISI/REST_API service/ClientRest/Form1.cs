@@ -356,7 +356,6 @@ namespace ClientRest
                 var json = JsonConvert.SerializeObject(materialAdd);
                 var conteudo = new StringContent(json, Encoding.UTF8, "application/json");
 
-                MessageBox.Show("api/Requisicao/updateEntregue/" + token[0]);
                 HttpClient clint = new HttpClient();
                 clint.BaseAddress = new Uri("https://localhost:44370/");
                 var response = await clint.PutAsync("api/Requisicao/updateEntregue/" + token[0], conteudo);

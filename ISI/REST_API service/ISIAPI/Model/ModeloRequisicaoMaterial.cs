@@ -58,6 +58,7 @@ namespace ISIAPI
 
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(dt);
+            con.Close();
             return jsonString;
 
         }
@@ -79,6 +80,7 @@ namespace ISIAPI
                 SqlCommand com = new SqlCommand(q, con);
 
                 com.ExecuteNonQuery();
+                con.Close();
 
                 return "True";
             }
@@ -112,6 +114,7 @@ namespace ISIAPI
 
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(dt);
+            con.Close();
             return jsonString;
         }
 
