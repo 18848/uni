@@ -29,6 +29,13 @@ namespace ISIAPI.Controllers
             return m.GetAllMateriais();
         }
 
+        [HttpGet]
+        [Route("getMaterialMaisUsado")]
+        public string GetMaterialMaisUsado()
+        {
+            return m.GetMaterialMaisUsado();
+        }
+
 
         [HttpPost("addmaterial")]
         public string AddMaterial([FromBody] string material)

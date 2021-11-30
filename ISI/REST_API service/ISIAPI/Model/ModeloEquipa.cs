@@ -97,6 +97,37 @@ namespace ISIAPI
 
         }
 
+        public string GetEquipaMaisCara()
+        {
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
+            con.Open();
+
+            string q = @"Select * from (SELECT somaReq.idEquipa, somaReq.nome, sum(somaReq.total) as total
+                        FROM (SELECT requisicao.idEquipa, nome, valores.idRequisicao, valores.total from equipa
+                        Inner Join requisicao on requisicao.idEquipa = equipa.idEquipa
+                        Inner Join (SELECT rm.idRequisicao,
+		                SUM(rm.qtd * m.custo) as total
+		                FROM requisicaoMaterial rm
+		                JOIN material m ON m.idMaterial = rm.idMaterial
+		                WHERE rm.idRequisicao = idRequisicao
+		                GROUP BY rm.idRequisicao) as valores
+		                on requisicao.idRequisicao = valores.idRequisicao) as somaReq
+                        GROUP BY somaReq.idEquipa, somaReq.nome) as tabela 
+                        ORDER BY tabela.total desc OFFSET 0 ROWS FETCH FIRST 10 ROWS ONLY";
+
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            string jsonString = string.Empty;
+            jsonString = JsonConvert.SerializeObject(dt);
+            con.Close();
+            return jsonString;
+        }
+
         //Encontrar nome de material
         public string GetEquipaById(int idEquipa)
         {
