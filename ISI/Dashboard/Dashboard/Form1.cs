@@ -186,7 +186,7 @@ namespace Dashboard
         }
         #endregion
 
-
+        #region Equipas
         //Botão para equipas mais caras
         private void button1_Click(object sender, EventArgs e)
         {
@@ -214,17 +214,9 @@ namespace Dashboard
             this.dataGridView3.DataSource = materiais;
 
         }
+        #endregion
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        #region DGS
         private void dgs_Click(object sender, EventArgs e)
         {
             List<Concelho> concelhos = new List<Concelho>();
@@ -235,16 +227,7 @@ namespace Dashboard
             concelhos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Concelho>>(res);
             this.dataGridView1.DataSource = concelhos;
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
     public class MaterialModel
     {
@@ -252,6 +235,8 @@ namespace Dashboard
         public string nome { get; set; }
         public int total { get; set; }
     }
+
+
     public class EquipaModel
     {
         public int idEquipa { get; set; }
@@ -259,6 +244,8 @@ namespace Dashboard
         public float total { get; set; }
     }
 
+
+    // Classe dos dados provenintes da api https://covid19-api.vost.pt
     public class Concelho
     {
         public string data { get; set; }
