@@ -35,20 +35,26 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.casosTab = new System.Windows.Forms.TabPage();
+            this.mediaButton = new System.Windows.Forms.Button();
+            this.mediaGridView = new System.Windows.Forms.DataGridView();
             this.casosGridView = new System.Windows.Forms.DataGridView();
-            this.casos = new System.Windows.Forms.Button();
             this.visitasTab = new System.Windows.Forms.TabPage();
             this.dgsTab = new System.Windows.Forms.TabPage();
             this.dgs = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.visitas = new System.Windows.Forms.Button();
+            this.visitasGridView = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.equipasTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.casosTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.casosGridView)).BeginInit();
+            this.visitasTab.SuspendLayout();
             this.dgsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitasGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -117,8 +123,9 @@
             // 
             // casosTab
             // 
+            this.casosTab.Controls.Add(this.mediaButton);
+            this.casosTab.Controls.Add(this.mediaGridView);
             this.casosTab.Controls.Add(this.casosGridView);
-            this.casosTab.Controls.Add(this.casos);
             this.casosTab.Location = new System.Drawing.Point(4, 22);
             this.casosTab.Name = "casosTab";
             this.casosTab.Padding = new System.Windows.Forms.Padding(3);
@@ -127,26 +134,36 @@
             this.casosTab.Text = "Casos";
             this.casosTab.UseVisualStyleBackColor = true;
             // 
+            // mediaButton
+            // 
+            this.mediaButton.Location = new System.Drawing.Point(8, 118);
+            this.mediaButton.Name = "mediaButton";
+            this.mediaButton.Size = new System.Drawing.Size(136, 23);
+            this.mediaButton.TabIndex = 3;
+            this.mediaButton.Text = "Média de Casos";
+            this.mediaButton.UseVisualStyleBackColor = true;
+            this.mediaButton.Click += new System.EventHandler(this.mediaButton_Click);
+            // 
+            // mediaGridView
+            // 
+            this.mediaGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mediaGridView.Location = new System.Drawing.Point(168, 6);
+            this.mediaGridView.Name = "mediaGridView";
+            this.mediaGridView.Size = new System.Drawing.Size(300, 400);
+            this.mediaGridView.TabIndex = 2;
+            // 
             // casosGridView
             // 
             this.casosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.casosGridView.Location = new System.Drawing.Point(405, 22);
+            this.casosGridView.Location = new System.Drawing.Point(474, 6);
             this.casosGridView.Name = "casosGridView";
-            this.casosGridView.Size = new System.Drawing.Size(323, 418);
+            this.casosGridView.Size = new System.Drawing.Size(300, 400);
             this.casosGridView.TabIndex = 1;
-            // 
-            // casos
-            // 
-            this.casos.Location = new System.Drawing.Point(158, 140);
-            this.casos.Name = "casos";
-            this.casos.Size = new System.Drawing.Size(156, 23);
-            this.casos.TabIndex = 0;
-            this.casos.Text = "Média de Casos";
-            this.casos.UseVisualStyleBackColor = true;
-            this.casos.Click += new System.EventHandler(this.casos_Click);
             // 
             // visitasTab
             // 
+            this.visitasTab.Controls.Add(this.visitasGridView);
+            this.visitasTab.Controls.Add(this.visitas);
             this.visitasTab.Location = new System.Drawing.Point(4, 22);
             this.visitasTab.Name = "visitasTab";
             this.visitasTab.Padding = new System.Windows.Forms.Padding(3);
@@ -186,6 +203,24 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // visitas
+            // 
+            this.visitas.Location = new System.Drawing.Point(8, 139);
+            this.visitas.Name = "visitas";
+            this.visitas.Size = new System.Drawing.Size(75, 23);
+            this.visitas.TabIndex = 0;
+            this.visitas.Text = "Visitas Diárias";
+            this.visitas.UseVisualStyleBackColor = true;
+            this.visitas.Click += new System.EventHandler(this.visitas_Click);
+            // 
+            // visitasGridView
+            // 
+            this.visitasGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.visitasGridView.Location = new System.Drawing.Point(361, 3);
+            this.visitasGridView.Name = "visitasGridView";
+            this.visitasGridView.Size = new System.Drawing.Size(416, 403);
+            this.visitasGridView.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,9 +234,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.casosTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mediaGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.casosGridView)).EndInit();
+            this.visitasTab.ResumeLayout(false);
             this.dgsTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitasGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,8 +257,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button casos;
         private System.Windows.Forms.DataGridView casosGridView;
+        private System.Windows.Forms.DataGridView mediaGridView;
+        private System.Windows.Forms.Button mediaButton;
+        private System.Windows.Forms.DataGridView visitasGridView;
+        private System.Windows.Forms.Button visitas;
     }
 }
 
