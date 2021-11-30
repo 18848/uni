@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace ISIAPI.Controllers
 {
@@ -47,11 +48,15 @@ namespace ISIAPI.Controllers
 
         [HttpPost]
         [Route("postRequisicaoMateriais/{idEquipa}")]
-        public string AddRequisicaoMaterial(int idEquipa, [FromBody]string materiais)
+        public string AddRequisicaoMaterial(int idEquipa,[FromBody]JsonElement body)
         {
             string idRequisicao;
 
-            ListaMateriais listaMateriais = Newtonsoft.Json.JsonConvert.DeserializeObject<ListaMateriais>(materiais);
+            string materiais = body.ToString();
+
+            List<MaterialParaRequisicao> listaMateriais = new List<MaterialParaRequisicao>();
+
+            listaMateriais = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MaterialParaRequisicao>>(materiais);
             ModeloRequisicaoMaterial elementoAdd = new ModeloRequisicaoMaterial();
             ModeloRequisicao requisicaoAdd = new ModeloRequisicao();
 
@@ -59,7 +64,7 @@ namespace ISIAPI.Controllers
             requisicaoAdd.Entregue = false;
             idRequisicao = r.AddRequisicao(requisicaoAdd);
 
-            foreach(MaterialParaRequisicao mr in listaMateriais.materiais)
+            foreach(MaterialParaRequisicao mr in listaMateriais)
             {
 
                 elementoAdd.IdRequisicao = int.Parse(idRequisicao);
@@ -74,12 +79,10 @@ namespace ISIAPI.Controllers
 
         public class MaterialParaRequisicao
         {
+            [JsonProperty]
             public int idMaterial { get; set; }
+            [JsonProperty]
             public int qtd { get; set; }
-        }
-        public class ListaMateriais
-        {
-            public List<MaterialParaRequisicao> materiais { get; set; }
         }
 
         /*

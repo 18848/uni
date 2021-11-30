@@ -124,6 +124,35 @@ namespace ISIAPI
             return jsonString;
         }
 
+        public string UpdateRequisicao(int idRequisicao)
+        {
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
+            con.Open();
+
+            string q = "UPDATE requisicao SET requisicao.entregue = 1 WHERE idRequisicao = " + idRequisicao;
+
+            try
+            {
+                //4º Execute INSERT
+                SqlCommand com = new SqlCommand(q, con);
+                SqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+
+                return reader[0].ToString();
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
+
+        }
+
 
 
     }
