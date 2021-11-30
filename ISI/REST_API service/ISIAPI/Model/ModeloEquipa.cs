@@ -95,8 +95,6 @@ namespace ISIAPI
                 return "Exception:\n" + ex.Message.ToString();
             }
 
-
-
         }
 
         //Encontrar nome de material
