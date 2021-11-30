@@ -52,6 +52,7 @@ namespace ISIAPI
 
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(dt);
+            con.Close();
             return jsonString;
             
         }
@@ -75,9 +76,9 @@ namespace ISIAPI
                 reader.Read();
 
                 string jsonString = string.Empty;
-                
-
-                return reader[0].ToString();
+                string valor = reader[0].ToString();
+                con.Close();
+                return valor;
             }
             catch (SqlException ex)
             {
