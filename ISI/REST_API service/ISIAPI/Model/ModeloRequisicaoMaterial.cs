@@ -51,14 +51,27 @@ namespace ISIAPI
             con.Open();
 
             string q = "SELECT * FROM requisicaoMaterial";
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            return jsonString;
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
 
         }
 
@@ -79,6 +92,7 @@ namespace ISIAPI
                 SqlCommand com = new SqlCommand(q, con);
 
                 com.ExecuteNonQuery();
+                con.Close();
 
                 return "True";
             }
@@ -105,25 +119,28 @@ namespace ISIAPI
             con.Open();
 
             string q = "SELECT  idRequisicao, reqMat.idMaterial, nome,  custo , reqMat.qtd FROM requisicaoMaterial AS reqMat INNER JOIN material ON material.idMaterial = reqMat.idMaterial WHERE idRequisicao = " + idRequisicao;
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            return jsonString;
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
         }
-
-
-
-
-        //Encontrar nome de material
-        public string GetRequisicaoMaterialById(int idRequisicaoMaterial)
-        {
-            return "True";
-        }
-
 
 
     }

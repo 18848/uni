@@ -15,13 +15,7 @@ namespace ISIAPI.Controllers
     {
         public ModeloMateriais m = new ModeloMateriais();
 
-        [HttpGet]
-        [Route("getmaterial/{idMaterial}")]
-        public string GetMaterial(int idMaterial)
-        {
-            return m.GetMaterialById(idMaterial);
-        }
-
+        //Rota para devolver todos os materiais presentes na base de dados
         [HttpGet]
         [Route("getall")]
         public string GetMateriais()
@@ -29,27 +23,22 @@ namespace ISIAPI.Controllers
             return m.GetAllMateriais();
         }
 
+        //Rota para devolver os 5 materiais presentes em mais requisições
+        [HttpGet]
+        [Route("getMaterialMaisUsado")]
+        public string GetMaterialMaisUsado()
+        {
+            return m.GetMaterialMaisUsado();
+        }
 
+        //Rota para adicionar um novo material
+        // formato {"nome":nome, "custo":custo}
         [HttpPost("addmaterial")]
         public string AddMaterial([FromBody] string material)
         {   
             ModeloMaterial materialConvertido = Newtonsoft.Json.JsonConvert.DeserializeObject<ModeloMaterial>(material);
             return m.AddMaterial(materialConvertido);
         }
-
-        /*
-
-        [HttpPost("UpdateMaterial")]
-        public ActionResult Update(ModeloMaterial m)
-        {
-            if (m.Id >= 0 && m.Id < materiais.Count)
-            {
-                materiais[m.Id] = m;
-                return Ok();
-            }
-            return NotFound();
-        }
-        */
 
     }
 }

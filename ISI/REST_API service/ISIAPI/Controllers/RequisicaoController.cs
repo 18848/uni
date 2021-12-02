@@ -14,13 +14,8 @@ namespace ISIAPI.Controllers
     {
         public ModeloRequisicoes m = new ModeloRequisicoes();
 
-        [HttpGet]
-        [Route("getrequisicao/{idRequisicao}")]
-        public string GetRequisicao(int idRequisicao)
-        {
-            return m.GetRequisicaoById(idRequisicao);
-        }
 
+        //Rota para devolver todas as requisições presentes na base de dados
         [HttpGet]
         [Route("getall")]
         public string GetRequisicoes()
@@ -28,7 +23,8 @@ namespace ISIAPI.Controllers
             return m.GetAllRequisicoes();
         }
 
-
+        //Rota para adicionar uma requisicao
+        //formato {"idEquipa":id, "entregue":(true or false)}
         [HttpPost]
         [Route("addRequisicao")]
         public string AddRequisicao(string requisicao)
@@ -37,6 +33,7 @@ namespace ISIAPI.Controllers
             return m.AddRequisicao(requisicaoConvertido);
         }
 
+        //Rota para devolver as requisições de uma equipa
         [HttpGet]
         [Route("getrequisicaobyequipa/{idEquipa}")]
         public string GetRequisicaoByEquipca(int idEquipa)
@@ -44,6 +41,7 @@ namespace ISIAPI.Controllers
             return m.GetRequisicaoByEquipa(idEquipa);
         }
 
+        //Rota para dar update ao estado de entregue de uma requisição
         [HttpPut]
         [Route("updateEntregue/{idRequisicao}")]
         public string UpdateRequisicaoEntregue(int idRequisicao)

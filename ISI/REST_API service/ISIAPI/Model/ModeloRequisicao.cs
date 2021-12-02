@@ -46,14 +46,26 @@ namespace ISIAPI
             con.Open();
 
             string q = "SELECT * FROM requisicao";
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            return jsonString;
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
 
         }
 
@@ -83,8 +95,44 @@ namespace ISIAPI
                 SqlCommand com = new SqlCommand(q, con);
                 SqlDataReader reader = com.ExecuteReader();
                 reader.Read();
+                string valor = reader[0].ToString();
+                con.Close();
+                return valor;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
 
-                return reader[0].ToString();
+        }
+
+        //Obter todas as requisicoes de uma equipa
+        public string GetRequisicaoByEquipa(int idEquipa)
+        {
+
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
+            con.Open();
+
+            string q = "Select * from requisicao where idEquipa = " + idEquipa.ToString();
+            
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+
             }
             catch (SqlException ex)
             {
@@ -99,31 +147,7 @@ namespace ISIAPI
 
         }
 
-        //Encontrar nome de material
-        public string GetRequisicaoById(int idRequisicao)
-        {
-            return "True";
-        }
-
-        public string GetRequisicaoByEquipa(int idEquipa)
-        {
-
-            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
-            SqlConnection con = new SqlConnection(conString);
-
-            con.Open();
-
-            string q = "Select * from requisicao where idEquipa = " + idEquipa.ToString();
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            return jsonString;
-        }
-
+        //Fazer update do valor "entregue" de uma requisição
         public string UpdateRequisicao(int idRequisicao)
         {
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
@@ -139,8 +163,10 @@ namespace ISIAPI
                 SqlCommand com = new SqlCommand(q, con);
                 SqlDataReader reader = com.ExecuteReader();
                 reader.Read();
+                string valor = reader[0].ToString();
+                con.Close();
 
-                return reader[0].ToString();
+                return valor;
             }
             catch (SqlException ex)
             {

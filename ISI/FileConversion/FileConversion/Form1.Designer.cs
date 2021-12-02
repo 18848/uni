@@ -42,17 +42,17 @@
             this.jsonVerifyButton = new System.Windows.Forms.Button();
             this.jsonTextBox = new System.Windows.Forms.RichTextBox();
             this.GetDB = new System.Windows.Forms.TabPage();
-            this.databaseGridView = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.idFiscalizacaoTextBox = new System.Windows.Forms.TextBox();
             this.atualizarDatabase = new System.Windows.Forms.Button();
             this.irregularidadesDataGrid = new System.Windows.Forms.DataGridView();
-            this.idFiscalizacaoTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.databaseGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.XML.SuspendLayout();
             this.JSON.SuspendLayout();
             this.GetDB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.irregularidadesDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,6 +118,7 @@
             this.xmlVerifyButton.TabIndex = 1;
             this.xmlVerifyButton.Text = "Verify";
             this.xmlVerifyButton.UseVisualStyleBackColor = true;
+            this.xmlVerifyButton.Click += new System.EventHandler(this.xmlVerifyButton_Click);
             // 
             // xmlTextBox
             // 
@@ -204,13 +205,21 @@
             this.GetDB.Text = "GetDB";
             this.GetDB.UseVisualStyleBackColor = true;
             // 
-            // databaseGridView
+            // label1
             // 
-            this.databaseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.databaseGridView.Location = new System.Drawing.Point(0, 6);
-            this.databaseGridView.Name = "databaseGridView";
-            this.databaseGridView.Size = new System.Drawing.Size(467, 400);
-            this.databaseGridView.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(473, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ID Fiscalização";
+            // 
+            // idFiscalizacaoTextBox
+            // 
+            this.idFiscalizacaoTextBox.Location = new System.Drawing.Point(558, 6);
+            this.idFiscalizacaoTextBox.Name = "idFiscalizacaoTextBox";
+            this.idFiscalizacaoTextBox.Size = new System.Drawing.Size(135, 20);
+            this.idFiscalizacaoTextBox.TabIndex = 3;
             // 
             // atualizarDatabase
             // 
@@ -230,21 +239,13 @@
             this.irregularidadesDataGrid.Size = new System.Drawing.Size(301, 374);
             this.irregularidadesDataGrid.TabIndex = 2;
             // 
-            // idFiscalizacaoTextBox
+            // databaseGridView
             // 
-            this.idFiscalizacaoTextBox.Location = new System.Drawing.Point(558, 6);
-            this.idFiscalizacaoTextBox.Name = "idFiscalizacaoTextBox";
-            this.idFiscalizacaoTextBox.Size = new System.Drawing.Size(135, 20);
-            this.idFiscalizacaoTextBox.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(473, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ID Fiscalização";
+            this.databaseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.databaseGridView.Location = new System.Drawing.Point(0, 6);
+            this.databaseGridView.Name = "databaseGridView";
+            this.databaseGridView.Size = new System.Drawing.Size(467, 400);
+            this.databaseGridView.TabIndex = 0;
             // 
             // Form1
             // 
@@ -253,7 +254,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Importação XML/JSON";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.XML.ResumeLayout(false);
             this.XML.PerformLayout();
@@ -261,8 +263,8 @@
             this.JSON.PerformLayout();
             this.GetDB.ResumeLayout(false);
             this.GetDB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.irregularidadesDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

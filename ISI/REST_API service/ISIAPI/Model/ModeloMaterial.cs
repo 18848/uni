@@ -45,15 +45,62 @@ namespace ISIAPI
             con.Open();
 
             string q = "SELECT * FROM material";
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            string jsonString = string.Empty;
-            jsonString = JsonConvert.SerializeObject(dt);
-            return jsonString;
-            
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
+
+        }
+
+        public string GetMaterialMaisUsado()
+        {
+            string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
+            SqlConnection con = new SqlConnection(conString);
+
+            con.Open();
+
+            string q = @"Select req.idMaterial, mat.nome, sum(qtd) as total from requisicaoMaterial as req
+                        Inner Join material as mat on mat.idMaterial = req.idMaterial
+                        GROUP BY req.idMaterial, mat.nome
+                        ORDER BY total desc OFFSET 0 ROWS FETCH FIRST 5 ROWS ONLY";
+
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(q, con);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                string jsonString = string.Empty;
+                jsonString = JsonConvert.SerializeObject(dt);
+                con.Close();
+                return jsonString;
+            }
+            catch (SqlException ex)
+            {
+                return "SQL Server:\n" + ex.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "Exception:\n" + ex.Message.ToString();
+            }
+
         }
 
         //Adicionar um material
@@ -75,9 +122,9 @@ namespace ISIAPI
                 reader.Read();
 
                 string jsonString = string.Empty;
-                
-
-                return reader[0].ToString();
+                string valor = reader[0].ToString();
+                con.Close();
+                return valor;
             }
             catch (SqlException ex)
             {
@@ -92,15 +139,6 @@ namespace ISIAPI
 
         }
 
-        //Encontrar nome de material
-        public string GetMaterialById(int idMaterial)
-        {
-            foreach(ModeloMaterial m in materiais)
-            {
-                if (m.Id == idMaterial) return m.Nome;
-            }
-            return "";
-        }
 
     }
 }

@@ -16,13 +16,7 @@ namespace ISIAPI.Controllers
         public ModeloRequisicoesMateriais m = new ModeloRequisicoesMateriais();
         public ModeloRequisicoes r = new ModeloRequisicoes();
 
-        [HttpGet]
-        [Route("getrequisicaomaterial/{idRequisicaoMaterial}")]
-        public string GetRequisicaoMaterial(int idMaterial)
-        {
-            return m.GetRequisicaoMaterialById(idMaterial);
-        }
-
+        // Rota para devolver todas as RequisicoesMateriais
         [HttpGet]
         [Route("getall")]
         public string GetRequisisoesMateriais()
@@ -30,7 +24,7 @@ namespace ISIAPI.Controllers
             return m.GetAllRequisicoesMateriais();
         }
 
-
+        //Rota para adicionar uma RequisicaoMaterial
         [HttpPost]
         [Route("addrequisicaomaterial")]
         public string AddRequisicaoMaterial(string requisicaoMaterial)
@@ -39,6 +33,8 @@ namespace ISIAPI.Controllers
             return m.AddRequisicaoMaterial(requisicaoMaterialConvertido);
         }
 
+
+        //Rota para obter os materiais de uma requisicao
         [HttpGet]
         [Route("getmaterialbyrequisicao/{idRequisicao}")]
         public string GetRequisicaoMaterialbyRequisicaoEquipa(int idRequisicao)
@@ -46,6 +42,8 @@ namespace ISIAPI.Controllers
             return m.GetRequisicaoMaterialByRequisicaoEquipa(idRequisicao);
         }
 
+        //Rota para adicionar uma requisicaoMaterial
+        //Formato {{"idMaterial":id, "qtd":qtd},{"idMaterial":id, "qtd":qtd},...}
         [HttpPost]
         [Route("postRequisicaoMateriais/{idEquipa}")]
         public string AddRequisicaoMaterial(int idEquipa,[FromBody]JsonElement body)
@@ -84,20 +82,6 @@ namespace ISIAPI.Controllers
             [JsonProperty]
             public int qtd { get; set; }
         }
-
-        /*
-
-        [HttpPost("UpdateMaterial")]
-        public ActionResult Update(ModeloMaterial m)
-        {
-            if (m.Id >= 0 && m.Id < materiais.Count)
-            {
-                materiais[m.Id] = m;
-                return Ok();
-            }
-            return NotFound();
-        }
-        */
 
     }
 }
