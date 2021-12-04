@@ -36,7 +36,7 @@ namespace API.Controllers
             if (token == null)
             {
                 token = new AuthResponse();
-                token.Name = Unauthorized().ToString();
+                token.Name = "";
                 token.Token = Unauthorized().StatusCode.ToString();
             }
 

@@ -1,20 +1,15 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
 using System.Data.SqlClient;
 using Dashboard.Casos;
 using System.Net.Http;
-using System.Runtime.Serialization.Json;
 //using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Headers;
+
 //using Dashboard.CasosAzure;
 
 namespace Dashboard
@@ -33,6 +28,7 @@ namespace Dashboard
         {
             InitializeComponent();
         }
+
         #region Casos
 
         private async void mediaButton_Click(object sender, EventArgs e)
@@ -107,7 +103,6 @@ namespace Dashboard
         #endregion
 
         #region Visitas
-
 
         private void visitas_Click(object sender, EventArgs e)
         {
@@ -194,10 +189,17 @@ namespace Dashboard
         {
             try
             {
+                string url = "https://localhost:44339/api/Equipas/equipas";
+                StreamReader reader = new StreamReader("tmp");
+                string token = reader.ReadToEnd();
+                reader.Close();
+
                 List<EquipaModel> equipas = new List<EquipaModel>();
-                HttpClient clint = new HttpClient();
-                clint.BaseAddress = new Uri("https://localhost:44370/");
-                HttpResponseMessage response = clint.GetAsync("api/Equipa/getEquipaMaisCara").Result;
+                HttpClient client = new HttpClient();
+
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
                 var res = response.Content.ReadAsStringAsync().Result;
 
                 equipas = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EquipaModel>>(res);
@@ -215,10 +217,17 @@ namespace Dashboard
         {
             try
             {
+                string url = "https://localhost:44339/api/Equipas/material";
+                StreamReader reader = new StreamReader("tmp");
+                string token = reader.ReadToEnd();
+                reader.Close();
+
                 List<MaterialModel> materiais = new List<MaterialModel>();
-                HttpClient clint = new HttpClient();
-                clint.BaseAddress = new Uri("https://localhost:44370/");
-                HttpResponseMessage response = clint.GetAsync("api/Material/getMaterialMaisUsado").Result;
+                HttpClient client = new HttpClient();
+
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
                 var res = response.Content.ReadAsStringAsync().Result;
 
                 materiais = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MaterialModel>>(res);
@@ -239,9 +248,21 @@ namespace Dashboard
             
             try
             {
+                string url = "https://localhost:44339/api/DGS";
+                StreamReader reader = new StreamReader("tmp");
+                string token = reader.ReadToEnd();
+                reader.Close();
+
+                List<ConcelhoModel> concelhos = new List<ConcelhoModel>();
                 HttpClient client = new HttpClient();
-                var response = client.GetAsync("https://localhost:44339/api/DGS");
-                this.dataGridView1.DataSource = response;
+
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                var res = response.Content.ReadAsStringAsync().Result;
+
+                concelhos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ConcelhoModel>>(res);
+                this.dataGridView1.DataSource = concelhos;
             }
             catch (Exception ex)
             {
