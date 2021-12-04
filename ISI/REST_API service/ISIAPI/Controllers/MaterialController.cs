@@ -15,7 +15,11 @@ namespace ISIAPI.Controllers
     {
         public ModeloMateriais m = new ModeloMateriais();
 
-        //Rota para devolver todos os materiais presentes na base de dados
+        /// <summary>
+        /// Rota para devolver todos os materiais presentes na base de dados
+        /// </summary>
+        /// <returns string=Materiais> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpGet]
         [Route("getall")]
         public string GetMateriais()
@@ -23,7 +27,11 @@ namespace ISIAPI.Controllers
             return m.GetAllMateriais();
         }
 
-        //Rota para devolver os 5 materiais presentes em mais requisições
+        /// <summary>
+        /// Rota para devolver os 5 materiais presentes em mais requisições
+        /// </summary>
+        /// <returns string=Materiais> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpGet]
         [Route("getMaterialMaisUsado")]
         public string GetMaterialMaisUsado()
@@ -31,8 +39,12 @@ namespace ISIAPI.Controllers
             return m.GetMaterialMaisUsado();
         }
 
-        //Rota para adicionar um novo material
-        // formato {"nome":nome, "custo":custo}
+        /// <summary>
+        /// Rota para adicionar um novo material
+        /// </summary>
+        /// <param name="material">recebe uma variável do tipo json no formato {"nome":nome, "custo":custo}</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpPost("addmaterial")]
         public string AddMaterial([FromBody] string material)
         {   

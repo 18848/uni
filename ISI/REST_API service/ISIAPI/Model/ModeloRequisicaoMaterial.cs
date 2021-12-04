@@ -41,7 +41,11 @@ namespace ISIAPI
             get => requisicoesMateriais;
         }
 
-        //Obter todas as requisições de materiais
+        /// <summary>
+        /// Obter todas as requisições de materiais através da base de dados
+        /// </summary>
+        /// <returns string=RequisicoesMateriais> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetAllRequisicoesMateriais()
         {
 
@@ -75,7 +79,12 @@ namespace ISIAPI
 
         }
 
-        //Adicionar uma equipa
+        /// <summary>
+        /// Adicionar uma RequisicãoMaterial
+        /// </summary>
+        /// <param ModeloRequisicaoMaterial="s"> recebe uma variável do tipo ModeloRequisicaoMaterial</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string AddRequisicaoMaterial(ModeloRequisicaoMaterial s)
         {
 
@@ -109,7 +118,12 @@ namespace ISIAPI
 
         }
 
-        //Devolver materiais para uma requisicao efetuada por uma equipa
+        /// <summary>
+        /// Devolver materiais para uma requisicao efetuada por uma equipa
+        /// </summary>
+        /// <param int=idRequisicao> recebe uma variavel do tipo int referente ao id da equipa</param>
+        /// <returns string=Requisicao> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetRequisicaoMaterialByRequisicaoEquipa(int idRequisicao)
         {
 

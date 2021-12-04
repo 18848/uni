@@ -16,7 +16,11 @@ namespace ISIAPI.Controllers
         public ModeloRequisicoesMateriais m = new ModeloRequisicoesMateriais();
         public ModeloRequisicoes r = new ModeloRequisicoes();
 
-        // Rota para devolver todas as RequisicoesMateriais
+        /// <summary>
+        /// Rota para devolver todas as RequisicoesMateriais
+        /// </summary>
+        /// <returns string=RequisicoesMaterial> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpGet]
         [Route("getall")]
         public string GetRequisisoesMateriais()
@@ -24,7 +28,12 @@ namespace ISIAPI.Controllers
             return m.GetAllRequisicoesMateriais();
         }
 
-        //Rota para adicionar uma RequisicaoMaterial
+        /// <summary>
+        /// Rota para adicionar uma RequisicaoMaterial
+        /// </summary>
+        /// <param name="requisicaoMaterial"> recebe uma variavel do tipo json no formato {"idMaterial":idMaterial,"idRequisicao":idRequisicao,"qtd":qtd}</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpPost]
         [Route("addrequisicaomaterial")]
         public string AddRequisicaoMaterial(string requisicaoMaterial)
@@ -34,7 +43,12 @@ namespace ISIAPI.Controllers
         }
 
 
-        //Rota para obter os materiais de uma requisicao
+        /// <summary>
+        /// Rota para obter os materiais de uma requisicao
+        /// </summary>
+        /// <param name="idRequisicao"> recebe o id da requisição através da rota</param>
+        /// <returns string=Materiais> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpGet]
         [Route("getmaterialbyrequisicao/{idRequisicao}")]
         public string GetRequisicaoMaterialbyRequisicaoEquipa(int idRequisicao)
@@ -42,8 +56,13 @@ namespace ISIAPI.Controllers
             return m.GetRequisicaoMaterialByRequisicaoEquipa(idRequisicao);
         }
 
-        //Rota para adicionar uma requisicaoMaterial
-        //Formato {{"idMaterial":id, "qtd":qtd},{"idMaterial":id, "qtd":qtd},...}
+        /// <summary>
+        /// Rota para adicionar uma requisicaoMaterial
+        /// </summary>
+        /// <param name="idEquipa"> recebe o id da equipa através da rota</param>
+        /// <param name="body"> recebe uma variavel do tipo json no formato {{"idMaterial":id, "qtd":qtd},{"idMaterial":id, "qtd":qtd},...} para cada material a adicionar</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpPost]
         [Route("postRequisicaoMateriais/{idEquipa}")]
         public string AddRequisicaoMaterial(int idEquipa,[FromBody]JsonElement body)

@@ -35,7 +35,11 @@ namespace ISIAPI
             get => materiais;
         }
 
-        //Obter todos os materiais
+        /// <summary>
+        /// Obter todos os materiais através da base de dados
+        /// </summary>
+        /// <returns string=Materiais> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetAllMateriais()
         {
 
@@ -68,6 +72,11 @@ namespace ISIAPI
 
         }
 
+        /// <summary>
+        /// Obter os materiais mais usados em requisições através de uma query à base de dados
+        /// </summary>
+        /// <returns string=MateriaisMaisUsados> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetMaterialMaisUsado()
         {
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
@@ -103,7 +112,13 @@ namespace ISIAPI
 
         }
 
-        //Adicionar um material
+
+        /// <summary>
+        /// Adicionar um material à base de dados
+        /// </summary>
+        /// <param ModeloMaterial="s"> recebe uma variável do tipo ModeloMaterial</param>
+        /// <returns string=idMaterial> If reaches end of function. returns the id of the material </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string AddMaterial(ModeloMaterial s)
         {
 

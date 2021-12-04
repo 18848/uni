@@ -36,7 +36,11 @@ namespace ISIAPI
             get => requisicoes;
         }
 
-        //Obter todas as requisições
+        /// <summary>
+        /// Obter todas as requisições através da base de dados
+        /// </summary>
+        /// <returns string=Requisicoes> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetAllRequisicoes()
         {
 
@@ -69,7 +73,12 @@ namespace ISIAPI
 
         }
 
-        //Adicionar uma equipa
+        /// <summary>
+        /// Adicionar uma equipa através da base de dados
+        /// </summary>
+        /// <param ModeloRequisicao="s"> recebe uma variável do tipo ModeloRequisicao</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string AddRequisicao(ModeloRequisicao s)
         {
 
@@ -110,7 +119,13 @@ namespace ISIAPI
 
         }
 
-        //Obter todas as requisicoes de uma equipa
+
+        /// <summary>
+        /// Obter todas as requisicoes de uma equipa
+        /// </summary>
+        /// <param int=idEquipa> recebe uma variavel do tipo int para o idEquipa que quer procurar na base de dados</param>
+        /// <returns string=Requisicoes> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetRequisicaoByEquipa(int idEquipa)
         {
 
@@ -147,7 +162,12 @@ namespace ISIAPI
 
         }
 
-        //Fazer update do valor "entregue" de uma requisição
+        /// <summary>
+        /// Fazer update do valor "entregue" de uma requisição
+        /// </summary>
+        /// <param int="idRequisicao"> recebe uma variavel int com o id da requisicao a fazer update</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string UpdateRequisicao(int idRequisicao)
         {
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";
