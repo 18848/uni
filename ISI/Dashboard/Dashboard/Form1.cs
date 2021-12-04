@@ -11,7 +11,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using Dashboard.Casos;
 using System.Net.Http;
-using Newtonsoft.Json;
+using System.Runtime.Serialization.Json;
+//using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Net.Http.Headers;
 //using Dashboard.CasosAzure;
 
@@ -237,13 +239,9 @@ namespace Dashboard
             
             try
             {
-                List<Concelho> concelhos = new List<Concelho>();
-                HttpClient clint = new HttpClient();
-                HttpResponseMessage response = clint.GetAsync("https://covid19-api.vost.pt/Requests/get_last_update_counties").Result;
-                var res = response.Content.ReadAsStringAsync().Result;
-
-                concelhos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Concelho>>(res);
-                this.dataGridView1.DataSource = concelhos;
+                HttpClient client = new HttpClient();
+                var response = client.GetAsync("https://localhost:44339/api/DGS");
+                this.dataGridView1.DataSource = response;
             }
             catch (Exception ex)
             {
@@ -269,7 +267,7 @@ namespace Dashboard
 
 
     // Classe dos dados provenintes da api https://covid19-api.vost.pt
-    public class Concelho
+    public class ConcelhoModel
     {
         public string data { get; set; }
         public string concelho { get; set; }

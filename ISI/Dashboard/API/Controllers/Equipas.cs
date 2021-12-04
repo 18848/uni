@@ -1,45 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
+﻿using Microsoft.AspNetCore.Authorization;   //[Authorize]
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("equipas")]
-    public class Equipas : ControllerBase
+    [Authorize]
+    public class Equipas : Controller
     {
-        //1º ConnectionString no Web Config
-        //private protected static string server = ConfigurationManager.ConnectionStrings["ISI"].ConnectionString;
-        private protected static string server = "Server=.;Database=ISI;Trusted_Connection=True;";
-        private protected SqlConnection con = new SqlConnection(server);
-
-        [HttpGet]
-        [Route("equipas")]
-        public DataSet EquipasMaisCaras()
+        public IActionResult Index()
         {
-            DataSet ds = new DataSet();
-            string query;
-
-            query = "SELECT * FROM equipas";
-
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-
-            da.Fill(ds, "Equipas Mais Caras");
-
-            return ds;
+            return View();
         }
-
-        [HttpGet]
-        [Route("produtos")]
-        public DataSet ProdutosMaisPedidos()
-        {
-            return new DataSet();
-        }
-
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
     }
 }
