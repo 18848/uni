@@ -14,7 +14,11 @@ namespace ISIAPI.Controllers
     {
         public ModeloEquipas m = new ModeloEquipas();
 
-        // Rota para devolver todas as equipas presentes na base de dados
+        /// <summary>
+        /// Rota para devolver todas as equipas presentes na base de dados 
+        /// </summary>
+        /// <returns string=Equipas> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpGet]
         [Route("getall")]
         public string GetEquipa()
@@ -22,7 +26,11 @@ namespace ISIAPI.Controllers
             return m.GetAllEquipas();
         }
 
-        // Rota para devolver as 10 equipas mais caras
+        /// <summary>
+        /// Rota para devolver as 10 equipas mais caras
+        /// </summary>
+        /// <returns json=EquipasMaisCaras> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpGet]
         [Route("getEquipaMaisCara")]
         public string GetEquipaMaisCara()
@@ -31,8 +39,12 @@ namespace ISIAPI.Controllers
         }
 
 
-        // Rota para adicionar uma equipa
-        // Formato {"nome": nome}
+        /// <summary>
+        /// Rota para adicionar uma equipa
+        /// </summary>
+        /// <param name="equipa"> Recebe uma variavel do tipo json com o nome da equipa a adicionar no formato {"nome": nome}"</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         [HttpPost]
         [Route("addequipa")]
         public string AddEquipa([FromBody] string equipa)

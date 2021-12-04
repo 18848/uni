@@ -36,7 +36,11 @@ namespace ISIAPI
             get => equipas;
         }
 
-        //Obter todos os materiais
+        /// <summary>
+        /// Obter todos os materiais através da base de dados
+        /// </summary>
+        /// <returns string=Equipas> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetAllEquipas()
         {
 
@@ -69,7 +73,12 @@ namespace ISIAPI
 
         }
 
-        //Adicionar uma equipa
+        /// <summary>
+        /// Adicionar uma equipa à base de dados 
+        /// </summary>
+        /// <param ModeloEquipa="s"> recebe uma variavel do tipo ModeloEquipa</param>
+        /// <returns string="Success"> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string AddEquipa(ModeloEquipa s)
         {
 
@@ -100,7 +109,11 @@ namespace ISIAPI
 
         }
 
-        //Obter as 10 equipas cujo total de preços de requisições é o mais elevado
+        /// <summary>
+        /// Obter as 10 equipas cujo total de preços de requisições é o mais elevado
+        /// </summary>
+        /// <returns string=EquipasMaisCaras> If reaches end of function. </returns>
+        /// <returns string="$EXCEPTION$"> If it fails. </returns>
         public string GetEquipaMaisCara()
         {
             string conString = "Server=.;Database=ISI;Trusted_Connection=True;";

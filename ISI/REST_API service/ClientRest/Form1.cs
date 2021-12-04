@@ -17,6 +17,9 @@ namespace ClientRest
 {
     public partial class Form1 : Form
     { 
+        /// <summary>
+        /// Variáveis
+        /// </summary>
         string selectedMaterial; // Material selecionado na tabela de adicionar
 
         int upAndDownValue; // Valor definido para quantidade do material
@@ -33,18 +36,31 @@ namespace ClientRest
 
         string nomeEquipaAdd; //Nome da Equipa a Adicionar
 
+        /// <summary>
+        /// Função que inicializa o form
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
         }
 
-        //Botão de fechar o form
+        /// <summary>
+        /// Botão de fechar o form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         #region ObterDados
-        //Get Equipas Botão
+
+
+        /// <summary>
+        /// Botão para obter todas as equipas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
             try
@@ -70,7 +86,12 @@ namespace ClientRest
             }
             
         }
-        //Get Requisicao botao
+
+        /// <summary>
+        /// Botão para obter todas as requisições
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
             try
@@ -97,7 +118,11 @@ namespace ClientRest
             
         }
 
-        //Get Materiais botao
+        /// <summary>
+        /// Botão para obter todos os materiais
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button8_Click(object sender, EventArgs e)
         {
             try
@@ -124,8 +149,11 @@ namespace ClientRest
             
         }
         
-
-        //Ao selecionar um item na lista de equipas
+        /// <summary>
+        /// Ao selecionar um item na lista de equipas apresenta as requisiçoes da mesma
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(listBox1.SelectedItem != null)
@@ -159,6 +187,11 @@ namespace ClientRest
             }
         }
 
+        /// <summary>
+        /// Ao selecionar um elemento na lista de requisições mostra os materiais presentes na mesma
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(listBox2.SelectedItem != null)
@@ -194,13 +227,21 @@ namespace ClientRest
         #endregion
 
         #region Cria Nova RequisiçãoMaterial
-        //Recebe valor do numerical up and down
+        /// <summary>
+        /// Altera o valor para adicionar um material através do numerical up and down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             upAndDownValue = Decimal.ToInt32(this.numericUpDown1.Value);
         }
 
-        //Recebe todas as equipas presentes na bd
+        /// <summary>
+        /// Botão para receber todas as equipas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button9_Click(object sender, EventArgs e)
         {
             try
@@ -227,13 +268,21 @@ namespace ClientRest
             
         }
 
-        //Seleciona Equipa à qual adicionar requisição
+        /// <summary>
+        /// Ao selecionar a equipa na lista guarda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             equipaSelecionada = this.listBox4.SelectedItem.ToString();
         }
 
-        //Recebe os materiais todos presentes na BD
+        /// <summary>
+        /// Botão para apresentar todos os materiais
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click_1(object sender, EventArgs e)
         {
             try
@@ -261,7 +310,11 @@ namespace ClientRest
 
         }
 
-        //Seleciona Item a Adicionar
+        /// <summary>
+        /// Ao selecionar um item guarda numa variavel para adicionar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox5.SelectedItem != null)
@@ -271,13 +324,22 @@ namespace ClientRest
 
 
         }
-        //Adiciona item à lista de items a adicionar
+
+        /// <summary>
+        /// Botão para adicionar o item selecionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.listBox6.Items.Add(selectedMaterial + " - " + upAndDownValue);
         }
 
-        // Botão Envia Requisição
+        /// <summary>
+        /// Botão para enviar a Requisição com os materiais todos na lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void button3_Click_1(object sender, EventArgs e)
         {
             if(equipaSelecionada != null && this.listBox6.Items != null)
@@ -321,7 +383,12 @@ namespace ClientRest
         #endregion
 
         #region RemoverItemListaAdd
-        //Seleciona o item da lista de materiais a adicionar
+
+        /// <summary>
+        /// Ao selecionar um item na lista de materiais para adicionar, adiciona à variável para remover
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox6.SelectedItem != null)
@@ -330,8 +397,11 @@ namespace ClientRest
             }
         }
 
-
-        //Remove item selecionado na lista de materiais a adicionar
+        /// <summary>
+        /// Botão para remover o item selecionado na lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button10_Click(object sender, EventArgs e)
         {
             if(selectedRemoveItem != null)
@@ -342,19 +412,30 @@ namespace ClientRest
         #endregion
 
         #region NovoMaterial
-        //Receber texto nome para novo material
+        /// <summary>
+        /// Guardar o texto do nome do novo material a ser adicionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             nomeMaterialAdd = textBox1.Text;
         }
-
-        //Receber texto custo para novo material
+        /// <summary>
+        /// Guardar o texto do custo do novo material a ser adicionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             custoMaterialAdd = textBox2.Text;
         }
 
-        //Criar novo material
+        /// <summary>
+        /// Botão para criar um novo material
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void button4_Click_1(object sender, EventArgs e)
         {
 
@@ -393,7 +474,12 @@ namespace ClientRest
 
 
         #region UpdateEntregueRequisição
-        //Fazer update do campo entregue na requisicao
+
+        /// <summary>
+        /// Dar update ao campo "entregue" de uma requisição
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void button11_Click(object sender, EventArgs e)
         {
 
@@ -425,14 +511,23 @@ namespace ClientRest
 
 
         #region AddEquipa
-        //Caso o textbox de nome Equipa Seja alterado
+
+        /// <summary>
+        /// Guardar o texto referente ao nome da nova equipa a ser adicionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             nomeEquipaAdd = textBox3.Text;
         }
 
 
-        //Criar Equipa
+        /// <summary>
+        /// Botão para criar nova equipa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void button12_Click(object sender, EventArgs e)
         {
             if (nomeEquipaAdd != null)
