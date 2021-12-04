@@ -10,6 +10,7 @@ namespace API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    //[Authorize(Roles = "Admin,User")]
     public class EquipasController : Controller
     {
         [HttpGet("equipas")]

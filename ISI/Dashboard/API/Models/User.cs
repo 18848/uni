@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace API.Models
 {
-    public enum Roles { Admin, Reader,Editor, User};
+    public enum Roles { Admin, Reader, Editor, User};
 
     public class User
     {
@@ -42,7 +42,7 @@ namespace API.Models
 
     public class Users
     {
-        public static List<User> users = new List<User>    
+        public static List<User> users = new List<User>
         {
             new User {
                 Id=1,
@@ -61,7 +61,13 @@ namespace API.Models
                 UserName = "Editor",
                 EmailAddress = "reader1003@me.com",
                 Role = Roles.Editor
-            }  
+            },
+            new User {
+                Id = 4,
+                UserName = "User",
+                EmailAddress = "reader1004@me.com",
+                Role = Roles.User
+            }
         };
     }
 

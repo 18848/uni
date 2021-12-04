@@ -29,7 +29,7 @@ namespace API.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
-        public  AuthResponse Login(AuthRequest loginDetalhes) //or ([FromBody] AuthRequest loginDetalhes)
+        public AuthResponse Login(AuthRequest loginDetalhes) //or ([FromBody] AuthRequest loginDetalhes)
         {
             AuthResponse token = jWTAuthManager.Authenticate(loginDetalhes);
 
@@ -49,6 +49,14 @@ namespace API.Controllers
              *       return Unauthorized();
              *  return Ok(token);
              */
+        }
+
+        [HttpGet("authorize")]
+        [Authorize]
+        //[Authorize(Roles = "Admin,User")]
+        public bool Authenticated()
+        {
+            return true;
         }
     }
 }

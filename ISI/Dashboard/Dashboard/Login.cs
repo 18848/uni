@@ -42,7 +42,6 @@ namespace Dashboard
 
                 if (res.Name != "")
                 {
-                    MessageBox.Show(res.Token);
                     StreamWriter writer = new StreamWriter("tmp");
                     writer.Write(res.Token);
                     writer.Close();

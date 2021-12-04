@@ -10,6 +10,7 @@ namespace API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    //[Authorize(Roles = "Admin,Reader" )]
     public class DGSController : Controller
     {
         public object DGS()

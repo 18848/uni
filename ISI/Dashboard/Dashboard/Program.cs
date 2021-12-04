@@ -18,21 +18,35 @@ namespace Dashboard
         [STAThread]
         static void Main()
         {
+            if (File.Exists("tmp"))
+            {
+                File.Delete("tmp");
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
 
-            if (!File.Exists("tmp"))
+            string x = "";
+
+            if (File.Exists("tmp"))
+            {
+                StreamReader reader = new StreamReader("tmp");
+                x = reader.ReadToEnd();
+                reader.Close();
+                if(x == "")
+                {
+                    Application.Exit();
+                }
+            }
+            else
             {
                 Application.Exit();
             }
 
-            StreamReader reader = new StreamReader("tmp");
-            var x = reader.ReadToEnd();
-            reader.Close();
 
 
-            if (x != "" || x != null)
+            if (x != "")
             {
                 Application.Run(new Form1());
             }

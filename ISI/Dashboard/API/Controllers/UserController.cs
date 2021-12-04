@@ -22,7 +22,12 @@ namespace API.Controllers
 
         //Esta componente de dados poderia passar para Models!
         //Simular Base de Dados
-        static List<User> users;
+        static List<User> users = new List<User>
+        {
+            new User() {Id = 1, Name = "lufer", Pass = "Benfica2020", Role = Roles.Admin },
+            new User() {Id = 4, Name = "user", Pass = "user", Role = Roles.User },
+            new User() {Id = 2, Name="reader", Pass="reader", Role = Roles.Reader }
+        };
 
 
         public UserController()
@@ -34,13 +39,13 @@ namespace API.Controllers
         [HttpGet("all")]
         public ActionResult<IEnumerable<string>> GetAll()
         {
-            //Simular dois users
-            User x0 = new User() { Id = 1, Name = "lufer", Pass = "Benfica2020", Role = Roles.Admin };
-            User x1 = new User() {Id=2, Name="ola", Pass="olapasswd", Role=Roles.User };
-            User x2 = new User() { Id=3, Name = "ole", Pass = "olepasswd", Role=Roles.User };
-            if (!users.Contains(x0)) users.Add(x0);
-            if (!users.Contains(x1)) users.Add(x1);
-            if (!users.Contains(x2)) users.Add(x2);
+            ////Simular dois users
+            //User x0 = new User() { Id = 1, Name = "lufer", Pass = "Benfica2020", Role = Roles.Admin };
+            //User x1 = new User() {Id=2, Name = "user", Pass = "user", Role = Roles.User };
+            //User x2 = new User() {Id=3, Name="reader", Pass="reader", Role = Roles.Reader };
+            //if (!users.Contains(x1)) users.Add(x1);
+            //if (!users.Contains(x0)) users.Add(x0);
+            //if (!users.Contains(x2)) users.Add(x2);
 
             return new ObjectResult(users);
         }

@@ -168,7 +168,7 @@ namespace API.Controllers
             //Verifica na BD
             //var user = users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
 
-            if (loginDetalhes.Username == "lufer" && loginDetalhes.Password == "Benfica2020")
+            if (loginDetalhes.Username == loginDetalhes.Username && loginDetalhes.Password == loginDetalhes.Password)
             {
                 return true;
             }

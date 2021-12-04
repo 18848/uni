@@ -33,71 +33,102 @@ namespace Dashboard
 
         private async void mediaButton_Click(object sender, EventArgs e)
         {
-            DataSet ds = await casosWS.GetCasosAsync();
-            DataTable avg = new DataTable();
-            List<ModeloCasos> data = new List<ModeloCasos>();
-            List<ModeloCasos> result = new List<ModeloCasos>();
-
-            foreach (DataRow row in ds.Tables["Casos"].Rows)
+            bool auth = false;
+            try
             {
-                object[] r = row.ItemArray;
-                ModeloCasos n = new ModeloCasos();
+                string url = "https://localhost:44339/api/Security/authorize";
+                StreamReader reader = new StreamReader("tmp");
+                string token = reader.ReadToEnd();
+                reader.Close();
 
-                n.Data = r[1].ToString();
-                n.Nif = int.Parse(r[2].ToString());
+                HttpClient client = new HttpClient();
 
-                data.Add(n);
-            }
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-
-            foreach (ModeloCasos n in data)
-            {
-                if (DateTime.Compare(DateTime.Parse(n.Data), DateTime.Now.AddMonths(-6)) >= 0)
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                var res = response.Content.ReadAsStringAsync().Result;
+                if (!response.IsSuccessStatusCode)
                 {
-                    result.Add(n);
-                }
-            }
-
-            mediaButton.Text = "Média de Casos: " + (result.Count / 6).ToString();
-
-            ds.Tables["Casos"].Rows.Clear();
-            ds.Tables["Casos"].Columns.Remove("idcaso");
-            avg.Columns.Add("Mes");
-            avg.Columns.Add("Total Mensal");
-            avg.AcceptChanges();
-
-            Dictionary<string, int> dic = new Dictionary<string, int>();
-
-            foreach (ModeloCasos n in result)
-            {
-                ds.Tables["Casos"].Rows.Add(new object[] { n.Data, n.Nif });
-                ds.AcceptChanges();
-
-                if (dic.ContainsKey(DateTime.Parse(n.Data).Month.ToString()))
-                {
-                    dic[DateTime.Parse(n.Data).Month.ToString()]++;
+                    auth = false;
                 }
                 else
                 {
-                    dic.Add(DateTime.Parse(n.Data).Month.ToString(), 1);
+                    auth = Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(res);
                 }
-            }
-
-            avg.Rows.Clear();
-            foreach (var d in dic)
-            {
-                avg.Rows.Add(new object[] { d.Key, d.Value.ToString() });
-            }
-            avg.AcceptChanges();
-
-            try
-            {
-                mediaGridView.DataSource = avg;
-                casosGridView.DataSource = ds.Tables["Casos"];
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            
+            if(auth == true)
+            {
+                DataSet ds = await casosWS.GetCasosAsync();
+                DataTable avg = new DataTable();
+                List<ModeloCasos> data = new List<ModeloCasos>();
+                List<ModeloCasos> result = new List<ModeloCasos>();
+
+                foreach (DataRow row in ds.Tables["Casos"].Rows)
+                {
+                    object[] r = row.ItemArray;
+                    ModeloCasos n = new ModeloCasos();
+
+                    n.Data = r[1].ToString();
+                    n.Nif = int.Parse(r[2].ToString());
+
+                    data.Add(n);
+                }
+
+
+                foreach (ModeloCasos n in data)
+                {
+                    if (DateTime.Compare(DateTime.Parse(n.Data), DateTime.Now.AddMonths(-6)) >= 0)
+                    {
+                        result.Add(n);
+                    }
+                }
+
+                mediaButton.Text = "Média de Casos: " + (result.Count / 6).ToString();
+
+                ds.Tables["Casos"].Rows.Clear();
+                ds.Tables["Casos"].Columns.Remove("idcaso");
+                avg.Columns.Add("Mes");
+                avg.Columns.Add("Total Mensal");
+                avg.AcceptChanges();
+
+                Dictionary<string, int> dic = new Dictionary<string, int>();
+
+                foreach (ModeloCasos n in result)
+                {
+                    ds.Tables["Casos"].Rows.Add(new object[] { n.Data, n.Nif });
+                    ds.AcceptChanges();
+
+                    if (dic.ContainsKey(DateTime.Parse(n.Data).Month.ToString()))
+                    {
+                        dic[DateTime.Parse(n.Data).Month.ToString()]++;
+                    }
+                    else
+                    {
+                        dic.Add(DateTime.Parse(n.Data).Month.ToString(), 1);
+                    }
+                }
+
+                avg.Rows.Clear();
+                foreach (var d in dic)
+                {
+                    avg.Rows.Add(new object[] { d.Key, d.Value.ToString() });
+                }
+                avg.AcceptChanges();
+
+                try
+                {
+                    mediaGridView.DataSource = avg;
+                    casosGridView.DataSource = ds.Tables["Casos"];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         #endregion
@@ -106,80 +137,47 @@ namespace Dashboard
 
         private void visitas_Click(object sender, EventArgs e)
         {
-            con.Open();
-
-            string q;
-
-            q = "Select * FROM fiscalizacao";
-
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(q, con);
-
-            da.Fill(ds);
-
-            DataTable avg = new DataTable();
-            List<string> data = new List<string>();
-            List<string> result = new List<string>();
-
-
-            foreach (DataRow row in ds.Tables[0].Rows)
+            try
             {
-                object[] r = row.ItemArray;
+                string url = "https://localhost:44339/api/Visitas";
+                StreamReader reader = new StreamReader("tmp");
+                string token = reader.ReadToEnd();
+                reader.Close();
 
-                data.Add(r[2].ToString());
-            }
+                DataTable visitas = new DataTable();
+                HttpClient client = new HttpClient();
 
-            foreach (string n in data)
-            {
-                if (DateTime.Compare(DateTime.Parse(n), DateTime.Now.AddDays(-30)) >= 0)
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                var res = response.Content.ReadAsStringAsync().Result;
+
+
+                if (response.IsSuccessStatusCode)
                 {
-                    result.Add(n);
-                }
-            }
+                    var x = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string,string>>(res);
 
-            ds.Tables[0].Rows.Clear();
-            ds.Tables[0].Columns.Remove("idfiscalizacao");
-            ds.Tables[0].Columns.Remove("idutente");
-            avg.Columns.Add("Data");
-            avg.Columns.Add("Visitas");
-            avg.AcceptChanges();
+                    visitas.Columns.Add("Data");
+                    visitas.Columns.Add("Visitas");
+                    visitas.AcceptChanges();
 
-            Dictionary<string, int> dic = new Dictionary<string, int>();
+                    foreach(var item in x)
+                    {
+                        visitas.Rows.Add(item.Key, item.Value);
+                    }
+                    visitas.AcceptChanges();
 
-            foreach (string n in result)
-            {
-                ds.Tables[0].Rows.Add(new object[] { n });
-                ds.AcceptChanges();
-
-                if (dic.ContainsKey(DateTime.Parse(n).ToString("dd-MM-yyyy")))
-                {
-                    dic[DateTime.Parse(n).ToString("dd-MM-yyyy")]++;
+                    this.visitasGridView.DataSource = visitas;
                 }
                 else
                 {
-                    dic.Add(DateTime.Parse(n).ToString("dd-MM-yyyy"), 1);
+                    MessageBox.Show("You are not allowed.");
                 }
-            }
-
-            avg.Rows.Clear();
-            foreach (var d in dic)
-            {
-                avg.Rows.Add(new object[] { d.Key, d.Value.ToString() });
-            }
-            avg.AcceptChanges();
-
-            try
-            {
-                visitasGridView.DataSource = avg;
-                //casosGridView.DataSource = ds.Tables["Casos"];
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-            con.Close();
         }
         #endregion
 
