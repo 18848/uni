@@ -1,0 +1,118 @@
+\hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller}{}\doxysection{ISIAPI.\+Controllers.\+Requisicao\+Material\+Controller Class Reference}
+\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller}\index{ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}}
+Inheritance diagram for ISIAPI.\+Controllers.\+Requisicao\+Material\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_1_1_material_para_requisicao}{Material\+Para\+Requisicao}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a51cd039cfc64b25dd40171934e3825e6}{Get\+Requisisoes\+Materiais}} ()
+\begin{DoxyCompactList}\small\item\em Rota para devolver todas as Requisicoes\+Materiais \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a9f9650270b9bd352226065e7024b6239}{Add\+Requisicao\+Material}} (string requisicao\+Material)
+\begin{DoxyCompactList}\small\item\em Rota para adicionar uma Requisicao\+Material \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_ae8829b0b482fe82f60c31e2c99ec6c04}{Get\+Requisicao\+Materialby\+Requisicao\+Equipa}} (int id\+Requisicao)
+\begin{DoxyCompactList}\small\item\em Rota para obter os materiais de uma requisicao \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a797efc61db42fdc25db2ab934758dc57}{Add\+Requisicao\+Material}} (int id\+Equipa,\mbox{[}From\+Body\mbox{]}Json\+Element body)
+\begin{DoxyCompactList}\small\item\em Rota para adicionar uma requisicao\+Material \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_acfb1d942bc63121c1e796d8e3ba9db1c}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_acfb1d942bc63121c1e796d8e3ba9db1c}} 
+\mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_requisicoes_materiais}{Modelo\+Requisicoes\+Materiais}} {\bfseries m} = new \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_requisicoes_materiais}{Modelo\+Requisicoes\+Materiais}}()
+\item 
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_aba242ac0f09a9e325ad76e5df6a3e0ce}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_aba242ac0f09a9e325ad76e5df6a3e0ce}} 
+\mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_requisicoes}{Modelo\+Requisicoes}} {\bfseries r} = new \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_requisicoes}{Modelo\+Requisicoes}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a797efc61db42fdc25db2ab934758dc57}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a797efc61db42fdc25db2ab934758dc57}} 
+\index{ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}!AddRequisicaoMaterial@{AddRequisicaoMaterial}}
+\index{AddRequisicaoMaterial@{AddRequisicaoMaterial}!ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}}
+\doxysubsubsection{\texorpdfstring{AddRequisicaoMaterial()}{AddRequisicaoMaterial()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Material\+Controller.\+Add\+Requisicao\+Material (\begin{DoxyParamCaption}\item[{int}]{id\+Equipa,  }\item[{\mbox{[}\+From\+Body\mbox{]} Json\+Element}]{body }\end{DoxyParamCaption})}
+
+
+
+Rota para adicionar uma requisicao\+Material 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Equipa} & recebe o id da equipa através da rota\\
+\hline
+{\em body} & recebe uma variavel do tipo json no formato \{\{\char`\"{}id\+Material\char`\"{}\+:id, \char`\"{}qtd\char`\"{}\+:qtd\},\{\char`\"{}id\+Material\char`\"{}\+:id, \char`\"{}qtd\char`\"{}\+:qtd\},...\} para cada material a adicionar\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a9f9650270b9bd352226065e7024b6239}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a9f9650270b9bd352226065e7024b6239}} 
+\index{ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}!AddRequisicaoMaterial@{AddRequisicaoMaterial}}
+\index{AddRequisicaoMaterial@{AddRequisicaoMaterial}!ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}}
+\doxysubsubsection{\texorpdfstring{AddRequisicaoMaterial()}{AddRequisicaoMaterial()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Material\+Controller.\+Add\+Requisicao\+Material (\begin{DoxyParamCaption}\item[{string}]{requisicao\+Material }\end{DoxyParamCaption})}
+
+
+
+Rota para adicionar uma Requisicao\+Material 
+
+
+\begin{DoxyParams}{Parameters}
+{\em requisicao\+Material} & recebe uma variavel do tipo json no formato \{\char`\"{}id\+Material\char`\"{}\+:id\+Material,\char`\"{}id\+Requisicao\char`\"{}\+:id\+Requisicao,\char`\"{}qtd\char`\"{}\+:qtd\}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_ae8829b0b482fe82f60c31e2c99ec6c04}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_ae8829b0b482fe82f60c31e2c99ec6c04}} 
+\index{ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}!GetRequisicaoMaterialbyRequisicaoEquipa@{GetRequisicaoMaterialbyRequisicaoEquipa}}
+\index{GetRequisicaoMaterialbyRequisicaoEquipa@{GetRequisicaoMaterialbyRequisicaoEquipa}!ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}}
+\doxysubsubsection{\texorpdfstring{GetRequisicaoMaterialbyRequisicaoEquipa()}{GetRequisicaoMaterialbyRequisicaoEquipa()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Material\+Controller.\+Get\+Requisicao\+Materialby\+Requisicao\+Equipa (\begin{DoxyParamCaption}\item[{int}]{id\+Requisicao }\end{DoxyParamCaption})}
+
+
+
+Rota para obter os materiais de uma requisicao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Requisicao} & recebe o id da requisição através da rota\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a51cd039cfc64b25dd40171934e3825e6}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_material_controller_a51cd039cfc64b25dd40171934e3825e6}} 
+\index{ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}!GetRequisisoesMateriais@{GetRequisisoesMateriais}}
+\index{GetRequisisoesMateriais@{GetRequisisoesMateriais}!ISIAPI.Controllers.RequisicaoMaterialController@{ISIAPI.Controllers.RequisicaoMaterialController}}
+\doxysubsubsection{\texorpdfstring{GetRequisisoesMateriais()}{GetRequisisoesMateriais()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Material\+Controller.\+Get\+Requisisoes\+Materiais (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rota para devolver todas as Requisicoes\+Materiais 
+
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+REST\+\_\+\+API service/\+ISIAPI/\+Controllers/Requisicao\+Material\+Controller.\+cs\end{DoxyCompactItemize}

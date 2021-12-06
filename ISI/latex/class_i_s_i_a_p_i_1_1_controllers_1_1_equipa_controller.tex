@@ -1,0 +1,76 @@
+\hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller}{}\doxysection{ISIAPI.\+Controllers.\+Equipa\+Controller Class Reference}
+\label{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller}\index{ISIAPI.Controllers.EquipaController@{ISIAPI.Controllers.EquipaController}}
+Inheritance diagram for ISIAPI.\+Controllers.\+Equipa\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a1d70b609d1671d760c05204feb245e18}{Get\+Equipa}} ()
+\begin{DoxyCompactList}\small\item\em Rota para devolver todas as equipas presentes na base de dados \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_abec4555009df0a0b34987aa45df0d5ea}{Get\+Equipa\+Mais\+Cara}} ()
+\begin{DoxyCompactList}\small\item\em Rota para devolver as 10 equipas mais caras \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a4ef8184c3d44cf1d149fd551a9c6a2c5}{Add\+Equipa}} (\mbox{[}From\+Body\mbox{]} string equipa)
+\begin{DoxyCompactList}\small\item\em Rota para adicionar uma equipa \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a087af227d58923407215c188e7ee2db9}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a087af227d58923407215c188e7ee2db9}} 
+\mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_equipas}{Modelo\+Equipas}} {\bfseries m} = new \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_equipas}{Modelo\+Equipas}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a4ef8184c3d44cf1d149fd551a9c6a2c5}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a4ef8184c3d44cf1d149fd551a9c6a2c5}} 
+\index{ISIAPI.Controllers.EquipaController@{ISIAPI.Controllers.EquipaController}!AddEquipa@{AddEquipa}}
+\index{AddEquipa@{AddEquipa}!ISIAPI.Controllers.EquipaController@{ISIAPI.Controllers.EquipaController}}
+\doxysubsubsection{\texorpdfstring{AddEquipa()}{AddEquipa()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Equipa\+Controller.\+Add\+Equipa (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} string}]{equipa }\end{DoxyParamCaption})}
+
+
+
+Rota para adicionar uma equipa 
+
+
+\begin{DoxyParams}{Parameters}
+{\em equipa} & Recebe uma variavel do tipo json com o nome da equipa a adicionar no formato \{\char`\"{}nome\char`\"{}\+: nome\}\char`\"{}$<$/param$>$ $<$returns string=\char`\"{}Success\char`\"{}$>$ If reaches end of function. $<$/returns$>$ $<$returns string=\char`\"{}\$\+EXCEPTION\$"{}\texorpdfstring{$>$}{>} If it fails. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a1d70b609d1671d760c05204feb245e18}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_a1d70b609d1671d760c05204feb245e18}} 
+\index{ISIAPI.Controllers.EquipaController@{ISIAPI.Controllers.EquipaController}!GetEquipa@{GetEquipa}}
+\index{GetEquipa@{GetEquipa}!ISIAPI.Controllers.EquipaController@{ISIAPI.Controllers.EquipaController}}
+\doxysubsubsection{\texorpdfstring{GetEquipa()}{GetEquipa()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Equipa\+Controller.\+Get\+Equipa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rota para devolver todas as equipas presentes na base de dados 
+
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_abec4555009df0a0b34987aa45df0d5ea}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_equipa_controller_abec4555009df0a0b34987aa45df0d5ea}} 
+\index{ISIAPI.Controllers.EquipaController@{ISIAPI.Controllers.EquipaController}!GetEquipaMaisCara@{GetEquipaMaisCara}}
+\index{GetEquipaMaisCara@{GetEquipaMaisCara}!ISIAPI.Controllers.EquipaController@{ISIAPI.Controllers.EquipaController}}
+\doxysubsubsection{\texorpdfstring{GetEquipaMaisCara()}{GetEquipaMaisCara()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Equipa\+Controller.\+Get\+Equipa\+Mais\+Cara (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rota para devolver as 10 equipas mais caras 
+
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+REST\+\_\+\+API service/\+ISIAPI/\+Controllers/Equipa\+Controller.\+cs\end{DoxyCompactItemize}
