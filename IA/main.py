@@ -18,7 +18,7 @@ funcsList = list(funcs)      # António Manel ...
 def BreadFirst():
     search = Node('SearchTree')
     prevLevel = None
-    path = list()
+    level = None
     # result = Tree(data='begin')
     scoreMax = -1000
     idMax = 0
@@ -26,44 +26,54 @@ def BreadFirst():
 
     for f in funcsList:
         level = list()
+        
         # Combinações de Dias
         for days in daysComb:           # (0, 1, 2, 3, 4), (0, 1, 2, 3, 5), ...
             # Combinações de Turnos
             for turns in turnsComb:     # (0, 0, 0, 0, 1), (0, 0, 0, 1, 0), ...
+                
+                # Set Raw State
                 if prevLevel is None:
                     new = copy.deepcopy(schedule)
                 else:
                     new = copy.deepcopy(prevLevel[lastBest].state)
+
+                # Define New State
                 for x in range(0, workingDays): 
                     new[d[days[x]]][t[turns[x]]].append(f)
+
                 # Get state score
                 score = state_score(new)
+
                 # If new MAX
                 if scoreMax < score:
                     scoreMax = score
                     idMax = len(level)
+
                 # Add new state
                 if prevLevel is None:
                     level.append(Node(str(f), parent=search, state=new, score=score))
                 else:
                     level.append(Node(str(f), parent=prevLevel[lastBest], state=new, score=score))
-                # print(RenderTree(search))if prevLevel is None:
-                # input()
+
         # Save current level and best state
         prevLevel = copy.deepcopy(level)
-        # prevLevel = level
         lastBest = idMax
 
+    # for x in level:
+    #     print(x.score)
+    #     input()
+    #     if x.score == scoreMax:
+    #         print(x.state)
+
+    print(prevLevel[lastBest].score)
+    
+    # print(RenderTree(search))
+
     # 'António Manel/Marília Retorno/João o Cadeirão/Pedro Ribanceira/Mesmeldes Antonieta/Rebinde Coscuvite/Abilio Girandolas/Fazmindo Numquero/Germina Flores/Carpim Teiro/Quim Bestiga/Manel Carrossel/Joana Reboliço/Obrigham Ahir'
-    print(RenderTree(search))
-    # print(findall(search,filter_=lambda node: prevLevel in node.path))
-    # print(find_by_attr(search, name='score', value=802.0833333333334))
     input()
     print(scoreMax)
 
-    # search.show_Tree()
-    # print(daysComb)
-    # print(turnsComb)
     print("done")
 
 
