@@ -1,0 +1,104 @@
+\hypertarget{class_s_o_a_p_1_1_contactos}{}\doxysection{SOAP.\+Contactos Class Reference}
+\label{class_s_o_a_p_1_1_contactos}\index{SOAP.Contactos@{SOAP.Contactos}}
+Inheritance diagram for SOAP.\+Contactos\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_o_a_p_1_1_contactos}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Data\+Set \mbox{\hyperlink{class_s_o_a_p_1_1_contactos_ad0233dc6291895035ab2dd270f8c04af}{Get\+Contacto}} ()
+\begin{DoxyCompactList}\small\item\em Connects to a Database to Find Contacts. \end{DoxyCompactList}\item 
+Data\+Set \mbox{\hyperlink{class_s_o_a_p_1_1_contactos_ae9a664ae151f0cc56a1160aee7cde398}{Get\+Contacto}} (int id, bool nif)
+\begin{DoxyCompactList}\small\item\em Connects to a Database to Find Contacts. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_s_o_a_p_1_1_contactos_ab94dbfed416574cfc556e34a130da4ed}{Add\+Contacto}} (\mbox{\hyperlink{class_s_o_a_p_1_1_modelo_contactos}{Modelo\+Contactos}} contacto)
+\begin{DoxyCompactList}\small\item\em Connects to a Database to Insert \mbox{\hyperlink{class_s_o_a_p_1_1_contactos}{Contactos}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_o_a_p_1_1_contactos_ab52df2e0549d0e9fdf00be00a017b49e}\label{class_s_o_a_p_1_1_contactos_ab52df2e0549d0e9fdf00be00a017b49e}} 
+Sql\+Connection {\bfseries con} = new Sql\+Connection(server)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_o_a_p_1_1_contactos_aa6cd43b8abd483fbf8529f403a0945e9}\label{class_s_o_a_p_1_1_contactos_aa6cd43b8abd483fbf8529f403a0945e9}} 
+static string {\bfseries server} = Configuration\+Manager.\+Connection\+Strings\mbox{[}\char`\"{}ISI\char`\"{}\mbox{]}.Connection\+String
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_o_a_p_1_1_contactos_ab94dbfed416574cfc556e34a130da4ed}\label{class_s_o_a_p_1_1_contactos_ab94dbfed416574cfc556e34a130da4ed}} 
+\index{SOAP.Contactos@{SOAP.Contactos}!AddContacto@{AddContacto}}
+\index{AddContacto@{AddContacto}!SOAP.Contactos@{SOAP.Contactos}}
+\doxysubsubsection{\texorpdfstring{AddContacto()}{AddContacto()}}
+{\footnotesize\ttfamily string SOAP.\+Contactos.\+Add\+Contacto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_s_o_a_p_1_1_modelo_contactos}{Modelo\+Contactos}}}]{contacto }\end{DoxyParamCaption})}
+
+
+
+Connects to a Database to Insert \mbox{\hyperlink{class_s_o_a_p_1_1_contactos}{Contactos}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Utente} & NIF. \\
+\hline
+{\em id\+Caso} & ID de Caso associado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If reaches end of function. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_s_o_a_p_1_1_i_contactos}{SOAP.\+IContactos}}.
+
+\mbox{\Hypertarget{class_s_o_a_p_1_1_contactos_ad0233dc6291895035ab2dd270f8c04af}\label{class_s_o_a_p_1_1_contactos_ad0233dc6291895035ab2dd270f8c04af}} 
+\index{SOAP.Contactos@{SOAP.Contactos}!GetContacto@{GetContacto}}
+\index{GetContacto@{GetContacto}!SOAP.Contactos@{SOAP.Contactos}}
+\doxysubsubsection{\texorpdfstring{GetContacto()}{GetContacto()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Data\+Set SOAP.\+Contactos.\+Get\+Contacto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Connects to a Database to Find Contacts. 
+
+\begin{DoxyReturn}{Returns}
+Returns a Data\+Set with information on All Rows for Contacts with Covid-\/positive Cases. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_s_o_a_p_1_1_i_contactos}{SOAP.\+IContactos}}.
+
+\mbox{\Hypertarget{class_s_o_a_p_1_1_contactos_ae9a664ae151f0cc56a1160aee7cde398}\label{class_s_o_a_p_1_1_contactos_ae9a664ae151f0cc56a1160aee7cde398}} 
+\index{SOAP.Contactos@{SOAP.Contactos}!GetContacto@{GetContacto}}
+\index{GetContacto@{GetContacto}!SOAP.Contactos@{SOAP.Contactos}}
+\doxysubsubsection{\texorpdfstring{GetContacto()}{GetContacto()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Data\+Set SOAP.\+Contactos.\+Get\+Contacto (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{bool}]{nif }\end{DoxyParamCaption})}
+
+
+
+Connects to a Database to Find Contacts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em nif} & True if \textquotesingle{}id\textquotesingle{} is NIF. False if Id\+Caso. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a Data\+Set with information on All Rows for Contacts with Covid-\/positive Cases. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_s_o_a_p_1_1_i_contactos}{SOAP.\+IContactos}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SOAP service/\+SOAP/\+SOAP/Contactos.\+svc.\+cs\end{DoxyCompactItemize}

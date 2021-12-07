@@ -1,0 +1,81 @@
+\hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller}{}\doxysection{ISIAPI.\+Controllers.\+Material\+Controller Class Reference}
+\label{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller}\index{ISIAPI.Controllers.MaterialController@{ISIAPI.Controllers.MaterialController}}
+Inheritance diagram for ISIAPI.\+Controllers.\+Material\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_ae9e2d71dd5e7ce13963aa424d6d8071c}{Get\+Materiais}} ()
+\begin{DoxyCompactList}\small\item\em Rota para devolver todos os materiais presentes na base de dados \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_a9fc1c3c423e27789f24ceef907fc300a}{Get\+Material\+Mais\+Usado}} ()
+\begin{DoxyCompactList}\small\item\em Rota para devolver os 5 materiais presentes em mais requisições \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_a3e924dfbccedff3d5f77d549c96fd90e}{Add\+Material}} (\mbox{[}From\+Body\mbox{]} string material)
+\begin{DoxyCompactList}\small\item\em Rota para adicionar um novo material \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_afddc49f87aa4aee90ed54e387bc30be5}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_afddc49f87aa4aee90ed54e387bc30be5}} 
+\mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_materiais}{Modelo\+Materiais}} {\bfseries m} = new \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_materiais}{Modelo\+Materiais}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_a3e924dfbccedff3d5f77d549c96fd90e}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_a3e924dfbccedff3d5f77d549c96fd90e}} 
+\index{ISIAPI.Controllers.MaterialController@{ISIAPI.Controllers.MaterialController}!AddMaterial@{AddMaterial}}
+\index{AddMaterial@{AddMaterial}!ISIAPI.Controllers.MaterialController@{ISIAPI.Controllers.MaterialController}}
+\doxysubsubsection{\texorpdfstring{AddMaterial()}{AddMaterial()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Material\+Controller.\+Add\+Material (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} string}]{material }\end{DoxyParamCaption})}
+
+
+
+Rota para adicionar um novo material 
+
+
+\begin{DoxyParams}{Parameters}
+{\em material} & recebe uma variável do tipo json no formato \{\char`\"{}nome\char`\"{}\+:nome, \char`\"{}custo\char`\"{}\+:custo\}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_ae9e2d71dd5e7ce13963aa424d6d8071c}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_ae9e2d71dd5e7ce13963aa424d6d8071c}} 
+\index{ISIAPI.Controllers.MaterialController@{ISIAPI.Controllers.MaterialController}!GetMateriais@{GetMateriais}}
+\index{GetMateriais@{GetMateriais}!ISIAPI.Controllers.MaterialController@{ISIAPI.Controllers.MaterialController}}
+\doxysubsubsection{\texorpdfstring{GetMateriais()}{GetMateriais()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Material\+Controller.\+Get\+Materiais (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rota para devolver todos os materiais presentes na base de dados 
+
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_a9fc1c3c423e27789f24ceef907fc300a}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_material_controller_a9fc1c3c423e27789f24ceef907fc300a}} 
+\index{ISIAPI.Controllers.MaterialController@{ISIAPI.Controllers.MaterialController}!GetMaterialMaisUsado@{GetMaterialMaisUsado}}
+\index{GetMaterialMaisUsado@{GetMaterialMaisUsado}!ISIAPI.Controllers.MaterialController@{ISIAPI.Controllers.MaterialController}}
+\doxysubsubsection{\texorpdfstring{GetMaterialMaisUsado()}{GetMaterialMaisUsado()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Material\+Controller.\+Get\+Material\+Mais\+Usado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rota para devolver os 5 materiais presentes em mais requisições 
+
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+REST\+\_\+\+API service/\+ISIAPI/\+Controllers/Material\+Controller.\+cs\end{DoxyCompactItemize}

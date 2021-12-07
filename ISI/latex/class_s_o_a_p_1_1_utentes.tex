@@ -1,0 +1,126 @@
+\hypertarget{class_s_o_a_p_1_1_utentes}{}\doxysection{SOAP.\+Utentes Class Reference}
+\label{class_s_o_a_p_1_1_utentes}\index{SOAP.Utentes@{SOAP.Utentes}}
+Inheritance diagram for SOAP.\+Utentes\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_s_o_a_p_1_1_utentes}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Data\+Set \mbox{\hyperlink{class_s_o_a_p_1_1_utentes_ae795adb3cf4cb6b6f0facb33c5f0ac12}{Get\+Utentes}} ()
+\begin{DoxyCompactList}\small\item\em Selects \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}}. \end{DoxyCompactList}\item 
+Data\+Set \mbox{\hyperlink{class_s_o_a_p_1_1_utentes_a59a61785a7fc97c3cafb0f2f98328cbd}{Get\+Utentes}} (int nif)
+\begin{DoxyCompactList}\small\item\em Selects \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}} with matching nif (idutente). \end{DoxyCompactList}\item 
+Data\+Set \mbox{\hyperlink{class_s_o_a_p_1_1_utentes_af9eca04660801e9961d9e0c3d5d48b9b}{Get\+Utentes}} (string nome)
+\begin{DoxyCompactList}\small\item\em Selects \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}} with matching nome. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_s_o_a_p_1_1_utentes_a01fafebddc73cfd2b122df55e68ce67f}{Add\+Utentes}} (\mbox{\hyperlink{class_s_o_a_p_1_1_modelo_utente}{Modelo\+Utente}} utente)
+\begin{DoxyCompactList}\small\item\em Add \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}} to Database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_o_a_p_1_1_utentes_a3b2cb3d66091b2d9e0ec276e1a072e37}\label{class_s_o_a_p_1_1_utentes_a3b2cb3d66091b2d9e0ec276e1a072e37}} 
+Sql\+Connection {\bfseries con} = new Sql\+Connection(server)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_o_a_p_1_1_utentes_a066f02e771571e7118f4f794d5e996a8}\label{class_s_o_a_p_1_1_utentes_a066f02e771571e7118f4f794d5e996a8}} 
+static string {\bfseries server} = Configuration\+Manager.\+Connection\+Strings\mbox{[}\char`\"{}ISI\char`\"{}\mbox{]}.Connection\+String
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_o_a_p_1_1_utentes_a01fafebddc73cfd2b122df55e68ce67f}\label{class_s_o_a_p_1_1_utentes_a01fafebddc73cfd2b122df55e68ce67f}} 
+\index{SOAP.Utentes@{SOAP.Utentes}!AddUtentes@{AddUtentes}}
+\index{AddUtentes@{AddUtentes}!SOAP.Utentes@{SOAP.Utentes}}
+\doxysubsubsection{\texorpdfstring{AddUtentes()}{AddUtentes()}}
+{\footnotesize\ttfamily string SOAP.\+Utentes.\+Add\+Utentes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_s_o_a_p_1_1_modelo_utente}{Modelo\+Utente}}}]{utente }\end{DoxyParamCaption})}
+
+
+
+Add \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}} to Database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Utente} & \\
+\hline
+{\em nome} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On successful INSERT. 
+
+On error or conflict. Returns Type and Message. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_s_o_a_p_1_1_i_utentes}{SOAP.\+IUtentes}}.
+
+\mbox{\Hypertarget{class_s_o_a_p_1_1_utentes_ae795adb3cf4cb6b6f0facb33c5f0ac12}\label{class_s_o_a_p_1_1_utentes_ae795adb3cf4cb6b6f0facb33c5f0ac12}} 
+\index{SOAP.Utentes@{SOAP.Utentes}!GetUtentes@{GetUtentes}}
+\index{GetUtentes@{GetUtentes}!SOAP.Utentes@{SOAP.Utentes}}
+\doxysubsubsection{\texorpdfstring{GetUtentes()}{GetUtentes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Data\+Set SOAP.\+Utentes.\+Get\+Utentes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Selects \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}}. 
+
+\begin{DoxyReturn}{Returns}
+All \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}} From Table. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_s_o_a_p_1_1_i_utentes}{SOAP.\+IUtentes}}.
+
+\mbox{\Hypertarget{class_s_o_a_p_1_1_utentes_a59a61785a7fc97c3cafb0f2f98328cbd}\label{class_s_o_a_p_1_1_utentes_a59a61785a7fc97c3cafb0f2f98328cbd}} 
+\index{SOAP.Utentes@{SOAP.Utentes}!GetUtentes@{GetUtentes}}
+\index{GetUtentes@{GetUtentes}!SOAP.Utentes@{SOAP.Utentes}}
+\doxysubsubsection{\texorpdfstring{GetUtentes()}{GetUtentes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Data\+Set SOAP.\+Utentes.\+Get\+Utentes (\begin{DoxyParamCaption}\item[{int}]{nif }\end{DoxyParamCaption})}
+
+
+
+Selects \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}} with matching nif (idutente). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nif} & Primary Key on Database table. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matching Table Rows. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_s_o_a_p_1_1_i_utentes}{SOAP.\+IUtentes}}.
+
+\mbox{\Hypertarget{class_s_o_a_p_1_1_utentes_af9eca04660801e9961d9e0c3d5d48b9b}\label{class_s_o_a_p_1_1_utentes_af9eca04660801e9961d9e0c3d5d48b9b}} 
+\index{SOAP.Utentes@{SOAP.Utentes}!GetUtentes@{GetUtentes}}
+\index{GetUtentes@{GetUtentes}!SOAP.Utentes@{SOAP.Utentes}}
+\doxysubsubsection{\texorpdfstring{GetUtentes()}{GetUtentes()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Data\+Set SOAP.\+Utentes.\+Get\+Utentes (\begin{DoxyParamCaption}\item[{string}]{nome }\end{DoxyParamCaption})}
+
+
+
+Selects \mbox{\hyperlink{class_s_o_a_p_1_1_utentes}{Utentes}} with matching nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Filtering Condition. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Matching Table Rows. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_s_o_a_p_1_1_i_utentes}{SOAP.\+IUtentes}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SOAP service/\+SOAP/\+SOAP/Utentes.\+svc.\+cs\end{DoxyCompactItemize}
