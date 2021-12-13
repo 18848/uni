@@ -48,7 +48,7 @@ def BreadFirst():
                 # If new MAX
                 if scoreMax < score:
                     scoreMax = score
-                    idMax = len(level)
+                    idMax = len(level) - 1
 
                 # Add new state
                 if prevLevel is None:
