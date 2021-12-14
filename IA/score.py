@@ -4,8 +4,8 @@ import itertools
 
 p = list(previsoes)
 
-d = list(schedule)          # Segunda ...
-t = list(schedule[d[0]])    # Manha ...
+week = list(schedule)          # Segunda ...
+t = list(schedule[week[0]])    # Manha ...
 funcsList = list(funcs)      # António Manel ...
 
 clientesMaximo = -1
@@ -16,79 +16,62 @@ for c in previsoes:
 
 def state_score(state):
     score = 0
+    empty = 0
 
-    for weekdays in d:
-        manha = len(state[weekdays][t[0]])
-        tarde = len(state[weekdays][t[1]])
+    for day in week:
+        manha = len(state[day][t[0]])
+        tarde = len(state[day][t[1]])
 
         # TO DELETE
         # score += manha
         # score += tarde
 
-
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
-        # ideal =  (previsoes[weekdays] * 2/3 * len(funcs)) / clientesMaximo
-        idealManha =  (previsoes[weekdays][t[0]] * 1 * len(funcs)) / clientesMaximo
-        idealTarde =  (previsoes[weekdays][t[1]] * 1 * len(funcs)) / clientesMaximo
+        # ideal =  (previsoes[day] * 2/3 * len(funcs)) / clientesMaximo
+        idealManha =  (previsoes[day][t[0]] * 1 * len(funcs)) / clientesMaximo
+        idealTarde =  (previsoes[day][t[1]] * 1 * len(funcs)) / clientesMaximo
         idealManha = int(idealManha)
         idealTarde = int(idealTarde)
 
-        # Calculo valores ideais
-        # if tarde != int(idealTarde):
-        #     if tarde > idealTarde:
-        #         multiplicador = tarde - idealTarde
-        #     elif tarde < idealTarde:
-        #             multiplicador = idealTarde - tarde
-        #     score -= pow(200, (multiplicador/4))
-        # else:
-        #     score += 200
-
-        # if manha != int(idealManha):
-        #     if manha > idealManha:
-        #         multiplicador = manha - idealManha
-        #     elif manha < idealManha:
-        #             multiplicador = idealManha - manha
-        #     score -= pow(200, (multiplicador/4))
-        # else:
-        #     score += 200
-
-
         # Pontuacao
+        if manha + tarde <= (2/3) * len(funcs) and manha + tarde >= (1/3) * len(funcs):
+            score-= 100
 
         if manha < 3 or tarde < 3:
-            score -= 1000
+            score -= 200
         else:
             score += 500
-            if manha < 3 and tarde < 3:
-                score += 500
+            # if manha > 3 and tarde > 3:
+            #     score += 500
 
         if(manha == idealManha):
-            score += 100 * manha
-        # if(len(state[weekdays][t[0]]) > idealManha):
-        #     score += 50
+            score += 100
 
         if(tarde == idealTarde):
-            score += 100 * tarde
-        # if(len(state[weekdays][t[1]]) > idealTarde):
-        #     score += 50
+            score += 100
 
         # Penalizacao por excesso
         if(manha > idealManha):
-            score -= 1000 - 100 * (manha - idealManha)
+            score -= 500 - 100 * (manha - idealManha)
         if(tarde > idealTarde):
-            score -= 1000 - 100 * (tarde - idealTarde)
+            score -= 500 - 100 * (tarde - idealTarde)
 
         # Penalizacao por defeito
         if(manha < idealManha):
-            score -= 1000 - 100 * (idealManha - manha)
+            score -= 500 - 100 * (idealManha - manha)
         if(tarde < idealTarde):
-            score -= 1000 - 100 * (idealTarde - tarde)
+            score -= 500 - 100 * (idealTarde - tarde)
 
-        if(manha == 0 or tarde == 0):
-            score -= 100
+        if manha == 0:
+            empty += 1
+            score -= 1000
+        if tarde == 0:
+            empty += 1
+            score -= 1000
+
+    score -= empty * 200
 
     return score
-
 
 def state_score_test(state):
     multiplicador = 0
@@ -96,12 +79,12 @@ def state_score_test(state):
     dia = 0
     maxfunc = -1000
     # Previsao Clientes
-    for weekdays in d:
+    for day in week:
         count = 0
         score = 0
         # score for manha != tarde
-        manha = len(state[weekdays][t[0]])
-        tarde = len(state[weekdays][t[1]])
+        manha = len(state[day][t[0]])
+        tarde = len(state[day][t[1]])
         
         if manha != 0:
             score += 500
@@ -125,11 +108,11 @@ def state_score_test(state):
         # input()
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
-        # ideal =  (previsoes[weekdays] * 2/3 * len(funcs)) / clientesMaximo
-        idealManha =  (previsoes[weekdays][t[0]] * 1 * len(funcs)) / clientesMaximo
-        idealTarde =  (previsoes[weekdays][t[1]] * 1 * len(funcs)) / clientesMaximo
+        # ideal =  (previsoes[day] * 2/3 * len(funcs)) / clientesMaximo
+        idealManha =  (previsoes[day][t[0]] * 1 * len(funcs)) / clientesMaximo
+        idealTarde =  (previsoes[day][t[1]] * 1 * len(funcs)) / clientesMaximo
 
-        # print(weekdays)
+        # print(day)
         # print(ideal)
         # input()
         if idealTarde < 3:
@@ -179,3 +162,32 @@ def state_score_test(state):
 
     # Minimo Funcionarios
     return score
+
+def state_eval(state):
+    """
+    Returns wether or not a state is worth saving or not
+    """
+    count = 0
+
+    # Find number of Funcs in state
+    for day in week:
+        manha = state[day][t[0]]
+        tarde = state[day][t[1]]
+        for x in manha:
+            count = max(count, x)
+        for x in tarde:
+            count = max(count, x)
+
+    # For more than 2 Funcs, check empty days
+    if count + 1 >= int(1/3 * len(funcsList)) + 1:
+        for day in week:
+            manha = len(state[day][t[0]])
+            tarde = len(state[day][t[1]])
+            if manha == 0 or tarde == 0:
+                return False
+    elif count + 1 >= 1:
+        return True
+    else:
+        return False
+
+    return True

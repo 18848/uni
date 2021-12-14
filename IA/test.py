@@ -67,6 +67,8 @@ def new_tree(tree=None, state=None, depth=0, curparrent=None, idx=1):
             node = subtree.get_node(idx)
             newTree = new_tree(tree=subtree, state=node.data, depth=depth + 1, curparrent=idx ,idx=idx + 1)
         idx += 1
+        print(len(level))
+        input()
     return tree
 
     # for node in tree.get_node(f):
