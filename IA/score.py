@@ -11,7 +11,7 @@ funcsList = list(funcs)      # António Manel ...
 clientesMaximo = -1
 
 for c in previsoes:
-    clientesMaximo = max(clientesMaximo, previsoes[c])
+    clientesMaximo = max(clientesMaximo, previsoes[c][t[0]] + previsoes[c][t[1]])
 
 
 def state_score(state):
@@ -50,7 +50,10 @@ def state_score(state):
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
         # ideal =  (previsoes[weekdays] * 2/3 * len(funcs)) / clientesMaximo
-        ideal =  (previsoes[weekdays] * 1 * len(funcs)) / clientesMaximo
+        idealManha =  (previsoes[weekdays][t[0]] * 1 * len(funcs)) / clientesMaximo
+        idealTarde =  (previsoes[weekdays][t[1]] * 1 * len(funcs)) / clientesMaximo
+
+        ideal = idealManha + idealTarde
         # print(weekdays)
         # print(ideal)
         # input()
@@ -59,15 +62,13 @@ def state_score(state):
 
         #
         # Trabalhadores por Turnos
-        idealTarde = 0.8 * ideal
         if tarde != 0:
             if tarde > idealTarde:
-                multiplicador = tarde / idealTarde
+                multiplicador = tarde - idealTarde
             else:
                 multiplicador = idealTarde / tarde
             score += multiplicador * 200
 
-        idealManha = ideal - idealTarde
         if manha != 0:
             if manha > idealManha:
                 multiplicador = manha / idealManha

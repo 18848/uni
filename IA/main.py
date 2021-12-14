@@ -66,11 +66,10 @@ def test():
                 # Add new state
         bestState = copy.deepcopy(level[idMax][0])
 
-    # for l in level:
-    #     print(l[1])
-    #     print()
+    for l in level:
+        print(l)
+        print()
 
-    print(level[idMax])
 
     # 'António Manel/Marília Retorno/João o Cadeirão/Pedro Ribanceira/Mesmeldes Antonieta/Rebinde Coscuvite/Abilio Girandolas/Fazmindo Numquero/Germina Flores/Carpim Teiro/Quim Bestiga/Manel Carrossel/Joana Reboliço/Obrigham Ahir'
     input()
