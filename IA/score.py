@@ -52,7 +52,16 @@ def state_score(state):
         # else:
         #     score += 200
 
+
         # Pontuacao
+
+        if manha < 3 or tarde < 3:
+            score -= 1000
+        else:
+            score += 500
+            if manha < 3 and tarde < 3:
+                score += 500
+
         if(manha == idealManha):
             score += 100 * manha
         # if(len(state[weekdays][t[0]]) > idealManha):

@@ -57,8 +57,9 @@ def test():
         bestState = copy.deepcopy(level[idMax][0])
         # input()
     for l in level:
-        print(l)
-        print()
+        if l[1] == -3000:
+            print(l[0])
+            print()
 
     print(level[idMax][0])
 
