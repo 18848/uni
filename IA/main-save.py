@@ -1,6 +1,6 @@
 #from anytree import Node, RenderTree
 #from anytree.exporter import DotExporter
-#from treelib import Tree, Node
+from treelib import Tree, Node
 from score import state_score
 import itertools
 import copy
@@ -16,16 +16,18 @@ t = list(schedule[d[0]])    # Manha ...
 print(t)
 funcsList = list(funcs)      # António Manel ...
 
-def test():
-    bestState = schedule
+
+def BreadFirst():
+    search = Tree()
+    search.create_node("SearchTree", "search")
+    isRoot = None
     level = None
     # result = Tree(data='begin')
     scoreMax = -1000
     idMax = 0
     lastBest = -1
 
-    for f in funcsList:
-        scoreMax = 0
+    for f in range(0, len(funcsList)):
         level = list()
         
         # Combinações de Dias
@@ -34,43 +36,45 @@ def test():
             for turns in turnsComb:     # (0, 0, 0, 0, 1), (0, 0, 0, 1, 0), ...
                 
                 # Set Raw State
-                new = copy.deepcopy(bestState)
+                if levels[f] is None:
+                    new = copy.deepcopy(schedule)
+                else:
+                    new = copy.deepcopy(search.get_node[funcsList[f]] [lastBest].state)
 
                 # Define New State
                 for x in range(0, workingDays): 
-                    new[d[days[x]]][t[turns[x]]].append(int(f))
+                    new[d[days[x]]][t[turns[x]]].append(funcsList[f])
 
                 # Get state score
                 score = state_score(new)
 
-                # print(score)
-                # input()
-
-                level.append((new, score))
                 # If new MAX
                 if scoreMax < score:
-                    # if score == 1302.0833333333335:
-                    #     print(level[-1])
                     scoreMax = score
                     idMax = len(level) - 1
-                    # if(len(level) > 0):
-                    #     print(level[idMax - 1][1])
-                    #     print()
-                    #     print(level[idMax][1])
-                    #     print()
-                    # print(score)
-                    # print(idMax)
-                    # input()
-
 
                 # Add new state
-        bestState = copy.deepcopy(level[idMax][0])
+                if levels[f] is None:
+                    level.append(Node(str(funcsList[f]), parent=search, state=None, score=score))
+                else:
+                    level.append(Node(str(funcsList[f]), parent=levels[f][lastBest], state=new, score=score))
+            print((RenderTree(search)))
+            input()
 
-    # for l in level:
-    #     print(l[1])
-    #     print()
+        # Save current level and best state
+        levels[f].append(copy.deepcopy(level))
+        lastBest = idMax
 
-    print(level[idMax])
+
+    # for x in level:
+    #     print(x.score)
+    #     input()
+    #     if x.score == scoreMax:
+    #         print(x.state)
+
+    print(prevLevel[lastBest].score)
+    
+    # print(RenderTree(search))
 
     # 'António Manel/Marília Retorno/João o Cadeirão/Pedro Ribanceira/Mesmeldes Antonieta/Rebinde Coscuvite/Abilio Girandolas/Fazmindo Numquero/Germina Flores/Carpim Teiro/Quim Bestiga/Manel Carrossel/Joana Reboliço/Obrigham Ahir'
     input()
