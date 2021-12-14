@@ -15,6 +15,73 @@ for c in previsoes:
 
 
 def state_score(state):
+    score = 0
+
+    for weekdays in d:
+        manha = len(state[weekdays][t[0]])
+        tarde = len(state[weekdays][t[1]])
+
+        # TO DELETE
+        # score += manha
+        # score += tarde
+
+
+        # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
+        # ideal =  (previsoes[weekdays] * 2/3 * len(funcs)) / clientesMaximo
+        idealManha =  (previsoes[weekdays][t[0]] * 1 * len(funcs)) / clientesMaximo
+        idealTarde =  (previsoes[weekdays][t[1]] * 1 * len(funcs)) / clientesMaximo
+        idealManha = int(idealManha)
+        idealTarde = int(idealTarde)
+
+        # Calculo valores ideais
+        # if tarde != int(idealTarde):
+        #     if tarde > idealTarde:
+        #         multiplicador = tarde - idealTarde
+        #     elif tarde < idealTarde:
+        #             multiplicador = idealTarde - tarde
+        #     score -= pow(200, (multiplicador/4))
+        # else:
+        #     score += 200
+
+        # if manha != int(idealManha):
+        #     if manha > idealManha:
+        #         multiplicador = manha - idealManha
+        #     elif manha < idealManha:
+        #             multiplicador = idealManha - manha
+        #     score -= pow(200, (multiplicador/4))
+        # else:
+        #     score += 200
+
+        # Pontuacao
+        if(manha == idealManha):
+            score += 100 * manha
+        # if(len(state[weekdays][t[0]]) > idealManha):
+        #     score += 50
+
+        if(tarde == idealTarde):
+            score += 100 * tarde
+        # if(len(state[weekdays][t[1]]) > idealTarde):
+        #     score += 50
+
+        # Penalizacao por excesso
+        if(manha > idealManha):
+            score -= 1000 - 100 * (manha - idealManha)
+        if(tarde > idealTarde):
+            score -= 1000 - 100 * (tarde - idealTarde)
+
+        # Penalizacao por defeito
+        if(manha < idealManha):
+            score -= 1000 - 100 * (idealManha - manha)
+        if(tarde < idealTarde):
+            score -= 1000 - 100 * (idealTarde - tarde)
+
+        if(manha == 0 or tarde == 0):
+            score -= 100
+
+    return score
+
+
+def state_score_test(state):
     multiplicador = 0
     score = 0
     dia = 0
@@ -53,13 +120,15 @@ def state_score(state):
         idealManha =  (previsoes[weekdays][t[0]] * 1 * len(funcs)) / clientesMaximo
         idealTarde =  (previsoes[weekdays][t[1]] * 1 * len(funcs)) / clientesMaximo
 
-        ideal = idealManha + idealTarde
         # print(weekdays)
         # print(ideal)
         # input()
-        if ideal < 3:
+        if idealTarde < 3:
+            idealManha = 3
+            idealTarde = 3
             ideal = 3
 
+        ideal = idealManha + idealTarde
         #
         # Trabalhadores por Turnos
         if tarde != 0:

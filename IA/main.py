@@ -5,6 +5,7 @@ from score import state_score
 import itertools
 import copy
 from files import schedule, funcs
+from math import inf
 
 workingDays = 5
 daysComb = list(itertools.combinations([0, 1, 2, 3, 4, 5, 6], workingDays))
@@ -20,14 +21,15 @@ def test():
     bestState = schedule
     level = None
     # result = Tree(data='begin')
-    scoreMax = -1000
+    scoreMax = -inf
     idMax = 0
     lastBest = -1
 
     for f in funcsList:
         scoreMax = 0
         level = list()
-        
+        scoreMax = -inf
+
         # Combinações de Dias
         for days in daysComb:           # (0, 1, 2, 3, 4), (0, 1, 2, 3, 5), ...
             # Combinações de Turnos
@@ -43,32 +45,22 @@ def test():
                 # Get state score
                 score = state_score(new)
 
-                # print(score)
-                # input()
-
                 level.append((new, score))
+
                 # If new MAX
                 if scoreMax < score:
-                    # if score == 1302.0833333333335:
-                    #     print(level[-1])
                     scoreMax = score
                     idMax = len(level) - 1
-                    # if(len(level) > 0):
-                    #     print(level[idMax - 1][1])
-                    #     print()
-                    #     print(level[idMax][1])
-                    #     print()
-                    # print(score)
-                    # print(idMax)
-                    # input()
 
 
                 # Add new state
         bestState = copy.deepcopy(level[idMax][0])
-
+        # input()
     for l in level:
         print(l)
         print()
+
+    print(level[idMax][0])
 
 
     # 'António Manel/Marília Retorno/João o Cadeirão/Pedro Ribanceira/Mesmeldes Antonieta/Rebinde Coscuvite/Abilio Girandolas/Fazmindo Numquero/Germina Flores/Carpim Teiro/Quim Bestiga/Manel Carrossel/Joana Reboliço/Obrigham Ahir'
@@ -94,10 +86,3 @@ def iter():
     turnscomb = list(itertools.product([0, 1], repeat=5))
 
     print(daycomb[0][0])
-
-    # f = open("schedule.json", "r")
-    # s = json.load(f)
-    # f.close()
-
-    # days = list(s)
-    # turns = list(s[days[0]])
