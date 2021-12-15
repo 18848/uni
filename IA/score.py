@@ -1,4 +1,4 @@
-from files import previsoes, schedule, funcs
+from files import previsoes, schedule, funcsJSON
 from math import inf
 import itertools
 
@@ -6,7 +6,7 @@ p = list(previsoes)
 
 week = list(schedule)          # Segunda ...
 t = list(schedule[week[0]])    # Manha ...
-funcsList = list(funcs)      # António Manel ...
+funcs = list(funcsJSON)      # António Manel ...
 
 clientesMaximo = -1
 
@@ -16,52 +16,18 @@ for c in previsoes:
 
 def state_score(state):
     score = 0
-    empty = 0
+    ## Counters for shifts
+    empty = 0       # 0 funcs
+    little = 0      # less than '3' funcs
+    overflow = 0    # more than idealShift funcs
+    underflow = 0   # less than idealShift funcs
 
     for day in week:
         manha = len(state[day][t[0]])
         tarde = len(state[day][t[1]])
+        # dia = manha + tarde
 
-        # TO DELETE
-        # score += manha
-        # score += tarde
-
-        # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
-        # ideal =  (previsoes[day] * 2/3 * len(funcs)) / clientesMaximo
-        idealManha =  (previsoes[day][t[0]] * 1 * len(funcs)) / clientesMaximo
-        idealTarde =  (previsoes[day][t[1]] * 1 * len(funcs)) / clientesMaximo
-        idealManha = int(idealManha)
-        idealTarde = int(idealTarde)
-
-        # Pontuacao
-        if manha + tarde <= (2/3) * len(funcs) and manha + tarde >= (1/3) * len(funcs):
-            score-= 100
-
-        if manha < 3 or tarde < 3:
-            score -= 200
-        else:
-            score += 500
-            # if manha > 3 and tarde > 3:
-            #     score += 500
-
-        if(manha == idealManha):
-            score += 100
-
-        if(tarde == idealTarde):
-            score += 100
-
-        # Penalizacao por excesso
-        if(manha > idealManha):
-            score -= 500 - 100 * (manha - idealManha)
-        if(tarde > idealTarde):
-            score -= 500 - 100 * (tarde - idealTarde)
-
-        # Penalizacao por defeito
-        if(manha < idealManha):
-            score -= 500 - 100 * (idealManha - manha)
-        if(tarde < idealTarde):
-            score -= 500 - 100 * (idealTarde - tarde)
-
+        # Count empty shifts
         if manha == 0:
             empty += 1
             score -= 1000
@@ -69,7 +35,54 @@ def state_score(state):
             empty += 1
             score -= 1000
 
+        # TO DELETE
+        # score += manha
+        # score += tarde
+
+        # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
+        # ideal =  (previsoes[day] * 2/3 * len(funcs)) / clientesMaximo
+        idealManha =  int( (previsoes[day][t[0]] * 1 * len(funcs)) / clientesMaximo )
+        idealTarde =  int( (previsoes[day][t[1]] * 1 * len(funcs)) / clientesMaximo )
+
+        """
+        Pontuacao
+        """
+        # if dia <= (2/3) * len(funcs) and dia >= (1/3) * len(funcs):
+        #     score-= 100
+
+        if(manha == idealManha):
+            score += 100
+
+        if(tarde == idealTarde):
+            score += 100
+
+        if manha < 3 or tarde < 3:  # Evaluate and Count small shifts
+            little += 1
+        else:
+            if manha < idealManha:
+                underflow += 1
+            elif manha > idealManha:
+                overflow += 1 
+            # if manha > 3 and tarde > 3:
+            #     score += 500
+
+        # Penalizacao por excesso
+        if(manha > idealManha):
+            score -= 100 * pow(5, (manha - idealManha))
+        if(tarde > idealTarde):
+            score -= 100 * pow(5, (tarde - idealTarde))
+
+        # Penalizacao por defeito
+        if(manha < idealManha):
+            score -= 100 * pow(5, (idealManha - manha))
+        if(tarde < idealTarde):
+            score -= 100 * pow(5, (idealTarde - tarde))
+
+    # General punishments
+    score -= overflow * 100
+    score -= underflow * 100
     score -= empty * 200
+    score -= little * 100
 
     return score
 
@@ -108,9 +121,9 @@ def state_score_test(state):
         # input()
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
-        # ideal =  (previsoes[day] * 2/3 * len(funcs)) / clientesMaximo
-        idealManha =  (previsoes[day][t[0]] * 1 * len(funcs)) / clientesMaximo
-        idealTarde =  (previsoes[day][t[1]] * 1 * len(funcs)) / clientesMaximo
+        # ideal =  (previsoes[day] * 2/3 * len(funcsJSON)) / clientesMaximo
+        idealManha =  (previsoes[day][t[0]] * 1 * len(funcsJSON)) / clientesMaximo
+        idealTarde =  (previsoes[day][t[1]] * 1 * len(funcsJSON)) / clientesMaximo
 
         # print(day)
         # print(ideal)
@@ -169,7 +182,7 @@ def state_eval(state):
     """
     count = 0
 
-    # Find number of Funcs in state
+    # Find number of funcs in state
     for day in week:
         manha = state[day][t[0]]
         tarde = state[day][t[1]]
@@ -178,8 +191,8 @@ def state_eval(state):
         for x in tarde:
             count = max(count, x)
 
-    # For more than 2 Funcs, check empty days
-    if count + 1 >= int(1/3 * len(funcsList)) + 1:
+    # For more than 2 funcs, check empty days
+    if count + 1 >= int(1/3 * len(funcs)) + 1:
         for day in week:
             manha = len(state[day][t[0]])
             tarde = len(state[day][t[1]])
