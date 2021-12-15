@@ -13,6 +13,7 @@ clientesMaximo = -1
 for c in previsoes:
     clientesMaximo = max(clientesMaximo, previsoes[c][t[0]] + previsoes[c][t[1]])
 
+margin = (1/3) * len(funcs)
 
 def state_score(state):
     score = 0
@@ -25,7 +26,7 @@ def state_score(state):
     for day in week:
         manha = len(state[day][t[0]])
         tarde = len(state[day][t[1]])
-        # dia = manha + tarde
+        dia = manha + tarde
 
         # Count empty shifts
         if manha == 0:
@@ -47,42 +48,42 @@ def state_score(state):
         """
         Pontuacao
         """
-        # if dia <= (2/3) * len(funcs) and dia >= (1/3) * len(funcs):
-        #     score-= 100
 
         if(manha == idealManha):
-            score += 100
+            score += 500
 
         if(tarde == idealTarde):
-            score += 100
+            score += 500
 
-        if manha < 3 or tarde < 3:  # Evaluate and Count small shifts
+        if dia <= 2 * margin and dia >= margin:
             little += 1
+            if manha < margin or tarde < margin:  # Evaluate and Count small shifts
+                little += abs(margin - manha)
+                little += abs(margin - tarde)
         else:
-            if manha < idealManha:
-                underflow += 1
-            elif manha > idealManha:
-                overflow += 1 
-            # if manha > 3 and tarde > 3:
-            #     score += 500
+            falta = idealManha - manha
+            underflow += abs(falta)
 
-        # Penalizacao por excesso
-        if(manha > idealManha):
-            score -= 100 * pow(5, (manha - idealManha))
-        if(tarde > idealTarde):
-            score -= 100 * pow(5, (tarde - idealTarde))
+            falta = idealTarde - tarde
+            underflow += abs(falta)
 
-        # Penalizacao por defeito
-        if(manha < idealManha):
-            score -= 100 * pow(5, (idealManha - manha))
-        if(tarde < idealTarde):
-            score -= 100 * pow(5, (idealTarde - tarde))
+        # # Penalizacao por excesso
+        # if(manha > idealManha):
+        #     score -= 100 * pow(5, (manha - idealManha))
+        # if(tarde > idealTarde):
+        #     score -= 100 * pow(5, (tarde - idealTarde))
+
+        # # Penalizacao por defeito
+        # if(manha < idealManha):
+        #     score -= 100 * pow(5, (idealManha - manha))
+        # if(tarde < idealTarde):
+        #     score -= 100 * pow(5, (idealTarde - tarde))
 
     # General punishments
-    score -= overflow * 100
-    score -= underflow * 100
-    score -= empty * 200
-    score -= little * 100
+    score -= overflow * pow(5, (overflow))
+    score -= underflow * 200 * pow(5, (underflow))
+    score -= empty * 300 
+    score -= little * 200
 
     return score
 

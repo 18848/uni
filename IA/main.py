@@ -4,7 +4,7 @@
 from score import state_score, state_eval
 import itertools
 import copy
-from files import schedule, funcs
+from files import schedule, funcsJSON
 from math import inf
 
 workingDays = 5
@@ -15,14 +15,14 @@ d = list(schedule)          # Segunda ...
 print(d)
 t = list(schedule[d[0]])    # Manha ...
 print(t)
-funcsList = list(funcs)      # António Manel ...
+funcs = list(funcsJSON)      # António Manel ...
 
 def test():
     bestState = schedule
     lastBest = -1
     somelist = list()
 
-    for f in funcsList:
+    for f in funcs:
         level = list()
         scoreMax = -inf
         idMax = 0
@@ -44,7 +44,7 @@ def test():
 
                     # If new MAX
                     if scoreMax <= score:
-                        if int(f) + 1 == len(funcsList) and scoreMax == score:
+                        if int(f) + 1 == len(funcs) and scoreMax == score:
                             somelist.append(len(level) - 1)
                         scoreMax = score
                         idMax = len(level) - 1
@@ -58,9 +58,7 @@ def test():
 
     print(level[idMax][0])
     print(scoreMax)
-    input()
-
-    print("done")
+    # input()
 
 
 test()
