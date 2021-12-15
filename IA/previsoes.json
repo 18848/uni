@@ -1,9 +1,9 @@
 {
-    "Segunda" : 200,
-    "Terca" : 150,
-    "Quarta" : 300,
-    "Quinta" : 200,
-    "Sexta" : 600,
-    "Sabado" : 1000,
-    "Domingo" : 800
+    "Segunda" :{"manha":100 , "tarde": 300},
+    "Terca" :  {"manha":200 , "tarde": 250},
+    "Quarta" : {"manha":80 , "tarde": 325},
+    "Quinta" : {"manha":300 , "tarde": 200},
+    "Sexta" :  {"manha":100 , "tarde": 400},
+    "Sabado" : {"manha":700 , "tarde": 300},
+    "Domingo" :{"manha":200 , "tarde": 500}
 }

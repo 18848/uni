@@ -1,0 +1,116 @@
+\hypertarget{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager}{}\doxysection{API.\+Controllers.\+JWTAuth\+Manager Class Reference}
+\label{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager}\index{API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}}
+
+
+Classe auxiliar para gerir Autenticação e JWT  
+
+
+Inheritance diagram for API.\+Controllers.\+JWTAuth\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_abd56beb89f2027279bcd45dffe9030f5}{JWTAuth\+Manager}} (IConfiguration Configuration)
+\begin{DoxyCompactList}\small\item\em instanciado em startup.\+cs\+: services.\+Add\+Singleton$<$\+IConfiguration$>$(\+Configuration) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_ab126b562a02f6863bf9bb91537774c39}{JWTAuth\+Manager}} (string token\+Key)
+\begin{DoxyCompactList}\small\item\em Gere Token \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_p_i_1_1_models_1_1_auth_response}{Auth\+Response}} \mbox{\hyperlink{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_ac101baf55d0274c674b5eef75915cb4a}{Authenticate}} (string username, Claim\mbox{[}$\,$\mbox{]} claims)
+\begin{DoxyCompactList}\small\item\em h1\+: Autenticar com Claims \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_p_i_1_1_models_1_1_auth_response}{Auth\+Response}} \mbox{\hyperlink{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_a193f9babd32e9a006ee722bb779b15d3}{Authenticate}} (\mbox{\hyperlink{class_a_p_i_1_1_models_1_1_auth_request}{Auth\+Request}} login\+Details)
+\begin{DoxyCompactList}\small\item\em h2\+:Autenticar sem Claims mas apenas com login/password \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe auxiliar para gerir Autenticação e JWT 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_abd56beb89f2027279bcd45dffe9030f5}\label{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_abd56beb89f2027279bcd45dffe9030f5}} 
+\index{API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}!JWTAuthManager@{JWTAuthManager}}
+\index{JWTAuthManager@{JWTAuthManager}!API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}}
+\doxysubsubsection{\texorpdfstring{JWTAuthManager()}{JWTAuthManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily API.\+Controllers.\+JWTAuth\+Manager.\+JWTAuth\+Manager (\begin{DoxyParamCaption}\item[{IConfiguration}]{Configuration }\end{DoxyParamCaption})}
+
+
+
+instanciado em startup.\+cs\+: services.\+Add\+Singleton$<$\+IConfiguration$>$(\+Configuration) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Configuration} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_ab126b562a02f6863bf9bb91537774c39}\label{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_ab126b562a02f6863bf9bb91537774c39}} 
+\index{API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}!JWTAuthManager@{JWTAuthManager}}
+\index{JWTAuthManager@{JWTAuthManager}!API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}}
+\doxysubsubsection{\texorpdfstring{JWTAuthManager()}{JWTAuthManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily API.\+Controllers.\+JWTAuth\+Manager.\+JWTAuth\+Manager (\begin{DoxyParamCaption}\item[{string}]{token\+Key }\end{DoxyParamCaption})}
+
+
+
+Gere Token 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token\+Key} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_a193f9babd32e9a006ee722bb779b15d3}\label{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_a193f9babd32e9a006ee722bb779b15d3}} 
+\index{API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}!Authenticate@{Authenticate}}
+\index{Authenticate@{Authenticate}!API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}}
+\doxysubsubsection{\texorpdfstring{Authenticate()}{Authenticate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_p_i_1_1_models_1_1_auth_response}{Auth\+Response}} API.\+Controllers.\+JWTAuth\+Manager.\+Authenticate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_p_i_1_1_models_1_1_auth_request}{Auth\+Request}}}]{login\+Details }\end{DoxyParamCaption})}
+
+
+
+h2\+:Autenticar sem Claims mas apenas com login/password 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \\
+\hline
+{\em password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_a_p_i_1_1_controllers_1_1_i_j_w_t_auth_manager_a9250361ed7fec8968fa028226bf614e4}{API.\+Controllers.\+IJWTAuth\+Manager}}.
+
+\mbox{\Hypertarget{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_ac101baf55d0274c674b5eef75915cb4a}\label{class_a_p_i_1_1_controllers_1_1_j_w_t_auth_manager_ac101baf55d0274c674b5eef75915cb4a}} 
+\index{API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}!Authenticate@{Authenticate}}
+\index{Authenticate@{Authenticate}!API.Controllers.JWTAuthManager@{API.Controllers.JWTAuthManager}}
+\doxysubsubsection{\texorpdfstring{Authenticate()}{Authenticate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_p_i_1_1_models_1_1_auth_response}{Auth\+Response}} API.\+Controllers.\+JWTAuth\+Manager.\+Authenticate (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{Claim\mbox{[}$\,$\mbox{]}}]{claims }\end{DoxyParamCaption})}
+
+
+
+h1\+: Autenticar com Claims 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \\
+\hline
+{\em claims} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_a_p_i_1_1_controllers_1_1_i_j_w_t_auth_manager}{API.\+Controllers.\+IJWTAuth\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dashboard/\+API/\+Controllers/JWTAuth\+Manager .\+cs\end{DoxyCompactItemize}

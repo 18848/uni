@@ -1,0 +1,108 @@
+\hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller}{}\doxysection{ISIAPI.\+Controllers.\+Requisicao\+Controller Class Reference}
+\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller}\index{ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}}
+Inheritance diagram for ISIAPI.\+Controllers.\+Requisicao\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_ac2f0dcc12b052119905776c5ba91ae6e}{Get\+Requisicoes}} ()
+\begin{DoxyCompactList}\small\item\em Rota para devolver todas as requisições presentes na base de dados \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a34fe03151b0a3c915de2364bbc67386d}{Add\+Requisicao}} (string requisicao)
+\begin{DoxyCompactList}\small\item\em Rota para adicionar uma requisicao \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a775ce73409dfa41f57ba65bdbbf13d00}{Get\+Requisicao\+By\+Equipca}} (int id\+Equipa)
+\begin{DoxyCompactList}\small\item\em Rota para devolver as requisições de uma equipa \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a9f9d440a259dd1d88f47234d4aac1326}{Update\+Requisicao\+Entregue}} (int id\+Requisicao)
+\begin{DoxyCompactList}\small\item\em Rota para dar update ao estado de entregue de uma requisição \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_aef5b7d7b2d7ca136f32960833d98b1c2}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_aef5b7d7b2d7ca136f32960833d98b1c2}} 
+\mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_requisicoes}{Modelo\+Requisicoes}} {\bfseries m} = new \mbox{\hyperlink{class_i_s_i_a_p_i_1_1_modelo_requisicoes}{Modelo\+Requisicoes}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a34fe03151b0a3c915de2364bbc67386d}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a34fe03151b0a3c915de2364bbc67386d}} 
+\index{ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}!AddRequisicao@{AddRequisicao}}
+\index{AddRequisicao@{AddRequisicao}!ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}}
+\doxysubsubsection{\texorpdfstring{AddRequisicao()}{AddRequisicao()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Controller.\+Add\+Requisicao (\begin{DoxyParamCaption}\item[{string}]{requisicao }\end{DoxyParamCaption})}
+
+
+
+Rota para adicionar uma requisicao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em requisicao} & recebe uma variavel tipo json no formato \{\char`\"{}id\+Equipa\char`\"{}\+:id, \char`\"{}entregue\char`\"{}\+:(true or false)\}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a775ce73409dfa41f57ba65bdbbf13d00}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a775ce73409dfa41f57ba65bdbbf13d00}} 
+\index{ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}!GetRequisicaoByEquipca@{GetRequisicaoByEquipca}}
+\index{GetRequisicaoByEquipca@{GetRequisicaoByEquipca}!ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}}
+\doxysubsubsection{\texorpdfstring{GetRequisicaoByEquipca()}{GetRequisicaoByEquipca()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Controller.\+Get\+Requisicao\+By\+Equipca (\begin{DoxyParamCaption}\item[{int}]{id\+Equipa }\end{DoxyParamCaption})}
+
+
+
+Rota para devolver as requisições de uma equipa 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Equipa} & recebe o id da equipa na rota\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_ac2f0dcc12b052119905776c5ba91ae6e}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_ac2f0dcc12b052119905776c5ba91ae6e}} 
+\index{ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}!GetRequisicoes@{GetRequisicoes}}
+\index{GetRequisicoes@{GetRequisicoes}!ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}}
+\doxysubsubsection{\texorpdfstring{GetRequisicoes()}{GetRequisicoes()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Controller.\+Get\+Requisicoes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rota para devolver todas as requisições presentes na base de dados 
+
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a9f9d440a259dd1d88f47234d4aac1326}\label{class_i_s_i_a_p_i_1_1_controllers_1_1_requisicao_controller_a9f9d440a259dd1d88f47234d4aac1326}} 
+\index{ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}!UpdateRequisicaoEntregue@{UpdateRequisicaoEntregue}}
+\index{UpdateRequisicaoEntregue@{UpdateRequisicaoEntregue}!ISIAPI.Controllers.RequisicaoController@{ISIAPI.Controllers.RequisicaoController}}
+\doxysubsubsection{\texorpdfstring{UpdateRequisicaoEntregue()}{UpdateRequisicaoEntregue()}}
+{\footnotesize\ttfamily string ISIAPI.\+Controllers.\+Requisicao\+Controller.\+Update\+Requisicao\+Entregue (\begin{DoxyParamCaption}\item[{int}]{id\+Requisicao }\end{DoxyParamCaption})}
+
+
+
+Rota para dar update ao estado de entregue de uma requisição 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Requisicao} & Recebe o id da Requisição na rota\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If reaches end of function. 
+
+If it fails. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+REST\+\_\+\+API service/\+ISIAPI/\+Controllers/Requisicao\+Controller.\+cs\end{DoxyCompactItemize}
