@@ -23,7 +23,6 @@ def test():
     somelist = list()
 
     for f in funcsList:
-        scoreMax = 0
         level = list()
         scoreMax = -inf
         idMax = 0
@@ -57,9 +56,9 @@ def test():
     
     # print(len(somelist))
 
-    # print(level[idMax][0])
-    input()
+    print(level[idMax][0])
     print(scoreMax)
+    input()
 
     print("done")
 
