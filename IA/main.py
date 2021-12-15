@@ -64,19 +64,4 @@ def test():
     print("done")
 
 
-# def transition():
-#     days = 7
-#     turns = 2
-#     lst = list()
-
-#     for x in range(0, days - 1):
-#         for y in range(0, turns - 1):
-#             lst.append(f"{x},{y}")
-
-
-def iter():
-
-    daycomb = list(itertools.combinations([0, 1, 2, 3, 4, 5, 6], 5))
-    turnscomb = list(itertools.product([0, 1], repeat=5))
-
-    print(daycomb[0][0])
+test()
