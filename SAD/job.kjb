@@ -315,7 +315,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:/Users/cacete/Desktop/SAD/dim_vendor.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_vendor.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -354,7 +354,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:/Users/cacete/Desktop/SAD/dim_date.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_date.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -393,7 +393,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\cacete\Desktop\SAD\dim_customer.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_customer.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -432,7 +432,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\cacete\Desktop\SAD\dim_employee.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_employee.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -471,7 +471,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\cacete\Desktop\SAD\dim_product.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_product.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -510,7 +510,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\cacete\Desktop\SAD\dim_salesterritory.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_salesterritory.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -549,7 +549,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\cacete\Desktop\SAD\dim_shipmethod.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/dim_shipmethod.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -588,7 +588,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\cacete\Desktop\SAD\ft_compras.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/ft_compras.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -627,7 +627,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\cacete\Desktop\SAD\ft_vendas.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/ft_vendas.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

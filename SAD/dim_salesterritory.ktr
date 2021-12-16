@@ -437,7 +437,7 @@
   </notepads>
   <connection>
     <name>AW2021_DM</name>
-    <server>B550M</server>
+    <server>WIN10-X541UV-K7</server>
     <type>MSSQLNATIVE</type>
     <access>Native</access>
     <database>AW2021_DM</database>

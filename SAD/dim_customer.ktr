@@ -437,7 +437,7 @@
   </notepads>
   <connection>
     <name>AW2021_DM</name>
-    <server>B550M</server>
+    <server>WIN10-X541UV-K7</server>
     <type>MSSQLNATIVE</type>
     <access>Native</access>
     <database>AW2021_DM</database>
@@ -1027,83 +1027,6 @@ Sales.Customer</sql>
     </GUI>
   </step>
   <step>
-    <name>PersonType grid</name>
-    <type>DataGrid</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>PTID</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-        <field_null_if/>
-      </field>
-      <field>
-        <name>PTName</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-        <field_null_if/>
-      </field>
-    </fields>
-    <data>
-      <line>
-        <item>SC</item>
-        <item>Store Contact</item>
-      </line>
-      <line>
-        <item>IN</item>
-        <item>Individual (retail) customer</item>
-      </line>
-      <line>
-        <item>SP</item>
-        <item>Sales person</item>
-      </line>
-      <line>
-        <item>EM</item>
-        <item>Employee (non-sales)</item>
-      </line>
-      <line>
-        <item>VC</item>
-        <item>Vendor contact</item>
-      </line>
-      <line>
-        <item>GC</item>
-        <item>General contact</item>
-      </line>
-    </data>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Person lookup</name>
     <type>DBLookup</type>
     <description/>
@@ -1178,6 +1101,83 @@ Sales.Customer</sql>
     <GUI>
       <xloc>256</xloc>
       <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PersonType grid</name>
+    <type>DataGrid</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>PTID</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>PTName</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+    </fields>
+    <data>
+      <line>
+        <item>SC</item>
+        <item>Store Contact</item>
+      </line>
+      <line>
+        <item>IN</item>
+        <item>Individual (retail) customer</item>
+      </line>
+      <line>
+        <item>SP</item>
+        <item>Sales person</item>
+      </line>
+      <line>
+        <item>EM</item>
+        <item>Employee (non-sales)</item>
+      </line>
+      <line>
+        <item>VC</item>
+        <item>Vendor contact</item>
+      </line>
+      <line>
+        <item>GC</item>
+        <item>General contact</item>
+      </line>
+    </data>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1306,27 +1306,21 @@ Sales.Customer</sql>
     <fields>
       <field>
         <name>CustomerID</name>
-        <rename/>
       </field>
       <field>
         <name>PersonID</name>
-        <rename/>
       </field>
       <field>
         <name>PersonType</name>
-        <rename/>
       </field>
       <field>
         <name>CustomerName</name>
-        <rename/>
       </field>
       <field>
         <name>StoreID</name>
-        <rename/>
       </field>
       <field>
         <name>StoreName</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
