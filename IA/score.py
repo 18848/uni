@@ -2,15 +2,15 @@ from files import previsoesJSON, scheduleJSON, funcsJSON, week, turns
 from math import inf
 import itertools
 
-p = list(previsoes)
+p = list(previsoesJSON)
 
-turns = list(schedule[week[0]])    # Manha ...
+turns = list(scheduleJSON[week[0]])    # Manha ...
 funcs = list(funcsJSON)      # António Manel ...
 
 clientesMaximo = -1
 
-for c in previsoes:
-    clientesMaximo = max(clientesMaximo, previsoes[c][turns[0]] + previsoes[c][turns[1]])
+for c in previsoesJSON:
+    clientesMaximo = max(clientesMaximo, previsoesJSON[c][turns[0]] + previsoesJSON[c][turns[1]])
 
 margin = (1/3) * len(funcs)
 
@@ -40,9 +40,9 @@ def state_score(state):
         # score += tarde
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
-        # ideal =  (previsoes[day] * 2/3 * len(funcs)) / clientesMaximo
-        idealManha =  int( (previsoes[day][turns[0]] * 1 * len(funcs)) / clientesMaximo )
-        idealTarde =  int( (previsoes[day][turns[1]] * 1 * len(funcs)) / clientesMaximo )
+        # ideal =  (previsoesJSON[day] * 2/3 * len(funcs)) / clientesMaximo
+        idealManha =  int( (previsoesJSON[day][turns[0]] * 1 * len(funcs)) / clientesMaximo )
+        idealTarde =  int( (previsoesJSON[day][turns[1]] * 1 * len(funcs)) / clientesMaximo )
 
         """
         Pontuacao
@@ -121,9 +121,9 @@ def state_score_test(state):
         # input()
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
-        # ideal =  (previsoes[day] * 2/3 * len(funcsJSON)) / clientesMaximo
-        idealManha =  (previsoes[day][turns[0]] * 1 * len(funcsJSON)) / clientesMaximo
-        idealTarde =  (previsoes[day][turns[1]] * 1 * len(funcsJSON)) / clientesMaximo
+        # ideal =  (previsoesJSON[day] * 2/3 * len(funcsJSON)) / clientesMaximo
+        idealManha =  (previsoesJSON[day][turns[0]] * 1 * len(funcsJSON)) / clientesMaximo
+        idealTarde =  (previsoesJSON[day][turns[1]] * 1 * len(funcsJSON)) / clientesMaximo
 
         # print(day)
         # print(ideal)
