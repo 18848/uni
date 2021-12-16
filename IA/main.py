@@ -1,4 +1,4 @@
-from tree import Tree, State
+from tree import Tree
 from score import state_score, state_eval
 import itertools
 import copy
@@ -23,13 +23,13 @@ def test():
         for d in daysComb:           # (0, 1, 2, 3, 4), (0, 1, 2, 3, 5), ...
             # Combinações de Turnos
             for t in turnsComb:     # (0, 0, 0, 0, 1), (0, 0, 0, 1, 0), ...
-                newstate = State(days=d, turns=t, funcID=int(f))
+                # newstate = State(days=d, turns=t, funcID=int(f))
                 
             ## Without Class
                 new = copy.deepcopy(bestState) # Set Raw State
                 # Define New State
                 for x in range(0, workingDays):
-                    day = week[day[x]]
+                    day = week[d[x]]
                     turn = turns[t[x]]
                     new[day][turn].append(int(f))
                     
@@ -42,18 +42,12 @@ def test():
 
                     # If new MAX
                     if scoreMax <= score:
-                        if int(f) + 1 == len(funcs) and scoreMax == score:
-                            somelist.append(len(level) - 1)
+                        # if int(f) + 1 == len(funcs) and scoreMax == score:
+                        #     somelist.append(len(level) - 1)
                         scoreMax = score
-                        idMax = len(level) - 1
-        # tree.children = copy.deepcopy()
-        aux = copy.deepcopy(aux.children[idMax])
-
-    # for l in somelist:
-    #     print(level[l][0])
-    #     print()
-    
-    # print(len(somelist))
+                        idMax = len(aux.children) - 1
+        bestState = aux.children[idMax].state
+        aux = aux.children[idMax]
 
     print(aux.state)
     print(scoreMax)
