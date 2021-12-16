@@ -13,11 +13,11 @@ class Tree():
         self.children.append(Tree(data=data, state=state, score=score, parent=self))
 
     def show_Tree(self, level=0):
-        print(str(level*">") + str(self.data))
         level += 1
         for t in self.children:
             if t is not None: 
                 t.show_Tree(level=level)
+        print(str(level*">") + str(self.data))
 
 
 # class State():
