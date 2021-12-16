@@ -1,17 +1,16 @@
-from files import previsoes, schedule, funcsJSON
+from files import previsoesJSON, scheduleJSON, funcsJSON, week, turns
 from math import inf
 import itertools
 
 p = list(previsoes)
 
-week = list(schedule)          # Segunda ...
-t = list(schedule[week[0]])    # Manha ...
+turns = list(schedule[week[0]])    # Manha ...
 funcs = list(funcsJSON)      # António Manel ...
 
 clientesMaximo = -1
 
 for c in previsoes:
-    clientesMaximo = max(clientesMaximo, previsoes[c][t[0]] + previsoes[c][t[1]])
+    clientesMaximo = max(clientesMaximo, previsoes[c][turns[0]] + previsoes[c][turns[1]])
 
 margin = (1/3) * len(funcs)
 
@@ -24,8 +23,8 @@ def state_score(state):
     underflow = 0   # less than idealShift funcs
 
     for day in week:
-        manha = len(state[day][t[0]])
-        tarde = len(state[day][t[1]])
+        manha = len(state[day][turns[0]])
+        tarde = len(state[day][turns[1]])
         dia = manha + tarde
 
         # Count empty shifts
@@ -42,8 +41,8 @@ def state_score(state):
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
         # ideal =  (previsoes[day] * 2/3 * len(funcs)) / clientesMaximo
-        idealManha =  int( (previsoes[day][t[0]] * 1 * len(funcs)) / clientesMaximo )
-        idealTarde =  int( (previsoes[day][t[1]] * 1 * len(funcs)) / clientesMaximo )
+        idealManha =  int( (previsoes[day][turns[0]] * 1 * len(funcs)) / clientesMaximo )
+        idealTarde =  int( (previsoes[day][turns[1]] * 1 * len(funcs)) / clientesMaximo )
 
         """
         Pontuacao
@@ -97,8 +96,8 @@ def state_score_test(state):
         count = 0
         score = 0
         # score for manha != tarde
-        manha = len(state[day][t[0]])
-        tarde = len(state[day][t[1]])
+        manha = len(state[day][turns[0]])
+        tarde = len(state[day][turns[1]])
         
         if manha != 0:
             score += 500
@@ -123,8 +122,8 @@ def state_score_test(state):
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
         # ideal =  (previsoes[day] * 2/3 * len(funcsJSON)) / clientesMaximo
-        idealManha =  (previsoes[day][t[0]] * 1 * len(funcsJSON)) / clientesMaximo
-        idealTarde =  (previsoes[day][t[1]] * 1 * len(funcsJSON)) / clientesMaximo
+        idealManha =  (previsoes[day][turns[0]] * 1 * len(funcsJSON)) / clientesMaximo
+        idealTarde =  (previsoes[day][turns[1]] * 1 * len(funcsJSON)) / clientesMaximo
 
         # print(day)
         # print(ideal)
@@ -185,8 +184,8 @@ def state_eval(state):
 
     # Find number of funcs in state
     for day in week:
-        manha = state[day][t[0]]
-        tarde = state[day][t[1]]
+        manha = state[day][turns[0]]
+        tarde = state[day][turns[1]]
         for x in manha:
             count = max(count, x)
         for x in tarde:
@@ -195,8 +194,8 @@ def state_eval(state):
     # For more than 2 funcs, check empty days
     if count + 1 >= int(1/3 * len(funcs)) + 1:
         for day in week:
-            manha = len(state[day][t[0]])
-            tarde = len(state[day][t[1]])
+            manha = len(state[day][turns[0]])
+            tarde = len(state[day][turns[1]])
             if manha == 0 or tarde == 0:
                 return False
     elif count + 1 >= 1:
