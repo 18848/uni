@@ -25,46 +25,17 @@ def state_score(state, depth):
     trend = None
     trend_dict = dict()
     maximum = -1
+    maior = 0
 
-    if depth < 15:
-        return score
-
-    # if depth <= homogeneity:
-    #     for day in week:
-    #         manha = len(state[day][turns[0]])
-    #         tarde = len(state[day][turns[1]])
-    #         if manha in trend_dict:
-    #             trend_dict[manha] += 1
-    #         else:
-    #             trend_dict[manha] = 1
-    #         if tarde in trend_dict:
-    #             trend_dict[tarde] += 1
-    #         else:
-    #             trend_dict[tarde] = 1
-    #     trend = list()
-    #     for key in trend_dict:
-    #         if maximum != trend_dict[key]:
-    #             maximum = max(maximum, trend_dict[key])
-    #     for key in trend_dict:
-    #         if trend_dict[key] == maximum:
-    #             trend.append(key)
+    # if depth < 15:
+    #     return score
 
     for day in week:
         manha = len(state[day][turns[0]])
         tarde = len(state[day][turns[1]])
         dia = manha + tarde
-
-        # Count empty shifts
-        # if manha == 0:
-        #     empty += 1
-        #     score -= 1000
-        # if tarde == 0:
-        #     empty += 1
-        #     score -= 1000
-
-        # TO DELETE
-        # score += manha
-        # score += tarde
+        if maior < dia:
+            maior = dia
 
         # y = (clientesDia * 2/3 * funcionariosTotal) / clientesMaximo
         # ideal =  (previsoesJSON[day] * 2/3 * len(funcs)) / clientesMaximo
@@ -93,23 +64,18 @@ def state_score(state, depth):
             underflow += abs(idealTarde - tarde)
 
     # General punishments
-    # score -= overflow * 200 # pow(5, (overflow))
-    # score -= underflow * 200 * pow(5, (underflow))
-    # # score -= empty * 300 
+    score -= overflow * 20 # pow(5, (overflow))
+    score -= underflow * 20
+    # score -= empty * 300 
     score -= little * 200
-    # if trend is not None:
-    #     if int(depth) + 1 > homogeneity:
-    #         print(state)
-    #         input()
-    #     score -= pow(20, abs(max(trend) - manha))
-    #     score -= pow(20, abs(max(trend) - tarde))
 
     return score
     
 
 def test(state):
     count = 0
-    maior = 0
+    maior = -inf
+    menor = inf
 
     # Find number of funcs in state
     for day in week:
@@ -119,64 +85,68 @@ def test(state):
             count = max(count, int(x))
         for x in tarde:
             count = max(count, int(x))
+
         manha = len(state[day][turns[0]])
         tarde = len(state[day][turns[1]])
+
         if maior < manha or maior < tarde:
                 if maior < manha:
                     maior = manha
                 elif maior < tarde:
                     maior = tarde
+        if menor > manha or menor > tarde:
+                if menor > manha:
+                    menor = manha
+                elif menor > tarde:
+                    menor = tarde
 
     count = count + 1
-
-    # if count == 5:
-    #     print(state)
-    #     input()
 
     for day in week:
             manha = len(state[day][turns[0]])
             tarde = len(state[day][turns[1]])
+    
+            # if count == 7 and manha == 3 and tarde == 3:
+            #     print(state)
+            #     input()
 
-            # if manha == 0 or tarde == 0 and flag is True:
-            #     return False
-            # print(maior - manha)
-            # print(maior - tarde)
-            # input()
+            if maior - menor < 1:
+                return True
 
             if(count > 1 and count % 2 != 0):
-                # if count > ceil(margin):
-                #     if maior - manha > 1:
-                #         return False
-
-                #     if maior - tarde > 1:
-                #         return False
-
-
-                dif = maior - manha
-                # if dif > 1 and (manha == 3 - dif and tarde == 3 - dif):
-                # if count == 7:
-                #     print("manha", manha)
-                #     print("dif", dif)
-                #     input()
-                if dif > 1 and (manha == 3 - dif and tarde == 3 - dif):
-                    return False
-
-                dif = maior - tarde
-                if dif > 1 and (manha == 3 - dif and tarde == 3 - dif):
-                    return False
-            elif (count > 1 and count % 2 == 0):
-                difm = maior - manha
-                dift = maior - tarde
-                if (manha == 2 - difm or tarde == 2 - dift) and count > ceil(margin):
-                    return False
 
                 dif = maior - manha
                 if dif > 1:
-                    return False
+                    if manha == menor and tarde == menor:
+                        return False
+                    elif manha == menor or tarde == menor and count > 3:
+                        return False
+
+                dif = maior - tarde
+                if dif > 1:
+                    if manha == menor and tarde == menor:
+                        return False
+                    elif manha == menor or tarde == menor and count > 3:
+                        return False
+
+            elif (count > 1 and count % 2 == 0):
+                # if count == 6:
+                #     print(menor)
+                #     print(state)
+                #     input()
+                dif = maior - manha
+                if dif > 1:
+                    if manha == menor and tarde == menor:
+                        return False
+                    elif manha == menor or tarde == menor and count > 2:
+                        return False
                 
                 dif = maior - tarde
                 if dif > 1:
-                    return False
+                    if manha == menor and tarde == menor:
+                        return False
+                    elif manha == menor or tarde == menor and count > 2:
+                        return False
 
     return True
 """

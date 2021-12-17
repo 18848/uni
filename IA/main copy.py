@@ -40,12 +40,19 @@ def main():
                     aux.add_child(data=None, state=new, score=score)
 
                     # If new MAX
-                    if scoreMax <= score:
-                        # if int(f) + 1 == len(funcs) and scoreMax == score:
-                        #     somelist.append(len(level) - 1)
-                        scoreMax = score
-                        if scoreMax < score:
+                    if int(f) % 2 == 0:
+                        if scoreMax <= score:
+                            # if int(f) + 1 == len(funcs) and scoreMax == score:
+                            #     somelist.append(len(level) - 1)
+                            scoreMax = score
                             idMax = len(aux.children) - 1
+                    else:
+                        if scoreMax <= score:
+                            # if int(f) + 1 == len(funcs) and scoreMax == score:
+                            #     somelist.append(len(level) - 1)
+                            scoreMax = score
+                            if scoreMax < score:
+                                idMax = len(aux.children) - 1
         # if int(f) == 2:
         #     print(new)
         #     input()
