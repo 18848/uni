@@ -1,5 +1,5 @@
 from tree import Tree
-from score import state_score, state_eval, margin, test
+from score import state_score, margin, test
 import itertools
 import copy
 from files import scheduleJSON, funcsJSON, week, turns, funcs, workingDays
@@ -12,6 +12,7 @@ def main():
     tree = Tree(data="root")
     bestState = scheduleJSON
     lastBest = -1
+    levels = list()
 
     aux = tree
     for f in funcs:
@@ -34,33 +35,30 @@ def main():
                     new[day][turn].append(int(f))
 
                 # If well defined state
-                if test(new):
-                    # Get state score
-                    score = state_score(new, int(f))
-                    aux.add_child(data=None, state=new, score=score)
+                if int(f) <= 2 * ceil(margin): 
+                    if test(new):
+                        score = state_score(new, int(f))
+                        aux.add_child(data=None, state=new, score=score)
 
-                    # If new MAX
-                    if int(f) % 2 == 0:
                         if scoreMax <= score:
-                            # if int(f) + 1 == len(funcs) and scoreMax == score:
-                            #     somelist.append(len(level) - 1)
                             scoreMax = score
                             idMax = len(aux.children) - 1
-                    else:
-                        if scoreMax <= score:
-                            # if int(f) + 1 == len(funcs) and scoreMax == score:
-                            #     somelist.append(len(level) - 1)
-                            scoreMax = score
-                            if scoreMax < score:
-                                idMax = len(aux.children) - 1
-        # if int(f) == 2:
-        #     print(new)
-        #     input()
+                else:
+                    score = state_score(new, int(f))
+                    aux.add_child(data=None, state=new, score=score)
+                    if scoreMax <= score:
+                        scoreMax = score
+                        idMax = len(aux.children) - 1
+        print(int(f))
         print(bestState)
         bestState = aux.children[idMax].state
         aux = aux.children[idMax]
 
-    print(aux.state)
+    # for x in aux.children:
+    #     if x.score == scoreMax:
+    #         print(x.state)
+
+    print(bestState)
     print(scoreMax)
 
     # input()
