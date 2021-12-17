@@ -129,6 +129,10 @@ def test(state):
 
     count = count + 1
 
+    # if count == 5:
+    #     print(state)
+    #     input()
+
     for day in week:
             manha = len(state[day][turns[0]])
             tarde = len(state[day][turns[1]])
@@ -147,12 +151,18 @@ def test(state):
                 #     if maior - tarde > 1:
                 #         return False
 
-                dif = maior - manha
 
-                if dif > 1 and (manha == 2 - dif and tarde == 2 - dif):
+                dif = maior - manha
+                # if dif > 1 and (manha == 3 - dif and tarde == 3 - dif):
+                # if count == 7:
+                #     print("manha", manha)
+                #     print("dif", dif)
+                #     input()
+                if dif > 1 and (manha == 3 - dif and tarde == 3 - dif):
                     return False
 
-                if maior - tarde > 1 and (manha == 2 - dif and tarde == 2 - dif):
+                dif = maior - tarde
+                if dif > 1 and (manha == 3 - dif and tarde == 3 - dif):
                     return False
             elif (count > 1 and count % 2 == 0):
                 difm = maior - manha
