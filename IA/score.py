@@ -15,7 +15,7 @@ for c in previsoesJSON:
 margin = (1/4) * len(funcs)
 homogeneity = ceil(int(margin) * len(turns) * len(week) / workingDays)
 
-def state_score(state):
+def state_score(state, depth):
     score = 0
     # Counters for shifts
     empty = 0       # 0 funcs
@@ -26,7 +26,10 @@ def state_score(state):
     trend_dict = dict()
     maximum = -1
 
-    # if int(depth) <= homogeneity:
+    if depth < 15:
+        return score
+
+    # if depth <= homogeneity:
     #     for day in week:
     #         manha = len(state[day][turns[0]])
     #         tarde = len(state[day][turns[1]])
@@ -93,7 +96,7 @@ def state_score(state):
     # score -= overflow * 200 # pow(5, (overflow))
     # score -= underflow * 200 * pow(5, (underflow))
     # # score -= empty * 300 
-    # score -= little * 200
+    score -= little * 200
     # if trend is not None:
     #     if int(depth) + 1 > homogeneity:
     #         print(state)
@@ -103,11 +106,10 @@ def state_score(state):
 
     return score
     
-def state_eval(state):
-    """
-    Returns wether or not a state is worth saving or not
-    """
+
+def test(state):
     count = 0
+    maior = 0
 
     # Find number of funcs in state
     for day in week:
@@ -117,9 +119,83 @@ def state_eval(state):
             count = max(count, int(x))
         for x in tarde:
             count = max(count, int(x))
+        manha = len(state[day][turns[0]])
+        tarde = len(state[day][turns[1]])
+        if maior < manha or maior < tarde:
+                if maior < manha:
+                    maior = manha
+                elif maior < tarde:
+                    maior = tarde
+
+    count = count + 1
+
+    for day in week:
+            manha = len(state[day][turns[0]])
+            tarde = len(state[day][turns[1]])
+
+            # if manha == 0 or tarde == 0 and flag is True:
+            #     return False
+            # print(maior - manha)
+            # print(maior - tarde)
+            # input()
+
+            if(count > 1 and count % 2 != 0):
+                # if count > ceil(margin):
+                #     if maior - manha > 1:
+                #         return False
+
+                #     if maior - tarde > 1:
+                #         return False
+
+                dif = maior - manha
+
+                if dif > 1 and (manha == 2 - dif and tarde == 2 - dif):
+                    return False
+
+                if maior - tarde > 1 and (manha == 2 - dif and tarde == 2 - dif):
+                    return False
+            elif (count > 1 and count % 2 == 0):
+                difm = maior - manha
+                dift = maior - tarde
+                if (manha == 2 - difm or tarde == 2 - dift) and count > ceil(margin):
+                    return False
+
+                dif = maior - manha
+                if dif > 1:
+                    return False
+                
+                dif = maior - tarde
+                if dif > 1:
+                    return False
+
+    return True
+"""
+Returns wether or not a state is worth keeping
+"""
+def state_eval(state):
+    count = 0
+    maior = 0
+
+    # Find number of funcs in state
+    for day in week:
+        manha = state[day][turns[0]]
+        tarde = state[day][turns[1]]
+        for x in manha:
+            count = max(count, int(x))
+        for x in tarde:
+            count = max(count, int(x))
+        manha = len(state[day][turns[0]])
+        tarde = len(state[day][turns[1]])
+        if maior < manha or maior < tarde:
+                if maior < manha:
+                    maior = manha
+                elif maior < tarde:
+                    maior = tarde
+
+    count = count + 1
 
     # For more than 4 funcs, check empty days
-    if count + 1 >= ceil(margin):
+    if count >= ceil(margin):
         for day in week:
             manha = len(state[day][turns[0]])
             tarde = len(state[day][turns[1]])
@@ -136,20 +212,30 @@ def state_eval(state):
         #                 return False
         #             if abs(th - ta) > 1:
         #                 return False
-    elif count + 1 > 1:
-        flag = False
+    elif count > 1:
+        # flag = False
+
+        # for day in week:
+        #     manha = len(state[day][turns[0]])
+        #     tarde = len(state[day][turns[1]])
+        #     if manha > 1 or tarde > 1:
+        #         flag = True
+
         for day in week:
             manha = len(state[day][turns[0]])
             tarde = len(state[day][turns[1]])
-            if manha > 1 or tarde > 1:
-                flag = True
-        for day in week:
-            manha = len(state[day][turns[0]])
-            tarde = len(state[day][turns[1]])
-            if manha == 0 or tarde == 0 and flag is True:
+
+            # if manha == 0 or tarde == 0 and flag is True:
+            #     return False
+
+            if maior - manha > 1:
                 return False
+
+            if maior - tarde > 1:
+                return False
+
         return True
-    elif count + 1 == 1:
+    elif count == 1:
         return True
     else:
         return False
