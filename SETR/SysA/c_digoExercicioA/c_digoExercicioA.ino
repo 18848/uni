@@ -6,6 +6,7 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(INPUT, sensorPin);
   pinMode(OUTPUT, ledPin);
+  Serial.begin(9600);
   
 }
 
@@ -14,7 +15,7 @@ void loop() {
 
   //Ler o valor de luz que o sensor deteta
   readValue = analogRead(sensorPin);
-
+  Serial.println(readValue);
   //Caso o valor de luz seja inferior a 200
   if (readValue < 200){
     
