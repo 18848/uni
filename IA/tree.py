@@ -3,13 +3,15 @@ from files import week, turns
 
 class Tree():
     def __init__(self, data=None, state=None, score=None, parent=None):
-        self.children = list()
+        self.children = None
         self.parent = parent
         self.data   = data
         self.state  = state
         self.score  = score
 
     def add_child(self, data, state, score):
+        if self.children is None:
+            self.children = list()
         self.children.append(Tree(data=data, state=state, score=score, parent=self))
 
     def show_Tree(self, level=0):
