@@ -1,41 +1,34 @@
 from math import inf, ceil
 from itertools import chain
 
-from files import previsoesJSON, scheduleJSON, funcsJSON, \
-     week, turns, funcs, workingDays , previsoes, margin, clientesMaximo
+from files import previsoesJSON as previsoes, \
+     week, turns, funcs, margin, clientesMaximo
 
 def state_score(state, depth):
     score = 0
-    # Counters for shifts
-    empty = 0       # 0 funcs
-    little = 0      # less than '3' funcs
-    overflow = 0    # more than idealShift funcs
-    underflow = 0   # less than idealShift funcs
-    trend = None
-    trend_dict = dict()
-    maximum = -1
-    maior = 0
-    diaMaior = None
 
-    # if depth < 15:
-    #     return score
+    # Counters for shifts
+    little = 0      # less than '3' funcs
+    overflow = 0    # more than idealShift
+    underflow = 0   # less than idealShift
+    maior = 0 
+    diaMaior = None
 
     for day in week:
         manha = len(state[day][turns[0]])
         tarde = len(state[day][turns[1]])
         dia = manha + tarde
+
         if maior < dia:
             maior = dia
             diaMaior = day
 
+        """
+        Estimate on the ideal number of funcionarios per shift (per day)
+        """
         # y = (clientesDia * n * funcionariosTotal) / clientesMaximo  # n -> multiplier
-        # ideal =  (previsoesJSON[day] * 2/3 * len(funcs)) / clientesMaximo
-        idealManha =  ceil( (previsoesJSON[day][turns[0]] * 1 * len(funcs)) / clientesMaximo )
-        idealTarde =  ceil( (previsoesJSON[day][turns[1]] * 1 * len(funcs)) / clientesMaximo )
-
-        """
-        Pontuacao
-        """
+        idealManha =  ceil( (previsoes[day][turns[0]] * 1 * len(funcs)) / clientesMaximo )
+        idealTarde =  ceil( (previsoes[day][turns[1]] * 1 * len(funcs)) / clientesMaximo )
 
         if manha == idealManha:
             score += 500
@@ -43,10 +36,15 @@ def state_score(state, depth):
         if tarde == idealTarde:
             score += 500
 
-        if manha < margin or tarde < ceil(margin):  # Evaluate and Count small shifts
+        # Count 'missing' funcionarios per shift
+        if manha < margin or tarde < ceil(margin):
             little += abs(margin - manha)
             little += abs(margin - tarde)
 
+        """
+        Count overflow and underflow of funcionarios per shift,
+        Given an estimate on the ideal number fo funcionarios for each shift (per day)
+        """
         if manha > idealManha:
             overflow += abs(idealManha - manha)
         else:
@@ -56,18 +54,24 @@ def state_score(state, depth):
         else:
             underflow += abs(idealTarde - tarde)
 
+        """
+        If the ideal is having more on one shift than another,
+        but it's the other way around, penalize 
+        """
         if idealManha < idealTarde and manha > tarde:
             score -= 500
         elif idealManha > idealTarde and manha < tarde:
             score -= 500
 
-    if diaMaior == previsoesJSON[day][turns[0]] + previsoesJSON[day][turns[1]]:
-        score += 1000
-    else:
-        score -= 100
+    # if diaMaior == day:
+    #     score += 100
+    # else:
+    #     score -= 100
 
-    # General punishments
-    score -= overflow * 20 # pow(5, (overflow))
+    """
+    Penalizing disalignments
+    """
+    score -= overflow * 20 
     score -= underflow * 20
     score -= little * 200
 

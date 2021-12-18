@@ -1,30 +1,34 @@
 import json
 import itertools
+from dotenv import load_dotenv
+from os import environ
 
+load_dotenv()
 
-with open("./data/schedule.json", "r") as f:
-    scheduleJSON = json.load(f)
+with open(environ.get("horario"), "r") as f:
+    horarioJSON = json.load(f)
 
-with open("./data/funcs.json", "r") as f:
-    funcsJSON = json.load(f)
+with open(environ.get("funcionarios"), "r") as f:
+    funcionariosJSON = json.load(f)
 
-with open("./data/previsoes.json", "r") as f:
+with open(environ.get("previsoes"), "r") as f:
     previsoesJSON = json.load(f)
 
-week = list(scheduleJSON)               # Segunda ...
-turns = list(scheduleJSON[week[0]])     # Manha ...
-funcs = list(funcsJSON)                 # António Manel ...
-previsoes = list(previsoesJSON)
+# Extraction of Keys
+week = list(horarioJSON)                # Segunda, Terca, etc.
+turns = list(horarioJSON[week[0]])      # manha, tarde
+funcs = list(funcionariosJSON)          # 0, 1, 2, 3, 4, etc.
 
-workingDays = 5
+workingDays = int(environ.get("working-days"))
 
-daysComb = list(itertools.combinations([0, 1, 2, 3, 4, 5, 6], workingDays))
-turnsComb = list(itertools.product([0, 1], repeat=workingDays))
+# Generation of possible combinations for each variable
+daysComb = list(itertools.combinations(week, workingDays))
+shiftsComb = list(itertools.product(turns, repeat=workingDays))
 
-
+# Finding the busiest day in the week and keep its value
 clientesMaximo = -1
+for p in previsoesJSON:
+    clientesMaximo = max(clientesMaximo, previsoesJSON[p][turns[0]] + previsoesJSON[p][turns[1]])
 
-for c in previsoesJSON:
-    clientesMaximo = max(clientesMaximo, previsoesJSON[c][turns[0]] + previsoesJSON[c][turns[1]])
-
+# The acceptable minimum number of funcionarios for each shift
 margin = (1/4) * len(funcs)
