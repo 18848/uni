@@ -8,9 +8,9 @@ def state_score(state, depth):
     score = 0
 
     # Counters for shifts
-    little = 0      # less than '3' funcs
-    overflow = 0    # more than idealShift
-    underflow = 0   # less than idealShift
+    little = 0      # less than 'margin' funcs
+    overflow = 0    # more than 'idealShift'
+    underflow = 0   # less than 'idealShift'
     maior = 0 
     diaMaior = None
 
@@ -63,24 +63,25 @@ def state_score(state, depth):
         elif idealManha > idealTarde and manha < tarde:
             score -= 500
 
-    # if diaMaior == day:
-    #     score += 100
-    # else:
-    #     score -= 100
+        if previsoes[day][turns[0]] + previsoes[day][turns[1]] == clientesMaximo \
+            and diaMaior == day:
+            score += 100
+        else:
+            score -= 100
 
     """
     Penalizing disalignments
     """
-    score -= overflow * 20 
-    score -= underflow * 20
+    score -= overflow * 50
+    score -= underflow * 50
     score -= little * 200
 
     return score
     
 
 def test(state):
-    count = 0
-    maior = -inf
+    count = 0       # Number of added Funcionarios
+    maior = -inf    
     menor = inf
 
     # Find count, maior, menor
@@ -113,20 +114,14 @@ def test(state):
         manha = len(state[day][turns[0]])
         tarde = len(state[day][turns[1]])
 
+
         if(count > 1 and count % 2 != 0):
             dif = maior - manha
             if dif > 1:
-                # if count == 5 and dif < 2:
-                #     print("exists")
-                #     print(state)
-                #     input()
                 if manha == menor and tarde == menor:
-                    # if count == 5:
-                    #     print("1")
-                    #     input()
                     return False
                 elif dif > 2:
-                    if (manha == menor or tarde == menor) and count > 3:
+                    if (manha == menor or tarde == menor) and count > margin:
                         return False
 
             dif = maior - tarde
@@ -134,7 +129,7 @@ def test(state):
                 if manha == menor and tarde == menor:
                     return False
                 elif dif > 2:
-                    if (manha == menor or tarde == menor) and count > 3:
+                    if (manha == menor or tarde == menor) and count > margin:
                         return False
 
         elif (count > 1 and count % 2 == 0):
@@ -143,7 +138,7 @@ def test(state):
                 if manha == menor and tarde == menor:
                     return False
                 elif dif > 2:
-                    if (manha == menor or tarde == menor) and count > 2:
+                    if (manha == menor or tarde == menor) and count > margin:
                         return False
             
             dif = maior - tarde
@@ -151,7 +146,7 @@ def test(state):
                 if manha == menor and tarde == menor:
                     return False
                 elif dif > 2:
-                    if (manha == menor or tarde == menor) and count > 2:
+                    if (manha == menor or tarde == menor) and count > margin:
                         return False
 
     return True
