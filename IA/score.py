@@ -1,19 +1,8 @@
-from files import previsoesJSON, scheduleJSON, funcsJSON, week, turns, workingDays
 from math import inf, ceil
 from itertools import chain
 
-p = list(previsoesJSON)
-
-turns = list(scheduleJSON[week[0]])    # Manha ...
-funcs = list(funcsJSON)      # António Manel ...
-
-clientesMaximo = -1
-
-for c in previsoesJSON:
-    clientesMaximo = max(clientesMaximo, previsoesJSON[c][turns[0]] + previsoesJSON[c][turns[1]])
-
-margin = (1/4) * len(funcs)
-# homogeneity = ceil(int(margin) * len(turns) * len(week) / workingDays)
+from files import previsoesJSON, scheduleJSON, funcsJSON, \
+     week, turns, funcs, workingDays , previsoes, margin, clientesMaximo
 
 def state_score(state, depth):
     score = 0
@@ -145,17 +134,12 @@ def test(state):
                         return False
 
         elif (count > 1 and count % 2 == 0):
-            # if count == 4:
-            #     print(menor)
-            #     print(state)
-            #     input()
             dif = maior - manha
             if dif > 1:
-                if(count == 6): print("here")
                 if manha == menor and tarde == menor:
                     return False
                 elif dif > 2:
-                    if (manha == menor or tarde == menor) and count > 4:
+                    if (manha == menor or tarde == menor) and count > 2:
                         return False
             
             dif = maior - tarde
@@ -163,7 +147,7 @@ def test(state):
                 if manha == menor and tarde == menor:
                     return False
                 elif dif > 2:
-                    if (manha == menor or tarde == menor) and count > 4:
+                    if (manha == menor or tarde == menor) and count > 2:
                         return False
 
     return True
