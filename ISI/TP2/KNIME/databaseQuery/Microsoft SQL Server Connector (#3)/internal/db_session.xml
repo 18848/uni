@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="db_session">
     <config key="Session Info">
-        <entry key="sessionID" type="xstring" value="9c2da413-4ecc-4300-ae63-e9c15c485425"/>
+        <entry key="sessionID" type="xstring" value="d8267056-41b2-476a-a7ee-2a78d97af95d"/>
         <entry key="dbTypeId" type="xstring" value="mssqlserver"/>
         <entry key="dialectId" type="xstring" value="mssqlserver"/>
         <entry key="dbURL" type="xstring" value="jdbc:jtds:sqlserver://LAPTOP-MU8ARGQB:1433/ISITP2"/>

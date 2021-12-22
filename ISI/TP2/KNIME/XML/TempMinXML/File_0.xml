@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root xmlns:ns="http://www.knime.org/json2xml/originalKey/">
     <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-21</dateDateTime>
+        <Minminimum ns:originalKey="Min*(minimum)">9.02035427094</Minminimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
         <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-20</dateDateTime>
         <Minminimum ns:originalKey="Min*(minimum)">7.70094108582</Minminimum>
         <local>Celoirico de Basto</local>
@@ -39,10 +44,5 @@
         <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-12</dateDateTime>
         <Minminimum ns:originalKey="Min*(minimum)">3.00000691414</Minminimum>
         <local>Braga</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-11</dateDateTime>
-        <Minminimum ns:originalKey="Min*(minimum)">5.10001945496</Minminimum>
-        <local>Cabeceiras de Basto</local>
     </item>
 </root>

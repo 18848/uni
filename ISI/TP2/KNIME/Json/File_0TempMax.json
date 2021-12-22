@@ -1,4 +1,8 @@
 [ {
+  "date(Date&Time)" : "2021-12-21",
+  "Max*(maximum)" : 20.897310257,
+  "local" : "Vila Verde"
+}, {
   "date(Date&Time)" : "2021-12-20",
   "Max*(maximum)" : 16.1925735474,
   "local" : "Vila Verde"
@@ -30,8 +34,4 @@
   "date(Date&Time)" : "2021-12-12",
   "Max*(maximum)" : 19.0999927521,
   "local" : "Braga"
-}, {
-  "date(Date&Time)" : "2021-12-11",
-  "Max*(maximum)" : 16.0698642731,
-  "local" : "Vila Verde"
 } ]

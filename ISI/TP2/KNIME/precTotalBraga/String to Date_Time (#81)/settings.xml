@@ -43,22 +43,22 @@
             <entry key="EnabledStatus" type="xboolean" value="true"/>
         </config>
         <entry key="suffix" type="xstring" value="(Date&amp;Time)"/>
-        <entry key="typeEnum" type="xstring" value="LOCAL_DATE"/>
         <config key="date_format_Internals">
             <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
             <entry key="EnabledStatus" type="xboolean" value="true"/>
         </config>
         <entry key="date_format" type="xstring" value="yyyy-MM-dd"/>
-        <config key="locale_Internals">
-            <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-            <entry key="EnabledStatus" type="xboolean" value="true"/>
-        </config>
-        <entry key="locale" type="xstring" value="pt"/>
         <config key="cancel_on_fail_Internals">
             <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
             <entry key="EnabledStatus" type="xboolean" value="true"/>
         </config>
         <entry key="cancel_on_fail" type="xboolean" value="false"/>
+        <entry key="typeEnum" type="xstring" value="LOCAL_DATE"/>
+        <config key="locale_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <entry key="locale" type="xstring" value="pt"/>
     </config>
     <config key="nodeAnnotation">
         <entry key="text" type="xstring" value="Transformar Data %%00013%%00010em DateTime"/>
@@ -101,6 +101,6 @@
     </config>
     <config key="filestores">
         <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-        <entry key="file_store_id" type="xstring" value="5405ff5b-baeb-4eee-a64c-d2ef36892d62"/>
+        <entry key="file_store_id" type="xstring" value="c5b9fdf0-0c18-47f9-93af-aa93d6c06d78"/>
     </config>
 </config>

@@ -6,15 +6,6 @@
         <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
     </config>
     <config key="model">
-        <config key="authentication_Internals">
-            <entry key="SettingsModelID" type="xstring" value="SMID_authentication"/>
-            <entry key="EnabledStatus" type="xboolean" value="true"/>
-        </config>
-        <config key="authentication">
-            <entry key="credentials" type="xstring" isnull="true" value=""/>
-            <entry key="username" type="xstring" isnull="true" value=""/>
-            <entry key="selectedType" type="xstring" value="NONE"/>
-        </config>
         <config key="session_info">
             <entry key="version" type="xint" value="3"/>
             <entry key="db_type" type="xstring" value="mssqlserver"/>
@@ -26,6 +17,15 @@
             <entry key="host" type="xstring" value="LAPTOP-MU8ARGQB"/>
             <entry key="port" type="xint" value="1433"/>
             <entry key="database_name" type="xstring" value="ISITP2"/>
+        </config>
+        <config key="authentication_Internals">
+            <entry key="SettingsModelID" type="xstring" value="SMID_authentication"/>
+            <entry key="EnabledStatus" type="xboolean" value="true"/>
+        </config>
+        <config key="authentication">
+            <entry key="credentials" type="xstring" isnull="true" value=""/>
+            <entry key="username" type="xstring" isnull="true" value=""/>
+            <entry key="selectedType" type="xstring" value="NONE"/>
         </config>
         <config key="external_to_knime_mapping_Internals">
             <entry key="SettingsModelID" type="xstring" value="SMID_dataTypeMapping"/>
@@ -950,7 +950,7 @@
             <entry key="index" type="xint" value="1"/>
             <entry key="port_spec_class" type="xstring" value="org.knime.database.port.DBSessionPortObjectSpec"/>
             <entry key="port_object_class" type="xstring" value="org.knime.database.port.DBSessionPortObject"/>
-            <entry key="port_object_summary" type="xstring" value="Microsoft SQL Server 9c2da413-4ecc-4300-ae63-e9c15c485425"/>
+            <entry key="port_object_summary" type="xstring" value="Microsoft SQL Server d8267056-41b2-476a-a7ee-2a78d97af95d"/>
             <entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
             <entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
             <entry key="port_dir_location" type="xstring" value="port_1"/>
@@ -958,6 +958,6 @@
     </config>
     <config key="filestores">
         <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-        <entry key="file_store_id" type="xstring" value="e61d82f9-e0b3-4949-a3c6-909f214596d5"/>
+        <entry key="file_store_id" type="xstring" value="08ab3756-1600-4c7b-97b2-59b88bfe7eed"/>
     </config>
 </config>

@@ -1,4 +1,8 @@
 [ {
+  "date(Date&Time)" : "2021-12-21",
+  "Min*(minimum)" : 9.02035427094,
+  "local" : "Cabeceiras de Basto"
+}, {
   "date(Date&Time)" : "2021-12-20",
   "Min*(minimum)" : 7.70094108582,
   "local" : "Celoirico de Basto"
@@ -30,8 +34,4 @@
   "date(Date&Time)" : "2021-12-12",
   "Min*(minimum)" : 3.00000691414,
   "local" : "Braga"
-}, {
-  "date(Date&Time)" : "2021-12-11",
-  "Min*(minimum)" : 5.10001945496,
-  "local" : "Cabeceiras de Basto"
 } ]

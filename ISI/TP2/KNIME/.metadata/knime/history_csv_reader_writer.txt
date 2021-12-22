@@ -1,3 +1,4 @@
+https://api.ipma.pt/open-data/observation/climate/temperature-min/braga/mtnmn-0311-vieira-do-minho.csv
 /CSV/TempMinCSV.csv
 /CSV/TempMaxCSV.csv
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0314-vizela.csv
@@ -7,4 +8,3 @@ https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrt
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0310-terras-de-bouro.csv
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0309-povoa-de-lanhoso.csv
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0308-guimaraes.csv
-https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0307-fafe.csv
