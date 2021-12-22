@@ -1,0 +1,3 @@
+smtp-mail.outlook.com
+smtp.gmail.com
+

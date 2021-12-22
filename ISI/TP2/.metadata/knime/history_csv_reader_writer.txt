@@ -1,0 +1,10 @@
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0314-vizela.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0313-vila-verde.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0312-vila-nova-de-famalicao.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0311-vieira-do-minho.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0310-terras-de-bouro.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0309-povoa-de-lanhoso.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0308-guimaraes.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0307-fafe.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0306-esposende.csv
+https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0305-celorico-de-basto.csv
