@@ -1,0 +1,37 @@
+[ {
+  "date(Date&Time)" : "2021-12-20",
+  "Min*(minimum)" : 7.70094108582,
+  "local" : "Celoirico de Basto"
+}, {
+  "date(Date&Time)" : "2021-12-19",
+  "Min*(minimum)" : 1.40000724792,
+  "local" : "Braga"
+}, {
+  "date(Date&Time)" : "2021-12-18",
+  "Min*(minimum)" : -0.699944317341,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date(Date&Time)" : "2021-12-17",
+  "Min*(minimum)" : 0.200050145388,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date(Date&Time)" : "2021-12-16",
+  "Min*(minimum)" : -0.799898564816,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date(Date&Time)" : "2021-12-15",
+  "Min*(minimum)" : 0.200092196465,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date(Date&Time)" : "2021-12-13",
+  "Min*(minimum)" : 3.80003833771,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date(Date&Time)" : "2021-12-12",
+  "Min*(minimum)" : 3.00000691414,
+  "local" : "Braga"
+}, {
+  "date(Date&Time)" : "2021-12-11",
+  "Min*(minimum)" : 5.10001945496,
+  "local" : "Cabeceiras de Basto"
+} ]

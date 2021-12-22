@@ -1,0 +1,37 @@
+[ {
+  "date(Date&Time)" : "2021-12-20",
+  "Max*(maximum)" : 16.1925735474,
+  "local" : "Vila Verde"
+}, {
+  "date(Date&Time)" : "2021-12-19",
+  "Max*(maximum)" : 17.8162536621,
+  "local" : "Vila Verde"
+}, {
+  "date(Date&Time)" : "2021-12-18",
+  "Max*(maximum)" : 17.6999931335,
+  "local" : "Braga"
+}, {
+  "date(Date&Time)" : "2021-12-17",
+  "Max*(maximum)" : 18.4668750763,
+  "local" : "Vila Verde"
+}, {
+  "date(Date&Time)" : "2021-12-16",
+  "Max*(maximum)" : 19.499961853,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date(Date&Time)" : "2021-12-15",
+  "Max*(maximum)" : 20.5847473145,
+  "local" : "Vieira do Minho"
+}, {
+  "date(Date&Time)" : "2021-12-13",
+  "Max*(maximum)" : 19.799993515,
+  "local" : "Braga"
+}, {
+  "date(Date&Time)" : "2021-12-12",
+  "Max*(maximum)" : 19.0999927521,
+  "local" : "Braga"
+}, {
+  "date(Date&Time)" : "2021-12-11",
+  "Max*(maximum)" : 16.0698642731,
+  "local" : "Vila Verde"
+} ]

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:ns="http://www.knime.org/json2xml/originalKey/">
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-20</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">16.1925735474</Maxmaximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">17.8162536621</Maxmaximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">17.6999931335</Maxmaximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-17</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">18.4668750763</Maxmaximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">19.499961853</Maxmaximum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">20.5847473145</Maxmaximum>
+        <local>Vieira do Minho</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">19.799993515</Maxmaximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-12</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">19.0999927521</Maxmaximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-11</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">16.0698642731</Maxmaximum>
+        <local>Vila Verde</local>
+    </item>
+</root>
