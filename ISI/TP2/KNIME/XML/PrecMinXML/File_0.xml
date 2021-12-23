@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:ns="http://www.knime.org/json2xml/originalKey/">
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-22</dateDateTime>
+        <minimum>1.09803903103</minimum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-21</dateDateTime>
+        <minimum>5.32809352875</minimum>
+        <local>Esposende</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-20</dateDateTime>
+        <minimum>12.7000198364</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Amares</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Barcelos</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Celoirico de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Esposende</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Fafe</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Guimarães</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Póvoa de Lanhoso</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vieira do Minho</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vizela</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Celoirico de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Fafe</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Guimarães</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Póvoa de Lanhoso</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vieira do Minho</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vizela</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-17</dateDateTime>
+        <minimum>1.06158438E-7</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Amares</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Barcelos</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Celoirico de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Esposende</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Fafe</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Guimarães</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Póvoa de Lanhoso</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vieira do Minho</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vizela</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Amares</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Barcelos</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Celoirico de Basto</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Esposende</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Fafe</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Guimarães</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Póvoa de Lanhoso</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vieira do Minho</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+        <minimum>0</minimum>
+        <local>Vizela</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
+        <minimum>0</minimum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
+        <minimum>0</minimum>
+        <local>Guimarães</local>
+    </item>
+    <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
+        <minimum>0</minimum>
+        <local>Póvoa de Lanhoso</local>
+    </item>
+</root>

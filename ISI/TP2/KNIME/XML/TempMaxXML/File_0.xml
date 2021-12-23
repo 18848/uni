@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root xmlns:ns="http://www.knime.org/json2xml/originalKey/">
     <item>
+        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-22</dateDateTime>
+        <Maxmaximum ns:originalKey="Max*(maximum)">18.3035850525</Maxmaximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
         <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-21</dateDateTime>
         <Maxmaximum ns:originalKey="Max*(maximum)">20.897310257</Maxmaximum>
         <local>Vila Verde</local>
@@ -38,11 +43,6 @@
     <item>
         <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
         <Maxmaximum ns:originalKey="Max*(maximum)">19.799993515</Maxmaximum>
-        <local>Braga</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-12</dateDateTime>
-        <Maxmaximum ns:originalKey="Max*(maximum)">19.0999927521</Maxmaximum>
         <local>Braga</local>
     </item>
 </root>
