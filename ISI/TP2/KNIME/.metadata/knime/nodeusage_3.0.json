@@ -551,8 +551,8 @@
             {
                 "id": "org.knime.base.node.flowcontrol.sleep.SleepNodeFactory#Wait...",
                 "nrexecs": 14,
-                "nrfails": 10,
-                "exectime": 781257,
+                "nrfails": 12,
+                "exectime": 1070133,
                 "nrcreated": 1,
                 "successor": "org.knime.base.node.io.filehandling.csv.reader.CSVTableReaderNodeFactory#CSV Reader"
             },
@@ -570,7 +570,7 @@
         "wrappedNodes": {
         }
     },
-    "uptime": 3036879,
+    "uptime": 3048567,
     "workflowsOpened": 46,
     "remoteWorkflowsOpened": 1,
     "columnarStorageWorkflowsOpened": 0,
@@ -578,7 +578,7 @@
     "workflowsExported": 0,
     "launches": 15,
     "lastApplicationID": "org.knime.product.KNIME_APPLICATION",
-    "timeSinceLastStart": 3056243,
+    "timeSinceLastStart": 3231574,
     "crashes": 1,
-    "properlyShutDown": false
+    "properlyShutDown": true
 }
