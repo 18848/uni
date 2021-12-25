@@ -1,0 +1,6 @@
+"precipitaProb","tMin","tMax","predWindDir","longitude","forecastDate","latitude","descClassPrecIntPT","descIdWeatherTypePT","descClassWindSpeedDailyPT"
+100,9.7,16.6,"E",-8.4227,"2021-12-25",41.5475,"Moderado","Chuva","Fraco"
+100,9.3,16.6,"SW",-8.4227,"2021-12-26",41.5475,"Moderado","Chuva","Moderado"
+100,12.4,16.5,"SW",-8.4227,"2021-12-27",41.5475,"Moderado","Chuva","Moderado"
+100,13,17,"S",-8.4227,"2021-12-28",41.5475,"Moderado","Chuva","Moderado"
+80,8.9,17.3,"S",-8.4227,"2021-12-29",41.5475,"Moderado","Chuva","Moderado"
