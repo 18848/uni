@@ -102,9 +102,9 @@
             },
             {
                 "id": "org.knime.base.node.preproc.joiner3.Joiner3NodeFactory#Joiner",
-                "nrexecs": 70,
+                "nrexecs": 71,
                 "nrfails": 0,
-                "exectime": 968,
+                "exectime": 1088,
                 "nrcreated": 7,
                 "successor": "org.knime.base.node.preproc.groupby.GroupByNodeFactory#GroupBy"
             },
@@ -722,7 +722,7 @@
                 "nrfails": 0,
                 "exectime": 28,
                 "nrcreated": 0,
-                "successor": "n/a"
+                "successor": "org.knime.base.node.preproc.joiner3.Joiner3NodeFactory#Joiner"
             }
         ],
         "metaNodes": {
@@ -730,15 +730,15 @@
         "wrappedNodes": {
         }
     },
-    "uptime": 3046246,
-    "workflowsOpened": 67,
+    "uptime": 2916791,
+    "workflowsOpened": 68,
     "remoteWorkflowsOpened": 3,
     "columnarStorageWorkflowsOpened": 0,
     "workflowsImported": 0,
     "workflowsExported": 0,
-    "launches": 22,
+    "launches": 23,
     "lastApplicationID": "org.knime.product.KNIME_APPLICATION",
-    "timeSinceLastStart": 5419111,
+    "timeSinceLastStart": 68781,
     "crashes": 1,
-    "properlyShutDown": true
+    "properlyShutDown": false
 }
