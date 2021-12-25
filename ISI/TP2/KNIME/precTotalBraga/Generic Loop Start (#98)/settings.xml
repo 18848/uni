@@ -11,22 +11,13 @@
             <entry key="class" type="xstring" value="INTEGER"/>
             <entry key="value" type="xint" value="0"/>
         </config>
-        <config key="Loop_Execute_2">
-            <entry key="type" type="xstring" value="loopcontext_execute"/>
-        </config>
-        <config key="Variable_3">
-            <entry key="type" type="xstring" value="variable"/>
-            <entry key="name" type="xstring" value="currentIteration"/>
-            <entry key="class" type="xstring" value="INTEGER"/>
-            <entry key="value" type="xint" value="0"/>
-        </config>
     </config>
     <config key="internal_node_subsettings">
         <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
     </config>
     <config key="model"/>
     <entry key="customDescription" type="xstring" isnull="true" value=""/>
-    <entry key="state" type="xstring" value="EXECUTED"/>
+    <entry key="state" type="xstring" value="CONFIGURED"/>
     <entry key="factory" type="xstring" value="org.knime.base.node.meta.looper.condition.LoopStartGenericDynamicNodeFactory"/>
     <entry key="node-name" type="xstring" value="Generic Loop Start"/>
     <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
@@ -42,11 +33,11 @@
         <config key="Pass through"/>
     </config>
     <entry key="name" type="xstring" value="Generic Loop Start"/>
-    <entry key="hasContent" type="xboolean" value="true"/>
+    <entry key="hasContent" type="xboolean" value="false"/>
     <entry key="isInactive" type="xboolean" value="false"/>
     <config key="ports"/>
     <config key="filestores">
         <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-        <entry key="file_store_id" type="xstring" value="587013a2-9339-4fd9-99ea-e54e774c31ba"/>
+        <entry key="file_store_id" type="xstring" isnull="true" value=""/>
     </config>
 </config>
