@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root xmlns:ns="http://www.knime.org/json2xml/originalKey/">
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-22</dateDateTime>
+    <Row0>
+        <Maxmaximum ns:originalKey="Max*(maximum)">17.3143768311</Maxmaximum>
+        <date>2021-12-23</date>
+        <local>Vila Verde</local>
+    </Row0>
+    <Row1>
         <Maxmaximum ns:originalKey="Max*(maximum)">18.3035850525</Maxmaximum>
+        <date>2021-12-22</date>
         <local>Vila Verde</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-21</dateDateTime>
+    </Row1>
+    <Row2>
         <Maxmaximum ns:originalKey="Max*(maximum)">20.897310257</Maxmaximum>
+        <date>2021-12-21</date>
         <local>Vila Verde</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-20</dateDateTime>
+    </Row2>
+    <Row3>
         <Maxmaximum ns:originalKey="Max*(maximum)">16.1925735474</Maxmaximum>
+        <date>2021-12-20</date>
         <local>Vila Verde</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+    </Row3>
+    <Row4>
         <Maxmaximum ns:originalKey="Max*(maximum)">17.8162536621</Maxmaximum>
+        <date>2021-12-19</date>
         <local>Vila Verde</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+    </Row4>
+    <Row5>
         <Maxmaximum ns:originalKey="Max*(maximum)">17.6999931335</Maxmaximum>
+        <date>2021-12-18</date>
         <local>Braga</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-17</dateDateTime>
+    </Row5>
+    <Row6>
         <Maxmaximum ns:originalKey="Max*(maximum)">18.4668750763</Maxmaximum>
+        <date>2021-12-17</date>
         <local>Vila Verde</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+    </Row6>
+    <Row7>
         <Maxmaximum ns:originalKey="Max*(maximum)">19.499961853</Maxmaximum>
+        <date>2021-12-16</date>
         <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+    </Row7>
+    <Row8>
         <Maxmaximum ns:originalKey="Max*(maximum)">20.5847473145</Maxmaximum>
+        <date>2021-12-15</date>
         <local>Vieira do Minho</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
-        <Maxmaximum ns:originalKey="Max*(maximum)">19.799993515</Maxmaximum>
-        <local>Braga</local>
-    </item>
+    </Row8>
 </root>

@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root xmlns:ns="http://www.knime.org/json2xml/originalKey/">
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-21</dateDateTime>
+    <Row0>
+        <Minminimum ns:originalKey="Min*(minimum)">7.70001888275</Minminimum>
+        <date>2021-12-23</date>
+        <local>Cabeceiras de Basto</local>
+    </Row0>
+    <Row1>
+        <Minminimum ns:originalKey="Min*(minimum)">9.9525308609</Minminimum>
+        <date>2021-12-22</date>
+        <local>Terras de Bouro</local>
+    </Row1>
+    <Row2>
         <Minminimum ns:originalKey="Min*(minimum)">9.02035427094</Minminimum>
+        <date>2021-12-21</date>
         <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-20</dateDateTime>
+    </Row2>
+    <Row3>
         <Minminimum ns:originalKey="Min*(minimum)">7.70094108582</Minminimum>
+        <date>2021-12-20</date>
         <local>Celoirico de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
+    </Row3>
+    <Row4>
         <Minminimum ns:originalKey="Min*(minimum)">1.40000724792</Minminimum>
+        <date>2021-12-19</date>
         <local>Braga</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
+    </Row4>
+    <Row5>
         <Minminimum ns:originalKey="Min*(minimum)">-0.699944317341</Minminimum>
+        <date>2021-12-18</date>
         <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-17</dateDateTime>
+    </Row5>
+    <Row6>
         <Minminimum ns:originalKey="Min*(minimum)">0.200050145388</Minminimum>
+        <date>2021-12-17</date>
         <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
+    </Row6>
+    <Row7>
         <Minminimum ns:originalKey="Min*(minimum)">-0.799898564816</Minminimum>
+        <date>2021-12-16</date>
         <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
+    </Row7>
+    <Row8>
         <Minminimum ns:originalKey="Min*(minimum)">0.200092196465</Minminimum>
+        <date>2021-12-15</date>
         <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
-        <Minminimum ns:originalKey="Min*(minimum)">3.80003833771</Minminimum>
-        <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-12</dateDateTime>
-        <Minminimum ns:originalKey="Min*(minimum)">3.00000691414</Minminimum>
-        <local>Braga</local>
-    </item>
+    </Row8>
 </root>

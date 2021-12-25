@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root xmlns:ns="http://www.knime.org/json2xml/originalKey/">
-    <item>
+<root>
+    <Row0>
+        <date>2021-12-23</date>
+        <maximum>18.0625743866</maximum>
+        <local>Terras de Bouro</local>
+    </Row0>
+    <Row1>
+        <date>2021-12-22</date>
         <maximum>3.35349225998</maximum>
         <local>Terras de Bouro</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-22</dateDateTime>
-    </item>
-    <item>
+    </Row1>
+    <Row2>
+        <date>2021-12-21</date>
         <maximum>10.3999919891</maximum>
         <local>Braga</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-21</dateDateTime>
-    </item>
-    <item>
+    </Row2>
+    <Row3>
+        <date>2021-12-20</date>
         <maximum>28.1999778748</maximum>
         <local>Braga</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-20</dateDateTime>
-    </item>
-    <item>
+    </Row3>
+    <Row4>
+        <date>2021-12-19</date>
         <maximum>0.00326297758147</maximum>
         <local>Celoirico de Basto</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-19</dateDateTime>
-    </item>
-    <item>
+    </Row4>
+    <Row5>
+        <date>2021-12-18</date>
         <maximum>0.0126221813262</maximum>
         <local>Vila Verde</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-18</dateDateTime>
-    </item>
-    <item>
+    </Row5>
+    <Row6>
+        <date>2021-12-17</date>
         <maximum>0.099999897182</maximum>
         <local>Braga</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-17</dateDateTime>
-    </item>
-    <item>
+    </Row6>
+    <Row7>
+        <date>2021-12-16</date>
         <maximum>0.00317532639019</maximum>
         <local>Cabeceiras de Basto</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-16</dateDateTime>
-    </item>
-    <item>
+    </Row7>
+    <Row8>
+        <date>2021-12-15</date>
         <maximum>0.0064648007974</maximum>
         <local>Celoirico de Basto</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-15</dateDateTime>
-    </item>
-    <item>
-        <maximum>0.0487296357751</maximum>
-        <local>Celoirico de Basto</local>
-        <dateDateTime ns:originalKey="date(Date&amp;Time)">2021-12-13</dateDateTime>
-    </item>
+    </Row8>
 </root>

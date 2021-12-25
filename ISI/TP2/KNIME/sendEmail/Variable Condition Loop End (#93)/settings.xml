@@ -11,16 +11,19 @@
         <entry key="value" type="xstring" value="2147483647"/>
         <entry key="operator" type="xstring" value="EQ"/>
         <config key="addLastRows">
-            <entry key="array-size" type="xint" value="1"/>
+            <entry key="array-size" type="xint" value="2"/>
             <entry key="0" type="xboolean" value="true"/>
+            <entry key="1" type="xboolean" value="true"/>
         </config>
         <config key="addLastRowsOnly">
-            <entry key="array-size" type="xint" value="1"/>
+            <entry key="array-size" type="xint" value="2"/>
             <entry key="0" type="xboolean" value="false"/>
+            <entry key="1" type="xboolean" value="false"/>
         </config>
         <config key="addIterationColumn">
-            <entry key="array-size" type="xint" value="1"/>
+            <entry key="array-size" type="xint" value="2"/>
             <entry key="0" type="xboolean" value="true"/>
+            <entry key="1" type="xboolean" value="true"/>
         </config>
         <entry key="propagateLoopVariables" type="xboolean" value="false"/>
     </config>

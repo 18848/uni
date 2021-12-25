@@ -1,0 +1,1 @@
+http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1030300.json

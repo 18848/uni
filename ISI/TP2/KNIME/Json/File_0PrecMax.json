@@ -1,37 +1,47 @@
-[ {
-  "maximum" : 3.35349225998,
-  "local" : "Terras de Bouro",
-  "date(Date&Time)" : "2021-12-22"
-}, {
-  "maximum" : 10.3999919891,
-  "local" : "Braga",
-  "date(Date&Time)" : "2021-12-21"
-}, {
-  "maximum" : 28.1999778748,
-  "local" : "Braga",
-  "date(Date&Time)" : "2021-12-20"
-}, {
-  "maximum" : 0.00326297758147,
-  "local" : "Celoirico de Basto",
-  "date(Date&Time)" : "2021-12-19"
-}, {
-  "maximum" : 0.0126221813262,
-  "local" : "Vila Verde",
-  "date(Date&Time)" : "2021-12-18"
-}, {
-  "maximum" : 0.099999897182,
-  "local" : "Braga",
-  "date(Date&Time)" : "2021-12-17"
-}, {
-  "maximum" : 0.00317532639019,
-  "local" : "Cabeceiras de Basto",
-  "date(Date&Time)" : "2021-12-16"
-}, {
-  "maximum" : 0.0064648007974,
-  "local" : "Celoirico de Basto",
-  "date(Date&Time)" : "2021-12-15"
-}, {
-  "maximum" : 0.0487296357751,
-  "local" : "Celoirico de Basto",
-  "date(Date&Time)" : "2021-12-13"
-} ]
+{
+  "Row0" : {
+    "date" : "2021-12-23",
+    "maximum" : 18.0625743866,
+    "local" : "Terras de Bouro"
+  },
+  "Row1" : {
+    "date" : "2021-12-22",
+    "maximum" : 3.35349225998,
+    "local" : "Terras de Bouro"
+  },
+  "Row2" : {
+    "date" : "2021-12-21",
+    "maximum" : 10.3999919891,
+    "local" : "Braga"
+  },
+  "Row3" : {
+    "date" : "2021-12-20",
+    "maximum" : 28.1999778748,
+    "local" : "Braga"
+  },
+  "Row4" : {
+    "date" : "2021-12-19",
+    "maximum" : 0.00326297758147,
+    "local" : "Celoirico de Basto"
+  },
+  "Row5" : {
+    "date" : "2021-12-18",
+    "maximum" : 0.0126221813262,
+    "local" : "Vila Verde"
+  },
+  "Row6" : {
+    "date" : "2021-12-17",
+    "maximum" : 0.099999897182,
+    "local" : "Braga"
+  },
+  "Row7" : {
+    "date" : "2021-12-16",
+    "maximum" : 0.00317532639019,
+    "local" : "Cabeceiras de Basto"
+  },
+  "Row8" : {
+    "date" : "2021-12-15",
+    "maximum" : 0.0064648007974,
+    "local" : "Celoirico de Basto"
+  }
+}

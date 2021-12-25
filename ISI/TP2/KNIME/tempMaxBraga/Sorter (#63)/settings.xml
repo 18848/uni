@@ -8,7 +8,7 @@
     <config key="model">
         <config key="incllist">
             <entry key="array-size" type="xint" value="1"/>
-            <entry key="0" type="xstring" value="date(Date&amp;Time)"/>
+            <entry key="0" type="xstring" value="date"/>
         </config>
         <config key="sortOrder">
             <entry key="array-size" type="xint" value="1"/>
