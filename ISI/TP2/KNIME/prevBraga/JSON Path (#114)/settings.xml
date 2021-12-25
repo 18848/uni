@@ -11,7 +11,7 @@
         <config key="newColumnName">
             <entry key="array-size" type="xint" value="3"/>
             <entry key="0" type="xstring" value="descIdWeatherTypeEN"/>
-            <entry key="1" type="xstring" value="descIdWeatherTypeEN"/>
+            <entry key="1" type="xstring" value="descIdWeatherTypePT"/>
             <entry key="2" type="xstring" value="idWeatherType"/>
         </config>
         <config key="jsonpath">
@@ -80,6 +80,6 @@
     </config>
     <config key="filestores">
         <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-        <entry key="file_store_id" type="xstring" value="8a344c3f-f847-4bf6-896d-5d05aade11b3"/>
+        <entry key="file_store_id" type="xstring" value="d7765a9d-ef1f-4512-9192-a5b6f5cfc8ea"/>
     </config>
 </config>
