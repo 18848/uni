@@ -462,9 +462,9 @@
             },
             {
                 "id": "org.knime.base.node.meta.looper.condition.LoopStartGenericDynamicNodeFactory#Generic Loop Start",
-                "nrexecs": 38,
+                "nrexecs": 39,
                 "nrfails": 0,
-                "exectime": 37,
+                "exectime": 42,
                 "nrcreated": 3,
                 "successor": "org.knime.base.node.flowcontrol.sleep.SleepNodeFactory#Wait..."
             },
@@ -730,7 +730,7 @@
         "wrappedNodes": {
         }
     },
-    "uptime": 2903065,
+    "uptime": 3302450,
     "workflowsOpened": 79,
     "remoteWorkflowsOpened": 3,
     "columnarStorageWorkflowsOpened": 0,
@@ -738,7 +738,7 @@
     "workflowsExported": 0,
     "launches": 24,
     "lastApplicationID": "org.knime.product.KNIME_APPLICATION",
-    "timeSinceLastStart": 87491,
+    "timeSinceLastStart": 9672731,
     "crashes": 1,
     "properlyShutDown": false
 }
