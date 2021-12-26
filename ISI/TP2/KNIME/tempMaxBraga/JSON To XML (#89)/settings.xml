@@ -6,7 +6,7 @@
         <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
     </config>
     <config key="model">
-        <entry key="input.column" type="xstring" value="JSON"/>
+        <entry key="input.column" type="xstring" value="Temps"/>
         <entry key="remove.input.column" type="xboolean" value="false"/>
         <entry key="new.column.name" type="xstring" value="XML"/>
         <entry key="array.prefix" type="xstring" value="Array"/>
@@ -14,7 +14,7 @@
         <entry key="decimal.prefix" type="xstring" value="Decimal"/>
         <entry key="integer.prefix" type="xstring" value="Integer"/>
         <entry key="array.item.element" type="xstring" value="item"/>
-        <entry key="namespace" type="xstring" isnull="true" value=""/>
+        <entry key="namespace" type="xstring" value=""/>
         <entry key="null.prefix" type="xstring" value="null"/>
         <entry key="root.element" type="xstring" value="root"/>
         <entry key="string.prefix" type="xstring" value="String"/>

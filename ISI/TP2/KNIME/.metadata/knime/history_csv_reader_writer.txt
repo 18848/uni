@@ -1,10 +1,10 @@
+/CSV/PrevBragaCSV.csv
+/CSV/TempMaxCSV.csv
 /CSV/PrecMinCSV.csv
+/CSV/TempMinCSV.csv
 /CSV/PrecMaxCSV.csv
 https://api.ipma.pt/open-data/observation/climate/temperature-min/braga/mtnmn-0311-vieira-do-minho.csv
-/CSV/TempMinCSV.csv
-/CSV/TempMaxCSV.csv
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0314-vizela.csv
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0313-vila-verde.csv
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0312-vila-nova-de-famalicao.csv
 https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0311-vieira-do-minho.csv
-https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0310-terras-de-bouro.csv

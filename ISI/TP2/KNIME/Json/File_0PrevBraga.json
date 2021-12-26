@@ -1,0 +1,62 @@
+{
+  "Row0" : {
+    "precipitaProb" : 100.0,
+    "tMin" : 9.7,
+    "tMax" : 16.6,
+    "predWindDir" : "E",
+    "longitude" : -8.4227,
+    "forecastDate" : "2021-12-25",
+    "latitude" : 41.5475,
+    "descClassPrecIntPT" : "Moderado",
+    "descIdWeatherTypePT" : "Chuva",
+    "descClassWindSpeedDailyPT" : "Fraco"
+  },
+  "Row1" : {
+    "precipitaProb" : 100.0,
+    "tMin" : 9.3,
+    "tMax" : 16.6,
+    "predWindDir" : "SW",
+    "longitude" : -8.4227,
+    "forecastDate" : "2021-12-26",
+    "latitude" : 41.5475,
+    "descClassPrecIntPT" : "Moderado",
+    "descIdWeatherTypePT" : "Chuva",
+    "descClassWindSpeedDailyPT" : "Moderado"
+  },
+  "Row2" : {
+    "precipitaProb" : 100.0,
+    "tMin" : 12.4,
+    "tMax" : 16.5,
+    "predWindDir" : "SW",
+    "longitude" : -8.4227,
+    "forecastDate" : "2021-12-27",
+    "latitude" : 41.5475,
+    "descClassPrecIntPT" : "Moderado",
+    "descIdWeatherTypePT" : "Chuva",
+    "descClassWindSpeedDailyPT" : "Moderado"
+  },
+  "Row3" : {
+    "precipitaProb" : 100.0,
+    "tMin" : 13.0,
+    "tMax" : 17.0,
+    "predWindDir" : "S",
+    "longitude" : -8.4227,
+    "forecastDate" : "2021-12-28",
+    "latitude" : 41.5475,
+    "descClassPrecIntPT" : "Moderado",
+    "descIdWeatherTypePT" : "Chuva",
+    "descClassWindSpeedDailyPT" : "Moderado"
+  },
+  "Row4" : {
+    "precipitaProb" : 80.0,
+    "tMin" : 8.9,
+    "tMax" : 17.3,
+    "predWindDir" : "S",
+    "longitude" : -8.4227,
+    "forecastDate" : "2021-12-29",
+    "latitude" : 41.5475,
+    "descClassPrecIntPT" : "Moderado",
+    "descIdWeatherTypePT" : "Chuva",
+    "descClassWindSpeedDailyPT" : "Moderado"
+  }
+}

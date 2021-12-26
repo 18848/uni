@@ -1,37 +1,47 @@
-[ {
-  "date(Date&Time)" : "2021-12-21",
-  "Min*(minimum)" : 9.02035427094,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date(Date&Time)" : "2021-12-20",
-  "Min*(minimum)" : 7.70094108582,
-  "local" : "Celoirico de Basto"
-}, {
-  "date(Date&Time)" : "2021-12-19",
-  "Min*(minimum)" : 1.40000724792,
-  "local" : "Braga"
-}, {
-  "date(Date&Time)" : "2021-12-18",
-  "Min*(minimum)" : -0.699944317341,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date(Date&Time)" : "2021-12-17",
-  "Min*(minimum)" : 0.200050145388,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date(Date&Time)" : "2021-12-16",
-  "Min*(minimum)" : -0.799898564816,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date(Date&Time)" : "2021-12-15",
-  "Min*(minimum)" : 0.200092196465,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date(Date&Time)" : "2021-12-13",
-  "Min*(minimum)" : 3.80003833771,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date(Date&Time)" : "2021-12-12",
-  "Min*(minimum)" : 3.00000691414,
-  "local" : "Braga"
-} ]
+{
+  "Row0" : {
+    "Min*(minimum)" : 7.70001888275,
+    "date" : "2021-12-23",
+    "local" : "Cabeceiras de Basto"
+  },
+  "Row1" : {
+    "Min*(minimum)" : 9.9525308609,
+    "date" : "2021-12-22",
+    "local" : "Terras de Bouro"
+  },
+  "Row2" : {
+    "Min*(minimum)" : 9.02035427094,
+    "date" : "2021-12-21",
+    "local" : "Cabeceiras de Basto"
+  },
+  "Row3" : {
+    "Min*(minimum)" : 7.70094108582,
+    "date" : "2021-12-20",
+    "local" : "Celoirico de Basto"
+  },
+  "Row4" : {
+    "Min*(minimum)" : 1.40000724792,
+    "date" : "2021-12-19",
+    "local" : "Braga"
+  },
+  "Row5" : {
+    "Min*(minimum)" : -0.699944317341,
+    "date" : "2021-12-18",
+    "local" : "Cabeceiras de Basto"
+  },
+  "Row6" : {
+    "Min*(minimum)" : 0.200050145388,
+    "date" : "2021-12-17",
+    "local" : "Cabeceiras de Basto"
+  },
+  "Row7" : {
+    "Min*(minimum)" : -0.799898564816,
+    "date" : "2021-12-16",
+    "local" : "Cabeceiras de Basto"
+  },
+  "Row8" : {
+    "Min*(minimum)" : 0.200092196465,
+    "date" : "2021-12-15",
+    "local" : "Cabeceiras de Basto"
+  }
+}
