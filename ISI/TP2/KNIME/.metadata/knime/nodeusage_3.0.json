@@ -554,7 +554,7 @@
                 "nrfails": 26,
                 "exectime": 1206074,
                 "nrcreated": 1,
-                "successor": "org.knime.database.extension.mssql.node.connector.MSSQLDBConnectorNodeFactory#Microsoft SQL Server Connector"
+                "successor": "org.knime.json.node.filehandling.reader.JSONReaderNodeFactory#JSON Reader"
             },
             {
                 "id": "org.knime.base.node.meta.looper.LoopEndDynamicNodeFactory#Loop End",
@@ -730,15 +730,15 @@
         "wrappedNodes": {
         }
     },
-    "uptime": 3025482,
-    "workflowsOpened": 73,
+    "uptime": 2903065,
+    "workflowsOpened": 79,
     "remoteWorkflowsOpened": 3,
     "columnarStorageWorkflowsOpened": 0,
     "workflowsImported": 0,
     "workflowsExported": 0,
-    "launches": 23,
+    "launches": 24,
     "lastApplicationID": "org.knime.product.KNIME_APPLICATION",
-    "timeSinceLastStart": 2568681,
+    "timeSinceLastStart": 87491,
     "crashes": 1,
-    "properlyShutDown": true
+    "properlyShutDown": false
 }
