@@ -23,6 +23,13 @@ async def on_message(message):
 
     if msg.startswith("!tempo"):
         precMaxTable = dados.getPrecMaxTable()
+        tempMaxTable = dados.getTempMaxTable()
+        tempMinTable = dados.getTempMinTable()
+        prevTable = dados.getPrevTable()
+
         await message.channel.send("```" + str(precMaxTable) + "```")
+        await message.channel.send("```" + str(tempMaxTable) + "```")
+        await message.channel.send("```" + str(tempMinTable) + "```")
+        await message.channel.send("```" + str(prevTable) + "```")
 
 client.run(token)
