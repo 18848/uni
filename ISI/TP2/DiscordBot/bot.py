@@ -1,6 +1,8 @@
 import discord
+import os
 from prettytable import PrettyTable
 import dados
+import requests
 
 client = discord.Client()
 
@@ -29,5 +31,12 @@ async def on_message(message):
         await message.channel.send("```" + str(tempMaxTable) + "```")
         await message.channel.send("```" + str(tempMinTable) + "```")
         await message.channel.send("```" + str(prevTable) + "```")
+
+
+    if msg.startswith("!time"):
+        response = requests.get('http://wttr.in/barcelos')
+        #result = os.popen("curl wttr.in/Barcelos").read()
+        print(response.content)
+        #await message.channel.send(response.content)
 
 client.run(token)

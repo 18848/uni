@@ -6,7 +6,7 @@
         <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
     </config>
     <config key="model">
-        <entry key="smtpHost" type="xstring" value="smtp-mail.outlook.com"/>
+        <entry key="smtpHost" type="xstring" value="smtp.office365.com"/>
         <entry key="smtpPort" type="xint" value="587"/>
         <entry key="useAuthentication" type="xboolean" value="true"/>
         <entry key="useCredentials" type="xboolean" value="false"/>
@@ -17,17 +17,26 @@
         <entry key="emailFormat" type="xstring" value="Html"/>
         <entry key="emailPriority" type="xstring" value="Normal"/>
         <entry key="from" type="xstring" value="weather.isitp2@outlook.pt"/>
-        <entry key="to" type="xstring" value="leonelsfernandes@outlook.pt"/>
+        <entry key="to" type="xstring" value=""/>
         <entry key="cc" type="xstring" value=""/>
         <entry key="bcc" type="xstring" value=""/>
         <entry key="replyTo" type="xstring" value=""/>
-        <entry key="subject" type="xstring" value="Workflow finished"/>
+        <entry key="subject" type="xstring" value="Dados Meteorológicos"/>
         <entry key="text" type="xstring" value="Olá Senhor(a) $${Snome}$$, aqui estão os dados meteorológicos diários.%%00010&lt;h1&gt;Previsão do tempo próximos 5 dias braga&lt;/h1&gt;%%00010$${SRow4}$$%%00010&lt;h1&gt;Temperatura Máxima nos últimos 10 dias&lt;/h1&gt;%%00010$${SRow0}$$%%00010&lt;h1&gt;Temperatura Mínima nos últimos 10 dias&lt;/h1&gt;%%00010$${SRow1}$$%%00010&lt;h1&gt;Precipitação Mínima nos últimos 10 dias&lt;/h1&gt;%%00010$${SRow2}$$%%00010&lt;h1&gt;Precipitação Máxima nos últimos 10 dias&lt;/h1&gt;%%00010$${SRow3}$$"/>
         <config key="attachedURLs">
             <entry key="array-size" type="xint" value="0"/>
         </config>
         <entry key="smtpConnectionTimeout" type="xint" value="2000"/>
         <entry key="smtpReadTimeout" type="xint" value="30000"/>
+    </config>
+    <config key="variables">
+        <entry key="version" type="xstring" value="V_2019_09_13"/>
+        <config key="tree">
+            <config key="to">
+                <entry key="used_variable" type="xstring" value="email"/>
+                <entry key="exposed_variable" type="xstring" isnull="true" value=""/>
+            </config>
+        </config>
     </config>
     <entry key="customDescription" type="xstring" isnull="true" value=""/>
     <entry key="state" type="xstring" value="IDLE"/>

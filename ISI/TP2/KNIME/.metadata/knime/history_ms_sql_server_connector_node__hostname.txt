@@ -1,1 +1,4 @@
+isitp2tempo.database.windows.net
+isitp2weather.database.windows.net
+a18850@alunos.ipca.pt
 LAPTOP-MU8ARGQB

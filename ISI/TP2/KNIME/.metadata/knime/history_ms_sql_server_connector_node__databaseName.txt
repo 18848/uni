@@ -1,1 +1,4 @@
+isitp2tempo
+isitp2weather.database.windows.net
+isitp2
 ISITP2
