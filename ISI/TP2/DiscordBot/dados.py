@@ -16,7 +16,7 @@ def getPrecMaxTable():
     precMaxTable.title = 'Precipitação Máxima'
     
     for element in precMaxData:
-        precMaxTable.add_row([precMaxData[element]['date'], precMaxData[element]['maximum'], precMaxData[element]['local']])
+        precMaxTable.add_row([element['date'], element['maximum'], element['local']])
 
     return precMaxTable
 
@@ -33,7 +33,7 @@ def getTempMaxTable():
     tempMaxTable.title = 'Temperatura Máxima nos Últimos 10 dias'
     
     for element in tempMaxData:
-        tempMaxTable.add_row([tempMaxData[element]['date'], tempMaxData[element]['maximum'], tempMaxData[element]['local']])
+        tempMaxTable.add_row([element['date'], element['maximum'], element['local']])
 
     return tempMaxTable
 
@@ -50,7 +50,7 @@ def getTempMinTable():
     tempMinTable.title = 'Temperatura Mínima nos Últimos 10 dias'
     
     for element in tempMinData:
-        tempMinTable.add_row([tempMinData[element]['date'], tempMinData[element]['minimum'], tempMinData[element]['local']])
+        tempMinTable.add_row([element['date'], element['minimum'], element['local']])
 
     return tempMinTable
 
@@ -68,7 +68,7 @@ def getPrevTable():
     prevTable.title = 'Previsão do tempo para os próximos 5 dias'
 
     for element in prevData:
-        prevTable.add_row([prevData[element]['forecastDate'], prevData[element]['tMax'], prevData[element]['tMin'],
-        prevData[element]['descIdWeatherTypePT'], prevData[element]['descClassWindSpeedDailyPT'],
-        prevData[element]['predWindDir'],prevData[element]['descClassPrecIntPT'], prevData[element]['precipitaProb']])
+        prevTable.add_row([element['forecastDate'], element['tMax'], element['tMin'],
+        element['descIdWeatherTypePT'], element['descClassWindSpeedDailyPT'],
+        element['predWindDir'],element['descClassPrecIntPT'], element['precipitaProb']])
     return prevTable

@@ -15,7 +15,7 @@
             <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
             <entry key="EnabledStatus" type="xboolean" value="true"/>
         </config>
-        <entry key="includeLeftUnmatchedInOutput" type="xboolean" value="false"/>
+        <entry key="includeLeftUnmatchedInOutput" type="xboolean" value="true"/>
         <config key="includeRightUnmatchedInOutput_Internals">
             <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
             <entry key="EnabledStatus" type="xboolean" value="true"/>

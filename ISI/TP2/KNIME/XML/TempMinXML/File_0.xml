@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <Row0>
+    <item>
         <date>2021-12-25</date>
         <minimum>8.60216522217</minimum>
         <local>Terras de Bouro</local>
-    </Row0>
-    <Row1>
+    </item>
+    <item>
         <date>2021-12-24</date>
         <minimum>6.80002498627</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row1>
-    <Row2>
+    </item>
+    <item>
         <date>2021-12-23</date>
         <minimum>7.70001888275</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row2>
-    <Row3>
+    </item>
+    <item>
         <date>2021-12-22</date>
         <minimum>9.9525308609</minimum>
         <local>Terras de Bouro</local>
-    </Row3>
-    <Row4>
+    </item>
+    <item>
         <date>2021-12-21</date>
         <minimum>9.02035427094</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row4>
-    <Row5>
+    </item>
+    <item>
         <date>2021-12-20</date>
         <minimum>7.70094108582</minimum>
         <local>Celoirico de Basto</local>
-    </Row5>
-    <Row6>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>1.40000724792</minimum>
         <local>Braga</local>
-    </Row6>
-    <Row7>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>-0.699944317341</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row7>
-    <Row8>
+    </item>
+    <item>
         <date>2021-12-17</date>
         <minimum>0.200050145388</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row8>
+    </item>
 </root>

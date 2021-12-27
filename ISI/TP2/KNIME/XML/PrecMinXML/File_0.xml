@@ -1,283 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <Row0>
+    <item>
+        <date>2021-12-25</date>
+        <minimum>3.84441709518</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
+        <date>2021-12-24</date>
+        <minimum>5.47107124329</minimum>
+        <local>Celoirico de Basto</local>
+    </item>
+    <item>
         <date>2021-12-23</date>
         <minimum>8.47598838806</minimum>
         <local>Vila nova de Famalicão</local>
-    </Row0>
-    <Row1>
+    </item>
+    <item>
         <date>2021-12-22</date>
         <minimum>1.09803903103</minimum>
         <local>Vila nova de Famalicão</local>
-    </Row1>
-    <Row2>
+    </item>
+    <item>
         <date>2021-12-21</date>
         <minimum>5.32809352875</minimum>
         <local>Esposende</local>
-    </Row2>
-    <Row3>
+    </item>
+    <item>
         <date>2021-12-20</date>
         <minimum>12.7000198364</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row3>
-    <Row4>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Amares</local>
-    </Row4>
-    <Row5>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Barcelos</local>
-    </Row5>
-    <Row6>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Braga</local>
-    </Row6>
-    <Row7>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row7>
-    <Row8>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Celoirico de Basto</local>
-    </Row8>
-    <Row9>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Esposende</local>
-    </Row9>
-    <Row10>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Fafe</local>
-    </Row10>
-    <Row11>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Guimarães</local>
-    </Row11>
-    <Row12>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Póvoa de Lanhoso</local>
-    </Row12>
-    <Row13>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Terras de Bouro</local>
-    </Row13>
-    <Row14>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Vieira do Minho</local>
-    </Row14>
-    <Row15>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Vila Verde</local>
-    </Row15>
-    <Row16>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Vila nova de Famalicão</local>
-    </Row16>
-    <Row17>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <minimum>0</minimum>
         <local>Vizela</local>
-    </Row17>
-    <Row18>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Braga</local>
-    </Row18>
-    <Row19>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row19>
-    <Row20>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Celoirico de Basto</local>
-    </Row20>
-    <Row21>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Fafe</local>
-    </Row21>
-    <Row22>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Guimarães</local>
-    </Row22>
-    <Row23>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Póvoa de Lanhoso</local>
-    </Row23>
-    <Row24>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Vieira do Minho</local>
-    </Row24>
-    <Row25>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Vila nova de Famalicão</local>
-    </Row25>
-    <Row26>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <minimum>0</minimum>
         <local>Vizela</local>
-    </Row26>
-    <Row27>
+    </item>
+    <item>
         <date>2021-12-17</date>
         <minimum>1.06158438E-7</minimum>
         <local>Cabeceiras de Basto</local>
-    </Row27>
-    <Row28>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Amares</local>
-    </Row28>
-    <Row29>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Barcelos</local>
-    </Row29>
-    <Row30>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Braga</local>
-    </Row30>
-    <Row31>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Cabeceiras de Basto</local>
-    </Row31>
-    <Row32>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Celoirico de Basto</local>
-    </Row32>
-    <Row33>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Esposende</local>
-    </Row33>
-    <Row34>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Fafe</local>
-    </Row34>
-    <Row35>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Guimarães</local>
-    </Row35>
-    <Row36>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Póvoa de Lanhoso</local>
-    </Row36>
-    <Row37>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Terras de Bouro</local>
-    </Row37>
-    <Row38>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Vieira do Minho</local>
-    </Row38>
-    <Row39>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Vila Verde</local>
-    </Row39>
-    <Row40>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Vila nova de Famalicão</local>
-    </Row40>
-    <Row41>
-        <date>2021-12-16</date>
-        <minimum>0</minimum>
-        <local>Vizela</local>
-    </Row41>
-    <Row42>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Amares</local>
-    </Row42>
-    <Row43>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Barcelos</local>
-    </Row43>
-    <Row44>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Braga</local>
-    </Row44>
-    <Row45>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Cabeceiras de Basto</local>
-    </Row45>
-    <Row46>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Celoirico de Basto</local>
-    </Row46>
-    <Row47>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Esposende</local>
-    </Row47>
-    <Row48>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Fafe</local>
-    </Row48>
-    <Row49>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Guimarães</local>
-    </Row49>
-    <Row50>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Póvoa de Lanhoso</local>
-    </Row50>
-    <Row51>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Terras de Bouro</local>
-    </Row51>
-    <Row52>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Vieira do Minho</local>
-    </Row52>
-    <Row53>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Vila Verde</local>
-    </Row53>
-    <Row54>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Vila nova de Famalicão</local>
-    </Row54>
-    <Row55>
-        <date>2021-12-15</date>
-        <minimum>0</minimum>
-        <local>Vizela</local>
-    </Row55>
+    </item>
 </root>

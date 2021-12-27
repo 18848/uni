@@ -61,10 +61,10 @@
             <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
             <entry key="EnabledStatus" type="xboolean" value="true"/>
         </config>
-        <entry key="rowKeyFactory" type="xstring" value="CONCATENATE"/>
+        <entry key="rowKeyFactory" type="xstring" value="SEQUENTIAL"/>
         <config key="rowKeySeparator_Internals">
             <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-            <entry key="EnabledStatus" type="xboolean" value="true"/>
+            <entry key="EnabledStatus" type="xboolean" value="false"/>
         </config>
         <entry key="rowKeySeparator" type="xstring" value="_"/>
         <config key="duplicateHandling_Internals">

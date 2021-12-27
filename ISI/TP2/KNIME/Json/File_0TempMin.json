@@ -1,47 +1,37 @@
-{
-  "Row0" : {
-    "date" : "2021-12-25",
-    "minimum" : 8.60216522217,
-    "local" : "Terras de Bouro"
-  },
-  "Row1" : {
-    "date" : "2021-12-24",
-    "minimum" : 6.80002498627,
-    "local" : "Cabeceiras de Basto"
-  },
-  "Row2" : {
-    "date" : "2021-12-23",
-    "minimum" : 7.70001888275,
-    "local" : "Cabeceiras de Basto"
-  },
-  "Row3" : {
-    "date" : "2021-12-22",
-    "minimum" : 9.9525308609,
-    "local" : "Terras de Bouro"
-  },
-  "Row4" : {
-    "date" : "2021-12-21",
-    "minimum" : 9.02035427094,
-    "local" : "Cabeceiras de Basto"
-  },
-  "Row5" : {
-    "date" : "2021-12-20",
-    "minimum" : 7.70094108582,
-    "local" : "Celoirico de Basto"
-  },
-  "Row6" : {
-    "date" : "2021-12-19",
-    "minimum" : 1.40000724792,
-    "local" : "Braga"
-  },
-  "Row7" : {
-    "date" : "2021-12-18",
-    "minimum" : -0.699944317341,
-    "local" : "Cabeceiras de Basto"
-  },
-  "Row8" : {
-    "date" : "2021-12-17",
-    "minimum" : 0.200050145388,
-    "local" : "Cabeceiras de Basto"
-  }
-}
+[ {
+  "date" : "2021-12-25",
+  "minimum" : 8.60216522217,
+  "local" : "Terras de Bouro"
+}, {
+  "date" : "2021-12-24",
+  "minimum" : 6.80002498627,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date" : "2021-12-23",
+  "minimum" : 7.70001888275,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date" : "2021-12-22",
+  "minimum" : 9.9525308609,
+  "local" : "Terras de Bouro"
+}, {
+  "date" : "2021-12-21",
+  "minimum" : 9.02035427094,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date" : "2021-12-20",
+  "minimum" : 7.70094108582,
+  "local" : "Celoirico de Basto"
+}, {
+  "date" : "2021-12-19",
+  "minimum" : 1.40000724792,
+  "local" : "Braga"
+}, {
+  "date" : "2021-12-18",
+  "minimum" : -0.699944317341,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date" : "2021-12-17",
+  "minimum" : 0.200050145388,
+  "local" : "Cabeceiras de Basto"
+} ]

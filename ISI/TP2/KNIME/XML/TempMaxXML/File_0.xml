@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <Row0>
+    <item>
         <date>2021-12-25</date>
         <maximum>16.695766449</maximum>
         <local>Vila nova de Famalicão</local>
-    </Row0>
-    <Row1>
+    </item>
+    <item>
         <date>2021-12-24</date>
         <maximum>15.0999975204</maximum>
         <local>Braga</local>
-    </Row1>
-    <Row2>
+    </item>
+    <item>
         <date>2021-12-23</date>
         <maximum>17.3143768311</maximum>
         <local>Vila Verde</local>
-    </Row2>
-    <Row3>
+    </item>
+    <item>
         <date>2021-12-22</date>
         <maximum>18.3035850525</maximum>
         <local>Vila Verde</local>
-    </Row3>
-    <Row4>
+    </item>
+    <item>
         <date>2021-12-21</date>
         <maximum>20.897310257</maximum>
         <local>Vila Verde</local>
-    </Row4>
-    <Row5>
+    </item>
+    <item>
         <date>2021-12-20</date>
         <maximum>16.1925735474</maximum>
         <local>Vila Verde</local>
-    </Row5>
-    <Row6>
+    </item>
+    <item>
         <date>2021-12-19</date>
         <maximum>17.8162536621</maximum>
         <local>Vila Verde</local>
-    </Row6>
-    <Row7>
+    </item>
+    <item>
         <date>2021-12-18</date>
         <maximum>17.6999931335</maximum>
         <local>Braga</local>
-    </Row7>
-    <Row8>
+    </item>
+    <item>
         <date>2021-12-17</date>
         <maximum>18.4668750763</maximum>
         <local>Vila Verde</local>
-    </Row8>
+    </item>
 </root>

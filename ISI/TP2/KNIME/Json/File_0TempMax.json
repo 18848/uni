@@ -1,47 +1,37 @@
-{
-  "Row0" : {
-    "date" : "2021-12-25",
-    "maximum" : 16.695766449,
-    "local" : "Vila nova de Famalicão"
-  },
-  "Row1" : {
-    "date" : "2021-12-24",
-    "maximum" : 15.0999975204,
-    "local" : "Braga"
-  },
-  "Row2" : {
-    "date" : "2021-12-23",
-    "maximum" : 17.3143768311,
-    "local" : "Vila Verde"
-  },
-  "Row3" : {
-    "date" : "2021-12-22",
-    "maximum" : 18.3035850525,
-    "local" : "Vila Verde"
-  },
-  "Row4" : {
-    "date" : "2021-12-21",
-    "maximum" : 20.897310257,
-    "local" : "Vila Verde"
-  },
-  "Row5" : {
-    "date" : "2021-12-20",
-    "maximum" : 16.1925735474,
-    "local" : "Vila Verde"
-  },
-  "Row6" : {
-    "date" : "2021-12-19",
-    "maximum" : 17.8162536621,
-    "local" : "Vila Verde"
-  },
-  "Row7" : {
-    "date" : "2021-12-18",
-    "maximum" : 17.6999931335,
-    "local" : "Braga"
-  },
-  "Row8" : {
-    "date" : "2021-12-17",
-    "maximum" : 18.4668750763,
-    "local" : "Vila Verde"
-  }
-}
+[ {
+  "date" : "2021-12-25",
+  "maximum" : 16.695766449,
+  "local" : "Vila nova de Famalicão"
+}, {
+  "date" : "2021-12-24",
+  "maximum" : 15.0999975204,
+  "local" : "Braga"
+}, {
+  "date" : "2021-12-23",
+  "maximum" : 17.3143768311,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-22",
+  "maximum" : 18.3035850525,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-21",
+  "maximum" : 20.897310257,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-20",
+  "maximum" : 16.1925735474,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-19",
+  "maximum" : 17.8162536621,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-18",
+  "maximum" : 17.6999931335,
+  "local" : "Braga"
+}, {
+  "date" : "2021-12-17",
+  "maximum" : 18.4668750763,
+  "local" : "Vila Verde"
+} ]

@@ -1,63 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <Row0>
-        <precipitaProb>1E+2</precipitaProb>
-        <tMin>9.7</tMin>
-        <tMax>16.6</tMax>
-        <predWindDir>E</predWindDir>
+    <item>
+        <precipitaProb>2</precipitaProb>
+        <tMin>8</tMin>
+        <tMax>20.6</tMax>
+        <predWindDir>SE</predWindDir>
         <longitude>-8.4227</longitude>
-        <forecastDate>2021-12-25</forecastDate>
+        <forecastDate>2021-12-30</forecastDate>
         <latitude>41.5475</latitude>
-        <descClassPrecIntPT>Moderado</descClassPrecIntPT>
-        <descIdWeatherTypePT>Chuva</descIdWeatherTypePT>
+        <descClassPrecIntPT>
+        </descClassPrecIntPT>
+        <descIdWeatherTypePT>Céu nublado por nuvens altas</descIdWeatherTypePT>
         <descClassWindSpeedDailyPT>Fraco</descClassWindSpeedDailyPT>
-    </Row0>
-    <Row1>
-        <precipitaProb>1E+2</precipitaProb>
-        <tMin>9.3</tMin>
-        <tMax>16.6</tMax>
-        <predWindDir>SW</predWindDir>
+    </item>
+    <item>
+        <precipitaProb>2</precipitaProb>
+        <tMin>1E+1</tMin>
+        <tMax>21.6</tMax>
+        <predWindDir>SE</predWindDir>
         <longitude>-8.4227</longitude>
-        <forecastDate>2021-12-26</forecastDate>
+        <forecastDate>2021-12-31</forecastDate>
         <latitude>41.5475</latitude>
-        <descClassPrecIntPT>Moderado</descClassPrecIntPT>
-        <descIdWeatherTypePT>Chuva</descIdWeatherTypePT>
-        <descClassWindSpeedDailyPT>Moderado</descClassWindSpeedDailyPT>
-    </Row1>
-    <Row2>
+        <descClassPrecIntPT>
+        </descClassPrecIntPT>
+        <descIdWeatherTypePT>Céu nublado por nuvens altas</descIdWeatherTypePT>
+        <descClassWindSpeedDailyPT>Fraco</descClassWindSpeedDailyPT>
+    </item>
+    <item>
         <precipitaProb>1E+2</precipitaProb>
-        <tMin>12.4</tMin>
-        <tMax>16.5</tMax>
-        <predWindDir>SW</predWindDir>
-        <longitude>-8.4227</longitude>
-        <forecastDate>2021-12-27</forecastDate>
-        <latitude>41.5475</latitude>
-        <descClassPrecIntPT>Moderado</descClassPrecIntPT>
-        <descIdWeatherTypePT>Chuva</descIdWeatherTypePT>
-        <descClassWindSpeedDailyPT>Moderado</descClassWindSpeedDailyPT>
-    </Row2>
-    <Row3>
-        <precipitaProb>1E+2</precipitaProb>
-        <tMin>13</tMin>
-        <tMax>17</tMax>
-        <predWindDir>S</predWindDir>
-        <longitude>-8.4227</longitude>
-        <forecastDate>2021-12-28</forecastDate>
-        <latitude>41.5475</latitude>
-        <descClassPrecIntPT>Moderado</descClassPrecIntPT>
-        <descIdWeatherTypePT>Chuva</descIdWeatherTypePT>
-        <descClassWindSpeedDailyPT>Moderado</descClassWindSpeedDailyPT>
-    </Row3>
-    <Row4>
-        <precipitaProb>8E+1</precipitaProb>
-        <tMin>8.9</tMin>
-        <tMax>17.3</tMax>
+        <tMin>9</tMin>
+        <tMax>17.9</tMax>
         <predWindDir>S</predWindDir>
         <longitude>-8.4227</longitude>
         <forecastDate>2021-12-29</forecastDate>
         <latitude>41.5475</latitude>
         <descClassPrecIntPT>Moderado</descClassPrecIntPT>
+        <descIdWeatherTypePT>Aguaceiros</descIdWeatherTypePT>
+        <descClassWindSpeedDailyPT>Fraco</descClassWindSpeedDailyPT>
+    </item>
+    <item>
+        <precipitaProb>1E+2</precipitaProb>
+        <tMin>13.9</tMin>
+        <tMax>18.1</tMax>
+        <predWindDir>SW</predWindDir>
+        <longitude>-8.4227</longitude>
+        <forecastDate>2021-12-28</forecastDate>
+        <latitude>41.5475</latitude>
+        <descClassPrecIntPT>Moderado</descClassPrecIntPT>
         <descIdWeatherTypePT>Chuva</descIdWeatherTypePT>
+        <descClassWindSpeedDailyPT>Fraco</descClassWindSpeedDailyPT>
+    </item>
+    <item>
+        <precipitaProb>1E+2</precipitaProb>
+        <tMin>12.9</tMin>
+        <tMax>16.9</tMax>
+        <predWindDir>SW</predWindDir>
+        <longitude>-8.4227</longitude>
+        <forecastDate>2021-12-27</forecastDate>
+        <latitude>41.5475</latitude>
+        <descClassPrecIntPT>Fraco</descClassPrecIntPT>
+        <descIdWeatherTypePT>Chuva fraca ou chuvisco</descIdWeatherTypePT>
         <descClassWindSpeedDailyPT>Moderado</descClassWindSpeedDailyPT>
-    </Row4>
+    </item>
 </root>
