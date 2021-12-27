@@ -20,6 +20,7 @@ def getPrecMaxTable():
 
     return precMaxTable
 
+#Obter dados de locais de Máxima temperatura e formatar em tabela
 def getTempMaxTable():
 
     path = os.getcwd()
@@ -36,6 +37,7 @@ def getTempMaxTable():
 
     return tempMaxTable
 
+#Obter dados de locais de Mínima temperatura e formatar em tabela
 def getTempMinTable():
 
     path = os.getcwd()
@@ -52,7 +54,7 @@ def getTempMinTable():
 
     return tempMinTable
 
-
+#Obter dados das previsoes do tempo e formatar em tabela
 def getPrevTable():
 
     path = os.getcwd()

@@ -1,7 +1,5 @@
 import discord
-import os
 from prettytable import PrettyTable
-import json
 import dados
 
 client = discord.Client()
