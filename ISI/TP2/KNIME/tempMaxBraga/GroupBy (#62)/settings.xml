@@ -13,15 +13,15 @@
         <config key="grouByColumns">
             <config key="InclList">
                 <entry key="array-size" type="xint" value="3"/>
-                <entry key="0" type="xstring" value="Max*(maximum)"/>
-                <entry key="1" type="xstring" value="date"/>
+                <entry key="0" type="xstring" value="date"/>
+                <entry key="1" type="xstring" value="maximum"/>
                 <entry key="2" type="xstring" value="local"/>
             </config>
             <config key="ExclList">
                 <entry key="array-size" type="xint" value="8"/>
                 <entry key="0" type="xstring" value="date(Date&amp;Time)"/>
-                <entry key="1" type="xstring" value="minimum"/>
-                <entry key="2" type="xstring" value="maximum"/>
+                <entry key="1" type="xstring" value="Max*(maximum)"/>
+                <entry key="2" type="xstring" value="minimum"/>
                 <entry key="3" type="xstring" value="range"/>
                 <entry key="4" type="xstring" value="mean"/>
                 <entry key="5" type="xstring" value="std"/>

@@ -72,17 +72,17 @@
                 <config key="/CSV/TempMinCSV.csv">
                     <entry key="num_columns" type="xint" value="3"/>
                     <config key="0">
-                        <entry key="name" type="xstring" value="Min*(minimum)"/>
-                        <entry key="has_type" type="xboolean" value="true"/>
-                        <config key="type">
-                            <entry key="class" type="xstring" value="java.lang.Double"/>
-                        </config>
-                    </config>
-                    <config key="1">
                         <entry key="name" type="xstring" value="date"/>
                         <entry key="has_type" type="xboolean" value="true"/>
                         <config key="type">
                             <entry key="class" type="xstring" value="java.lang.String"/>
+                        </config>
+                    </config>
+                    <config key="1">
+                        <entry key="name" type="xstring" value="minimum"/>
+                        <entry key="has_type" type="xboolean" value="true"/>
+                        <config key="type">
+                            <entry key="class" type="xstring" value="java.lang.Double"/>
                         </config>
                     </config>
                     <config key="2">
@@ -98,30 +98,6 @@
                 <config key="columns">
                     <config key="0">
                         <config key="external_spec">
-                            <entry key="name" type="xstring" value="Min*(minimum)"/>
-                            <entry key="has_type" type="xboolean" value="true"/>
-                            <config key="type">
-                                <entry key="class" type="xstring" value="java.lang.Double"/>
-                            </config>
-                        </config>
-                        <entry key="name" type="xstring" value="Min*(minimum)"/>
-                        <entry key="keep" type="xboolean" value="true"/>
-                        <entry key="position" type="xint" value="0"/>
-                        <config key="production_path">
-                            <entry key="_converter" type="xstring" value="org.knime.core.data.def.DoubleCell$DoubleCellFactory.create(class java.lang.Double)"/>
-                            <entry key="_converter_src" type="xstring" value="java.lang.Double"/>
-                            <entry key="_converter_dst" type="xstring" value="Number (double)"/>
-                            <entry key="_converter_name" type="xstring" value="Double"/>
-                            <config key="_converter_config"/>
-                            <entry key="_producer" type="xstring" value="class java.lang.Double-&gt;java.lang.Double"/>
-                            <entry key="_producer_src" type="xstring" value="java.lang.Double"/>
-                            <entry key="_producer_dst" type="xstring" value="java.lang.Double"/>
-                            <entry key="_producer_name" type="xstring" value="java.lang.Double"/>
-                            <config key="_producer_config"/>
-                        </config>
-                    </config>
-                    <config key="1">
-                        <config key="external_spec">
                             <entry key="name" type="xstring" value="date"/>
                             <entry key="has_type" type="xboolean" value="true"/>
                             <config key="type">
@@ -130,7 +106,7 @@
                         </config>
                         <entry key="name" type="xstring" value="date"/>
                         <entry key="keep" type="xboolean" value="true"/>
-                        <entry key="position" type="xint" value="1"/>
+                        <entry key="position" type="xint" value="0"/>
                         <config key="production_path">
                             <entry key="_converter" type="xstring" value="org.knime.core.data.def.StringCell$StringCellFactory.createCell(class java.lang.String)"/>
                             <entry key="_converter_src" type="xstring" value="java.lang.String"/>
@@ -141,6 +117,30 @@
                             <entry key="_producer_src" type="xstring" value="java.lang.String"/>
                             <entry key="_producer_dst" type="xstring" value="java.lang.String"/>
                             <entry key="_producer_name" type="xstring" value="java.lang.String"/>
+                            <config key="_producer_config"/>
+                        </config>
+                    </config>
+                    <config key="1">
+                        <config key="external_spec">
+                            <entry key="name" type="xstring" value="minimum"/>
+                            <entry key="has_type" type="xboolean" value="true"/>
+                            <config key="type">
+                                <entry key="class" type="xstring" value="java.lang.Double"/>
+                            </config>
+                        </config>
+                        <entry key="name" type="xstring" value="minimum"/>
+                        <entry key="keep" type="xboolean" value="true"/>
+                        <entry key="position" type="xint" value="1"/>
+                        <config key="production_path">
+                            <entry key="_converter" type="xstring" value="org.knime.core.data.def.DoubleCell$DoubleCellFactory.create(class java.lang.Double)"/>
+                            <entry key="_converter_src" type="xstring" value="java.lang.Double"/>
+                            <entry key="_converter_dst" type="xstring" value="Number (double)"/>
+                            <entry key="_converter_name" type="xstring" value="Double"/>
+                            <config key="_converter_config"/>
+                            <entry key="_producer" type="xstring" value="class java.lang.Double-&gt;java.lang.Double"/>
+                            <entry key="_producer_src" type="xstring" value="java.lang.Double"/>
+                            <entry key="_producer_dst" type="xstring" value="java.lang.Double"/>
+                            <entry key="_producer_name" type="xstring" value="java.lang.Double"/>
                             <config key="_producer_config"/>
                         </config>
                     </config>
@@ -299,6 +299,6 @@
     </config>
     <config key="filestores">
         <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-        <entry key="file_store_id" type="xstring" value="c81cd545-2585-44de-a80c-58afaeda6824"/>
+        <entry key="file_store_id" type="xstring" value="ca00ca9c-864c-40dc-a9f0-6f307b7ee772"/>
     </config>
 </config>

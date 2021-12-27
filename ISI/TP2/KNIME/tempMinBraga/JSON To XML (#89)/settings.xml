@@ -14,7 +14,7 @@
         <entry key="decimal.prefix" type="xstring" value="Decimal"/>
         <entry key="integer.prefix" type="xstring" value="Integer"/>
         <entry key="array.item.element" type="xstring" value="item"/>
-        <entry key="namespace" type="xstring" isnull="true" value=""/>
+        <entry key="namespace" type="xstring" value=""/>
         <entry key="null.prefix" type="xstring" value="null"/>
         <entry key="root.element" type="xstring" value="root"/>
         <entry key="string.prefix" type="xstring" value="String"/>

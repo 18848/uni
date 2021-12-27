@@ -33,7 +33,7 @@ def getTempMaxTable():
     tempMaxTable.title = 'Temperatura Máxima nos Últimos 10 dias'
     
     for element in tempMaxData:
-        tempMaxTable.add_row([tempMaxData[element]['date'], tempMaxData[element]['Max*(maximum)'], tempMaxData[element]['local']])
+        tempMaxTable.add_row([tempMaxData[element]['date'], tempMaxData[element]['maximum'], tempMaxData[element]['local']])
 
     return tempMaxTable
 
@@ -50,7 +50,7 @@ def getTempMinTable():
     tempMinTable.title = 'Temperatura Mínima nos Últimos 10 dias'
     
     for element in tempMinData:
-        tempMinTable.add_row([tempMinData[element]['date'], tempMinData[element]['Min*(minimum)'], tempMinData[element]['local']])
+        tempMinTable.add_row([tempMinData[element]['date'], tempMinData[element]['minimum'], tempMinData[element]['local']])
 
     return tempMinTable
 
