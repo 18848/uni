@@ -6,24 +6,25 @@
         <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
     </config>
     <config key="model">
-        <entry key="for_hours" type="xint" value="23"/>
-        <entry key="for_minutes" type="xint" value="59"/>
-        <entry key="for_seconds" type="xint" value="59"/>
-        <entry key="to_hours" type="xint" value="0"/>
-        <entry key="to_min" type="xint" value="0"/>
-        <entry key="to_seconds" type="xint" value="0"/>
-        <entry key="path_to_file" type="xstring" value=""/>
-        <config key="file_status_to_observe_Internals">
-            <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-            <entry key="EnabledStatus" type="xboolean" value="false"/>
+        <config key="ColumnOrder">
+            <entry key="array-size" type="xint" value="11"/>
+            <entry key="0" type="xstring" value="Data"/>
+            <entry key="1" type="xstring" value="Temp Mínima"/>
+            <entry key="2" type="xstring" value="Temp Máxima"/>
+            <entry key="3" type="xstring" value="Tempo"/>
+            <entry key="4" type="xstring" value="Prob. de Precipitação"/>
+            <entry key="5" type="xstring" value="Classe de Precipitação"/>
+            <entry key="6" type="xstring" value="Velocidade do Vento"/>
+            <entry key="7" type="xstring" value="Direção do Vento"/>
+            <entry key="8" type="xstring" value="longitude"/>
+            <entry key="9" type="xstring" value="latitude"/>
+            <entry key="10" type="xstring" value="&lt;any unknown new column&gt;"/>
         </config>
-        <entry key="file_status_to_observe" type="xstring" value="Modification"/>
-        <entry key="wait_option" type="xint" value="0"/>
     </config>
     <entry key="customDescription" type="xstring" isnull="true" value=""/>
     <entry key="state" type="xstring" value="CONFIGURED"/>
-    <entry key="factory" type="xstring" value="org.knime.base.node.flowcontrol.sleep.SleepNodeFactory"/>
-    <entry key="node-name" type="xstring" value="Wait..."/>
+    <entry key="factory" type="xstring" value="org.knime.base.node.preproc.columnresorter.ColumnResorterNodeFactory"/>
+    <entry key="node-name" type="xstring" value="Column Resorter"/>
     <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
     <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
     <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
@@ -33,7 +34,7 @@
     <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
     <entry key="node-feature-version" type="xstring" value="4.5.0.v202112011253"/>
     <config key="factory_settings"/>
-    <entry key="name" type="xstring" value="Wait..."/>
+    <entry key="name" type="xstring" value="Column Resorter"/>
     <entry key="hasContent" type="xboolean" value="false"/>
     <entry key="isInactive" type="xboolean" value="false"/>
     <config key="ports">
