@@ -1,13 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Temp-Min>
-<Row Data="2021/12/25 00:00:00.000" Cidade="terras-de-bouro.csv"> <Minimo>8,602</Minimo></Row>
-<Row Data="2021/12/24 00:00:00.000" Cidade="cabeceiras-de-basto.csv"> <Minimo>6,8</Minimo></Row>
-<Row Data="2021/12/23 00:00:00.000" Cidade="cabeceiras-de-basto.csv"> <Minimo>7,7</Minimo></Row>
-<Row Data="2021/12/22 00:00:00.000" Cidade="terras-de-bouro.csv"> <Minimo>9,953</Minimo></Row>
-<Row Data="2021/12/21 00:00:00.000" Cidade="cabeceiras-de-basto.csv"> <Minimo>9,02</Minimo></Row>
-<Row Data="2021/12/20 00:00:00.000" Cidade="celorico-de-basto.csv"> <Minimo>7,701</Minimo></Row>
-<Row Data="2021/12/19 00:00:00.000" Cidade="braga.csv"> <Minimo>1,4</Minimo></Row>
-<Row Data="2021/12/18 00:00:00.000" Cidade="cabeceiras-de-basto.csv"> <Minimo>-0,7</Minimo></Row>
-<Row Data="2021/12/17 00:00:00.000" Cidade="cabeceiras-de-basto.csv"> <Minimo>0,2</Minimo></Row>
-<Row Data="2021/12/16 00:00:00.000" Cidade="cabeceiras-de-basto.csv"> <Minimo>-0,8</Minimo></Row>
+<Day data="2021-12-19"> <Cidade>Braga</Cidade> <Minimo>1.4</Minimo></Day>
+<Day data="2021-12-24"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>6.8</Minimo></Day>
+<Day data="2021-12-23"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>7.7</Minimo></Day>
+<Day data="2021-12-21"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>9.02</Minimo></Day>
+<Day data="2021-12-18"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>-0.7</Minimo></Day>
+<Day data="2021-12-20"> <Cidade>Celorico de Basto</Cidade> <Minimo>7.701</Minimo></Day>
+<Day data="2021-12-26"> <Cidade>Terras de Bouro</Cidade> <Minimo>9.162</Minimo></Day>
+<Day data="2021-12-25"> <Cidade>Terras de Bouro</Cidade> <Minimo>8.602</Minimo></Day>
+<Day data="2021-12-22"> <Cidade>Terras de Bouro</Cidade> <Minimo>9.953</Minimo></Day>
 </Temp-Min>
