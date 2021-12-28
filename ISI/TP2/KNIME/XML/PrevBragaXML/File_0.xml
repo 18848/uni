@@ -1,50 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <item>
-        <precipitaProb>2</precipitaProb>
-        <tMin>8</tMin>
-        <tMax>20.6</tMax>
+        <precipitaProb>0</precipitaProb>
+        <tMin>8.3</tMin>
+        <tMax>2E+1</tMax>
         <predWindDir>SE</predWindDir>
         <longitude>-8.4227</longitude>
         <forecastDate>2021-12-30</forecastDate>
         <latitude>41.5475</latitude>
         <descClassPrecIntPT>
         </descClassPrecIntPT>
-        <descIdWeatherTypePT>Céu nublado por nuvens altas</descIdWeatherTypePT>
+        <descIdWeatherTypePT>Céu pouco nublado</descIdWeatherTypePT>
         <descClassWindSpeedDailyPT>Fraco</descClassWindSpeedDailyPT>
     </item>
     <item>
-        <precipitaProb>2</precipitaProb>
-        <tMin>1E+1</tMin>
-        <tMax>21.6</tMax>
+        <precipitaProb>0</precipitaProb>
+        <tMin>8.7</tMin>
+        <tMax>20.8</tMax>
         <predWindDir>SE</predWindDir>
         <longitude>-8.4227</longitude>
         <forecastDate>2021-12-31</forecastDate>
         <latitude>41.5475</latitude>
         <descClassPrecIntPT>
         </descClassPrecIntPT>
-        <descIdWeatherTypePT>Céu nublado por nuvens altas</descIdWeatherTypePT>
+        <descIdWeatherTypePT>Céu pouco nublado</descIdWeatherTypePT>
         <descClassWindSpeedDailyPT>Fraco</descClassWindSpeedDailyPT>
     </item>
     <item>
         <precipitaProb>1E+2</precipitaProb>
-        <tMin>9</tMin>
-        <tMax>17.9</tMax>
-        <predWindDir>S</predWindDir>
-        <longitude>-8.4227</longitude>
-        <forecastDate>2021-12-29</forecastDate>
-        <latitude>41.5475</latitude>
-        <descClassPrecIntPT>Moderado</descClassPrecIntPT>
-        <descIdWeatherTypePT>Aguaceiros</descIdWeatherTypePT>
-        <descClassWindSpeedDailyPT>Fraco</descClassWindSpeedDailyPT>
-    </item>
-    <item>
-        <precipitaProb>1E+2</precipitaProb>
-        <tMin>13.9</tMin>
-        <tMax>18.1</tMax>
+        <tMin>9.8</tMin>
+        <tMax>18.2</tMax>
         <predWindDir>SW</predWindDir>
         <longitude>-8.4227</longitude>
-        <forecastDate>2021-12-28</forecastDate>
+        <forecastDate>2021-12-29</forecastDate>
         <latitude>41.5475</latitude>
         <descClassPrecIntPT>Moderado</descClassPrecIntPT>
         <descIdWeatherTypePT>Chuva</descIdWeatherTypePT>
@@ -52,11 +40,23 @@
     </item>
     <item>
         <precipitaProb>1E+2</precipitaProb>
-        <tMin>12.9</tMin>
+        <tMin>13.3</tMin>
         <tMax>16.9</tMax>
         <predWindDir>SW</predWindDir>
         <longitude>-8.4227</longitude>
         <forecastDate>2021-12-27</forecastDate>
+        <latitude>41.5475</latitude>
+        <descClassPrecIntPT>Fraco</descClassPrecIntPT>
+        <descIdWeatherTypePT>Chuva fraca ou chuvisco</descIdWeatherTypePT>
+        <descClassWindSpeedDailyPT>Moderado</descClassWindSpeedDailyPT>
+    </item>
+    <item>
+        <precipitaProb>1E+2</precipitaProb>
+        <tMin>13.9</tMin>
+        <tMax>17.5</tMax>
+        <predWindDir>S</predWindDir>
+        <longitude>-8.4227</longitude>
+        <forecastDate>2021-12-28</forecastDate>
         <latitude>41.5475</latitude>
         <descClassPrecIntPT>Fraco</descClassPrecIntPT>
         <descIdWeatherTypePT>Chuva fraca ou chuvisco</descIdWeatherTypePT>
