@@ -1,6 +1,6 @@
 Date;Min;Max;longitude;latitude;Precipitação;Probabilidade;Vento;Direção;Clima
-2021-12-27;13.3;16.9;-8.4227;41.5475;Fraco;100;Moderado;SW;Chuva fraca ou chuvisco
-2021-12-28;14.5;17.4;-8.4227;41.5475;Moderado;100;Moderado;SW;Chuva
-2021-12-29;10;17.7;-8.4227;41.5475;Moderado;100;Fraco;SW;Chuva
-2021-12-30;8.5;20.1;-8.4227;41.5475;N/A;0;Fraco;SE;Céu pouco nublado
-2021-12-31;7.9;21.5;-8.4227;41.5475;N/A;0;Fraco;SE;Céu pouco nublado
+2021-12-28;14.1;17.4;-8.4227;41.5475;Moderado;100;Moderado;SW;Chuva
+2021-12-29;10.6;17.7;-8.4227;41.5475;Fraco;100;Moderado;SW;Chuva fraca ou chuvisco
+2021-12-30;7.6;20.7;-8.4227;41.5475;N/A;0;Fraco;SE;Céu pouco nublado
+2021-12-31;8.4;22.3;-8.4227;41.5475;N/A;0;Fraco;SE;Céu nublado por nuvens altas
+2022-01-01;9.7;22;-8.4227;41.5475;Moderado;40;Fraco;SW;Aguaceiros

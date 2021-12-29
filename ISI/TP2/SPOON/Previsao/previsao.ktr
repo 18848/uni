@@ -452,33 +452,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Data grid</from>
+      <from>Classes Info</from>
       <to>Filter Precipation</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Data grid</from>
+      <from>Classes Info</from>
       <to>Filter Wind</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Data grid</from>
+      <from>Classes Info</from>
       <to>Filter Weather</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Data grid</from>
-      <to>Filter Info</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Info</from>
-      <to>JSON Info</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>JSON Info</from>
-      <to>Select Info</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -499,16 +484,6 @@
     <hop>
       <from>Select Precipitation</from>
       <to>Merge join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select Info</from>
-      <to>Filter Null</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Null</from>
-      <to>Add constants</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -557,11 +532,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter Null</from>
-      <to>Sort Precipitation</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select Wind Merge</from>
       <to>Sort Weather</to>
       <enabled>Y</enabled>
@@ -583,17 +553,47 @@
     </hop>
     <hop>
       <from>Select</from>
-      <to>Text file output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select</from>
-      <to>XML output</to>
+      <to>CSV Output</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Sort Date</from>
       <to>Select</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>JSON Info</from>
+      <to>Select Info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select Info</from>
+      <to>Filter Null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter Null</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter Null</from>
+      <to>Sort Precipitation</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Classes Info</from>
+      <to>Filter Info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter Info</from>
+      <to>JSON Info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select</from>
+      <to>XML output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -655,13 +655,190 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>48</yloc>
+      <xloc>848</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Data grid</name>
+    <name>CSV Output</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>${Internal.Entry.Current.Directory}/files/forecast</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
+    <fields>
+      <field>
+        <name>Date</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Min</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Max</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>longitude</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>latitude</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Precipitação</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Probabilidade</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Vento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Direção</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Clima</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1376</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Classes Info</name>
     <type>DataGrid</type>
     <description/>
     <distribute>N</distribute>
@@ -724,52 +901,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
+      <xloc>208</xloc>
       <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter Info</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>JSON Info</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>TYPE</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>info</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -803,7 +936,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>624</xloc>
       <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
@@ -847,7 +980,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>336</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -891,7 +1024,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>336</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -935,7 +1068,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>336</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -956,7 +1089,7 @@
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>Y</readurl>
-    <removeSourceField>N</removeSourceField>
+    <removeSourceField>Y</removeSourceField>
     <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
@@ -1122,7 +1255,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>432</xloc>
       <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1218,7 +1351,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>432</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1314,7 +1447,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>432</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1410,7 +1543,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>432</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1496,8 +1629,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
-      <yloc>384</yloc>
+      <xloc>1376</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1530,7 +1663,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
+      <xloc>864</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1564,7 +1697,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
+      <xloc>896</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1598,7 +1731,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
+      <xloc>1152</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1836,8 +1969,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>384</yloc>
+      <xloc>1264</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1854,47 +1987,52 @@
     </partitioning>
     <fields>
       <field>
-        <name>URI</name>
-      </field>
-      <field>
-        <name>TYPE</name>
-      </field>
-      <field>
         <name>precipitaProb</name>
+        <rename/>
       </field>
       <field>
         <name>tMin</name>
+        <rename/>
       </field>
       <field>
         <name>tMax</name>
+        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
+        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
+        <rename/>
       </field>
       <field>
         <name>classWindSpeed</name>
+        <rename/>
       </field>
       <field>
         <name>longitude</name>
+        <rename/>
       </field>
       <field>
         <name>forecastDate</name>
+        <rename/>
       </field>
       <field>
         <name>classPrecInt</name>
+        <rename/>
       </field>
       <field>
         <name>latitude</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TYPE</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
         <name>TYPE</name>
-      </remove>
-      <remove>
-        <name>URI</name>
       </remove>
     </fields>
     <attributes/>
@@ -1906,7 +2044,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>544</xloc>
       <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1955,7 +2093,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>544</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1974,42 +2112,55 @@
     <fields>
       <field>
         <name>precipitaProb</name>
+        <rename/>
       </field>
       <field>
         <name>tMin</name>
+        <rename/>
       </field>
       <field>
         <name>tMax</name>
+        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
+        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
+        <rename/>
       </field>
       <field>
         <name>classWindSpeed</name>
+        <rename/>
       </field>
       <field>
         <name>longitude</name>
+        <rename/>
       </field>
       <field>
         <name>forecastDate</name>
+        <rename/>
       </field>
       <field>
         <name>classPrecInt</name>
+        <rename/>
       </field>
       <field>
         <name>latitude</name>
+        <rename/>
       </field>
       <field>
         <name>descClassPrecIntEn</name>
+        <rename/>
       </field>
       <field>
         <name>descClassPrecIntPT</name>
+        <rename/>
       </field>
       <field>
         <name>classPrecInt_1</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -2024,7 +2175,7 @@
       <meta>
         <name>descClassPrecIntPT</name>
         <rename>Precipitação</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -2048,8 +2199,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>48</yloc>
+      <xloc>992</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2097,7 +2248,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>544</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2116,42 +2267,55 @@
     <fields>
       <field>
         <name>forecastDate</name>
+        <rename/>
       </field>
       <field>
         <name>tMin</name>
+        <rename/>
       </field>
       <field>
         <name>tMax</name>
+        <rename/>
       </field>
       <field>
         <name>longitude</name>
+        <rename/>
       </field>
       <field>
         <name>latitude</name>
+        <rename/>
       </field>
       <field>
         <name>Precipitação</name>
+        <rename/>
       </field>
       <field>
         <name>precipitaProb</name>
+        <rename/>
       </field>
       <field>
         <name>Vento</name>
+        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
+        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
+        <rename/>
       </field>
       <field>
         <name>descIdWeatherTypeEN</name>
+        <rename/>
       </field>
       <field>
         <name>descIdWeatherTypePT</name>
+        <rename/>
       </field>
       <field>
         <name>idWeatherType_1</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -2190,7 +2354,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
+      <xloc>1264</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2239,7 +2403,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>544</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2258,42 +2422,55 @@
     <fields>
       <field>
         <name>precipitaProb</name>
+        <rename/>
       </field>
       <field>
         <name>tMin</name>
+        <rename/>
       </field>
       <field>
         <name>tMax</name>
+        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
+        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
+        <rename/>
       </field>
       <field>
         <name>classWindSpeed</name>
+        <rename/>
       </field>
       <field>
         <name>longitude</name>
+        <rename/>
       </field>
       <field>
         <name>forecastDate</name>
+        <rename/>
       </field>
       <field>
         <name>latitude</name>
+        <rename/>
       </field>
       <field>
         <name>Precipitação</name>
+        <rename/>
       </field>
       <field>
         <name>descClassWindSpeedDailyEN</name>
+        <rename/>
       </field>
       <field>
         <name>descClassWindSpeedDailyPT</name>
+        <rename/>
       </field>
       <field>
         <name>ClassWindSpeed_1</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -2308,7 +2485,7 @@
       <meta>
         <name>descClassWindSpeedDailyPT</name>
         <rename>Vento</rename>
-        <type>None</type>
+        <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -2332,7 +2509,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
+      <xloc>1024</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2374,8 +2551,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1184</xloc>
-      <yloc>384</yloc>
+      <xloc>1264</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2416,7 +2593,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>736</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2458,7 +2635,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>976</xloc>
+      <xloc>1152</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2500,14 +2677,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>144</yloc>
+      <xloc>992</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Text file output</name>
-    <type>TextFileOutput</type>
+    <name>Filter Info</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2516,158 +2693,25 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>${Internal.Entry.Current.Directory}/files/forecast</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>csv</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-      <field>
-        <name>Date</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Min</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Max</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>longitude</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>latitude</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Precipitação</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Probabilidade</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Vento</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Direção</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Clima</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
+    <send_true_to>JSON Info</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>TYPE</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>info</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2677,8 +2721,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
-      <yloc>480</yloc>
+      <xloc>336</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2718,7 +2762,7 @@
         <name>Date</name>
         <element>data</element>
         <type>Date</type>
-        <format>yyyy-MM-dd</format>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -2781,7 +2825,7 @@
       <field>
         <content_type>Element</content_type>
         <name>Precipitação</name>
-        <element>Precipitacao</element>
+        <element/>
         <type>String</type>
         <format/>
         <currency/>
@@ -2820,7 +2864,7 @@
       <field>
         <content_type>Element</content_type>
         <name>Direção</name>
-        <element>Direcao</element>
+        <element/>
         <type>String</type>
         <format/>
         <currency/>
@@ -2853,8 +2897,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1504</xloc>
-      <yloc>304</yloc>
+      <xloc>1376</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
