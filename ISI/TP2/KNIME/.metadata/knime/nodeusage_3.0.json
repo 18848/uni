@@ -6,9 +6,9 @@
         "nodes": [
             {
                 "id": "org.knime.base.node.io.filehandling.csv.reader.CSVTableReaderNodeFactory#CSV Reader",
-                "nrexecs": 513,
+                "nrexecs": 518,
                 "nrfails": 5,
-                "exectime": 168597,
+                "exectime": 168917,
                 "nrcreated": 5,
                 "successor": "org.knime.json.node.fromtable.TableToJsonNodeFactory#Table to JSON"
             },
@@ -46,11 +46,11 @@
             },
             {
                 "id": "org.knime.base.node.preproc.rename.RenameNodeFactory#Column Rename",
-                "nrexecs": 6,
+                "nrexecs": 7,
                 "nrfails": 0,
-                "exectime": 4,
-                "nrcreated": 3,
-                "successor": "org.knime.json.node.fromtable.TableToJsonNodeFactory#Table to JSON"
+                "exectime": 5,
+                "nrcreated": 4,
+                "successor": "org.knime.base.node.preproc.columnresorter.ColumnResorterNodeFactory#Column Resorter"
             },
             {
                 "id": "org.knime.database.extension.sqlite.node.connector.SQLiteDBConnectorNodeFactory#SQLite Connector",
@@ -70,9 +70,9 @@
             },
             {
                 "id": "org.knime.base.node.preproc.append.row.AppendedRowsNodeFactory#Concatenate",
-                "nrexecs": 65,
+                "nrexecs": 68,
                 "nrfails": 1,
-                "exectime": 447,
+                "exectime": 450,
                 "nrcreated": 4,
                 "successor": "org.knime.json.node.fromtable.TableToJsonNodeFactory#Table to JSON"
             },
@@ -142,9 +142,9 @@
             },
             {
                 "id": "org.knime.base.node.util.sendmail.SendMailNodeFactory#Send Email",
-                "nrexecs": 66,
-                "nrfails": 34,
-                "exectime": 251890,
+                "nrexecs": 70,
+                "nrfails": 36,
+                "exectime": 257239,
                 "nrcreated": 4,
                 "successor": "org.knime.base.node.meta.looper.variable.end.LoopEndVariableNodeFactory#Variable Loop End"
             },
@@ -230,9 +230,9 @@
             },
             {
                 "id": "org.knime.base.node.flowvariable.tablecoltovariable4.TableColumnToVariable4NodeFactory#Table Column to Variable",
-                "nrexecs": 38,
+                "nrexecs": 43,
                 "nrfails": 0,
-                "exectime": 77,
+                "exectime": 78,
                 "nrcreated": 2,
                 "successor": "org.knime.base.node.util.sendmail.SendMailNodeFactory#Send Email"
             },
@@ -278,9 +278,9 @@
             },
             {
                 "id": "org.knime.base.node.preproc.rowkey2.RowKeyNodeFactory2#RowID",
-                "nrexecs": 77,
+                "nrexecs": 80,
                 "nrfails": 7,
-                "exectime": 336,
+                "exectime": 344,
                 "nrcreated": 3,
                 "successor": "org.knime.base.node.flowvariable.tablecoltovariable4.TableColumnToVariable4NodeFactory#Table Column to Variable"
             },
@@ -406,9 +406,9 @@
             },
             {
                 "id": "org.knime.database.extension.mssql.node.connector.MSSQLDBConnectorNodeFactory#Microsoft SQL Server Connector",
-                "nrexecs": 24,
+                "nrexecs": 25,
                 "nrfails": 8,
-                "exectime": 56075,
+                "exectime": 56744,
                 "nrcreated": 1,
                 "successor": "org.knime.database.node.utility.tableselector.DBTableSelectNodeFactory#DB Table Selector"
             },
@@ -422,9 +422,9 @@
             },
             {
                 "id": "org.knime.database.node.utility.tableselector.DBTableSelectNodeFactory#DB Table Selector",
-                "nrexecs": 25,
+                "nrexecs": 26,
                 "nrfails": 0,
-                "exectime": 247,
+                "exectime": 268,
                 "nrcreated": 1,
                 "successor": "org.knime.database.node.io.reader.DBReadNodeFactory#DB Reader"
             },
@@ -446,9 +446,9 @@
             },
             {
                 "id": "org.knime.database.node.io.reader.DBReadNodeFactory#DB Reader",
-                "nrexecs": 24,
+                "nrexecs": 25,
                 "nrfails": 0,
-                "exectime": 1305,
+                "exectime": 1523,
                 "nrcreated": 1,
                 "successor": "org.knime.base.node.meta.looper.variable.start.LoopStartVariable3NodeFactory#Table Row To Variable Loop Start"
             },
@@ -462,7 +462,7 @@
             },
             {
                 "id": "org.knime.base.node.meta.looper.condition.LoopStartGenericDynamicNodeFactory#Generic Loop Start",
-                "nrexecs": 47,
+                "nrexecs": 48,
                 "nrfails": 0,
                 "exectime": 61,
                 "nrcreated": 3,
@@ -486,17 +486,17 @@
             },
             {
                 "id": "org.knime.base.node.meta.looper.variable.start.LoopStartVariable3NodeFactory#Table Row To Variable Loop Start",
-                "nrexecs": 49,
+                "nrexecs": 53,
                 "nrfails": 0,
-                "exectime": 105,
+                "exectime": 111,
                 "nrcreated": 1,
                 "successor": "org.knime.base.node.util.sendmail.SendMailNodeFactory#Send Email"
             },
             {
                 "id": "org.knime.base.node.meta.looper.variable.end.LoopEndVariableNodeFactory#Variable Loop End",
-                "nrexecs": 44,
+                "nrexecs": 46,
                 "nrfails": 0,
-                "exectime": 71,
+                "exectime": 74,
                 "nrcreated": 1,
                 "successor": "org.knime.base.node.meta.looper.condition.LoopEndConditionDynamicNodeFactory#Variable Condition Loop End"
             },
@@ -550,9 +550,9 @@
             },
             {
                 "id": "org.knime.base.node.flowcontrol.sleep.SleepNodeFactory#Wait...",
-                "nrexecs": 40,
+                "nrexecs": 41,
                 "nrfails": 35,
-                "exectime": 2077676,
+                "exectime": 2077679,
                 "nrcreated": 1,
                 "successor": "org.knime.base.node.io.filehandling.csv.reader.CSVTableReaderNodeFactory#CSV Reader"
             },
@@ -638,11 +638,11 @@
             },
             {
                 "id": "org.lhasalimited.generic.htmltotable2.HtmlToTableString2NodeFactory#Table to HTML String",
-                "nrexecs": 23,
+                "nrexecs": 29,
                 "nrfails": 0,
-                "exectime": 242,
+                "exectime": 257,
                 "nrcreated": 1,
-                "successor": "org.knime.base.node.util.sendmail.SendMailNodeFactory#Send Email"
+                "successor": "org.knime.base.node.preproc.append.row.AppendedRowsNodeFactory#Concatenate"
             },
             {
                 "id": "org.knime.base.node.preproc.columnheaderinsert.ColumnHeaderInsertNodeFactory#Insert Column Header",
@@ -723,6 +723,14 @@
                 "exectime": 51,
                 "nrcreated": 0,
                 "successor": "org.knime.base.node.preproc.joiner3.Joiner3NodeFactory#Joiner"
+            },
+            {
+                "id": "org.knime.base.node.preproc.columnresorter.ColumnResorterNodeFactory#Column Resorter",
+                "nrexecs": 1,
+                "nrfails": 0,
+                "exectime": 2,
+                "nrcreated": 1,
+                "successor": "org.lhasalimited.generic.htmltotable2.HtmlToTableString2NodeFactory#Table to HTML String"
             }
         ],
         "metaNodes": {
@@ -730,15 +738,15 @@
         "wrappedNodes": {
         }
     },
-    "uptime": 3201058,
-    "workflowsOpened": 102,
+    "uptime": 3033706,
+    "workflowsOpened": 105,
     "remoteWorkflowsOpened": 3,
     "columnarStorageWorkflowsOpened": 0,
     "workflowsImported": 0,
     "workflowsExported": 0,
-    "launches": 29,
+    "launches": 31,
     "lastApplicationID": "org.knime.product.KNIME_APPLICATION",
-    "timeSinceLastStart": 269476,
+    "timeSinceLastStart": 547545,
     "crashes": 1,
-    "properlyShutDown": false
+    "properlyShutDown": true
 }
