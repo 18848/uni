@@ -135,7 +135,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_IXKS-GZ7Eeyxgvg1jlNwsQ" elementId="org.eclipse.ui.editorss" selectedElement="_IXKS-WZ7Eeyxgvg1jlNwsQ">
-      <children xsi:type="basic:PartStack" xmi:id="_IXKS-WZ7Eeyxgvg1jlNwsQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_IXKTTWZ7Eeyxgvg1jlNwsQ">
+      <children xsi:type="basic:PartStack" xmi:id="_IXKS-WZ7Eeyxgvg1jlNwsQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_IXKS-mZ7Eeyxgvg1jlNwsQ">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
@@ -145,6 +145,7 @@
           <tags>removeOnHide</tags>
           <tags>org.knime.workbench.editor.WorkflowEditor</tags>
           <tags>activeOnClose</tags>
+          <tags>active</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_IXKS_GZ7Eeyxgvg1jlNwsQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="3: tempMinBraga" iconURI="platform:/plugin/org.knime.workbench.editor/icons/knime.png" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; partName=&quot;3: tempMinBraga&quot; title=&quot;3: tempMinBraga&quot; tooltip=&quot;3: tempMinBraga&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;knime://LOCAL/tempMinBraga/workflow.knime&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -173,7 +174,6 @@
           <tags>removeOnHide</tags>
           <tags>org.knime.workbench.editor.WorkflowEditor</tags>
           <tags>activeOnClose</tags>
-          <tags>active</tags>
         </children>
       </children>
     </sharedElements>
@@ -282,7 +282,7 @@
         <tags>toolbarSeparator</tags>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_IXKTrWZ7Eeyxgvg1jlNwsQ" elementId="additions" toBeRendered="false"/>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_NlncUGl9EeyCqMoypWk9JA" elementId="org.knime.workbench.editor.WorkflowEditor">
+      <children xsi:type="menu:ToolBar" xmi:id="_2o2eQGl_EeyDurQt1eYEvQ" elementId="org.knime.workbench.editor.WorkflowEditor">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IXKT1GZ7Eeyxgvg1jlNwsQ" elementId="group.editor" toBeRendered="false">
@@ -1322,7 +1322,7 @@
   <addons xmi:id="_IXK7k2Z7Eeyxgvg1jlNwsQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_IXK7lGZ7Eeyxgvg1jlNwsQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_IXK7lWZ7Eeyxgvg1jlNwsQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_1XoG8Wl_EeyDurQt1eYEvQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_IXK7l2Z7Eeyxgvg1jlNwsQ" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <addons xmi:id="_IXK7mGZ7Eeyxgvg1jlNwsQ" elementId="org.knime.product.addon.0" contributorURI="platform:/plugin/org.knime.product" contributionURI="bundleclass://org.knime.product/org.knime.product.rcp.addons.PerspectiveFixAddon"/>
   <addons xmi:id="_IXK7mWZ7Eeyxgvg1jlNwsQ" elementId="org.knime.product.addon.1" contributorURI="platform:/plugin/org.knime.product" contributionURI="bundleclass://org.knime.product/org.knime.product.rcp.addons.MenuFixesAddon"/>
