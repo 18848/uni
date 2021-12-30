@@ -483,11 +483,11 @@
     </hop>
     <hop>
       <from>Select Precipitation</from>
-      <to>Merge join</to>
+      <to>Merge Precipitation</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge join</from>
+      <from>Merge Precipitation</from>
       <to>Select Precipitation Merge</to>
       <enabled>Y</enabled>
     </hop>
@@ -498,21 +498,21 @@
     </hop>
     <hop>
       <from>Select Wind</from>
-      <to>Merge join 2</to>
+      <to>Merge Wind</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge join 2</from>
+      <from>Merge Wind</from>
       <to>Select Wind Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Select Weather</from>
-      <to>Merge join 3</to>
+      <to>Merge Weather</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge join 3</from>
+      <from>Merge Weather</from>
       <to>Select Weather Merge</to>
       <enabled>Y</enabled>
     </hop>
@@ -523,12 +523,12 @@
     </hop>
     <hop>
       <from>Sort Wind</from>
-      <to>Merge join 2</to>
+      <to>Merge Wind</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Sort Precipitation</from>
-      <to>Merge join</to>
+      <to>Merge Precipitation</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -538,7 +538,7 @@
     </hop>
     <hop>
       <from>Sort Weather</from>
-      <to>Merge join 3</to>
+      <to>Merge Weather</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -903,6 +903,50 @@
     <GUI>
       <xloc>208</xloc>
       <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter Info</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>JSON Info</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>TYPE</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>info</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1635,7 +1679,7 @@
     </GUI>
   </step>
   <step>
-    <name>Merge join</name>
+    <name>Merge Precipitation</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -1669,7 +1713,7 @@
     </GUI>
   </step>
   <step>
-    <name>Merge join 2</name>
+    <name>Merge Wind</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -1703,7 +1747,7 @@
     </GUI>
   </step>
   <step>
-    <name>Merge join 3</name>
+    <name>Merge Weather</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -1750,43 +1794,33 @@
     <fields>
       <field>
         <name>forecastDate</name>
-        <rename/>
       </field>
       <field>
         <name>tMin</name>
-        <rename/>
       </field>
       <field>
         <name>tMax</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>Precipitação</name>
-        <rename/>
       </field>
       <field>
         <name>precipitaProb</name>
-        <rename/>
       </field>
       <field>
         <name>Vento</name>
-        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
-        <rename/>
       </field>
       <field>
         <name>Clima</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1988,47 +2022,36 @@
     <fields>
       <field>
         <name>precipitaProb</name>
-        <rename/>
       </field>
       <field>
         <name>tMin</name>
-        <rename/>
       </field>
       <field>
         <name>tMax</name>
-        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
-        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
-        <rename/>
       </field>
       <field>
         <name>classWindSpeed</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
       </field>
       <field>
         <name>forecastDate</name>
-        <rename/>
       </field>
       <field>
         <name>classPrecInt</name>
-        <rename/>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>TYPE</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -2112,55 +2135,42 @@
     <fields>
       <field>
         <name>precipitaProb</name>
-        <rename/>
       </field>
       <field>
         <name>tMin</name>
-        <rename/>
       </field>
       <field>
         <name>tMax</name>
-        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
-        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
-        <rename/>
       </field>
       <field>
         <name>classWindSpeed</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
       </field>
       <field>
         <name>forecastDate</name>
-        <rename/>
       </field>
       <field>
         <name>classPrecInt</name>
-        <rename/>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>descClassPrecIntEn</name>
-        <rename/>
       </field>
       <field>
         <name>descClassPrecIntPT</name>
-        <rename/>
       </field>
       <field>
         <name>classPrecInt_1</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -2267,55 +2277,42 @@
     <fields>
       <field>
         <name>forecastDate</name>
-        <rename/>
       </field>
       <field>
         <name>tMin</name>
-        <rename/>
       </field>
       <field>
         <name>tMax</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>Precipitação</name>
-        <rename/>
       </field>
       <field>
         <name>precipitaProb</name>
-        <rename/>
       </field>
       <field>
         <name>Vento</name>
-        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
-        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
-        <rename/>
       </field>
       <field>
         <name>descIdWeatherTypeEN</name>
-        <rename/>
       </field>
       <field>
         <name>descIdWeatherTypePT</name>
-        <rename/>
       </field>
       <field>
         <name>idWeatherType_1</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -2422,55 +2419,42 @@
     <fields>
       <field>
         <name>precipitaProb</name>
-        <rename/>
       </field>
       <field>
         <name>tMin</name>
-        <rename/>
       </field>
       <field>
         <name>tMax</name>
-        <rename/>
       </field>
       <field>
         <name>predWindDir</name>
-        <rename/>
       </field>
       <field>
         <name>idWeatherType</name>
-        <rename/>
       </field>
       <field>
         <name>classWindSpeed</name>
-        <rename/>
       </field>
       <field>
         <name>longitude</name>
-        <rename/>
       </field>
       <field>
         <name>forecastDate</name>
-        <rename/>
       </field>
       <field>
         <name>latitude</name>
-        <rename/>
       </field>
       <field>
         <name>Precipitação</name>
-        <rename/>
       </field>
       <field>
         <name>descClassWindSpeedDailyEN</name>
-        <rename/>
       </field>
       <field>
         <name>descClassWindSpeedDailyPT</name>
-        <rename/>
       </field>
       <field>
         <name>ClassWindSpeed_1</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -2683,50 +2667,6 @@
     </GUI>
   </step>
   <step>
-    <name>Filter Info</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>JSON Info</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>TYPE</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>info</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>336</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>XML output</name>
     <type>XMLOutput</type>
     <description/>
@@ -2762,7 +2702,7 @@
         <name>Date</name>
         <element>data</element>
         <type>Date</type>
-        <format/>
+        <format>yyyy-MM-dd</format>
         <currency/>
         <decimal/>
         <group/>
