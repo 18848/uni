@@ -72,7 +72,6 @@ namespace Dashboard
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Meteorológicos";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label4
             // 
@@ -83,7 +82,6 @@ namespace Dashboard
             this.label4.Size = new System.Drawing.Size(321, 19);
             this.label4.TabIndex = 12;
             this.label4.Text = "Locais com mais precipitação últimos 10 dias Braga";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -94,7 +92,6 @@ namespace Dashboard
             this.label3.Size = new System.Drawing.Size(369, 19);
             this.label3.TabIndex = 11;
             this.label3.Text = "Locais com temperatura máxima nos últimos 10 dias Braga";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -105,7 +102,6 @@ namespace Dashboard
             this.label2.Size = new System.Drawing.Size(367, 19);
             this.label2.TabIndex = 10;
             this.label2.Text = "Locais com temperatura mínima nos últimos 10 dias Braga";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -116,7 +112,6 @@ namespace Dashboard
             this.label1.Size = new System.Drawing.Size(331, 21);
             this.label1.TabIndex = 9;
             this.label1.Text = "Previsão meteorológica próximos 5 dias Braga";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button3
             // 
@@ -193,7 +188,6 @@ namespace Dashboard
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(358, 160);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Precipitacao
             // 
