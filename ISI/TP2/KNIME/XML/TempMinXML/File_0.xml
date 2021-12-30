@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <item>
+        <date>2021-12-28</date>
+        <minimum>5.1235294342</minimum>
+        <local>Celoirico de Basto</local>
+    </item>
+    <item>
+        <date>2021-12-27</date>
+        <minimum>10.3486204147</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
+        <date>2021-12-26</date>
+        <minimum>9.16215896606</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
         <date>2021-12-25</date>
         <minimum>8.60216522217</minimum>
         <local>Terras de Bouro</local>
@@ -38,11 +53,6 @@
     <item>
         <date>2021-12-18</date>
         <minimum>-0.699944317341</minimum>
-        <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-17</date>
-        <minimum>0.200050145388</minimum>
         <local>Cabeceiras de Basto</local>
     </item>
 </root>

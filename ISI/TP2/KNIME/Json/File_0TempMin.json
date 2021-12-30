@@ -1,4 +1,16 @@
 [ {
+  "date" : "2021-12-28",
+  "minimum" : 5.1235294342,
+  "local" : "Celoirico de Basto"
+}, {
+  "date" : "2021-12-27",
+  "minimum" : 10.3486204147,
+  "local" : "Terras de Bouro"
+}, {
+  "date" : "2021-12-26",
+  "minimum" : 9.16215896606,
+  "local" : "Terras de Bouro"
+}, {
   "date" : "2021-12-25",
   "minimum" : 8.60216522217,
   "local" : "Terras de Bouro"
@@ -29,9 +41,5 @@
 }, {
   "date" : "2021-12-18",
   "minimum" : -0.699944317341,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date" : "2021-12-17",
-  "minimum" : 0.200050145388,
   "local" : "Cabeceiras de Basto"
 } ]

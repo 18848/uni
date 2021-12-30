@@ -1,7 +1,7 @@
 [ {
   "precipitaProb" : 0.0,
   "tMin" : 8.3,
-  "tMax" : 20.0,
+  "tMax" : 20.9,
   "predWindDir" : "SE",
   "longitude" : -8.4227,
   "forecastDate" : "2021-12-30",
@@ -11,20 +11,31 @@
   "descClassWindSpeedDailyPT" : "Fraco"
 }, {
   "precipitaProb" : 0.0,
-  "tMin" : 8.7,
-  "tMax" : 20.8,
+  "tMin" : 6.8,
+  "tMax" : 22.8,
   "predWindDir" : "SE",
   "longitude" : -8.4227,
   "forecastDate" : "2021-12-31",
   "latitude" : 41.5475,
   "descClassPrecIntPT" : null,
-  "descIdWeatherTypePT" : "Céu pouco nublado",
+  "descIdWeatherTypePT" : "Céu nublado por nuvens altas",
+  "descClassWindSpeedDailyPT" : "Fraco"
+}, {
+  "precipitaProb" : 43.0,
+  "tMin" : 10.0,
+  "tMax" : 22.1,
+  "predWindDir" : "S",
+  "longitude" : -8.4227,
+  "forecastDate" : "2022-01-01",
+  "latitude" : 41.5475,
+  "descClassPrecIntPT" : "Moderado",
+  "descIdWeatherTypePT" : "Aguaceiros",
   "descClassWindSpeedDailyPT" : "Fraco"
 }, {
   "precipitaProb" : 100.0,
-  "tMin" : 9.8,
-  "tMax" : 18.2,
-  "predWindDir" : "SW",
+  "tMin" : 10.7,
+  "tMax" : 17.6,
+  "predWindDir" : "S",
   "longitude" : -8.4227,
   "forecastDate" : "2021-12-29",
   "latitude" : 41.5475,
@@ -32,25 +43,14 @@
   "descIdWeatherTypePT" : "Chuva",
   "descClassWindSpeedDailyPT" : "Fraco"
 }, {
-  "precipitaProb" : 100.0,
-  "tMin" : 13.3,
-  "tMax" : 16.9,
-  "predWindDir" : "SW",
+  "precipitaProb" : 77.0,
+  "tMin" : 11.9,
+  "tMax" : 16.8,
+  "predWindDir" : "E",
   "longitude" : -8.4227,
-  "forecastDate" : "2021-12-27",
+  "forecastDate" : "2022-01-02",
   "latitude" : 41.5475,
-  "descClassPrecIntPT" : "Fraco",
-  "descIdWeatherTypePT" : "Chuva fraca ou chuvisco",
-  "descClassWindSpeedDailyPT" : "Moderado"
-}, {
-  "precipitaProb" : 100.0,
-  "tMin" : 13.9,
-  "tMax" : 17.5,
-  "predWindDir" : "S",
-  "longitude" : -8.4227,
-  "forecastDate" : "2021-12-28",
-  "latitude" : 41.5475,
-  "descClassPrecIntPT" : "Fraco",
-  "descIdWeatherTypePT" : "Chuva fraca ou chuvisco",
-  "descClassWindSpeedDailyPT" : "Moderado"
+  "descClassPrecIntPT" : "Moderado",
+  "descIdWeatherTypePT" : "Chuva",
+  "descClassWindSpeedDailyPT" : "Fraco"
 } ]
