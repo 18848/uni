@@ -435,6 +435,30 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>This connections are for testing the email functionality.
+
+The 'test' variable, defined on the [Mail Settings] data grid, 
+stores the email to be used in the testing.</note>
+      <xloc>128</xloc>
+      <yloc>256</yloc>
+      <width>320</width>
+      <heigth>73</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>ISITP2Tempo</name>
@@ -552,13 +576,13 @@
     </hop>
     <hop>
       <from>Join Hello String</from>
-      <to>Build body 2</to>
+      <to>Build body test</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Build body 2</from>
-      <to>Mail 2</to>
-      <enabled>N</enabled>
+      <from>Build body test</from>
+      <to>Mail test</to>
+      <enabled>Y</enabled>
     </hop>
   </order>
   <step>
@@ -606,7 +630,7 @@
     </GUI>
   </step>
   <step>
-    <name>Build body 2</name>
+    <name>Build body test</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
@@ -645,7 +669,7 @@
     </remotesteps>
     <GUI>
       <xloc>832</xloc>
-      <yloc>272</yloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -782,7 +806,7 @@
     </remotesteps>
     <GUI>
       <xloc>560</xloc>
-      <yloc>320</yloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -928,7 +952,7 @@
     </GUI>
   </step>
   <step>
-    <name>Mail 2</name>
+    <name>Mail test</name>
     <type>Mail</type>
     <description/>
     <distribute>Y</distribute>
@@ -990,7 +1014,7 @@
     </remotesteps>
     <GUI>
       <xloc>960</xloc>
-      <yloc>272</yloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1117,7 +1141,6 @@
     <connection>ISITP2Tempo</connection>
     <sql>SELECT 
 	nome
-,	zona
 ,	email
 FROM 
 	dbo.pessoa</sql>
@@ -1136,29 +1159,6 @@ FROM
         <precision>-1</precision>
         <origin>Table input</origin>
         <comments>nome</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_GB</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>zona</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>zona</comments>
         <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
@@ -1207,8 +1207,8 @@ FROM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>224</yloc>
+      <xloc>464</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1312,7 +1312,7 @@ FROM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>128</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>

@@ -620,6 +620,160 @@
     </GUI>
   </step>
   <step>
+    <name>Data grid</name>
+    <type>DataGrid</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>file</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>Cidade</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+    </fields>
+    <data>
+      <line>
+        <item>amares.csv</item>
+        <item>Amares</item>
+      </line>
+      <line>
+        <item>barcelos.csv</item>
+        <item>Barcelos</item>
+      </line>
+      <line>
+        <item>braga.csv</item>
+        <item>Braga</item>
+      </line>
+      <line>
+        <item>cabeceiras-de-basto.csv</item>
+        <item>Cabeceiras de Basto</item>
+      </line>
+      <line>
+        <item>celorico-de-basto.csv</item>
+        <item>Celorico de Basto</item>
+      </line>
+      <line>
+        <item>esposende.csv</item>
+        <item>Esposende</item>
+      </line>
+      <line>
+        <item>fafe.csv</item>
+        <item>Fafe</item>
+      </line>
+      <line>
+        <item>guimaraes.csv</item>
+        <item>Guimarães</item>
+      </line>
+      <line>
+        <item>povoa-de-lanhoso.csv</item>
+        <item>Póvoa de Lanhoso</item>
+      </line>
+      <line>
+        <item>terras-de-bouro.csv</item>
+        <item>Terras de Bouro</item>
+      </line>
+      <line>
+        <item>vieira-do-minho.csv</item>
+        <item>Vieira do Minho</item>
+      </line>
+      <line>
+        <item>vila-nova-de-famalicao.csv</item>
+        <item>Vila Nova de Famalicão</item>
+      </line>
+      <line>
+        <item>vila-verde.csv</item>
+        <item>Vila Verde</item>
+      </line>
+      <line>
+        <item>vizela.csv</item>
+        <item>Vizela</item>
+      </line>
+    </data>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Format Date</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Today_Date</name>
+        <rename>Today_Date</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>JSON output</name>
     <type>JsonOutput</type>
     <description/>
@@ -678,7 +832,7 @@
     </GUI>
   </step>
   <step>
-    <name>Join rows</name>
+    <name>Join Cidade</name>
     <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -695,9 +849,9 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue/>
+        <leftvalue>filename</leftvalue>
         <function>=</function>
-        <rightvalue/>
+        <rightvalue>file</rightvalue>
       </condition>
     </compare>
     <attributes/>
@@ -709,7 +863,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>672</xloc>
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
@@ -752,8 +906,8 @@
     </GUI>
   </step>
   <step>
-    <name>Format Date</name>
-    <type>SelectValues</type>
+    <name>Join rows</name>
+    <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -762,26 +916,18 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>Today_Date</name>
-        <rename>Today_Date</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -792,7 +938,7 @@
     </remotesteps>
     <GUI>
       <xloc>192</xloc>
-      <yloc>192</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -810,55 +956,42 @@
     <fields>
       <field>
         <name>file</name>
-        <rename/>
       </field>
       <field>
         <name>Cidade</name>
-        <rename/>
       </field>
       <field>
         <name>date</name>
-        <rename/>
       </field>
       <field>
         <name>minimum</name>
-        <rename/>
       </field>
       <field>
         <name>maximum</name>
-        <rename/>
       </field>
       <field>
         <name>range</name>
-        <rename/>
       </field>
       <field>
         <name>mean</name>
-        <rename/>
       </field>
       <field>
         <name>std</name>
-        <rename/>
       </field>
       <field>
         <name>filename</name>
-        <rename/>
       </field>
       <field>
         <name>Today_Date</name>
-        <rename/>
       </field>
       <field>
         <name>Date_diff</name>
-        <rename/>
       </field>
       <field>
         <name>date_1</name>
-        <rename/>
       </field>
       <field>
         <name>Min</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
@@ -1084,12 +1217,12 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>D:\GIT\uni\ISI\TP2\SPOON\api\temperatures</name>
+      <name>D:\GIT\uni\ISI\TP2\SPOON\api\temp-min</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
-      <name>C:\Users\cacete\GIT\uni\ISI\TP2\SPOON\api\temperatures</name>
+      <name>C:\Users\cacete\GIT\uni\ISI\TP2\SPOON\api\temp-min</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1436,152 +1569,6 @@
     <GUI>
       <xloc>1024</xloc>
       <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Data grid</name>
-    <type>DataGrid</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>file</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-        <field_null_if/>
-      </field>
-      <field>
-        <name>Cidade</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-        <field_null_if/>
-      </field>
-    </fields>
-    <data>
-      <line>
-        <item>amares.csv</item>
-        <item>Amares</item>
-      </line>
-      <line>
-        <item>barcelos.csv</item>
-        <item>Barcelos</item>
-      </line>
-      <line>
-        <item>braga.csv</item>
-        <item>Braga</item>
-      </line>
-      <line>
-        <item>cabeceiras-de-basto.csv</item>
-        <item>Cabeceiras de Basto</item>
-      </line>
-      <line>
-        <item>celorico-de-basto.csv</item>
-        <item>Celorico de Basto</item>
-      </line>
-      <line>
-        <item>esposende.csv</item>
-        <item>Esposende</item>
-      </line>
-      <line>
-        <item>fafe.csv</item>
-        <item>Fafe</item>
-      </line>
-      <line>
-        <item>guimaraes.csv</item>
-        <item>Guimarães</item>
-      </line>
-      <line>
-        <item>povoa-de-lanhoso.csv</item>
-        <item>Póvoa de Lanhoso</item>
-      </line>
-      <line>
-        <item>terras-de-bouro.csv</item>
-        <item>Terras de Bouro</item>
-      </line>
-      <line>
-        <item>vieira-do-minho.csv</item>
-        <item>Vieira do Minho</item>
-      </line>
-      <line>
-        <item>vila-nova-de-famalicao.csv</item>
-        <item>Vila Nova de Famalicão</item>
-      </line>
-      <line>
-        <item>vila-verde.csv</item>
-        <item>Vila Verde</item>
-      </line>
-      <line>
-        <item>vizela.csv</item>
-        <item>Vizela</item>
-      </line>
-    </data>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Cidade</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>filename</leftvalue>
-        <function>=</function>
-        <rightvalue>file</rightvalue>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<Forecast>
-<Day data="2021/12/28 00:00:00.000"> <Min>14.1</Min> <Max>17.4</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>Moderado</Precipitação> <Probabilidade>100.0</Probabilidade> <Vento>Moderado</Vento> <Direção>SW</Direção> <Clima>Chuva</Clima></Day>
-<Day data="2021/12/29 00:00:00.000"> <Min>10.6</Min> <Max>17.7</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>Fraco</Precipitação> <Probabilidade>100.0</Probabilidade> <Vento>Moderado</Vento> <Direção>SW</Direção> <Clima>Chuva fraca ou chuvisco</Clima></Day>
-<Day data="2021/12/30 00:00:00.000"> <Min>7.6</Min> <Max>20.7</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>0.0</Probabilidade> <Vento>Fraco</Vento> <Direção>SE</Direção> <Clima>Céu pouco nublado</Clima></Day>
-<Day data="2021/12/31 00:00:00.000"> <Min>8.4</Min> <Max>22.3</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>0.0</Probabilidade> <Vento>Fraco</Vento> <Direção>SE</Direção> <Clima>Céu nublado por nuvens altas</Clima></Day>
-<Day data="2022/01/01 00:00:00.000"> <Min>9.7</Min> <Max>22.0</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>Moderado</Precipitação> <Probabilidade>40.0</Probabilidade> <Vento>Fraco</Vento> <Direção>SW</Direção> <Clima>Aguaceiros</Clima></Day>
-</Forecast>

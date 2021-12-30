@@ -436,69 +436,6 @@
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>ISITP2Tempo</name>
-    <server>isitp2tempo.database.windows.net</server>
-    <type>MSSQLNATIVE</type>
-    <access>Native</access>
-    <database>isitp2tempo</database>
-    <port>1433</port>
-    <username>ademyn</username>
-    <password>Encrypted 69706d615dffc8e69707c69b8894309d59e186bf88</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
-        <attribute>ISITP2Tempo</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQLUseIntegratedSecurity</code>
-        <attribute>false</attribute>
-      </attribute>
-      <attribute>
-        <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>1433</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <order>
     <hop>
       <from>Add Forecast</from>
@@ -576,23 +513,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add User Element</from>
-      <to>XML User</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Add XML</from>
-      <to>XML User</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>XML User</from>
       <to>XML Forecast</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table input</from>
-      <to>Add User Element</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -673,7 +595,7 @@
       </field>
       <field>
         <name>Precipitacao</name>
-        <element/>
+        <element>Precipitação</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -715,7 +637,7 @@
       </field>
       <field>
         <name>Direcao</name>
-        <element/>
+        <element>Direção</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -766,7 +688,7 @@
     </remotesteps>
     <GUI>
       <xloc>256</xloc>
-      <yloc>256</yloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -842,7 +764,7 @@
     </remotesteps>
     <GUI>
       <xloc>256</xloc>
-      <yloc>336</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -918,7 +840,7 @@
     </remotesteps>
     <GUI>
       <xloc>256</xloc>
-      <yloc>416</yloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -994,7 +916,7 @@
     </remotesteps>
     <GUI>
       <xloc>256</xloc>
-      <yloc>496</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1265,7 +1187,7 @@
       </field>
       <field>
         <name>Precipitacao</name>
-        <xpath>Precipitacao</xpath>
+        <xpath>Precipitação</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1298,7 +1220,7 @@
         <xpath>Vento</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
-        <type>String</type>
+        <type>None</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1310,7 +1232,7 @@
       </field>
       <field>
         <name>Direcao</name>
-        <xpath>Direcao</xpath>
+        <xpath>Direção</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -1378,7 +1300,76 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>256</yloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>HTLM Output</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator/>
+    <enclosure/>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>D:\GIT\uni\ISI\TP2\SPOON\Email\files\output</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention>html</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>result</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1484,7 +1475,7 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>336</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1590,7 +1581,7 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>416</yloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1696,7 +1687,43 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>496</yloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>XML Forecast</name>
+    <type>XMLJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valueXMLField>xmlForecast</valueXMLField>
+    <targetXMLstep>Add XML</targetXMLstep>
+    <targetXMLfield>xmlParent</targetXMLfield>
+    <sourceXMLstep>Add Forecast</sourceXMLstep>
+    <sourceXMLfield>xml1</sourceXMLfield>
+    <complexJoin>N</complexJoin>
+    <joinCompareField/>
+    <targetXPath>//Forecast</targetXPath>
+    <encoding>UTF-8</encoding>
+    <omitXMLHeader>N</omitXMLHeader>
+    <omitNullValues>N</omitNullValues>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1765,43 +1792,7 @@
     </remotesteps>
     <GUI>
       <xloc>512</xloc>
-      <yloc>496</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>XML Forecast</name>
-    <type>XMLJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valueXMLField>xmlForecast</valueXMLField>
-    <targetXMLstep>XML User</targetXMLstep>
-    <targetXMLfield>xmlUser</targetXMLfield>
-    <sourceXMLstep>Add Forecast</sourceXMLstep>
-    <sourceXMLfield>xml1</sourceXMLfield>
-    <complexJoin>N</complexJoin>
-    <joinCompareField/>
-    <targetXPath>//Forecast</targetXPath>
-    <encoding>UTF-8</encoding>
-    <omitXMLHeader>N</omitXMLHeader>
-    <omitNullValues>N</omitNullValues>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>256</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1837,7 +1828,7 @@
     </remotesteps>
     <GUI>
       <xloc>368</xloc>
-      <yloc>336</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1873,7 +1864,7 @@
     </remotesteps>
     <GUI>
       <xloc>368</xloc>
-      <yloc>416</yloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1909,7 +1900,7 @@
     </remotesteps>
     <GUI>
       <xloc>368</xloc>
-      <yloc>496</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1944,260 +1935,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>496</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>HTLM Output</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator/>
-    <enclosure/>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding>UTF-8</encoding>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>D:\GIT\uni\ISI\TP2\SPOON\Email\files\output</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
-      <extention>html</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>result</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>864</xloc>
-      <yloc>496</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add User Element</name>
-    <type>AddXML</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <encoding>UTF-8</encoding>
-    <valueName>xml0</valueName>
-    <xml_repeat_element>User</xml_repeat_element>
-    <file>
-      <omitXMLheader>Y</omitXMLheader>
-      <omitNullValues>N</omitNullValues>
-    </file>
-    <fields>
-      <field>
-        <name>Nome</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>255</length>
-        <precision>-1</precision>
-        <attribute>N</attribute>
-        <attributeParentName/>
-      </field>
-      <field>
-        <name>Local</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>255</length>
-        <precision>-1</precision>
-        <attribute>N</attribute>
-        <attributeParentName/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>XML User</name>
-    <type>XMLJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valueXMLField>xmlUser</valueXMLField>
-    <targetXMLstep>Add XML</targetXMLstep>
-    <targetXMLfield>xmlParent</targetXMLfield>
-    <sourceXMLstep>Add User Element</sourceXMLstep>
-    <sourceXMLfield>xml0</sourceXMLfield>
-    <complexJoin>N</complexJoin>
-    <joinCompareField/>
-    <targetXPath>//Root</targetXPath>
-    <encoding>UTF-8</encoding>
-    <omitXMLHeader>N</omitXMLHeader>
-    <omitNullValues>N</omitNullValues>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>ISITP2Tempo</connection>
-    <sql>SELECT 
-	nome as Nome
-,	zona as Local
-FROM 
-	dbo.pessoa</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>Nome</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>Nome</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_GB</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>Local</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>Local</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_GB</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>176</yloc>
+      <xloc>624</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

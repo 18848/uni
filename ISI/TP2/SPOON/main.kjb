@@ -321,8 +321,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>720</xloc>
-      <yloc>128</yloc>
+      <xloc>688</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -360,8 +360,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>528</xloc>
-      <yloc>128</yloc>
+      <xloc>448</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -399,8 +399,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>624</xloc>
-      <yloc>128</yloc>
+      <xloc>560</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -421,8 +421,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>256</xloc>
-      <yloc>128</yloc>
+      <xloc>112</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -460,31 +460,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>816</xloc>
-      <yloc>128</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Build Email HTML</name>
-      <description/>
-      <type>XSLT</type>
-      <attributes/>
-      <xmlfilename>D:\GIT\uni\ISI\TP2\SPOON\Email\files\email.xml</xmlfilename>
-      <xslfilename>D:\GIT\uni\ISI\TP2\SPOON\Email\files\email.xsl</xslfilename>
-      <outputfilename>D:\GIT\uni\ISI\TP2\SPOON\Email\files\output.html</outputfilename>
-      <iffileexists>0</iffileexists>
-      <addfiletoresult>N</addfiletoresult>
-      <filenamesfromprevious>N</filenamesfromprevious>
-      <xsltfactory>JAXP</xsltfactory>
-      <parameters>
-    </parameters>
-      <outputproperties>
-    </outputproperties>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>144</xloc>
-      <yloc>128</yloc>
+      <xloc>800</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -522,8 +499,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>816</xloc>
-      <yloc>288</yloc>
+      <xloc>800</xloc>
+      <yloc>256</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -561,12 +538,12 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>720</xloc>
-      <yloc>288</yloc>
+      <xloc>688</xloc>
+      <yloc>256</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>CSV Update</name>
+      <name>CSV Download</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -600,8 +577,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>432</xloc>
-      <yloc>128</yloc>
+      <xloc>320</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -614,8 +591,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>432</xloc>
-      <yloc>288</yloc>
+      <xloc>320</xloc>
+      <yloc>256</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -626,8 +603,46 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>528</xloc>
-      <yloc>208</yloc>
+      <xloc>592</xloc>
+      <yloc>336</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Delete folders</name>
+      <description/>
+      <type>DELETE_FOLDERS</type>
+      <attributes/>
+      <arg_from_previous>N</arg_from_previous>
+      <success_condition>success_if_no_errors</success_condition>
+      <limit_folders>10</limit_folders>
+      <fields>
+        <field>
+          <name>D:\GIT\uni\ISI\TP2\SPOON\Precipitacao\files</name>
+        </field>
+        <field>
+          <name>D:\GIT\uni\ISI\TP2\SPOON\Previsao\files</name>
+        </field>
+        <field>
+          <name>D:\GIT\uni\ISI\TP2\SPOON\Temp-Max\files</name>
+        </field>
+        <field>
+          <name>D:\GIT\uni\ISI\TP2\SPOON\api\precipitation</name>
+        </field>
+        <field>
+          <name>D:\GIT\uni\ISI\TP2\SPOON\api\temp-max</name>
+        </field>
+        <field>
+          <name>D:\GIT\uni\ISI\TP2\SPOON\api\temp-min</name>
+        </field>
+        <field>
+          <name>D:\GIT\uni\ISI\TP2\SPOON\Temp-Min\files</name>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>432</xloc>
+      <yloc>336</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -670,16 +685,7 @@
     </hop>
     <hop>
       <from>Start</from>
-      <to>Build Email HTML</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Start</from>
-      <to>CSV Update</to>
+      <to>CSV Download</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -687,7 +693,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>CSV Update</from>
+      <from>CSV Download</from>
       <to>Temp Max</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -705,17 +711,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Start</from>
-      <to>Wait for</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>Wait for</from>
-      <to>CSV Update</to>
+      <to>CSV Download</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>N</enabled>
@@ -724,6 +721,24 @@
     </hop>
     <hop>
       <from>Send Email</from>
+      <to>Delete folders</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Delete folders</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Delete folders</from>
       <to>Wait for</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -740,8 +755,63 @@
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Send Email</from>
+      <to>Wait for</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>The present job can be set to loop, in set intervals of time.
+
+It is currently set as a daily loop (24 hours).</note>
+      <xloc>480</xloc>
+      <yloc>176</yloc>
+      <width>313</width>
+      <heigth>57</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>It is possible to delete auxilliary files, however it is set 
+on full paths which makes it not viable.
+</note>
+      <xloc>16</xloc>
+      <yloc>192</yloc>
+      <width>291</width>
+      <heigth>57</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <attributes/>
 </job>

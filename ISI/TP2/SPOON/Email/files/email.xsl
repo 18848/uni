@@ -58,10 +58,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 		<td><xsl:value-of select="Max" /></td>
 		<td><xsl:value-of select="Longitude" /></td>
 		<td><xsl:value-of select="Latitude" /></td>
-		<td bgcolor="#CACACA"><xsl:value-of select="Precipitacao" /></td>
+		<td bgcolor="#CACACA"><xsl:value-of select="Precipitação" /></td>
 		<td><xsl:value-of select="Probabilidade" /></td>
 		<td bgcolor="#CACACA"><xsl:value-of select="Vento" /></td>
-		<td><xsl:value-of select="Direcao" /></td>
+		<td><xsl:value-of select="Direção" /></td>
 		<td bgcolor="#CACACA"><xsl:value-of select="Clima" /></td>
 		</tr>
 		</xsl:for-each>
