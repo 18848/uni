@@ -440,8 +440,8 @@
 
 The 'test' variable, defined on the [Mail Settings] data grid, 
 stores the email to be used in the testing.</note>
-      <xloc>128</xloc>
-      <yloc>256</yloc>
+      <xloc>112</xloc>
+      <yloc>272</yloc>
       <width>320</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
@@ -1109,7 +1109,7 @@ stores the email to be used in the testing.</note>
         <item>smtp-mail.outlook.com</item>
         <item>weather.isitp2@outlook.pt</item>
         <item>ipma_API_mail_ISI_tp2</item>
-        <item>hello bro</item>
+        <item>Dados Meteorológicos</item>
         <item>a18848@alunos.ipca.pt</item>
       </line>
     </data>
