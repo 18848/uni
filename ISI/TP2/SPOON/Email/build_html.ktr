@@ -1915,7 +1915,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <xslfilename>D:\GIT\uni\ISI\TP2\SPOON\Email\files\email.xsl</xslfilename>
+    <xslfilename>C:\Users\Leone\OneDrive\Ambiente de Trabalho\tings\IPCA\3ºano\repo\uni\ISI\TP2\SPOON\Email\files\email.xsl</xslfilename>
     <fieldname>xmlTempMin</fieldname>
     <resultfieldname>result</resultfieldname>
     <xslfilefield/>

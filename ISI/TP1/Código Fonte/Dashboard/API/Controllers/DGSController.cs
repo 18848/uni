@@ -20,6 +20,7 @@ namespace API.Controllers
             HttpResponseMessage response = client.GetAsync("https://covid19-api.vost.pt/Requests/get_last_update_counties").Result;
             var res = response.Content.ReadAsStringAsync().Result;
 
+            // API do COVID Não mais funcional sem autenticação
             concelhos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ConcelhoModel>>(res);
             return new ObjectResult(concelhos);
         }

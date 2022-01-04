@@ -1,7 +1,7 @@
+http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1030300.json
 https://api.ipma.pt/open-data/wind-speed-daily-classe.json
 https://api.ipma.pt/open-data/weather-type-classe.json
 https://api.ipma.pt/open-data/precipitation-classe.json
-http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1030300.json
 1030300.json
 /XML/TempMaxXML/File_0.xml
 /XML/TempMinXML/File_0.xml

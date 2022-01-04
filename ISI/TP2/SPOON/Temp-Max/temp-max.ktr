@@ -1217,17 +1217,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>C:\Users\cacete\GIT\uni\ISI\TP2\SPOON\api\temp-max</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name>D:\GIT\uni\ISI\TP2\SPOON\api\temp-max</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name/>
+      <name>C:\Users\Leone\OneDrive\Ambiente de Trabalho\tings\IPCA\3ºano\repo\uni\ISI\TP2\SPOON\api\temp-max</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>

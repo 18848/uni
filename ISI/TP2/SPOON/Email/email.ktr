@@ -474,10 +474,6 @@ stores the email to be used in the testing.</note>
     <index_tablespace/>
     <attributes>
       <attribute>
-        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
-        <attribute>ISITP2Tempo</attribute>
-      </attribute>
-      <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
       </attribute>
@@ -495,7 +491,7 @@ stores the email to be used in the testing.</note>
       </attribute>
       <attribute>
         <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -547,7 +543,7 @@ stores the email to be used in the testing.</note>
     <hop>
       <from>Table input</from>
       <to>Join Destinations</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Build body</from>
@@ -952,73 +948,6 @@ stores the email to be used in the testing.</note>
     </GUI>
   </step>
   <step>
-    <name>Mail test</name>
-    <type>Mail</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <server>server</server>
-    <port>port</port>
-    <destination>test</destination>
-    <destinationCc/>
-    <destinationBCc/>
-    <replyToAddresses/>
-    <replyto>sender</replyto>
-    <replytoname/>
-    <subject>subject</subject>
-    <include_date>N</include_date>
-    <include_subfolders>N</include_subfolders>
-    <zipFilenameDynamic>N</zipFilenameDynamic>
-    <isFilenameDynamic>N</isFilenameDynamic>
-    <attachContentFromField>N</attachContentFromField>
-    <attachContentField/>
-    <attachContentFileNameField/>
-    <dynamicFieldname/>
-    <dynamicWildcard/>
-    <dynamicZipFilename/>
-    <sourcefilefoldername/>
-    <sourcewildcard/>
-    <contact_person/>
-    <contact_phone/>
-    <comment>body</comment>
-    <include_files>N</include_files>
-    <zip_files>N</zip_files>
-    <zip_name/>
-    <zip_limit_size>0</zip_limit_size>
-    <use_auth>Y</use_auth>
-    <use_secure_auth>Y</use_secure_auth>
-    <auth_user>sender</auth_user>
-    <auth_password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</auth_password>
-    <only_comment>N</only_comment>
-    <use_HTML>Y</use_HTML>
-    <use_Priority>N</use_Priority>
-    <encoding>UTF-8</encoding>
-    <priority>normal</priority>
-    <importance>normal</importance>
-    <sensitivity>normal</sensitivity>
-    <secureconnectiontype>TLS</secureconnectiontype>
-    <embeddedimages>
-      </embeddedimages>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>960</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Mail Settings</name>
     <type>DataGrid</type>
     <description/>
@@ -1128,6 +1057,73 @@ stores the email to be used in the testing.</note>
     </GUI>
   </step>
   <step>
+    <name>Mail test</name>
+    <type>Mail</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <server>server</server>
+    <port>port</port>
+    <destination>test</destination>
+    <destinationCc/>
+    <destinationBCc/>
+    <replyToAddresses/>
+    <replyto>sender</replyto>
+    <replytoname/>
+    <subject>subject</subject>
+    <include_date>N</include_date>
+    <include_subfolders>N</include_subfolders>
+    <zipFilenameDynamic>N</zipFilenameDynamic>
+    <isFilenameDynamic>N</isFilenameDynamic>
+    <attachContentFromField>N</attachContentFromField>
+    <attachContentField/>
+    <attachContentFileNameField/>
+    <dynamicFieldname/>
+    <dynamicWildcard/>
+    <dynamicZipFilename/>
+    <sourcefilefoldername/>
+    <sourcewildcard/>
+    <contact_person/>
+    <contact_phone/>
+    <comment>body</comment>
+    <include_files>N</include_files>
+    <zip_files>N</zip_files>
+    <zip_name/>
+    <zip_limit_size>0</zip_limit_size>
+    <use_auth>Y</use_auth>
+    <use_secure_auth>Y</use_secure_auth>
+    <auth_user>sender</auth_user>
+    <auth_password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</auth_password>
+    <only_comment>N</only_comment>
+    <use_HTML>Y</use_HTML>
+    <use_Priority>N</use_Priority>
+    <encoding>UTF-8</encoding>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>TLS</secureconnectiontype>
+    <embeddedimages>
+      </embeddedimages>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Table input</name>
     <type>TableInput</type>
     <description/>
@@ -1207,7 +1203,7 @@ FROM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>480</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1251,7 +1247,7 @@ FROM
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>D:\GIT\uni\ISI\TP2\SPOON\Email\files\output.html</name>
+      <name>C:\Users\Leone\OneDrive\Ambiente de Trabalho\tings\IPCA\3ºano\repo\uni\ISI\TP2\SPOON\Email\files\output.html</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>

@@ -1,0 +1,6 @@
+Date;Min;Max;longitude;latitude;Precipitação;Probabilidade;Vento;Direção;Clima
+2022-01-04;7.2;13.6;-8.4227;41.5475;Moderado;100;Moderado;NW;Aguaceiros
+2022-01-05;4.1;11.8;-8.4227;41.5475;Moderado;100;Fraco;NW;Chuva
+2022-01-06;4.2;13.8;-8.4227;41.5475;N/A;10;Fraco;E;Céu muito nublado ou encoberto
+2022-01-07;4.2;13.5;-8.4227;41.5475;N/A;0;Fraco;N;Céu pouco nublado
+2022-01-08;0.6;12.4;-8.4227;41.5475;N/A;36;Fraco;NW;Céu parcialmente nublado

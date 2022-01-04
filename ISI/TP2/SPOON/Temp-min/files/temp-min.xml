@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Temp-Min>
+<Day data="2021-12-31"> <Cidade>Braga</Cidade> <Minimo>3.4</Minimo></Day>
+<Day data="2022-01-02"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>6</Minimo></Day>
+<Day data="2022-01-01"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>3.4</Minimo></Day>
+<Day data="2021-12-30"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>5.7</Minimo></Day>
+<Day data="2021-12-29"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>10.021</Minimo></Day>
+<Day data="2021-12-24"> <Cidade>Cabeceiras de Basto</Cidade> <Minimo>6.8</Minimo></Day>
+<Day data="2021-12-28"> <Cidade>Celorico de Basto</Cidade> <Minimo>5.124</Minimo></Day>
+<Day data="2021-12-27"> <Cidade>Terras de Bouro</Cidade> <Minimo>10.349</Minimo></Day>
+<Day data="2021-12-26"> <Cidade>Terras de Bouro</Cidade> <Minimo>9.162</Minimo></Day>
+<Day data="2021-12-25"> <Cidade>Terras de Bouro</Cidade> <Minimo>8.602</Minimo></Day>
+</Temp-Min>

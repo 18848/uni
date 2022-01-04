@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <item>
+        <date>2022-01-02</date>
+        <minimum>0.881009101868</minimum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <date>2022-01-01</date>
+        <minimum>0.000006220247087</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <date>2021-12-31</date>
+        <minimum>3.67421336E-7</minimum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <date>2021-12-30</date>
+        <minimum>0.00120274408255</minimum>
+        <local>Esposende</local>
+    </item>
+    <item>
+        <date>2021-12-29</date>
+        <minimum>2.11307621002</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
+        <date>2021-12-28</date>
+        <minimum>1.69354176521</minimum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <date>2021-12-27</date>
+        <minimum>0.11495244503</minimum>
+        <local>Esposende</local>
+    </item>
+    <item>
+        <date>2021-12-26</date>
+        <minimum>25.456205368</minimum>
+        <local>Terras de Bouro</local>
+    </item>
+    <item>
         <date>2021-12-25</date>
         <minimum>3.84441709518</minimum>
         <local>Terras de Bouro</local>
@@ -9,145 +49,5 @@
         <date>2021-12-24</date>
         <minimum>5.47107124329</minimum>
         <local>Celoirico de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-23</date>
-        <minimum>8.47598838806</minimum>
-        <local>Vila nova de Famalicão</local>
-    </item>
-    <item>
-        <date>2021-12-22</date>
-        <minimum>1.09803903103</minimum>
-        <local>Vila nova de Famalicão</local>
-    </item>
-    <item>
-        <date>2021-12-21</date>
-        <minimum>5.32809352875</minimum>
-        <local>Esposende</local>
-    </item>
-    <item>
-        <date>2021-12-20</date>
-        <minimum>12.7000198364</minimum>
-        <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Amares</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Barcelos</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Braga</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Celoirico de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Esposende</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Fafe</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Guimarães</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Póvoa de Lanhoso</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Terras de Bouro</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Vieira do Minho</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Vila Verde</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Vila nova de Famalicão</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <minimum>0</minimum>
-        <local>Vizela</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Braga</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Cabeceiras de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Celoirico de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Fafe</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Guimarães</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Póvoa de Lanhoso</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Vieira do Minho</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Vila nova de Famalicão</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <minimum>0</minimum>
-        <local>Vizela</local>
-    </item>
-    <item>
-        <date>2021-12-17</date>
-        <minimum>1.06158438E-7</minimum>
-        <local>Cabeceiras de Basto</local>
     </item>
 </root>
