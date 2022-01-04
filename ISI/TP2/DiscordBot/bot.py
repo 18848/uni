@@ -1,8 +1,9 @@
+#!venv/Scripts/python.exe
+
 import discord
 import os
 from prettytable import PrettyTable
 import dados
-import requests
 
 client = discord.Client()
 
