@@ -474,10 +474,6 @@ stores the email to be used in the testing.</note>
     <index_tablespace/>
     <attributes>
       <attribute>
-        <code>EXTRA_OPTION_MSSQLNATIVE.instance</code>
-        <attribute>ISITP2Tempo</attribute>
-      </attribute>
-      <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
       </attribute>
@@ -495,7 +491,7 @@ stores the email to be used in the testing.</note>
       </attribute>
       <attribute>
         <code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code>
-        <attribute>Y</attribute>
+        <attribute>N</attribute>
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
@@ -1207,7 +1203,7 @@ FROM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>480</xloc>
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1251,7 +1247,7 @@ FROM
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>D:\GIT\uni\ISI\TP2\SPOON\Email\files\output.html</name>
+      <name>C:\Users\Leone\OneDrive\Ambiente de Trabalho\tings\IPCA\3ºano\repo\uni\ISI\TP2\SPOON\Email\files\output.html</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>

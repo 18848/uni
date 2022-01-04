@@ -1,4 +1,36 @@
 [ {
+  "date" : "2022-01-02",
+  "maximum" : 18.0,
+  "local" : "Braga"
+}, {
+  "date" : "2022-01-01",
+  "maximum" : 23.3999977112,
+  "local" : "Braga"
+}, {
+  "date" : "2021-12-31",
+  "maximum" : 22.2266902924,
+  "local" : "Vila nova de Famalicão"
+}, {
+  "date" : "2021-12-30",
+  "maximum" : 20.0999603271,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date" : "2021-12-29",
+  "maximum" : 17.4435195923,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-28",
+  "maximum" : 18.8894634247,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-27",
+  "maximum" : 17.287405014,
+  "local" : "Vila Verde"
+}, {
+  "date" : "2021-12-26",
+  "maximum" : 17.0980052948,
+  "local" : "Vila Verde"
+}, {
   "date" : "2021-12-25",
   "maximum" : 16.695766449,
   "local" : "Vila nova de Famalicão"
@@ -6,32 +38,4 @@
   "date" : "2021-12-24",
   "maximum" : 15.0999975204,
   "local" : "Braga"
-}, {
-  "date" : "2021-12-23",
-  "maximum" : 17.3143768311,
-  "local" : "Vila Verde"
-}, {
-  "date" : "2021-12-22",
-  "maximum" : 18.3035850525,
-  "local" : "Vila Verde"
-}, {
-  "date" : "2021-12-21",
-  "maximum" : 20.897310257,
-  "local" : "Vila Verde"
-}, {
-  "date" : "2021-12-20",
-  "maximum" : 16.1925735474,
-  "local" : "Vila Verde"
-}, {
-  "date" : "2021-12-19",
-  "maximum" : 17.8162536621,
-  "local" : "Vila Verde"
-}, {
-  "date" : "2021-12-18",
-  "maximum" : 17.6999931335,
-  "local" : "Braga"
-}, {
-  "date" : "2021-12-17",
-  "maximum" : 18.4668750763,
-  "local" : "Vila Verde"
 } ]

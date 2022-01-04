@@ -1,4 +1,36 @@
 [ {
+  "date" : "2022-01-02",
+  "minimum" : 0.881009101868,
+  "local" : "Vila nova de Famalicão"
+}, {
+  "date" : "2022-01-01",
+  "minimum" : 0.000006220247087,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date" : "2021-12-31",
+  "minimum" : 0.000000367421336,
+  "local" : "Cabeceiras de Basto"
+}, {
+  "date" : "2021-12-30",
+  "minimum" : 0.00120274408255,
+  "local" : "Esposende"
+}, {
+  "date" : "2021-12-29",
+  "minimum" : 2.11307621002,
+  "local" : "Terras de Bouro"
+}, {
+  "date" : "2021-12-28",
+  "minimum" : 1.69354176521,
+  "local" : "Vila nova de Famalicão"
+}, {
+  "date" : "2021-12-27",
+  "minimum" : 0.11495244503,
+  "local" : "Esposende"
+}, {
+  "date" : "2021-12-26",
+  "minimum" : 25.456205368,
+  "local" : "Terras de Bouro"
+}, {
   "date" : "2021-12-25",
   "minimum" : 3.84441709518,
   "local" : "Terras de Bouro"
@@ -6,116 +38,4 @@
   "date" : "2021-12-24",
   "minimum" : 5.47107124329,
   "local" : "Celoirico de Basto"
-}, {
-  "date" : "2021-12-23",
-  "minimum" : 8.47598838806,
-  "local" : "Vila nova de Famalicão"
-}, {
-  "date" : "2021-12-22",
-  "minimum" : 1.09803903103,
-  "local" : "Vila nova de Famalicão"
-}, {
-  "date" : "2021-12-21",
-  "minimum" : 5.32809352875,
-  "local" : "Esposende"
-}, {
-  "date" : "2021-12-20",
-  "minimum" : 12.7000198364,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Amares"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Barcelos"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Braga"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Celoirico de Basto"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Esposende"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Fafe"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Guimarães"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Póvoa de Lanhoso"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Terras de Bouro"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Vieira do Minho"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Vila Verde"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Vila nova de Famalicão"
-}, {
-  "date" : "2021-12-19",
-  "minimum" : 0.0,
-  "local" : "Vizela"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Braga"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Cabeceiras de Basto"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Celoirico de Basto"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Fafe"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Guimarães"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Póvoa de Lanhoso"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Vieira do Minho"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Vila nova de Famalicão"
-}, {
-  "date" : "2021-12-18",
-  "minimum" : 0.0,
-  "local" : "Vizela"
-}, {
-  "date" : "2021-12-17",
-  "minimum" : 0.000000106158438,
-  "local" : "Cabeceiras de Basto"
 } ]

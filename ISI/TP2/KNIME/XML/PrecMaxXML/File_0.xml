@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <item>
+        <date>2022-01-02</date>
+        <maximum>2.36699485779</maximum>
+        <local>Vizela</local>
+    </item>
+    <item>
+        <date>2022-01-01</date>
+        <maximum>3.80938720703</maximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <date>2021-12-31</date>
+        <maximum>0.199999809265</maximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <date>2021-12-30</date>
+        <maximum>0.199999704957</maximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <date>2021-12-29</date>
+        <maximum>4.5181427002</maximum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <date>2021-12-28</date>
+        <maximum>5.49999570847</maximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <date>2021-12-27</date>
+        <maximum>11.5999383926</maximum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <date>2021-12-26</date>
+        <maximum>37.0633926392</maximum>
+        <local>Vizela</local>
+    </item>
+    <item>
         <date>2021-12-25</date>
         <maximum>6.64767599106</maximum>
         <local>Vila nova de Famalicão</local>
@@ -9,40 +49,5 @@
         <date>2021-12-24</date>
         <maximum>26.7529506683</maximum>
         <local>Terras de Bouro</local>
-    </item>
-    <item>
-        <date>2021-12-23</date>
-        <maximum>18.0625743866</maximum>
-        <local>Terras de Bouro</local>
-    </item>
-    <item>
-        <date>2021-12-22</date>
-        <maximum>3.35349225998</maximum>
-        <local>Terras de Bouro</local>
-    </item>
-    <item>
-        <date>2021-12-21</date>
-        <maximum>10.3999919891</maximum>
-        <local>Braga</local>
-    </item>
-    <item>
-        <date>2021-12-20</date>
-        <maximum>28.1999778748</maximum>
-        <local>Braga</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <maximum>0.00326297758147</maximum>
-        <local>Celoirico de Basto</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <maximum>0.0126221813262</maximum>
-        <local>Vila Verde</local>
-    </item>
-    <item>
-        <date>2021-12-17</date>
-        <maximum>0.099999897182</maximum>
-        <local>Braga</local>
     </item>
 </root>

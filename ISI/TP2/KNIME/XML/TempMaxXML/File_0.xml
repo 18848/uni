@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
     <item>
+        <date>2022-01-02</date>
+        <maximum>18</maximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <date>2022-01-01</date>
+        <maximum>23.3999977112</maximum>
+        <local>Braga</local>
+    </item>
+    <item>
+        <date>2021-12-31</date>
+        <maximum>22.2266902924</maximum>
+        <local>Vila nova de Famalicão</local>
+    </item>
+    <item>
+        <date>2021-12-30</date>
+        <maximum>20.0999603271</maximum>
+        <local>Cabeceiras de Basto</local>
+    </item>
+    <item>
+        <date>2021-12-29</date>
+        <maximum>17.4435195923</maximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <date>2021-12-28</date>
+        <maximum>18.8894634247</maximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <date>2021-12-27</date>
+        <maximum>17.287405014</maximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
+        <date>2021-12-26</date>
+        <maximum>17.0980052948</maximum>
+        <local>Vila Verde</local>
+    </item>
+    <item>
         <date>2021-12-25</date>
         <maximum>16.695766449</maximum>
         <local>Vila nova de Famalicão</local>
@@ -9,40 +49,5 @@
         <date>2021-12-24</date>
         <maximum>15.0999975204</maximum>
         <local>Braga</local>
-    </item>
-    <item>
-        <date>2021-12-23</date>
-        <maximum>17.3143768311</maximum>
-        <local>Vila Verde</local>
-    </item>
-    <item>
-        <date>2021-12-22</date>
-        <maximum>18.3035850525</maximum>
-        <local>Vila Verde</local>
-    </item>
-    <item>
-        <date>2021-12-21</date>
-        <maximum>20.897310257</maximum>
-        <local>Vila Verde</local>
-    </item>
-    <item>
-        <date>2021-12-20</date>
-        <maximum>16.1925735474</maximum>
-        <local>Vila Verde</local>
-    </item>
-    <item>
-        <date>2021-12-19</date>
-        <maximum>17.8162536621</maximum>
-        <local>Vila Verde</local>
-    </item>
-    <item>
-        <date>2021-12-18</date>
-        <maximum>17.6999931335</maximum>
-        <local>Braga</local>
-    </item>
-    <item>
-        <date>2021-12-17</date>
-        <maximum>18.4668750763</maximum>
-        <local>Vila Verde</local>
     </item>
 </root>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="spec.xml">
+    <entry key="spec_name" type="xstring" value="default"/>
+    <entry key="number_columns" type="xint" value="2"/>
+    <config key="column_spec_0">
+        <entry key="column_name" type="xstring" value="HTML"/>
+        <config key="element_names">
+            <entry key="array-size" type="xint" value="0"/>
+        </config>
+        <config key="column_type">
+            <entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+        </config>
+        <config key="column_domain">
+            <config key="possible_values">
+                <entry key="array-size" type="xint" value="1"/>
+                <config key="0">
+                    <entry key="datacell" type="xstring" value="org.knime.core.data.def.StringCell"/>
+                    <config key="org.knime.core.data.def.StringCell">
+                        <entry key="StringCell" type="xstring" value="&lt;html&gt;%%00010%%00009&lt;body&gt;%%00010%%00009%%00009&lt;table style=&quot;border:1px solid black&quot;&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot; background-color: black; color: white; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px&quot;&gt;%%00010%%00010%%00009%%00009%%00009%%00009&lt;th&gt; &lt;b&gt; date &lt;/b&gt; &lt;/th&gt;%%00010%%00009%%00009%%00009%%00009&lt;th&gt; &lt;b&gt; maximum &lt;/b&gt; &lt;/th&gt;%%00010%%00009%%00009%%00009%%00009&lt;th&gt; &lt;b&gt; local &lt;/b&gt; &lt;/th&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;background-color: #f2f2f2;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2022-01-02&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;18.00&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Braga&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2022-01-01&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;23.40&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Braga&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;background-color: #f2f2f2;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-31&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;22.23&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Vila nova de Famalicão&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-30&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;20.10&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Cabeceiras de Basto&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;background-color: #f2f2f2;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-29&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;17.44&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Vila Verde&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-28&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;18.89&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Vila Verde&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;background-color: #f2f2f2;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-27&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;17.29&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Vila Verde&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-26&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;17.10&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Vila Verde&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;background-color: #f2f2f2;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-25&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;16.70&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Vila nova de Famalicão&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009%%00009&lt;tr style=&quot;padding: 0px;&quot;&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;2021-12-24&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;15.10&lt;/td&gt;%%00010%%00009%%00009%%00009%%00009&lt;td style=&quot;border: 1px solid #ddd;&quot;&gt;Braga&lt;/td&gt;%%00010%%00009%%00009%%00009&lt;/tr&gt;%%00010%%00009%%00009&lt;/table&gt;%%00010%%00009&lt;/body&gt;%%00010&lt;/html&gt;"/>
+                    </config>
+                </config>
+            </config>
+        </config>
+        <config key="column_properties"/>
+        <config key="meta_data"/>
+    </config>
+    <config key="column_spec_1">
+        <entry key="column_name" type="xstring" value="Images"/>
+        <config key="element_names">
+            <entry key="array-size" type="xint" value="0"/>
+        </config>
+        <config key="column_type">
+            <config key="collection_element_type">
+                <entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+            </config>
+            <entry key="cell_class" type="xstring" value="org.knime.core.data.collection.ListCell"/>
+        </config>
+        <config key="column_domain"/>
+        <config key="column_properties"/>
+        <config key="meta_data"/>
+    </config>
+</config>
