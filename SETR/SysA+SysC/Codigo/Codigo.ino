@@ -17,31 +17,52 @@ decode_results results; // Definir a variável para os dados do recetor
 #define motorPIN 8
 Servo motor;
 
+// Pinos para Controlo de Led
+int ledPin = 6;       // LED Vermelho
+int lightSensor = A1; // Fotoresistor
+
+// Interrupt
+int buttonPin = 2;    // Botão de Interrupt
+
 // - Multitasking -
 // Milisegundos Anterior
 unsigned long previousMillisIR = 0;
 unsigned long previousMillisMotor = 0;
+unsigned long previousMillisControlLed = 0;
 // Intervalos de tempo
-int tempoIR = 10;
-int tempoMotor = 50;
+int tempoIR = 0;
+int tempoMotor = 100;
+int tempoLed = 10;
 // Funções
 void remoteReadFunction();
 void motorWriteFunction();
+void ledControlFunction();
 
 
 // Variáveis a usar
 int code = 0;
 int state = 0;
+int readValue = 0;
 
 
 void setup()
 {
     Serial.begin(9600);
+
     // Inicializar o recetor
     irrecv.enableIRIn(); 
+    
     //Definir o Motor Stepper
     motor.attach(motorPIN);
     motor.write(0);
+
+    // Definição dos modos dos pinos para controlo do LED
+    pinMode(lightSensor,INPUT);
+    pinMode(ledPin,OUTPUT);
+    
+    // Definição Interrupt
+    pinMode(buttonPin, INPUT_PULLUP);
+    attachInterrupt(0,myISR, HIGH); // Interrupt
 
 }
 
@@ -50,7 +71,7 @@ void loop(){
 
   // Milisegundos atuais para cálculo
   unsigned long currentMillis = millis();
-  
+
   // Task de receber código do sensor de infravermelhos
   if((unsigned long)(currentMillis - previousMillisIR) >= tempoIR){
     remoteReadFunction();
@@ -62,31 +83,39 @@ void loop(){
     motorWriteFunction();
     previousMillisMotor = currentMillis;
   }
+
+  // Task de controlo do LED
+  if((unsigned long)(currentMillis - previousMillisControlLed) >= tempoLed){
+    ledControlFunction();
+    previousMillisControlLed = currentMillis;
+  }
 }
 
 
 // Função para ler sensor infravermelho
 void remoteReadFunction(){
   if(IrReceiver.decode(&results)){
-      code = results.value;
-      Serial.println(code);  
+      code = results.value; 
       switch(code)
       {
         case cima:
+          //Subir o motor
           if(motor.read() >= 0 && motor.read() <= 90){
             state = 1;
             Serial.println("sobe");
           }
           break;
         case baixo:
+          //Descer o motor
           if(motor.read() >= 0 && motor.read() <= 90){
             state = 0;
             Serial.println("desce");
           }
           break;
         case desliga:
-            state = 2;
-            break;
+          //Parar o Motor
+          state = 2;
+          break;
         default:
           break;
       }
@@ -96,12 +125,57 @@ void remoteReadFunction(){
 
 //Função para alterar posição do Servo
 void motorWriteFunction(){
+
+  // A cada iteração no multitasking verifica o estado ("sobe" 1 ou "desce" 0)
   if (state == 1 && motor.read()<= 89){
       motor.write(motor.read() + 1);
       Serial.println(motor.read());  
-    }
-    else if (state == 0 && motor.read()>= 1){
-      motor.write(motor.read() - 1);
-      Serial.println(motor.read());
-    }
+  }
+  else if (state == 0 && motor.read()>= 1){
+    motor.write(motor.read() - 1);
+    Serial.println(motor.read());
+  }
+}
+
+//Função para controlo do LED
+void ledControlFunction(){
+  
+  //Ler o valor de luz que o sensor deteta
+  readValue = analogRead(lightSensor);
+  
+  //Caso o valor de luz seja inferior a 200
+  if (readValue < 200){
+    //Desligar o LED
+    analogWrite(ledPin, 0);
+
+  }
+  //Caso o valor de luz seja entre 200 e 500
+  else if(readValue >= 200 && readValue < 500){
+    //Ligar o LED com 1/4 da sua potência
+    analogWrite(ledPin, 64);
+    
+  }
+  //Caso o valor de luz seja entre 500 e 800
+  else if(readValue >= 500 && readValue < 800){
+    //Ligar o LED com 1/2 da sua potência
+    analogWrite(ledPin, 128);
+
+  }
+  //Caso o valor de luz seja superior a 800
+  else{
+    //Ligar o LED com potência total
+    analogWrite(ledPin, 255);
+  }
+}
+
+//Função de interrupt
+void myISR(){
+  //Desliga o Led enquanto o botão é pressionado
+  Serial.println("Interrupt!");
+  analogWrite(ledPin, 0);
+
+  //Enquanto o botão é pressionado mantém o interrupt
+  while(digitalRead(buttonPin) == LOW){
+    
+  } 
 }

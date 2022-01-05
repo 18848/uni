@@ -1,27 +1,25 @@
-int sensorPin = A1; //Pino do sensor de luz
-int readValue;      //Valor lido do sensor
-int ledPin = 3;     //Pino do LED
+int sensorPin = A1; // Pino do sensor de luz
+int readValue;      // Valor lido do sensor
+int ledPin = 10;     // Pino do LED
+int buttonPin = 2;  // Pino do Botão de Interrupt
 
 void setup() {
-  // put your setup code here, to run once:
+  // Definição dos modos dos pinos
   pinMode(INPUT, sensorPin);
   pinMode(OUTPUT, ledPin);
+  pinMode(buttonPin, INPUT_PULLUP);
+  attachInterrupt(0, myISR, HIGH); // Interrupt
   Serial.begin(9600);
-  
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
   //Ler o valor de luz que o sensor deteta
   readValue = analogRead(sensorPin);
-  //Serial.println(readValue);
   //Caso o valor de luz seja inferior a 200
   if (readValue < 200){
     
     //Desligar o LED
     analogWrite(ledPin, 0);
-    delay(100);
 
   }
   //Caso o valor de luz seja entre 200 e 500
@@ -29,7 +27,6 @@ void loop() {
 
     //Ligar o LED com 1/4 da sua potência
     analogWrite(ledPin, 64);
-    delay(100);
     
   }
   //Caso o valor de luz seja entre 500 e 800
@@ -37,7 +34,6 @@ void loop() {
     
     //Ligar o LED com 1/2 da sua potência
     analogWrite(ledPin, 128);
-    delay(100);
 
   }
   //Caso o valor de luz seja superior a 800
@@ -45,7 +41,16 @@ void loop() {
 
     //Ligar o LED com potência total
     analogWrite(ledPin, 255);
-    delay(100);
     
   }
+}
+
+// Função de Interrupt
+void myISR(){
+  //Desliga o Led enquanto o botão é pressionado
+  Serial.println("Interrupt!");
+  analogWrite(ledPin, 0);
+  
+  while(digitalRead(buttonPin) == LOW){
+  } 
 }
