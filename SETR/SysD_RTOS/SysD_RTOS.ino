@@ -2,22 +2,24 @@
  * System D - Security System on Free_RTOS
  */
 #include<Arduino_FreeRTOS.h>
-//#include<FreeRTOSConfig.h>
 
-
+// Peripherals Pins
 #define LED A0
 #define BUZZER A1
 #define BUTTON 3
 #define SENSOR 2
 
+// Alarm State (On/Off)
 volatile byte state = LOW;
 
+// Alarm Sound
 float sinVal;
 int toneVal;
+
+// PIR Value
 int motionDetected;
 
-int x = 0;
-
+// RTOS Tasks
 void TaskBlink(void *pvParameters);
 TaskHandle_t xTaskBlink = NULL;
 void TaskBuzzer(void *pvParameters);
@@ -28,7 +30,7 @@ void TaskAlarmOff(void *pvParameters);
 //TaskHandle_t xTaskAlarmOff = NULL;
 
 void setup() {
-  Serial.begin(19200);
+  Serial.begin(9600);
 
   pinMode(LED, OUTPUT);
   pinMode(BUZZER, OUTPUT);
