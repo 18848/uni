@@ -1,84 +1,42 @@
 #include "SysB.h"
 
-void ISRTempControl(){
-  Serial.println(F("Temp Control"));
-  delay(10);
-}
-
 void TaskTempControl(void *pvParameters){
   Serial.println(F("Temp Control Task"));
   delay(10);
-  while(1){
+  while(alarm_state == LOW){
     float temp = temp_control();
-    delay(100);
-//    vTaskDelay(300/portTICK_PERIOD_MS);
+    vTaskDelay(100/portTICK_PERIOD_MS);
     lcd_update(temp);
-    delay(100);
-//    vTaskDelay(300/portTICK_PERIOD_MS);   
+    vTaskDelay(100/portTICK_PERIOD_MS);   
   }
-}
-
-
-float readTemp(){
-    
-  int total = 0;
-  int values[SAMPLE];
-
-  for(int i = 0; i < SAMPLE; i++){
-    values[i] = analogRead(THERMISTOR);
-    
-//    Serial.print("Resistor: ");
-//    Serial.println(values[i]);
-    delay(100);
-  }
-  
-  for(int i = 0; i < SAMPLE; i++){
-    total += values[i];
-  }
-  
-//  float avg = float(total) / float(SAMPLE);
-  float avg = float(analogRead(THERMISTOR));
-  avg = (1023 / avg) - 1;
-  avg = RESISTOR / avg;
-
-  Serial.print("Resistor: ");
-  Serial.println(avg);
-
-  float steinhart;
-  steinhart = avg / THERMNOM;     // (R/Ro)
-  steinhart = log(steinhart);                  // ln(R/Ro)
-  steinhart /= BETA;                   // 1/B * ln(R/Ro)
-  steinhart += 1.0 / (TEMPNOM + 273.15); // + (1/To)
-  steinhart = 1.0 / steinhart;                 // Invert
-  steinhart -= 273.15;    
-  
-  return steinhart;
 }
 
 float temp_control(){
-  delay(500);
-  float temp;
-//  temp = dht.readTemperature();
+  float temp = dht.readTemperature();
+  
 //  Serial.print(F("DHT: "));
 //  Serial.println(temp);
-  temp = readTemp();
-  Serial.print(F("THERM: "));
-  Serial.println(temp);
-//  Serial.println(F("after"));
+
   if (isnan(temp)) {
     Serial.println(F("Failed to read from DHT sensor!"));
+    delay(500);
     return 0;
   }
-  if(temp > 25){
-    Serial.println(F("Temperature is to high. Cooling Down."));
+  
+//  Temperature Control
+  if(temp > MAX){
+    if(fan_state == LOW){
+      Serial.println(F("Temperature is to high. Cooling Down."));
+    }
     digitalWrite(FAN, HIGH);
     fan_state = HIGH;
   }
-  else if(temp < 20 && fan_state == HIGH){
+  else if(temp < MIN && fan_state == HIGH){
     Serial.println(F("Temperature stabilized."));
     digitalWrite(FAN, LOW);
     fan_state = LOW;
   }
+//  LED Indicators
   if(fan_state == LOW){
     digitalWrite(GLED, HIGH);
     digitalWrite(RLED, LOW);
@@ -93,12 +51,15 @@ float temp_control(){
 void lcd_update(float temp){
 //  Serial.println(F("lcd"));
   lcd.clear();
+
+//  Print Fan State
   if(fan_state == HIGH){
     lcd.print("Fan ON");
   }
   else if(fan_state == LOW){
     lcd.print("Fan OFF");
   }
+//  Definition of the 'degree' character
   byte degree[8] = {
   B11100,
   B10100,
@@ -109,11 +70,13 @@ void lcd_update(float temp){
   B00000,
   };
   lcd.createChar(0, degree);
+//  Print Temperature
   lcd.setCursor(0, 1);
   lcd.print("Temp: ");
   lcd.print(temp);
   lcd.write(byte(0));
   lcd.print("C");
-//  vTaskDelay(100/portTICK_PERIOD_MS);
+  
+//  Delay for Stability
   delay(1000);
 }

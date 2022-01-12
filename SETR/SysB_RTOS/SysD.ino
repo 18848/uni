@@ -5,25 +5,18 @@ void ISRAlarmOn(){
   Serial.println(F("Alarm On"));
   delay(10);
   alarm_state = HIGH;
-//  vTaskSuspend(HandleTempControl);
-//  vTaskNotifyGiveFromISR(HandleBuzzer, NULL);
-//  delay(10);
 //  vTaskNotifyGiveFromISR(HandleBlink, NULL);
-//  vTaskNotifyGiveFromISR(HandleTempControl, NULL);
+  delay(10);
+  vTaskNotifyGiveFromISR(HandleBuzzer, NULL);
 }
 
 void ISRAlarmOff(){
   Serial.println(F("Alarm Off"));
   delay(10);
-  alarm_off();
-//  delay(100);
-}
-
-void alarm_off(){
   alarm_state = LOW;
+  delay(100);
   noTone(BUZZER);
   digitalWrite(LED, LOW); 
-//  vTaskResume(HandleTempControl);
 }
 
 void TaskBlink(void *pvParameters){
@@ -34,10 +27,8 @@ void TaskBlink(void *pvParameters){
     while(alarm_state == HIGH){
       digitalWrite(LED, HIGH);
       vTaskDelay(100/portTICK_PERIOD_MS);
-//      delay(100);
       digitalWrite(LED, LOW);
       vTaskDelay(100/portTICK_PERIOD_MS);
-//      delay(100);
     }
   }
 }
@@ -46,15 +37,29 @@ void TaskBuzzer(void *pvParameters){
   Serial.println(F("Buzzer Task"));
   delay(10);
   if(ulTaskNotifyTake(pdTRUE, portMAX_DELAY) != 0){
+    // Timer Vars
+    int t0 = millis();
+    int t1;
+    volatile byte s = HIGH; // LED state
+    digitalWrite(LED, s);
+
+    // Alarm Sound
+    float sinVal;
+    int toneVal;
+    
     while(alarm_state == HIGH){
       for(int x = 0; x < 180; x++){
+        t1 = millis();
+        if(t1 - t0 > 100){
+          s = !s;
+          digitalWrite(LED, s);
+          t0 = t1;
+        }
         sinVal = (sin(x*(3.1412/180)));
         toneVal = 1000 + (int(sinVal*2000));
         tone(BUZZER, toneVal);
         delay(1);
       }
-//      vTaskDelay(100/portTICK_PERIOD_MS);
-//      vTaskResume(HandleTempControl);
     }
   }
 }

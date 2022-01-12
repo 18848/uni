@@ -7,7 +7,7 @@
    * Peripherals Pins
   */
   // System D - Alarm System
-  #define LED A0
+  #define LED 7
   #define BUZZER A1
   #define BUTTON 3
   #define SENSOR 2
@@ -29,8 +29,5 @@
   void ISRAlarmOn();
 //   'Alarm Off'
   void ISRAlarmOff();
-
-//  Aux Functions
-  void alarm_off();
 
 #endif
