@@ -21,6 +21,10 @@ Servo motor;
 int ledPin = 6;       // LED Vermelho
 int lightSensor = A1; // Fotoresistor
 
+// Pinos Sensor Ultrassonico
+#define triggPin 3
+#define echoPin 4
+
 // Interrupt
 int buttonPin = 2;    // Botão de Interrupt
 
@@ -29,20 +33,24 @@ int buttonPin = 2;    // Botão de Interrupt
 unsigned long previousMillisIR = 0;
 unsigned long previousMillisMotor = 0;
 unsigned long previousMillisControlLed = 0;
+unsigned long previousMillisUltrassonic = 0;
 // Intervalos de tempo
 int tempoIR = 0;
-int tempoMotor = 100;
+int tempoMotor = 50;
 int tempoLed = 10;
+int tempoUltrassonic = 0;
 // Funções
 void remoteReadFunction();
 void motorWriteFunction();
 void ledControlFunction();
+void ultrassonicFunction();
 
 
 // Variáveis a usar
 int code = 0;
 int state = 0;
 int readValue = 0;
+long duration;
 
 
 void setup()
@@ -59,6 +67,10 @@ void setup()
     // Definição dos modos dos pinos para controlo do LED
     pinMode(lightSensor,INPUT);
     pinMode(ledPin,OUTPUT);
+
+    // Definição Sensor Ultrassónico
+    pinMode(triggPin, OUTPUT);
+    pinMode(echoPin, INPUT); 
     
     // Definição Interrupt
     pinMode(buttonPin, INPUT_PULLUP);
@@ -89,13 +101,22 @@ void loop(){
     ledControlFunction();
     previousMillisControlLed = currentMillis;
   }
+
+  // Task de controlo do Sensor Ultrassonico
+  if((unsigned long)(currentMillis - previousMillisUltrassonic) >= tempoUltrassonic){
+    ultrassonicFunction();
+    previousMillisUltrassonic = currentMillis;
+  }
+  
 }
 
 
 // Função para ler sensor infravermelho
 void remoteReadFunction(){
   if(IrReceiver.decode(&results)){
-      code = results.value; 
+      code = results.value;
+      Serial.print("Codigo: ");
+      Serial.println(code);
       switch(code)
       {
         case cima:
@@ -167,6 +188,23 @@ void ledControlFunction(){
     analogWrite(ledPin, 255);
   }
 }
+
+// Função Sensor Ultrassonico
+void ultrassonicFunction(){
+  // Verifica a distancia ao sensor ultrassonico
+  digitalWrite(triggPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(triggPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(triggPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+
+  // Caso a distancia seja menor que o valor 250 para o servo
+  if(duration <= 250){
+    state = 2;
+  }
+}
+
 
 //Função de interrupt
 void myISR(){
