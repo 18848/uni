@@ -1,33 +1,33 @@
 #include "SysB.h"
+#include "SysD.h"
 
 void TaskTempControl(void *pvParameters){
-  Serial.println(F("Temp Control Task"));
-  delay(10);
-  while(alarm_state == LOW){
-    float temp = temp_control();
-    vTaskDelay(100/portTICK_PERIOD_MS);
-    lcd_update(temp);
-    vTaskDelay(100/portTICK_PERIOD_MS);   
+  (void) pvParameters;
+  
+  Serial.println("Temp Control Task");
+//  delay(10);
+  vTaskDelay(10/portTICK_PERIOD_MS);
+  float temp;
+  for(;;){
+    temp = temp_control();
+    lcd_update(temp); 
+    delay(1000);
   }
 }
 
 float temp_control(){
-  float temp = dht.readTemperature();
+  float temp;
+  temp = dht.readTemperature();
   
-//  Serial.print(F("DHT: "));
-//  Serial.println(temp);
-
-  if (isnan(temp)) {
+  if (isnan(temp)) { // If it fails to read DHT
     Serial.println(F("Failed to read from DHT sensor!"));
     delay(500);
     return 0;
   }
   
 //  Temperature Control
-  if(temp > MAX){
-    if(fan_state == LOW){
-      Serial.println(F("Temperature is to high. Cooling Down."));
-    }
+  if(temp > MAX && fan_state == LOW){
+    Serial.println(F("Temperature is to high. Cooling Down."));
     digitalWrite(FAN, HIGH);
     fan_state = HIGH;
   }
@@ -49,8 +49,7 @@ float temp_control(){
 }
 
 void lcd_update(float temp){
-//  Serial.println(F("lcd"));
-  lcd.clear();
+  lcd.clear();  // Clear LCD Screen
 
 //  Print Fan State
   if(fan_state == HIGH){
@@ -70,13 +69,11 @@ void lcd_update(float temp){
   B00000,
   };
   lcd.createChar(0, degree);
+  
 //  Print Temperature
   lcd.setCursor(0, 1);
   lcd.print("Temp: ");
   lcd.print(temp);
   lcd.write(byte(0));
   lcd.print("C");
-  
-//  Delay for Stability
-  delay(1000);
 }

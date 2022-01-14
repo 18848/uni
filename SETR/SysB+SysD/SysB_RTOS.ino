@@ -23,6 +23,8 @@ volatile byte alarm_state = LOW;
 // Motion Detected (True/False)
 int motionDetected;
 
+
+
 void setup() {
   // Serial Monitor
   Serial.begin(9600);
@@ -31,7 +33,8 @@ void setup() {
   */
   pinMode(LED, OUTPUT);
   pinMode(BUZZER, OUTPUT);
-  pinMode(SENSOR, INPUT);
+  pinMode(SENSOR, INPUT_PULLUP);
+  pinMode(BUTTON, INPUT_PULLUP);
   /*
    * System B setup
   */
@@ -47,22 +50,23 @@ void setup() {
    * Interrupts
   */
 //  System D
+  SemAlarmOn = xSemaphoreCreateBinary();
   attachInterrupt(digitalPinToInterrupt(BUTTON), ISRAlarmOff, RISING);
   attachInterrupt(digitalPinToInterrupt(SENSOR), ISRAlarmOn, RISING);
-//  attachInterrupt(digitalPinToInterrupt(DHTPIN), ISRTempControl, CHANGE);
   
   /*
    * Tasks
   */
-//  System D
-  xTaskCreate(TaskBuzzer, "Sound Buzzer/Alarm", 300, NULL, 1, &HandleBuzzer);
-  xTaskCreate(TaskBlink, "Blink LED", 300, NULL, 2, &HandleBlink);
+////  System D
+//  xTaskCreate(TaskBuzzer, "Sound Buzzer/Alarm", 300, NULL, 1, &HandleBuzzer);
   
 //  System B
-  xTaskCreate(TaskTempControl, "Temperature Control", 128, NULL, 0, &HandleTempControl);
-
+  xTaskCreate(TaskBuzzer, "Sound Buzzer", configMINIMAL_STACK_SIZE, NULL, 2, &HandleBuzzer);
+  xTaskCreate(TaskBlink, "Blink LED", configMINIMAL_STACK_SIZE, NULL, 2, &HandleBlink);
+  xTaskCreate(TaskTempControl, "Temperature Control", configMINIMAL_STACK_SIZE, NULL, 0, &HandleTempControl);
+  
 //   Start Program
-  Serial.println(F("Start"));
+  Serial.println("Start");
   vTaskStartScheduler();
 }
 

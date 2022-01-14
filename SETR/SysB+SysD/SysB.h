@@ -8,7 +8,7 @@
 //   System B - (Air)Cooling System
   #define GLED A5
   #define RLED A4
-  #define MAX 21 // 25
+  #define MAX 20 // 25
   #define MIN 20 // 20
   #define FAN  A3
   #define DHTPIN 6
