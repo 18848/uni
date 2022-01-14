@@ -42,10 +42,15 @@ void lcd_update(float temp);
 
 // Program Flow
 void loop() {
+  int t0 = micros();
   float temp;
   temp = temp_control();
   lcd_update(temp);
 //  Delay for readability and stability
+  int t1 = micros();
+  Serial.print("Timer: ");
+  Serial.print(t1 - t0);
+  Serial.println(" µs");
   delay(1000);
 //  Free memory to avoid overflow
   free(&temp);

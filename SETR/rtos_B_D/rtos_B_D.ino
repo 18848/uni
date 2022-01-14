@@ -21,36 +21,31 @@ DHT dht(DHTPIN, DHT11);                   // DHT - Humidity and Temperature
 volatile byte alarm_state = LOW;
 
 // Motion Detected (True/False)
-int motionDetected;
-
-
+//int motionDetected;
 
 void setup() {
-  // Serial Monitor
-  Serial.begin(9600);
   /*
-   * System D setup
+   * System D GPIO Setup
   */
   pinMode(LED, OUTPUT);
   pinMode(BUZZER, OUTPUT);
-  pinMode(SENSOR, INPUT_PULLUP);
-  pinMode(BUTTON, INPUT_PULLUP);
+  pinMode(SENSOR, INPUT);
+  pinMode(BUTTON, INPUT);
   /*
-   * System B setup
+   * System B GPIO Setup
   */
 //  LEDs & FAN
   pinMode(GLED, OUTPUT);
   pinMode(RLED, OUTPUT);
   pinMode(FAN, OUTPUT);
+
 //  DHT & LCD
   dht.begin();
   lcd.begin(16, 2); // (16, 2) -> dimensions (x,y)
-//  startTemp();
+
   /*
-   * Interrupts
+   * Interrupts (System D only)
   */
-//  System D
-  SemAlarmOn = xSemaphoreCreateBinary();
   attachInterrupt(digitalPinToInterrupt(BUTTON), ISRAlarmOff, RISING);
   attachInterrupt(digitalPinToInterrupt(SENSOR), ISRAlarmOn, RISING);
   
@@ -58,16 +53,21 @@ void setup() {
    * Tasks
   */
 ////  System D
-//  xTaskCreate(TaskBuzzer, "Sound Buzzer/Alarm", 300, NULL, 1, &HandleBuzzer);
-  
-//  System B
   xTaskCreate(TaskBuzzer, "Sound Buzzer", configMINIMAL_STACK_SIZE, NULL, 2, &HandleBuzzer);
   xTaskCreate(TaskBlink, "Blink LED", configMINIMAL_STACK_SIZE, NULL, 2, &HandleBlink);
+//  System B
   xTaskCreate(TaskTempControl, "Temperature Control", configMINIMAL_STACK_SIZE, NULL, 0, &HandleTempControl);
   
+// Initialize Serial Monitor
+  Serial.begin(9600);
+  while(!Serial);
 //   Start Program
   Serial.println("Start");
   vTaskStartScheduler();
 }
 
+/*
+ * Empty loop()
+ * Things are run inside Tasks.
+*/
 void loop(){}

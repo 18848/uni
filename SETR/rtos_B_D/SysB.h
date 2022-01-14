@@ -1,17 +1,20 @@
 #ifndef SYSB_H
 #define SYSB_H
-
-  #include<Arduino_FreeRTOS.h>
-  #include<LiquidCrystal.h>
-  #include<DHT.h>
-  
 //   System B - (Air)Cooling System
+
+  // Libraries
+  #include<Arduino_FreeRTOS.h>
+  #include<LiquidCrystal.h> // LCD
+  #include<DHT.h>           // Temperature Module
+
+//  GPIO Pins
   #define GLED A5
   #define RLED A4
-  #define MAX 20 // 25
-  #define MIN 20 // 20
   #define FAN  A3
   #define DHTPIN 6
+//  Temperature Threshold
+  #define MAX 19 // 25
+  #define MIN 19 // 20
 
   
 /*

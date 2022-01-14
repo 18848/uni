@@ -3,15 +3,20 @@
 
 void ISRAlarmOn(){
   BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-  Serial.println(F("Alarm On"));
-  alarm_state = HIGH;
-  vTaskNotifyGiveFromISR(HandleBuzzer, &xHigherPriorityTaskWoken);
-//  vTaskNotifyGiveFromISR(HandleBlink, &xHigherPriorityTaskWoken);
+  if(alarm_state == LOW){
+    Serial.println("Alarm On");
+    alarm_state = HIGH;
+//    Call Task
+    vTaskNotifyGiveFromISR(HandleBuzzer, &xHigherPriorityTaskWoken);
+//    vTaskNotifyGiveFromISR(HandleBlink, &xHigherPriorityTaskWoken);
+  }
 }
 
 void ISRAlarmOff(){
-  Serial.println(F("Alarm Off"));
-  alarm_state = LOW;
+  if(alarm_state == HIGH){
+    Serial.println("Alarm Off");
+    alarm_state = LOW; 
+  }
 }
 
 
@@ -19,8 +24,9 @@ void TaskBlink(void *pvParameters){
   Serial.println(F("Blink Task"));
   delay(10);
   for(;;){
+//    Wait For Call
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-    Serial.println(F("blink"));
+
     while(alarm_state == HIGH){
       digitalWrite(LED, HIGH);
       vTaskDelay(100/portTICK_PERIOD_MS);
@@ -42,26 +48,34 @@ void TaskBuzzer(void *pvParameters){
   // Alarm Sound
   float sinVal;
   int toneVal;
-  int x;
+  
   for(;;){
+//    Wait For Call
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-    
+//    Alarm On
     while(alarm_state == HIGH){
-      for(x = 0; x < 180; x++){
+      for(int x = 0; x < 180; x++){
+//        Intermitent LED (Using Timer)
         t1 = millis();
         if(t1 - t0 > 100){
           s = !s;
           digitalWrite(LED, s);
           t0 = t1;
         }
+//        Buzzer
         sinVal = (sin(x*(3.1412/180)));
         toneVal = 1000 + (int(sinVal*2000));
         tone(BUZZER, toneVal);
         delay(1);
       }
     }
+/*
+ * Only way out of while loop is the ISRAlarmOff function
+ * it sets alarm_state to LOW
+ * the only way to call ISRAlarmOff is with a BUTTON press
+*/
+//    Alarm Off
     noTone(BUZZER);
     digitalWrite(LED, LOW); 
-//    vTaskDelay(100/portTICK_PERIOD_MS);
   }
 }

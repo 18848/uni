@@ -5,12 +5,13 @@ void TaskTempControl(void *pvParameters){
   (void) pvParameters;
   
   Serial.println("Temp Control Task");
-//  delay(10);
   vTaskDelay(10/portTICK_PERIOD_MS);
+  
   float temp;
   for(;;){
     temp = temp_control();
-    lcd_update(temp); 
+    lcd_update(temp);
+//    Delay for readability and stability
     delay(1000);
   }
 }
@@ -20,19 +21,19 @@ float temp_control(){
   temp = dht.readTemperature();
   
   if (isnan(temp)) { // If it fails to read DHT
-    Serial.println(F("Failed to read from DHT sensor!"));
+    Serial.println("Failed to read from DHT sensor!");
     delay(500);
     return 0;
   }
   
 //  Temperature Control
   if(temp > MAX && fan_state == LOW){
-    Serial.println(F("Temperature is to high. Cooling Down."));
+    Serial.println("Temperature is to high. Cooling Down.");
     digitalWrite(FAN, HIGH);
     fan_state = HIGH;
   }
   else if(temp < MIN && fan_state == HIGH){
-    Serial.println(F("Temperature stabilized."));
+    Serial.println("Temperature stabilized.");
     digitalWrite(FAN, LOW);
     fan_state = LOW;
   }

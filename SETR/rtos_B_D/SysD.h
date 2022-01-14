@@ -1,37 +1,33 @@
 #ifndef SYSD_H
 #define SYSD_H
+  // System D - Alarm System
   
   #include<Arduino_FreeRTOS.h>
-  #include<semphr.h>
     
   /*
-   * Peripherals Pins
+   * GPIO Pins
   */
-  // System D - Alarm System
   #define LED A0
   #define BUZZER A1
-  #define BUTTON 3
-  #define SENSOR 2
+  #define BUTTON 3  // INTERRUPT PORT
+  #define SENSOR 2  // INTERRUPT PORT
   
   /*
-   * Tasks
+   * Tasks & Handles
   */
 //   'Blink' Task-Handle Pair
   void TaskBlink(void *pvParameters);
   TaskHandle_t HandleBlink = NULL;
 //   'Buzzer' Task-Handle Pair
   void TaskBuzzer(void *pvParameters);
-//  void TaskBuzzer();
   TaskHandle_t HandleBuzzer = NULL;
 
   /*
-   * Interrupts
+   * Interrupts Functions
   */
 //   'Alarm On'
   void ISRAlarmOn();
-  SemaphoreHandle_t SemAlarmOn;
 //   'Alarm Off'
   void ISRAlarmOff();
-//  SemaphoreHandle_t SemAlarmOff;
 
 #endif
