@@ -163,7 +163,6 @@ void ledControlFunction(){
   
   //Ler o valor de luz que o sensor deteta
   readValue = analogRead(lightSensor);
-  
   //Caso o valor de luz seja inferior a 200
   if (readValue < 200){
     //Desligar o LED
