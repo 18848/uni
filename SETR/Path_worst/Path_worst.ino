@@ -7,7 +7,7 @@
 #define FAN  A3
 #define DHTPIN 6
 //Temperature Threshold
-#define MAX 19 // 25
+#define MAX 20 // 25
 #define MIN 19 // 20
 
 // LCD and Temperature Modules Controllers
@@ -42,15 +42,10 @@ void lcd_update(float temp);
 
 // Program Flow
 void loop() {
-  int t0 = micros();
   float temp;
   temp = temp_control();
   lcd_update(temp);
 //  Delay for readability and stability
-  int t1 = micros();
-  Serial.print("Timer: ");
-  Serial.print(t1 - t0);
-  Serial.println(" µs");
   delay(1000);
 //  Free memory to avoid overflow
   free(&temp);
@@ -75,14 +70,14 @@ float temp_control(){
     return 0;
   }
   
-  int t0 = micros(); //12µs
+  int t0 = micros();
 //  Temperature Control
   if(temp > MAX && fan_state == LOW){//T1
     Serial.println("Temperature is to high. Cooling Down.");
     digitalWrite(FAN, HIGH);
     fan_state = HIGH;
   }
-  else if(temp < MIN && fan_state == HIGH){//T2
+  if(temp < MIN && fan_state == HIGH){//T2
     Serial.println("Temperature stabilized.");
     digitalWrite(FAN, LOW);
     fan_state = LOW;
@@ -94,18 +89,15 @@ float temp_control(){
     digitalWrite(GLED, HIGH);
     digitalWrite(RLED, LOW);
   }
-  else{//L2
+  if(fan_state == HIGH){//L2
     digitalWrite(GLED, LOW);
     digitalWrite(RLED, HIGH);
   }
-
   
   int t1 = micros();
-  Serial.print("RunTime: ");
+  Serial.print("Timer: ");
   Serial.print(t1 - t0);
-  Serial.println("µs");
-  delay(1000);
-  
+  Serial.println(" µs");
   return temp;
 }
 
