@@ -1,10 +1,10 @@
+C:\Users\Leone\OneDrive\Ambiente de Trabalho\asdasdasdasd.csv
+C:\Users\Leone\OneDrive\Ambiente de Trabalho\knimemachinelearnig.csv
+C:\Users\Leone\OneDrive\Ambiente de Trabalho\coiso.csv
+C:\Users\Leone\OneDrive\Ambiente de Trabalho\tings\IPCA\3ºano\repo\uni\IA\TP2\Dataset.csv
+C:\Users\Leone\OneDrive\Ambiente de Trabalho\tings\IPCA\3ºano\repo\uni\IA\TP2\datasetEmExcel.xlsx
 /CSV/TempMaxCSV.csv
 https://api.ipma.pt/open-data/observation/climate/temperature-max/braga/mtxmx-0301-amares.csv
 /CSV/PrevBragaCSV.csv
 /CSV/PrecMinCSV.csv
 /CSV/TempMinCSV.csv
-/CSV/PrecMaxCSV.csv
-https://api.ipma.pt/open-data/observation/climate/temperature-min/braga/mtnmn-0311-vieira-do-minho.csv
-https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0314-vizela.csv
-https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0313-vila-verde.csv
-https://api.ipma.pt/open-data/observation/climate/precipitation-total/braga/mrrto-0312-vila-nova-de-famalicao.csv
