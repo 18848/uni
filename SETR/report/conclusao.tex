@@ -1,0 +1,23 @@
+\chapter*{Conclusão}
+\addcontentsline{toc}{chapter}{Conclusão}
+
+Os vídeos dos sistemas estão disponíveis a partir do seguinte link:\\
+ \url{https://youtube.com/playlist?list=PLbfrOZp9dsMTeufm7N9a-4TlIZPoooJzm}
+
+Para concluir achamos que tudo o que foi pedido para a execução deste trabalho prático foi desenvolvido. Os diversos sistemas encontram-se com todas as suas funções principais implementadas e funcionais.
+
+Foi necessária a junção dos Sistemas A + C e dos Sistemas B + D devido à limitação da quantidade de Arduinos, como tal, foi utilizado multitasking para fazer essa junção de forma eficaz e funcional.
+
+No Sistema A foi implementado um interrupt como forma de um botão.
+
+No Sistema C para além de multitasking foi implementada a utilização do Sensor Ultrassónico para suspender a movimentação do portão
+
+No Sistema D foram implementados dois interrupts, via Sensor PIR e botão.
+
+No entanto foram encontrados alguns problemas na execução da tarefa pedida,  nomeadamente no que toca à implementação do Sensor de Infravermelhos e de Multitasking por "FreeRTOS". 
+
+O Sensor de Infravermelhos é sensível a interferências, o que torna o sistema irresponsivo por vezes, principalmente durante o movimento do motor Servo. Outro dos problemas encontrados com o sensor Infravermelhos é que, devido ao seu funcionamento, algumas das portas "PWM" do Arduino perdem a sua função modular, podendo apenas enviar 0V ou 5V tornando impossível o controlo da voltagem do LED.
+
+Como descrito anteriormente, na junção dos Sistemas B e D, não foi possível a utilização a 100\% da biblioteca RTOS. Pelo que pude apurar isto deve-se maioritariamente à incapacidade do Arduino Uno.
+
+Como nota final, achamos que este trabalho prático se adequa completamente aos conteúdos lecionados. É uma perfeita introdução ao tema de sistemas embebidos e ao seu desenvolvimento.

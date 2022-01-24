@@ -1,0 +1,77 @@
+% \documentclass[12pt, a4paper, twoside , openright ]{report}
+\documentclass[12pt, a4paper, openright ]{report}
+\input{definitions.tex}
+
+% Headers 
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[LE,RO]{Pesquisa do Melhor Horário}
+% \fancyfoot[CE,CO]{\leftmark}
+% \fancyfoot[LE,RO]{\thepage}
+
+\title{
+    \begin{figure}[t]
+        \centering
+        \includegraphics[scale=0.5]{images/est-banner.png}
+    \end{figure}
+    
+    \large{
+            {Licenciatura em Engenharia de Sistemas Informáticos}
+        }\\
+    \bigskip
+	\small{
+    	    {No âmbito da UC de Sistemas Embebidos em Tempo Real}
+    }\\
+    \vfill
+    \textbf{
+	    \Huge{
+	        \textcolor{lightBlue}{\fontsize{48pt}{48pt}{\textit{Home Automation}}}
+        }\\
+    % 	\large{
+    %     	    \textcolor{lightBlue}{}
+	   % }\\
+        }
+    \vfill
+	}
+\author{André Cardoso \& Leonel Fernandes\\18848 \& 18850}
+\date{Barcelos, \selectlanguage{portuguese}\today}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    
+    \input{010.contextualizacao}
+    \input{020.introducao}
+    
+    \input{030.requisitos}
+    \input{040.especificacao}
+    \input{050.modelo}
+    
+    % Hardware
+    \input{hardware/060.hardware}
+    \input{hardware/061.sisA}
+    \input{hardware/062.sisB}
+    \input{hardware/063.sisC}
+    \input{hardware/064.sisD}
+    \input{hardware/065.sisAC}
+    \input{hardware/066.sisBD}
+    
+    % Software
+    \input{software/070.software}
+    \input{software/071.sisA}
+    \input{software/072.sisB}
+    \input{software/073.sisC}
+    \input{software/074.sisD}
+    \input{software/075.sisAC}
+    \input{software/076.sisBD}
+    
+    % Teste
+    \input{testes/080.testes}
+    \input{testes/081.sisA}
+    \input{testes/082.sisB}
+    \input{testes/083.sisC}
+    \input{testes/084.sisD}
+    
+    \input{090.path}
+    \input{conclusao}
+\end{document}

@@ -1,0 +1,45 @@
+\section{Pesquisa}
+
+\subsection*{\bf Variáveis importantes}
+\begin{itemize}
+    \item Margem (margin) - Valor mínimo de funcionários por turno, calculado como 1/4 do número de funcionários disponíveis.
+    \item Previsões (previsoes) - Dicionário com entradas de previsões de clientes para cada dia por cada turno.
+    \item QtdFunc ( len(funcs) ) - Número de funcionários disponível.
+    \item ClientesMaximo (clientesMaximo) - Número máximo de clientes da previsão de turnos.
+\end{itemize}
+\bigskip
+
+\subsection*{\bf Passagem por estados}
+
+De modo a efetuar a pesquisa de estados, como cada estado se refere ao posicionamento de um funcionário em 5 posições de turnos, a abordagem escolhida foi verificar todos os estados imediatamente em seguida ao estado atual,ou seja, todas as combinações possíveis de um funcionário pela semana, para lhes ser atribuída uma pontuação. Depois de atribuída é escolhido o estado com maior pontuação para serem verificados os seus estados seguintes e o processo repete-se até chegar ao último nível da árvore, neste caso quando já posicionamos o último funcionário.
+\bigskip
+
+\subsection*{\bf Eliminação de estados}
+
+De modo a regular a transição de estados de modo a alcançar a solução mais próxima ao ótimo, são eliminados os estados que se desviem de algum modo do caminho preferencial, um exemplo disso é a distribuição homogénea dos funcionários.
+\bigskip
+
+Naturalmente que não é rentável ter o mesmo número de funcionários todos os dias sem distinção, no entanto, todos os dias são necessários para o funcionamento básico um número mínimo de trabalhadores. Como tal, é avaliada se há uma diferença superior a 1 entre cada turno e o turno com mais funcionários. Neste caso, são aceites apenas os estados em que no mesmo dia haja pelo menos um turno que não esteja vazio com pelo menos x funcionários inseridos em que x é igual à margem calculada.
+
+\bigskip
+\subsection*{\bf Pontuação}
+
+ Foram utilizados vários fatores para determinar a pontuação de um estado, de modo conseguirmos obter o melhor estado final tendo em conta o problema, como por exemplo:
+ 
+ 
+ \begin{itemize}
+     \item É calculado um número ideal de funcionários mediante o número previsto de clientes para o dia e atribuído um score tendo em conta a proximidade do número de funcionários ao número ideal.
+     \begin{itemize}
+         \item O cálculo do número ideal é feito com a seguinte expressão:
+         \begin{lstlisting}
+         (previsoes * qtdFunc) / clientesMaximo
+         \end{lstlisting}
+           
+     \end{itemize}
+     \item É atribuído um score positivo aos dias que se igualem ao valor ideal calculado.
+     \item É retirado score aos dias que se encontram abaixo do número mínimo de funcionários para cada turno.
+     \item São retirados pontos ao score a turnos que tenham como funcionários trabalhar um número superior ou inferior ao ideal calculado.
+ \end{itemize}
+ 
+ 
+

@@ -1,0 +1,60 @@
+\chapter{Importação de XML/JSON}
+
+É esperado que as equipas de verificação do cumprimento das medidas de isolamento digitem relatórios com as informações dos Fiscalizados e das irregularidades registadas.
+
+Os ficheiros exemplos podem ser encontrados ena pasta `/files'.
+
+Os relatórios podem seguir sob os seguintes formatos:
+\section{Formato XML}
+Formato relatório PSP:
+
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Fiscalizacao>
+    <Fiscalizado nif="123" data="2021-11-01">
+        <Irregularidade>
+            primeira no xml
+        </Irregularidade>
+        <Irregularidade>...</Irregularidade>
+    </Fiscalizado>
+    <Fiscalizado nif="123" data="2021-11-01">
+    </Fiscalizado>
+</Fiscalizacao>
+\end{lstlisting}
+
+\vfill
+
+\section{Formato JSON}
+Formato relatório GNR:
+
+\begin{lstlisting}
+{
+    "Fiscalizados":
+    [
+        {
+            "nif": 123,
+            "data": "2003-03-03",
+            "irregularidades":
+            [
+                {
+                    "descricao":"uma json"
+                },
+                {
+                    ...
+                }
+            ]
+        },
+        {
+            ...
+        }
+    ]
+}
+\end{lstlisting}
+
+\section{Carregamento dos Ficheiros}
+
+Cada ficheiro deve ser aberto na aba correspondente, na aplicação cliente de modo a ser tratado corretamente.
+
+Cada um é carregado para memória aquando da sua leitura para as estruturas de dados já estudadas.
+No momento do seu carregamento são verificados quanto à sua validade.

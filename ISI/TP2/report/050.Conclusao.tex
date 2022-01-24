@@ -1,0 +1,22 @@
+\chapter{Conclusão}
+
+O trabalho prático tinha como objetivo a definição e resolução de um problema de ETL através de ferramentas com esse mesmo propósito.
+
+Foi definido como problema a análise estatística de dados provenientes da API do IPMA e a sua consequente apresentação. As estatísticas apresentadas são: 
+
+\begin{itemize}
+    \item Concelhos com temperatura mais elevada organizados por data por data nos últimos 10 dias. 
+    \item Concelhos com temperatura mais baixa organizados por data por data nos últimos 10 dias.
+    \item Concelhos com mais precipitação organizados por data nos últimos 10 dias.
+    \item Previsão do tempo para os próximos 5 dias.
+\end{itemize}
+
+Como tal escolhemos 2 plataformas para desenvolvimento do processo de análise, o KNIME e o SPOON. Os dados depois de analisados são guardados em 3 formatos, XML, CSV e JSON, para serem posteriormente utilizados nas plataformas escolhidas para apresentação.
+
+As plataformas que escolhemos para apresentação dos dados foram, Email, Dashboard em C\# e ainda Discord, todas estas plataformas fazem uso dos ficheiros gerados em KNIME/SPOON. Para o envio de Email decidimos utilizar a plataforma Azure SQL para guardar os dados dos utilizadores. 
+
+Escolhemos apenas apresentar dados referentes ao distrito de Braga e aos seu concelhos devido à forma como estes estão organizados na API, a apresentação dos distritos restantes seria um processo demorado. Seria uma mais valia o desenvolvimento desta solução contendo dados para todos os distritos, apesar do esforço extra requerido.
+
+No envio de email também seria uma mais valia ser desenvolvido o processo de envio de email para os utilizadores de cada região com os dados da mesma. Assim como foi referido anteriormente, isto não foi desenvolvido pela forma como estes dados estão organizados na API.
+
+Como nota final achamos que tudo o que foi pedido para este trabalho prático foi desenvolvido, desde o processo de ETL até apresentação dos dados. Penso que existem algumas melhorias a serem postas em prática, as mesmas foram referidas nos dois parágrafos acima. De futuro seria uma mais valia a resolução dos problemas referidos.

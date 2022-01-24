@@ -1,0 +1,48 @@
+% \documentclass[12pt, a4paper, twoside , openright ]{report}
+\documentclass[12pt, a4paper, openright]{report}
+\input{definitions.tex}
+
+% Headers 
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[LE,RO]{Pesquisa do Melhor Horário}
+% \fancyfoot[CE,CO]{\leftmark}
+% \fancyfoot[LE,RO]{\thepage}
+
+% \title{
+    % }
+% \author{}
+% \date{}
+
+% Margins
+    % Horizontal
+\addtolength{\oddsidemargin}{-.5in}
+\addtolength{\evensidemargin}{-.5in}
+\addtolength{\textwidth}{1in}
+    % Vertical
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+% Margins
+
+\begin{document}
+    % \maketitle
+    % \tableofcontents
+    \begin{figure}[t]
+        \centering
+        \includegraphics[scale=0.4]{images/est-banner.png}
+    \end{figure}
+    \begin{center}
+        \textcolor{black}{\fontsize{22pt}{26pt}\selectfont \textbf{Processamento e Visualização de Dados (P02)}}
+        
+        \textcolor{gray}{\fontsize{11pt}{13pt} \selectfont SISTEMAS DE APOIO À DECISÃO, 2021-22}
+        
+        \bigskip
+        \small André Cardoso (18848), Leonel Fernandes (18850)
+    \end{center}
+    
+    \input{010.introducao}
+    \input{020.aquisicao}
+    \input{030.modelacao}
+    \input{040.visualizacao}
+    \input{conclusao}
+\end{document}

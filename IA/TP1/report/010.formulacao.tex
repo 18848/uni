@@ -1,0 +1,53 @@
+\section{Formulação do Problema}
+  \subsection*{\bf Descrição}
+  
+ O problema tem como objetivo encontrar a melhor distribuição de funcionários de um supermercado por um horário definido em turnos de manha e de tarde, tendo em conta o número total de funcionários, assim como as previsões de clientes que visitarão o supermercado.
+ 
+\noindent Existem algumas regras que o horário deve cumprir, como por exemplo: 
+\begin{itemize}
+    \item Não podem existir menos de 3 funcionários a trabalhar por turno.
+    \item Um funcionário só pode trabalhar 5 turnos.
+    \item Um funcionário não pode trabalhar em dois turnos no mesmo dia.
+    \item Todos os funcionários têm de ser colocados no horário.
+\end{itemize}
+ 
+ Assim sendo, se todas as regras acima definidas forem cumpridas, resta apenas que o posicionamento de funcionários pelo horário seja coerente mediante o número de clientes previstos para cada dia.
+ 
+ \subsection*{\bf Estados}
+ 
+ Como estado inicial do problema temos um horário vazio, horário este que é composto pelo dia da semana e com os turnos da manha e de tarde para cada dia, ao total temos 14 turnos diferentes. Este estado é definido por uma lista de dias (de segunda a domingo), para cada um destes dias estarão associados turnos (manha e tarde), estes turnos serão preenchidos com uma lista funcionários que trabalham no mesmo, como se trata do estado inicial as listas de funcionários estarão vazias.
+ 
+ A cada novo estado posicionaríamos um funcionário nas listas de turnos escolhidos, ou seja, 5 turnos seriam preenchidos, o funcionário seria definido pelo seu número identificativo. Desta forma as listas seriam preenchidas com cada vez mais números de funcionários.
+ 
+ No final da pesquisa ficaríamos com todos os funcionários inseridos em turnos pelo horário e não haveriam turnos vazios.
+ \clearpage
+ O formato utilizado para guardar os estados seria um dicionário, e teria uma formatação igual à seguinte:
+ 
+ 
+\begin{lstlisting}
+{
+    "Segunda": {
+        "manha":[], "tarde":[]              
+    },
+    "Terca":{
+        "manha":[], "tarde":[]
+    },
+    "Quarta":{
+        "manha":[], "tarde":[]
+    },
+    "Quinta":{
+        "manha":[], "tarde":[]
+    },
+    "Sexta":{
+        "manha":[], "tarde":[]
+    },
+    "Sabado":{
+        "manha":[], "tarde":[]
+    },
+    "Domingo":{
+        "manha":[], "tarde":[]
+    }
+}
+\end{lstlisting}
+
+\noindent Onde dentro de cada "manha" ou "tarde" estaria a lista de funcionário daquele dia.

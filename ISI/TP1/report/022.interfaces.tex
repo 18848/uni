@@ -1,0 +1,174 @@
+\section{Serviços e Modelos de Dados}
+De modo a criar serviços é necessário definir as rotas para cada um deles, assim como o tipo de modelos de dados que cada uma recebe ou envia.
+
+\subsection{Formato Serviços}
+Aqui serão descritas todas a rotas definidas na API Rest. De referir que todas as rotas aqui presentes estão disponíveis no "Swagger".
+\vfill
+\subsubsection{Equipa}
+Rotas para o controller de Equipa
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/Equipa/getall")] 
+public string GetEquipa()
+            \end{lstlisting}
+\end{itemize}
+\begin{itemize}
+\item\begin{lstlisting}
+[Route("api/Equipa/getEquipaMaisCara")]
+public string GetEquipaMaisCara()
+            \end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+\item\begin{lstlisting}
+[Route("api/Equipa/addequipa")] 
+public string AddEquipa([FromBody] string equipa)
+            \end{lstlisting}
+\end{itemize}
+
+\subsubsection{Requisição}
+Rotas para o controller de Requisição
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/Requisicao/getall")]
+public string GetRequisicoes()
+            \end{lstlisting}
+\end{itemize}
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/Requisicao/addRequisicao")]
+public string AddRequisicao(string requisicao)
+            \end{lstlisting}
+\end{itemize}
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/requisicao/getrequisicaobyequipa/{idEquipa}")]
+public string GetRequisicaoByEquipca(int idEquipa)
+             \end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/requisicao/updateEntregue/{idRequisicao}")]
+public string UpdateRequisicaoEntregue(int idRequisicao)
+             \end{lstlisting}
+\end{itemize}
+
+\vfill
+\subsubsection{Material}
+Rotas para o controller de Material
+
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/Material/getall")]
+public string GetMateriais()+
+             \end{lstlisting}
+\end{itemize}
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/Material/getMaterialMaisUsado")]
+public string GetMaterialMaisUsado()
+             \end{lstlisting}
+\end{itemize}
+\begin{itemize}
+    \item \begin{lstlisting}
+[HttpPost("api/Material/addmaterial")]
+public string AddMaterial([FromBody] string material)
+             \end{lstlisting}
+\end{itemize}
+
+\subsubsection{RequisiçãoMaterial}
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("api/RequisicaoMaterial/getall")]
+public string GetRequisisoesMateriais()
+             \end{lstlisting}
+\end{itemize}
+
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("getmaterialbyrequisicao/{idRequisicao}")]
+public string GetRequisicaoMaterialbyRequisicaoEquipa +
++ (int idRequisicao)
+             \end{lstlisting}
+\end{itemize}
+
+
+\begin{itemize}
+    \item \begin{lstlisting}
+[Route("postRequisicaoMateriais/{idEquipa}")]
+public string AddRequisicaoMaterial + 
++ (int idEquipa,[FromBody]JsonElement body)
+             \end{lstlisting}
+\end{itemize}
+
+\subsection{Formato Modelos}
+Aqui estão descritos os modelos para cada uma das tabelas necessárias para a API Rest
+\subsubsection{Equipa}
+
+\begin{lstlisting}
+public class ModeloEquipa
+{
+    private int idEquipa;
+    private string nome;
+
+    [Required]
+    public int Id{get=>idEquipa;set=>idEquipa=value;}
+    [Required]
+    public string Nome{get=>nome;set=>nome=value;}
+}
+
+\end{lstlisting}
+
+\subsubsection{Requisicao}
+\begin{lstlisting}
+public class ModeloRequisicao
+{
+    private int idRequisicao;
+    private bool entregue;
+    private int idEquipa;
+
+    [Required]
+    public int Id{get=>idRequisicao;set=>idRequisicao=value;}
+    public bool Entregue{get=>entregue;set=>entregue=value;}
+    public int IdEquipa{get=>idEquipa;set=>idEquipa=value;}
+}
+\end{lstlisting}
+\vfill
+\subsubsection{Material}
+\begin{lstlisting}
+public class ModeloMaterial
+{
+    private int idMaterial;
+    private string nome;
+    private float custo;
+
+    [Required]
+    public int Id{get=>idMaterial;set=>idMaterial=value;}
+    public string Nome{get=>nome;set=>nome=value;}
+    public float Custo{get=>custo;set=>custo=value;}
+}
+\end{lstlisting}
+
+\subsubsection{RequisicaoMaterial}
+\begin{lstlisting}
+public class ModeloRequisicaoMaterial
+{
+    private int idRequisicaoMaterial;
+    private int idMaterial;
+    private int idRequisicao;
+    private int qtd;
+
+    [Required]
+    public int Id{get=>idRequisicaoMaterial;set=> +
+    + idRequisicaoMaterial=value;}
+    [Required]
+    public int IdMaterial{get=>idMaterial;set=>idMaterial=value;}
+    [Required]
+    public int IdRequisicao{get=>idRequisicao;set=>idRequisicao=value;}
+    public int Qtd{get=>qtd;set=>qtd=value;}
+    
+}
+\end{lstlisting}
+
+

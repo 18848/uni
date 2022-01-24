@@ -1,0 +1,44 @@
+\section{Interfaces e Modelos de Dados}
+
+De modo a criar os serviços (foi criado um serviço por cada um - utentes, casos, contactos) é necessário definir interfaces para cada um de modo a definir os contractos existentes. Abaixo é apresentado o formato de cada um.
+
+\subsection{Formato Serviços}
+
+\begin{lstlisting}
+[ServiceContract]
+public interface IService
+{
+    [OperationContract(Name = "FunctionName")]
+    DataSet Function1();
+    
+    [OperationContract]
+    string Function2();
+}
+\end{lstlisting}
+
+\vfill
+
+\subsection{Formato Modelos}
+
+\begin{lstlisting}
+[DataContract]
+public class ModeloDados
+{
+    //Constructor
+    [DataMember]
+    public string x { get; set; }
+    [DataMember]
+    public int y { get; set; }
+
+}
+\end{lstlisting}
+
+Para facilitar na criação de queries `INSERT' foi implementado o seguinte método de override a ToString(): \\
+
+\begin{lstlisting}
+public override string ToString()
+{
+    return "'" + this.x.ToString() + "', '" 
+            + this.y.ToString() + "'";
+}
+\end{lstlisting}
