@@ -1,0 +1,56 @@
+\section{Resultados Obtidos}
+
+Para observação dos dados obtidos, é importante sabe:
+
+\begin{itemize}
+    \item Assumimos que é aceitável 1 funcionário por cada 100 clientes previstos.
+    \item Quando o valor de previsões não é divisível por 100 com resto 0, por exemplo 80 ou 250, são aceites as abordagens de 'arredondamento' por excesso e por defeito.
+    \item Uma lista de 14 funcionários e uma margem de 3.
+    \item Uma lista de 10 funcionários e uma margem de 2.
+\end{itemize}
+
+\subsection*{ Previsões}
+
+\begin{lstlisting}
+{
+    "Segunda" :{"manha":100 , "tarde": 300},
+    "Terca" :  {"manha":200 , "tarde": 250},
+    "Quarta" : {"manha":80 , "tarde": 325},
+    "Quinta" : {"manha":300 , "tarde": 200},
+    "Sexta" :  {"manha":100 , "tarde": 400},
+    "Sabado" : {"manha":700 , "tarde": 300},
+    "Domingo" :{"manha":200 , "tarde": 500}
+}
+\end{lstlisting}
+
+\subsection*{ Estado Final 1 }
+
+\begin{lstlisting}
+{
+    "Segunda": {"manha":3, "tarde":5},
+    "Terca":{"manha":4, "tarde":4},
+    "Quarta":{"manha":5, "tarde":5},
+    "Quinta":{"manha":5, "tarde":5},
+    "Sexta":{"manha":5, "tarde":6},
+    "Sabado":{"manha":7, "tarde":5},
+    "Domingo":{"manha":4, "tarde":7}
+}
+\end{lstlisting}
+
+ É verificada uma quase constante situação de overflow, pelo que se pode concluir que para o atual plano de previsões, há um excesso de funcionários disponíveis. 
+
+\subsection*{ Estado Final 2}
+
+\begin{lstlisting}
+{
+    "Segunda": {"manha":2, "tarde":3},
+    "Terca":{"manha":3, "tarde":3},
+    "Quarta":{"manha":4, "tarde":4},
+    "Quinta":{"manha":3, "tarde":3},
+    "Sexta":{"manha":4, "tarde":4},
+    "Sabado":{"manha":6, "tarde":3},
+    "Domingo":{"manha":3, "tarde":5}
+}
+\end{lstlisting}
+
+São verificáveis situações de overflow, no  entanto, é percetível que estamos mais próximos do número de funcionários desejado para as previsões dadas.

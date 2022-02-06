@@ -1,0 +1,11 @@
+\section{Obstáculos Encontrados}
+
+Ao desenvolver o algoritmo de pesquisa encontramos alguns problemas que tornaram a resolução do problema um pouco mais complexa.
+
+Inicialmente deparamo-nos com o facto de que seria impossível pesquisar todos os nodos da árvore, pois a sua quantidade faz com que seja uma tarefa impossível de resolver numa duração compreensível. 
+
+Posto isto, decidimos tomar como estratégia fazer uma pesquisa de profundidade 1, ou seja, apenas verificar o estado seguinte ao atual. No entanto, ao utilizar essa estratégia, seria necessário fazer com que a pesquisa seguisse o caminho de estados correto para alcançar o estado final desejável, pelo que tivemos de adicionar pontuação não apenas tendo em conta o estado final desejável, mas também pelo caminho de estados que queríamos que o algoritmo percorresse. 
+
+Ainda assim, os resultados não eram os desejados, como tal, procedemos à eliminação de estados indesejáveis (referido no capítulo anterior), como por exemplo, estados que dessem prioridade a preencher turnos onde já tinham funcionários colocados mesmo ainda havendo outros turnos sem funcionários.
+
+No entanto, devido ao modo como era guardado o melhor estado por cada nível, foi verificada uma tendência a ser preenchido preferencialmente o final da semana. Para amenizar este efeito, passou a ser alternado o método de escolha, para níveis pares aceitamos valores maiores ou iguais ao score mais alto registado, para níveis ímpares aceitamos apenas valores maiores.

@@ -1,0 +1,50 @@
+
+% Font
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+
+% Identation Setups
+\setlength{\parindent}{16pt}
+\setlength{\parskip}{7pt}
+    \newcommand{\hsp}{\hspace{10pt}}
+
+% Redefinition of \section command
+%\usepackage[section]{placeins}
+\usepackage{placeins}
+
+% Encoding and Languages
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese, english]{babel}
+
+% Headers & Footers
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+%
+
+\usepackage{indentfirst}
+
+\usepackage{listings} % Useful for Code blocks
+\usepackage{hyperref} % URL
+\usepackage{graphicx} % Pictures
+
+
+% Math Packages
+\usepackage{amsmath, amssymb}
+
+% Color Setups
+\usepackage{xcolor}
+    % URL
+    \hypersetup{ urlcolor=cyan, }
+% Color names
+\definecolor{lightBlue}{RGB}{54, 95, 145}
+\definecolor{darkBlue}{RGB}{23, 54, 93}
+
+% Title Setups
+    % Chapter
+\titleformat{\chapter}[hang]{\Huge\bfseries\color{lightBlue}}{\thechapter\hsp}{0pt}{\Huge\bfseries\color{lightBlue}}
+    %Section
+\titleformat{\section}[hang]{\Large\bfseries\color{lightBlue}}{\thesection\hsp}{0pt}{\Large\bfseries\color{lightBlue}}
+    % SubSection
+\titleformat{\subsection}[hang]{\large\bfseries\color{lightBlue}}{\thesubsection\hsp}{0pt}{\large\bfseries\color{lightBlue}}

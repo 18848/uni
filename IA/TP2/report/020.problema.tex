@@ -1,0 +1,61 @@
+\section*{Problema}
+\addcontentsline{toc}{chapter}{Problema}
+
+O problema deste projeto de \textit{Machine Learning} é avaliação de  dados e subsequente categorização dos mesmos.
+
+Como referido anteriormente, os dados para resolução deste problema foram fornecidos como forma de um \textit{dataset} onde estão presentes informações sobre projetos. Os projetos podem ser classificados como financiados ou não, através de uma variável presente no dataset chamada \textit{"funded"}. Os nossos modelos terão como objetivo tentar descobrir se um conjuntos de dados sobre um projeto o torna financiado ou não.
+
+Terão de ser efetuadas alterações no \textit{dataset} original de forma a preparar os dados para serem avaliados pelos modelos. Podem ser removidas algumas variáveis desnecessárias, ou até mesmo alguns exemplos de dados que não estejam de acordo com o necessário para avaliação.
+
+\begin{figure}[H]
+    \begin{center}
+    \setlength{\arrayrulewidth}{0.5mm}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{ |c|c| } 
+    \hline
+    \textbf{Nome} & \textbf{Tipo}\\ 
+    \hline
+    Type & categórica\\ 
+    \hline
+    Has FB & categórica\\ 
+    \hline
+    Backed Projects & numérica\\ 
+    \hline
+    Previous Projects & numérica\\ 
+    \hline
+    Creator Desc Len & numérica\\ 
+    \hline
+    Title Len & numérica\\ 
+    \hline
+    Goal & numérica\\ 
+    \hline
+    Duration & numérica\\ 
+    \hline
+    \end{tabular}
+    \begin{tabular}{ |c|c| } 
+    \hline
+    \textbf{Nome} & \textbf{Tipo}\\ 
+    \hline
+    Pledge Levels & numérica\\ 
+    \hline
+    Min Pledge Tiers & numérica\\ 
+    \hline
+    Max Pledge Tiers & numérica\\ 
+    \hline
+    Proj Desc Len & numérica\\ 
+    \hline
+    Images & numérica\\ 
+    \hline
+    Videos & numérica\\ 
+    \hline
+    Has Video & categórica\\ 
+    \hline
+    \color{red}{Funded} & \color{red}{categórica}\\ 
+    \hline
+    \end{tabular}
+    \end{center}
+    \selectlanguage{portuguese} \caption{Variáveis do \textit{dataset}}
+    \label{fig:my_label}
+\end{figure}
+
+Na tabela acima estão presentes todas as variáveis presentes no \textit{dataset}. Terão de ser utilizados diversos modelos de aprendizagem nestas variáveis, através de avaliação estatística obteremos as suas precisões no problema apresentado, para assim ser escolhido o melhor.

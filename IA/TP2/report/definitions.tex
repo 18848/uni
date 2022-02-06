@@ -1,0 +1,52 @@
+% Encoding and Languages
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese, english]{babel}
+
+% Font
+\usepackage[T1]{fontenc}
+% \usepackage{blindtext} % Lorem ipsum...
+\usepackage{listings} % Useful for Code blocks
+\usepackage{hyperref} % URL
+
+
+% Identation Setups
+\usepackage{indentfirst} % Indentation of First Word in Paragraph (Only required in some cases(?))
+    \setlength{\parindent}{16pt}
+    \setlength{\parskip}{7pt}
+    \newcommand{\hsp}{\hspace{10pt}}
+
+% Redefinition of \section command
+%\usepackage[section]{placeins}
+% \usepackage{placeins}
+
+% Headers & Footers
+\usepackage{fancyhdr}
+    \setlength{\headheight}{14.5pt}
+    \renewcommand{\headrulewidth}{2pt}
+    \renewcommand{\footrulewidth}{1pt}
+
+% Pictures
+\usepackage{graphicx, float}
+% Tables
+\usepackage{multirow, makecell}
+
+% Math Packages
+\usepackage{amsmath, amssymb}
+
+% Color Setups
+\usepackage{color, xcolor}
+    % URL
+    \hypersetup{ urlcolor=cyan, }
+    % Custom Colors
+    \definecolor{lightBlue}{RGB}{54, 95, 145}
+    \definecolor{darkBlue}{RGB}{23, 54, 145}
+\usepackage{xcolor}
+
+% Sectioning Setup
+\usepackage{titlesec}
+    % Chapter
+\titleformat{\chapter}[hang]{\Huge\bfseries}{}{0pt}{\Huge\bfseries\color{darkBlue}}
+\titlespacing{\chapter}{0pt}{-50pt}{20pt} % {command}{left}{before sep} {after sep}[right] default = {0pt}{50pt}{40pt}
+    % Section
+\titleformat{\section}[hang]{\Large\bfseries}{}{20pt}{\Large\bfseries\color{lightBlue}}
+\titleformat{\subsection}[hang]{\large\bfseries}{}{40pt}{\large\bfseries}

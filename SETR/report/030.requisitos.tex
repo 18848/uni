@@ -1,0 +1,60 @@
+\chapter{Análise de Requisitos}
+
+\section{Requisitos Não Funcionais}
+Para este projeto verificamos que os Requisitos Não Funcionais se aplicam a todos os sistemas desenvolvidos, sendo eles:
+\begin{itemize}
+    \item Processamento em Tempo Real
+    \item Consumo energético inferior a 5 Watts
+\end{itemize}
+
+\section{Requisitos Funcionais}
+\subsection{Sistema A}
+\begin{itemize}
+    \item Deteção da Intensidade de Luz Solar
+    \item Regulação da Intensidade de Luz Artifical\footnote{LED} em função da Intensidade da Luz Solar
+\end{itemize}
+
+\subsection{Sistema B}
+\begin{itemize}
+    \item Deteção da Temperatura Ambiente
+    \item Regulação da Temperatura Ambiente
+    \begin{itemize}
+        \item Através de Ventilação\footnote{Ventoínha}
+        \item Em função da Temperatura Ambiente
+    \end{itemize}
+    \item Enunciar o Estado da Ventilação
+    \begin{itemize}
+        \item LED de cor Verde - Temperatura `Estável'
+        \item LED de cor Vermelha - Arrefecimento Ambiente
+    \end{itemize}\newpage
+    \item Apresentação por LCD\footnote{Liquid Crystal Display} de:
+    \begin{itemize}
+        \item Estado da Ventoínha (ON/OFF)
+        \item Última Temperatura Lida
+    \end{itemize}
+    \item Controlo de Luminosidade do LCD
+\end{itemize}
+
+% \newpage
+
+\subsection{Sistema C}
+\begin{itemize}
+    \item Controlo Remoto de uma Barra de Acesso a Parque de Estacionamento
+    \begin{itemize}
+        \item Abertura
+        \item Fecho
+    \end{itemize}
+    \item Capacidade de Suspensão da Atividade atual da Barra 
+    \item Deteção de Movimento - Sensor Ultrassônico
+\end{itemize}
+
+\subsection{Sistema D}
+\begin{itemize}
+    \item Deteção de Movimento Intrusivo
+    \item Sinalização de Intrusões
+    \begin{itemize}
+        \item Sonora - Alarme
+        \item Visual - LED Intermitente
+    \end{itemize}
+    \item Capacidade de desarmar o Alarme
+\end{itemize}

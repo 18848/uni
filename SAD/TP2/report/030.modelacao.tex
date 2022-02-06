@@ -1,0 +1,77 @@
+\section*{Modelação e Processamento}
+% \subsection*{Relações entre Tabelas (dim_date)}
+Após importação das dimensões e tabelas de facto é necessário verificar que todas as informações estão corretamente dispostas. Se for necessário, são feitas alterações à estrutura dos dados para que vá de encontro ao desejado.
+
+\subsection{Relações entre Tabelas}
+Visto que as tabelas de facto do \textit{`datamart'} não apresentavam ligações com a dimensão \textit{`dim\_date'}, é necessário estabelecer essas ligações arrastando os campos de cada tabela para o campo \textit{`DATE\_KEY'}.
+
+Campos das tabelas de facto:
+\begin{itemize}
+    \renewcommand\labelitemi{--}
+    \item DueDateKey
+    \item OrderDateKey
+    \item ShipDateKey
+\end{itemize}
+
+\subsection{Hierarquias entre Colunas}
+Hierarquias são muito sucintamente a definição de prioridade entre colunas da mesma tabela.
+Por exemplo, uma hierarquia para definição de uma data (18/01/2021) seria algo similar a:
+\begin{center}
+    Dia > Mês > Ano
+\end{center}
+\hsp Como tal, dada a dimensão \textit{`dim\_date'}, foi definida a seguinte hierarquia:
+\begin{center}
+    Ano (YEAR\_NUMBER) > Trimestre (QUARTER\_NAME)
+\end{center}
+
+Estas hierarquias possibilitam a utilização de `drill-down' ou `drill-up', que simboliza a possibilidade de ver dados mais ou menos detalhados (neste caso ao longo do tempo).
+
+\subsection{Medidas Calculadas}
+
+\begin{table}[H]
+    \centering
+    \def\arraystretch{1.5}
+    
+    % \setlength{\tabcolsep}{2em}
+    % \renewcommand{\arraystretch}{3}%
+    \begin{tabular}{|c|c|c|}
+    \hline
+         \multicolumn{3}{|c|}{Compras - measure\_purchases}\\
+    \hline
+        Medida & Descrição & DAX\\
+    \hline
+        FreightPurchases & \makecell{Total de gastos \\em Transportes} & \makecell{SUMX(\\ DISTINCT(ft\_compras[PurchaseOrderID]), \\FIRSTNONBLANK(ft\_compras[Freight], 0))}\\
+    \hline
+        PurchaseTotal & \makecell{Total gasto em \\Produtos Comprados} & \makecell{SUM(ft\_compras[LineTotal])}\\
+    \hline
+        ReceivedQty & \makecell{Total Produtos \\Recebidos} & \makecell{SUM(ft\_compras[ReceivedQty])}\\
+    \hline
+        RejectedQty & \makecell{Total Produtos \\Rejeitados} & \makecell{SUM(ft\_compras[RejectedQty])}\\
+    \hline
+        StockedQty & \makecell{Total Produtos \\Armazenados} & \makecell{SUM(ft\_compras[StockedQty])}\\
+    \hline
+        TaxAmtPurchase & \makecell{Total de Impostos por\\cada Compra} & \makecell{SUMX(\\DISTINCT(ft\_compras[PurchaseOrderID]), \\FIRSTNONBLANK(ft\_compras[TaxAmt], 0))}\\
+    \hline
+        TotalDuePurchase & \makecell{Total gasto em \\Compras} & \makecell{SUMX(\\DISTINCT ( ft\_compras[PurchaseOrderID] ), \\FIRSTNONBLANK(ft\_compras[TotalDue], 0))}\\
+    \hline
+    \end{tabular}
+    \begin{tabular}{|c|c|c|}
+    \hline
+         \multicolumn{3}{|c|}{Vendas - measure\_sales}\\
+    \hline
+        Medida & Descrição & DAX\\
+    \hline
+        DistinctCustomers & Total de Clientes & \makecell{DISTINCTCOUNTNOBLANK(\\ft\_vendas[CustomerKey])}\\
+    \hline
+        FreightSales & \makecell{Total de gastos \\em Transportes} & \makecell{SUMX(\\DISTINCT ( ft\_vendas[SalesOrderID] ), \\FIRSTNONBLANK ( ft\_vendas[Freight], 0 ))}\\
+    \hline
+        QtyProduct & \makecell{Total de Produtos \\Vendidos} & \makecell{SUM(ft\_vendas[OrderQty])}\\
+    \hline
+        QtySales & \makecell{Total de Vendas} & \makecell{DISTINCTCOUNT(ft\_vendas[SalesOrderID])}\\
+    \hline
+        SalesTotal & \makecell{Total gerado \\por Vendas} & \makecell{SUM(ft\_vendas[LineTotal]) }\\
+    \hline
+        TaxAmount & \makecell{Soma dos impostos \\pagos por cada venda.} & \makecell{SUMX(\\DISTINCT ( ft\_vendas[SalesOrderID] ), \\FIRSTNONBLANK ( ft\_vendas[TaxAmt], 0 ))}\\
+    \hline
+    \end{tabular}
+\end{table}

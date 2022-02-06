@@ -1,0 +1,52 @@
+\documentclass[12pt, a4paper, twoside , openright ]{article}
+%\documentclass{article}
+
+\input{definitions.tex}
+
+% Headers 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{Pesquisa do Melhor Horário}
+\fancyfoot[CE,CO]{\leftmark}
+%\fancyfoot[LE,RO]{\thepage}
+
+\title{
+    \large{
+            \textcolor{lightBlue}{Licenciatura em Engenharia de Sistemas Informáticos}
+        }\\
+    \bigskip
+    \textbf{
+	    \Huge{
+	        \textcolor{lightBlue}{Pesquisa do Melhor Horário}
+        }\\
+    	\bigskip
+    	\large{
+        	    \textcolor{lightBlue}{para Funcionários por Turnos}
+	    }\\
+	    \vfill
+    	\small{
+        	    \textcolor{lightBlue}{No âmbito da UC de Inteligência Artificial}
+	    }\\
+        }
+	}
+\author{André Cardoso \& Leonel Fernandes\\18848 \& 18850}
+\date{Barcelos, \selectlanguage{portuguese}\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents 
+\newpage
+
+\input{010.formulacao}
+\newpage
+\input{020.pesquisa}
+\newpage
+\input{030.obstaculos}
+\newpage
+\input{040.resultados}
+\newpage
+
+\end{document}

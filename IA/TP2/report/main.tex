@@ -1,0 +1,50 @@
+% \documentclass[12pt, a4paper, twoside , openright ]{report}
+\documentclass[12pt, a4paper, openright ]{report}
+\input{definitions.tex}
+
+% Headers 
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[LE,RO]{Pesquisa do Melhor Horário}
+% \fancyfoot[CE,CO]{\leftmark}
+% \fancyfoot[LE,RO]{\thepage}
+
+\title{
+    \begin{figure}[t]
+        \centering
+        \includegraphics[scale=0.5]{images/est-banner.png}
+    \end{figure}
+    
+    \large{
+            {Licenciatura em Engenharia de Sistemas Informáticos}
+        }\\
+    \bigskip
+	\small{
+    	    {No âmbito da UC de Inteligência Artificial}
+    }\\
+    \vfill
+    \textbf{
+	    \Huge{
+	        \textcolor{lightBlue}{\fontsize{45pt}{45pt}{\textit{Financiamento de Projetos}}}
+        }\\
+    	\large{
+        	    \textcolor{lightBlue}{Machine Learning}
+	    }\\
+        }
+    \vfill
+	}
+\author{André Cardoso \& Leonel Fernandes\\18848 \& 18850}
+\date{Barcelos, \selectlanguage{portuguese}\today}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+    
+    \input{010.introducao}
+    \input{020.problema}
+    \input{031.Metodologia}
+    \input{032.Resultados}
+    \input{040.Adversidades}
+    \input{conclusao}
+\end{document}
