@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Forecast>
-<Day data="2022-01-03"> <Min>7.7</Min> <Max>17.0</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>Moderado</Precipitação> <Probabilidade>59.0</Probabilidade> <Vento>Fraco</Vento> <Direção>S</Direção> <Clima>Chuva</Clima></Day>
-<Day data="2022-01-04"> <Min>6.6</Min> <Max>14.1</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>Moderado</Precipitação> <Probabilidade>100.0</Probabilidade> <Vento>Moderado</Vento> <Direção>NW</Direção> <Clima>Aguaceiros</Clima></Day>
-<Day data="2022-01-05"> <Min>4.1</Min> <Max>11.7</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>Moderado</Precipitação> <Probabilidade>94.0</Probabilidade> <Vento>Fraco</Vento> <Direção>SE</Direção> <Clima>Chuva</Clima></Day>
-<Day data="2022-01-06"> <Min>2.4</Min> <Max>13.4</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>16.0</Probabilidade> <Vento>Fraco</Vento> <Direção>NE</Direção> <Clima>Céu parcialmente nublado</Clima></Day>
-<Day data="2022-01-07"> <Min>2.5</Min> <Max>13.9</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>2.0</Probabilidade> <Vento>Fraco</Vento> <Direção>N</Direção> <Clima>Céu pouco nublado</Clima></Day>
+<Day data="2022-01-19"> <Min>1.4</Min> <Max>16.8</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>0.0</Probabilidade> <Vento>Fraco</Vento> <Direção>NE</Direção> <Clima>Céu limpo</Clima></Day>
+<Day data="2022-01-20"> <Min>2.0</Min> <Max>17.6</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>0.0</Probabilidade> <Vento>Fraco</Vento> <Direção>E</Direção> <Clima>Céu limpo</Clima></Day>
+<Day data="2022-01-21"> <Min>3.8</Min> <Max>15.0</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>0.0</Probabilidade> <Vento>Fraco</Vento> <Direção>E</Direção> <Clima>Céu limpo</Clima></Day>
+<Day data="2022-01-22"> <Min>2.3</Min> <Max>13.4</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>0.0</Probabilidade> <Vento>Fraco</Vento> <Direção>E</Direção> <Clima>Céu limpo</Clima></Day>
+<Day data="2022-01-23"> <Min>0.5</Min> <Max>15.4</Max> <Longitude>-8.4227</Longitude> <Latitude>41.5475</Latitude> <Precipitação>N/A</Precipitação> <Probabilidade>0.0</Probabilidade> <Vento>Fraco</Vento> <Direção>E</Direção> <Clima>Céu limpo</Clima></Day>
 </Forecast>

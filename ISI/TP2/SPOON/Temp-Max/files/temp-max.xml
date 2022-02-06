@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Temp-Max>
-<Day data="2022-01-02"> <Cidade>Braga</Cidade> <Maximo>18.0</Maximo></Day>
-<Day data="2022-01-01"> <Cidade>Braga</Cidade> <Maximo>23.3999977112</Maximo></Day>
-<Day data="2021-12-24"> <Cidade>Braga</Cidade> <Maximo>15.0999975204</Maximo></Day>
-<Day data="2021-12-30"> <Cidade>Cabeceiras de Basto</Cidade> <Maximo>20.0999603271</Maximo></Day>
-<Day data="2021-12-31"> <Cidade>Vila Nova de Famalicão</Cidade> <Maximo>22.2266902924</Maximo></Day>
-<Day data="2021-12-25"> <Cidade>Vila Nova de Famalicão</Cidade> <Maximo>16.695766449</Maximo></Day>
-<Day data="2021-12-29"> <Cidade>Vila Verde</Cidade> <Maximo>17.4435195923</Maximo></Day>
-<Day data="2021-12-28"> <Cidade>Vila Verde</Cidade> <Maximo>18.8894634247</Maximo></Day>
-<Day data="2021-12-27"> <Cidade>Vila Verde</Cidade> <Maximo>17.287405014</Maximo></Day>
-<Day data="2021-12-26"> <Cidade>Vila Verde</Cidade> <Maximo>17.0980052948</Maximo></Day>
+<Day data="2022-01-16"> <Cidade>Braga</Cidade> <Maximo>17.6999950409</Maximo></Day>
+<Day data="2022-01-13"> <Cidade>Braga</Cidade> <Maximo>17.2999954224</Maximo></Day>
+<Day data="2022-01-11"> <Cidade>Braga</Cidade> <Maximo>19.6999912262</Maximo></Day>
+<Day data="2022-01-10"> <Cidade>Cabeceiras de Basto</Cidade> <Maximo>17.0999660492</Maximo></Day>
+<Day data="2022-01-15"> <Cidade>Vila Nova de Famalicão</Cidade> <Maximo>15.531293869</Maximo></Day>
+<Day data="2022-01-18"> <Cidade>Vila Verde</Cidade> <Maximo>17.8215999603</Maximo></Day>
+<Day data="2022-01-17"> <Cidade>Vila Verde</Cidade> <Maximo>18.3472309113</Maximo></Day>
+<Day data="2022-01-14"> <Cidade>Vila Verde</Cidade> <Maximo>15.25918293</Maximo></Day>
+<Day data="2022-01-12"> <Cidade>Vila Verde</Cidade> <Maximo>18.4769382477</Maximo></Day>
+<Day data="2022-01-09"> <Cidade>Vila Verde</Cidade> <Maximo>14.5443172455</Maximo></Day>
 </Temp-Max>
